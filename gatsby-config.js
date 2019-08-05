@@ -18,8 +18,23 @@ module.exports = {
         lang: `en`
       }
     },
-    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src`,
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`
+      }
+    },
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -53,13 +68,6 @@ module.exports = {
     // so that the offline plugin can cache the created manifest.webmanifest.
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `src`,
-        path: `${__dirname}/src`,
-      }
-    },
     {
       resolve: `gatsby-plugin-typography`,
       options: {
