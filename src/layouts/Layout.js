@@ -46,16 +46,18 @@ const Layout = ({
       />
     </Helmet>
     <Header />
-    {!noPageContainer && 
+    {!noPageContainer && (
       <PageContainer mobileFirst>
         <Container flexDirection="column">
           <Item>{children}</Item>
         </Container>
-      </PageContainer>}
-    {noPageContainer &&
+      </PageContainer>
+    )}
+    {noPageContainer && (
       <Container flexDirection="column">
         <Item>{children}</Item>
-      </Container>}
+      </Container>
+    )}
     <Footer />
   </React.Fragment>
 )
