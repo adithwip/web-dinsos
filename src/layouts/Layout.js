@@ -32,7 +32,7 @@ const Layout = ({
       {siteUrl && <meta property="og:url" content={siteUrl} />}
       <meta name="Description" content={siteDescription} />
       <title>{`Adith Widya Pradipta - ${siteTitle}`}</title>
-      <link rel="canonical" href="https://naughty-booth-62a601.netlify.com/" />
+      <link rel="canonical" href="https://suspicious-payne-767500.netlify.com" />
       <link
         rel="stylesheet"
         type="text/css"
