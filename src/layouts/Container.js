@@ -15,6 +15,12 @@ const StyledContainer = styled.div`
   padding: ${props => props.padding};
 
   ${props =>
+    props.fullHeight &&
+    css`
+      height: 100%;
+    `}
+
+  ${props =>
     props.spacing &&
     css`
       & > div.grid-item {
@@ -55,6 +61,7 @@ const Container = props => {
     alignItems,
     alignContent,
     responsive,
+    fullHeight,
   } = props
   const classNames = [`grid-container`, (() => column && `column`)()]
     .join(" ")
@@ -70,6 +77,7 @@ const Container = props => {
       justify={justify}
       alignItems={alignItems}
       alignContent={alignContent}
+      fullHeight={fullHeight}
       {...props}
     />
   )
@@ -77,6 +85,7 @@ const Container = props => {
 
 Container.propTypes = {
   responsive: PropTypes.bool,
+  fullHeight: PropTypes.bool,
   margin: PropTypes.string,
   padding: PropTypes.string,
   spacing: PropTypes.oneOf([8, 16, 24, 32]),
