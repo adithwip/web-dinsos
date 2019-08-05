@@ -30,7 +30,6 @@ const Post = ({ data, location }) => {
 
   return (
     <Layout
-      smallHeader
       siteTitle={post.frontmatter.title}
       siteType="article"
       siteUrl={url}
