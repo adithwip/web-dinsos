@@ -36,16 +36,6 @@ const BlogPage = ({ data }) => {
 
 export default BlogPage
 
-export const squareImage = graphql`
-  fragment fluidImage on File {
-    childImageSharp {
-      fluid(maxWidth: 1200) {
-        ...GatsbyImageSharpFluid
-      }
-    }
-  }
-`
-
 export const query = graphql`
   query {
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
