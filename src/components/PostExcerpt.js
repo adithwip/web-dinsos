@@ -8,7 +8,7 @@ const PostExcerpt = props => (
   <Container flexDirection="column">
     <Item>
       <Link to={props.data.fields.slug}>
-        <h3>{props.data.frontmatter.title}</h3>
+        <h4>{props.data.frontmatter.title}</h4>
       </Link>
       <p>{props.data.frontmatter.date}</p>
       <p style={{ color: "black" }}>{props.data.excerpt}</p>
