@@ -24,22 +24,7 @@ const StyledBackgroundImage = styled(BackgroundImage)`
   }
 `
 
-const ThumbnailBackgroundImage = styled(BackgroundImage)`
-  width: 100%;
-  height: 192px;
-  background-position: bottom center;
-  background-repeat: repeat-y;
-  background-size: cover;
-`
-
 const IndexPage = ({ data }) => {
-  console.log("data", data)
-  const images = [
-    { image: data.imageOne.childImageSharp.fluid },
-    { image: data.imageTwo.childImageSharp.fluid },
-    { image: data.imageThree.childImageSharp.fluid },
-  ]
-
   return (
     <Layout
       noPageContainer
@@ -91,9 +76,6 @@ const IndexPage = ({ data }) => {
             <Container flexDirection="column" spacing={16} column={2}>
               {data.allMarkdownRemark.edges.map(({ node }) => (
                 <Item key={node.id}>
-                  <ThumbnailBackgroundImage
-                    fluid={node.frontmatter.thumbnail.childImageSharp.fluid}
-                  />
                   <PostExcerpt data={node} />
                 </Item>
               ))}
