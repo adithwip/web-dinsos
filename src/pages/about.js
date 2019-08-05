@@ -8,29 +8,38 @@ const AboutPage = () => (
     siteTitle="About Page"
     siteDescription="Will provide my readers about myself"
   >
-    <h1>Hi, I'm Adith</h1>
-    <p>You can contact me at:</p>
+    <h1>Dinas Sosial DKI Jakarta</h1>
+    <p>Hubungi kami:</p>
     <ul>
       <li>
         <a
-          href="https://twitter.com/adith_wp"
+          href="https://twitter.com/dinsosdki1?lang=en"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Twitter
+          Twitter Dinsos DKI
         </a>
       </li>
       <li>
         <a
-          href="https://www.linkedin.com/in/adith-widya-pradipta-3a777894/"
+          href="https://id-id.facebook.com/dinsosDKIJakarta"
           target="_blank"
           rel="noopener noreferrer"
         >
-          linkedin
+          Facebook Dinsos DKI
         </a>
       </li>
       <li>
-        <Link to="/blog">Or see my blog posts</Link>
+        <a
+          href="https://www.kompasiana.com/dinsosdki"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Kompasiana Dinsos DKI
+        </a>
+      </li>
+      <li>
+        <Link to="/blog">Berita dan Informasi</Link>
       </li>
     </ul>
   </Layout>
