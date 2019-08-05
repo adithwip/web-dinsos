@@ -94,10 +94,10 @@ const Header = () => {
                 <Link to="/">Home</Link>
               </Item>
               <Item>
-                <Link to="/about">About</Link>
+                <Link to="/about">Kontak</Link>
               </Item>
               <Item>
-                <Link to="/blog">Blog</Link>
+                <Link to="/blog">Berita</Link>
               </Item>
               <Item>
                 <Link to="/files">File System</Link>
