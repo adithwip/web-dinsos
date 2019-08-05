@@ -15,8 +15,8 @@ const Layout = ({
   siteType,
   siteUrl,
   siteImage,
-  smallHeader,
   children,
+  noPageContainer,
 }) => (
   <React.Fragment>
     <Helmet>
@@ -33,25 +33,45 @@ const Layout = ({
       <meta name="Description" content={siteDescription} />
       <title>{`Adith Widya Pradipta - ${siteTitle}`}</title>
       <link rel="canonical" href="https://naughty-booth-62a601.netlify.com/" />
+      <link
+        rel="stylesheet"
+        type="text/css"
+        charset="UTF-8"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+      />
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+      />
     </Helmet>
-    <Header smallHeader={smallHeader} />
-    <PageContainer mobileFirst>
+    <Header />
+    {!noPageContainer && 
+      <PageContainer mobileFirst>
+        <Container flexDirection="column">
+          <Item>{children}</Item>
+        </Container>
+      </PageContainer>}
+    {noPageContainer &&
       <Container flexDirection="column">
         <Item>{children}</Item>
-      </Container>
-    </PageContainer>
+      </Container>}
     <Footer />
   </React.Fragment>
 )
 
 Layout.propTypes = {
+  noPageContainer: PropTypes.bool,
   siteTitle: PropTypes.string.isRequired,
   siteDescription: PropTypes.string.isRequired,
   siteType: PropTypes.string,
   siteImage: PropTypes.string,
   siteUrl: PropTypes.string,
-  smallHeader: PropTypes.bool,
   children: PropTypes.element.isRequired,
+}
+
+Layout.defaultProps = {
+  noPageContainer: false,
 }
 
 export default Layout
