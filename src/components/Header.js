@@ -7,9 +7,7 @@ import MediaQuery from "react-responsive"
 import Container from "../layouts/Container"
 import Item from "../layouts/Item"
 
-const StyledHeader = styled.header`
-  padding: 16px;
-`
+const StyledHeader = styled.header``
 
 const Header = () => {
   const [open, navbarToggle] = useState(false)
@@ -39,18 +37,22 @@ const Header = () => {
   return (
     <StyledHeader id="header">
       <Container alignItems="center" justify="space-between">
-        <Item>
-          <Container alignItems="center" spacing={16}>
-            <Item>
-              <Img fixed={data.headerLogo.childImageSharp.fixed} />
-            </Item>
-            <Item>
-              <span style={{ fontWeight: "bold", fontSize: 20 }}>
-                Dinas Sosial
-              </span>
-            </Item>
-          </Container>
-        </Item>
+        <Link to="/">
+          <Item>
+            <Container alignItems="center" spacing={16}>
+              <Item>
+                <Img fixed={data.headerLogo.childImageSharp.fixed} />
+              </Item>
+              <Item>
+                <span
+                  style={{ fontWeight: "bold", fontSize: 20, color: "black" }}
+                >
+                  Dinas Sosial
+                </span>
+              </Item>
+            </Container>
+          </Item>
+        </Link>
 
         <MediaQuery minDeviceWidth={320} maxDeviceWidth={767}>
           <Item>
