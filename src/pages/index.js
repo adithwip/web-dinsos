@@ -29,7 +29,7 @@ const IndexPage = ({ data }) => {
     <Layout
       noPageContainer
       siteTitle="Blog Page"
-      siteDescription="Homepage of Adith Widya Pradipta's blog"
+      siteDescription="Homepage of Dinas Sosial DKI Jakarta"
     >
       <Slider dots={true} infinite={true} speed={500} arrows={false}>
         {data.allMarkdownRemark.edges.map(({ node }) => {

@@ -7,7 +7,7 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: `Adith Widya Pradipta`,
+    title: `Dinas Sosial DKI Jakarta`,
     siteUrl: `https://naughty-booth-62a601.netlify.com`,
     image: `./static/images/blog-image.jpg`,
   },

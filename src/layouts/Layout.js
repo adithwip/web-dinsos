@@ -31,7 +31,7 @@ const Layout = ({
       <meta property="og:image:alt" content="Blog image" />
       {siteUrl && <meta property="og:url" content={siteUrl} />}
       <meta name="Description" content={siteDescription} />
-      <title>{`Adith Widya Pradipta - ${siteTitle}`}</title>
+      <title>{`Dinas Sosial DKI Jakarta - ${siteTitle}`}</title>
       <link rel="canonical" href="https://suspicious-payne-767500.netlify.com" />
       <link
         rel="stylesheet"

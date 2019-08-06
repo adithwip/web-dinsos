@@ -12,7 +12,7 @@ const BlogPage = ({ data }) => {
   return (
     <Layout
       siteTitle="Blog Page"
-      siteDescription="Homepage of Adith Widya Pradipta's blog"
+      siteDescription="Homepage of Dinas Sosial DKI Jakarta web"
     >
       <Container flexDirection="column">
         <Item>
