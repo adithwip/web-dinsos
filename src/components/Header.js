@@ -97,6 +97,11 @@ const Header = () => {
                 <Link to="/about">Kontak</Link>
               </Item>
               <Item>
+                <a href="https://rasetprojects.com/pusdatin/home_grafik.html">
+                  Pusat Data
+                </a>
+              </Item>
+              <Item>
                 <Link to="/blog">Berita</Link>
               </Item>
               <Item>
