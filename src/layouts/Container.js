@@ -43,11 +43,11 @@ const StyledContainer = styled.div`
           width: ${props => 100 / props.column}%;
         }
 
-        @media (min-width: 992px) {
+        /* @media (min-width: 992px) {
           display: block;
           flex: none;
           width: ${props => 100 / (props.column + 1)}%;
-        }
+        } */
       }
     `}
 `
