@@ -2,6 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 
+import "../styles/index.css"
+
 import PageContainer from "./PageContainer"
 import Container from "./Container"
 import Item from "./Item"
@@ -17,6 +19,7 @@ const Layout = ({
   siteImage,
   children,
   noPageContainer,
+  noGrid,
 }) => (
   <React.Fragment>
     <Helmet>
@@ -32,7 +35,10 @@ const Layout = ({
       {siteUrl && <meta property="og:url" content={siteUrl} />}
       <meta name="Description" content={siteDescription} />
       <title>{`Dinas Sosial DKI Jakarta - ${siteTitle}`}</title>
-      <link rel="canonical" href="https://suspicious-payne-767500.netlify.com" />
+      <link
+        rel="canonical"
+        href="https://suspicious-payne-767500.netlify.com"
+      />
       <link
         rel="stylesheet"
         type="text/css"
@@ -46,24 +52,26 @@ const Layout = ({
       />
     </Helmet>
     <Header />
-    {!noPageContainer && (
+    {!noPageContainer && !noGrid && (
       <PageContainer mobileFirst>
         <Container flexDirection="column">
           <Item>{children}</Item>
         </Container>
       </PageContainer>
     )}
-    {noPageContainer && (
+    {noPageContainer && !noGrid && (
       <Container flexDirection="column">
         <Item>{children}</Item>
       </Container>
     )}
+    {noGrid && <PageContainer>{children}</PageContainer>}
     <Footer />
   </React.Fragment>
 )
 
 Layout.propTypes = {
   noPageContainer: PropTypes.bool,
+  noGrid: PropTypes.bool,
   siteTitle: PropTypes.string.isRequired,
   siteDescription: PropTypes.string.isRequired,
   siteType: PropTypes.string,
@@ -74,6 +82,7 @@ Layout.propTypes = {
 
 Layout.defaultProps = {
   noPageContainer: false,
+  noGrid: false,
 }
 
 export default Layout
