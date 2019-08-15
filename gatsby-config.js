@@ -34,6 +34,24 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-material-ui`,
+      options: {
+        theme: {
+          palette: {
+            primary: {
+              main: '#1572e8'
+            },
+            secondary: {
+              main: '#f03a47'
+            },
+          }
+        },
+        stylesProvider: {
+          injectFirst: true
+        },
+      },
+    },
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-transformer-remark`,
