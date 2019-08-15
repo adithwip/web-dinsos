@@ -40,7 +40,7 @@ const ImageCarouselCard = () => {
             }
           }
         }
-        imageTwo: file(relativePath: { eq: "pusdatin-two.jpg" }) {
+        imageTwo: file(relativePath: { eq: "images/pusdatin-two.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 1200) {
               ...GatsbyImageSharpFluid
