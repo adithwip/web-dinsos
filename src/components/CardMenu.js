@@ -49,7 +49,7 @@ const CardMenu = ({ href, to, menu }) => {
   const data = useStaticQuery(
     graphql`
       query {
-        jakartaLogo: file(relativePath: { eq: "jakarta-logo.png" }) {
+        jakartaLogo: file(relativePath: { eq: "images/jakarta-logo.png" }) {
           childImageSharp {
             fixed(width: 60) {
               ...GatsbyImageSharpFixed
@@ -57,7 +57,7 @@ const CardMenu = ({ href, to, menu }) => {
           }
         }
 
-        lpseLogo: file(relativePath: { eq: "LPSE-logo.png" }) {
+        lpseLogo: file(relativePath: { eq: "images/LPSE-logo.png" }) {
           childImageSharp {
             fixed(width: 60) {
               ...GatsbyImageSharpFixed
