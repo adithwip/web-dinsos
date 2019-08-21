@@ -23,7 +23,7 @@ const StyledBgImage = styled(BackgroundImage)`
   width: 100%;
   height: 100%;
   min-height: 300px;
-  background-position: bottom center;
+  background-position: center center;
   background-repeat: repeat-y;
   background-size: cover;
 `
