@@ -6,11 +6,11 @@ import CardMenu from "../components/CardMenu"
 import ImageCarouselCard from "../components/ImageCarouselCard"
 import Layout from "../layouts/Layout"
 
-const IndexPage = ({ data }) => {
+const IndexPage = () => {
   const upperMenu = (
     <Grid item style={{ width: "100%" }}>
       <Grid container spacing={2} alignItems="center">
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={12} md={4}>
           <ImageCarouselCard />
         </Grid>
 
@@ -45,16 +45,16 @@ const IndexPage = ({ data }) => {
   const lowerMenu = (
     <Grid item style={{ width: "100%" }}>
       <Grid container spacing={2} alignItems="center">
-        <Grid item xs={6} sm={4} md={3}>
+        <Grid item xs={6} sm={6} md={3}>
           <CardMenu menu="lpse" href="http://lpse.jakarta.go.id/eproc/" />
         </Grid>
-        <Grid item xs={6} sm={4} md={3}>
+        <Grid item xs={6} sm={6} md={3}>
           <CardMenu menu="jakarta" href="http://smartcity.jakarta.go.id/" />
         </Grid>
-        <Grid item xs={6} sm={4} md={3}>
+        <Grid item xs={6} sm={6} md={3}>
           <CardMenu menu="open-data" href="http://data.jakarta.go.id/" />
         </Grid>
-        <Grid item xs={6} sm={4} md={3}>
+        <Grid item xs={6} sm={6} md={3}>
           <CardMenu menu="lpse" to="/about" />
         </Grid>
       </Grid>
