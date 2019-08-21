@@ -11,6 +11,7 @@
 ## 🚀 Quick start
 
 1.  **How to run this project?**
+    - Set Up your environment here [Gatsby Environment setup](https://www.gatsbyjs.org/tutorial/part-zero/)
     - Use the best node version you have
     - run `npm install`
     - run `npm run develop` to start development mode
