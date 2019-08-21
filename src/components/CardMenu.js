@@ -3,12 +3,17 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
 import styled from "styled-components"
-import { IconContext } from "react-icons"
 import Img from "gatsby-image"
+// import { IconContext } from "react-icons"
 
-import { FaHandsHelping, FaRegNewspaper } from "react-icons/fa"
-import { GoOrganization } from "react-icons/go"
-import { MdContactMail } from "react-icons/md"
+// import { FaHandsHelping, FaRegNewspaper } from "react-icons/fa"
+// import { GoOrganization } from "react-icons/go"
+// import { MdContactMail } from "react-icons/md"
+
+import ContactTwoToneIcon from "@material-ui/icons/ContactMailTwoTone"
+import LKSTwoToneIcon from "@material-ui/icons/PublicTwoTone"
+import NewsTwoToneIcon from "@material-ui/icons/ImportContactsTwoTone"
+import OrganizationTwoToneIcon from "@material-ui/icons/PeopleTwoTone"
 
 import Grid from "@material-ui/core/Grid"
 import Card from "@material-ui/core/Card"
@@ -42,10 +47,12 @@ const MenuText = styled(Typography)`
 const useStyles = makeStyles({
   icon: {
     fontSize: 64,
+    color: `#f8ffe5`,
   },
 })
 
 const CardMenu = ({ href, to, menu }) => {
+  const classes = useStyles()
   const data = useStaticQuery(
     graphql`
       query {
@@ -77,51 +84,54 @@ const CardMenu = ({ href, to, menu }) => {
       }
     `
   )
-  const classes = useStyles()
 
   const Component = (
-    <IconContext.Provider
-      value={{
-        color: "white",
-        className: classes.icon,
-      }}
-    >
-      <StyledCard menu={menu}>
-        <Grid
-          style={{ height: "100%" }}
-          container
-          direction="column"
-          justify="center"
-        >
-          <Grid style={{ textAlign: "center" }} item>
-            {menu === "lks" && <FaHandsHelping />}
-            {menu === "struktur-organisasi" && <GoOrganization />}
-            {menu === "pusat-berita" && <FaRegNewspaper />}
-            {menu === "kontak" && <MdContactMail />}
-            {menu === "jakarta" && (
-              <Img fixed={data.jakartaLogo.childImageSharp.fixed} />
-            )}
-            {menu === "lpse" && (
-              <Img fixed={data.lpseLogo.childImageSharp.fixed} />
-            )}
-            {menu === "open-data" && (
-              <Img fixed={data.openDataLogo.childImageSharp.fixed} />
-            )}
-          </Grid>
-          <Grid style={{ textAlign: "center" }} item>
-            <MenuText menu={menu} variant="caption">
-              {menu === "lks" && "Lembaga Kesejahteraan Sosial"}
-              {menu === "struktur-organisasi" && "Struktur Organisasi"}
-              {menu === "pusat-berita" && "Pusat Berita"}
-              {menu === "kontak" && "Kontak DINSOS"}
-              {menu === "jakarta" && "Jakarta Smartcity"}
-              {menu === "lpse" && "Layanan Pengaduan Secara Elektronik"}
-              {menu === "open-data" && "Jakarta Open Data"}
-            </MenuText>
-          </Grid>
+    // <IconContext.Provider
+    //   value={{
+    //     color: "white",
+    //     className: classes.icon,
+    //   }}
+    // >
+    <StyledCard menu={menu}>
+      <Grid
+        style={{ height: "100%" }}
+        container
+        direction="column"
+        justify="center"
+      >
+        <Grid style={{ textAlign: "center" }} item>
+          {menu === "lks" && <LKSTwoToneIcon className={classes.icon} />}
+          {menu === "struktur-organisasi" && (
+            <OrganizationTwoToneIcon className={classes.icon} />
+          )}
+          {menu === "pusat-berita" && (
+            <NewsTwoToneIcon className={classes.icon} />
+          )}
+          {menu === "kontak" && <ContactTwoToneIcon className={classes.icon} />}
+          {menu === "jakarta" && (
+            <Img fixed={data.jakartaLogo.childImageSharp.fixed} />
+          )}
+          {menu === "lpse" && (
+            <Img fixed={data.lpseLogo.childImageSharp.fixed} />
+          )}
+          {menu === "open-data" && (
+            <Img fixed={data.openDataLogo.childImageSharp.fixed} />
+          )}
         </Grid>
-      </StyledCard>
-    </IconContext.Provider>
+        <Grid style={{ textAlign: "center" }} item>
+          <MenuText menu={menu} variant="caption">
+            {menu === "lks" && "Lembaga Kesejahteraan Sosial"}
+            {menu === "struktur-organisasi" && "Struktur Organisasi"}
+            {menu === "pusat-berita" && "Pusat Berita"}
+            {menu === "kontak" && "Kontak DINSOS"}
+            {menu === "jakarta" && "Jakarta Smartcity"}
+            {menu === "lpse" && "Layanan Pengaduan Secara Elektronik"}
+            {menu === "open-data" && "Jakarta Open Data"}
+          </MenuText>
+        </Grid>
+      </Grid>
+    </StyledCard>
+    // </IconContext.Provider>
   )
 
   return (
