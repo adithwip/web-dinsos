@@ -19,9 +19,9 @@ const StyledPageContainer = styled.section`
     max-width: 720px;
   } */
 
-  @media (max-width: 767px) {
+  /* @media (max-width: 767px) {
     padding: 0 !important;
-  }
+  } */
 
   /* @media (min-width: 992px) {
     max-width: 960px;
