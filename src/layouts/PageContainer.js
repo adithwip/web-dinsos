@@ -19,22 +19,26 @@ const StyledPageContainer = styled.section`
     max-width: 720px;
   } */
 
-  @media (min-width: 992px) {
+  @media (max-width: 767px) {
+    padding: 0 !important;
+  }
+
+  /* @media (min-width: 992px) {
     max-width: 960px;
-    /* ${props =>
+    ${props =>
       props.mobileFirst &&
       css`
         max-width: 720px;
-      `} */
-  }
+      `}
+  } */
 
   @media (min-width: 1200px) {
     max-width: 1140px;
-    /* ${props =>
+    ${props =>
       props.mobileFirst &&
       css`
         max-width: 720px;
-      `} */
+      `}
   }
 `
 

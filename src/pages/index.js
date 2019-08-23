@@ -1,10 +1,21 @@
 import React from "react"
+import styled from "styled-components"
 
 import Grid from "@material-ui/core/Grid"
 
 import CardMenu from "../components/CardMenu"
 import ImageCarouselCard from "../components/ImageCarouselCard"
 import Layout from "../layouts/Layout"
+
+const StyledGrid = styled(Grid)`
+    margin: 64px auto;
+    width: 100%;
+  
+    @media (max-width: 767px) {
+      margin: 16px auto;
+      width: 100%;
+    }
+`
 
 const IndexPage = () => {
   const upperMenu = (
@@ -67,10 +78,10 @@ const IndexPage = () => {
       siteTitle="Blog Page"
       siteDescription="Blog Page of Dinas Sosial DKI Jakarta"
     >
-      <Grid
+      <StyledGrid
         container
         direction="column"
-        style={{ margin: "64px auto", width: "100%" }}
+        // style={{ margin: "64px auto", width: "100%" }}
         justify="center"
         alignContent="center"
         alignItems="center"
@@ -78,7 +89,7 @@ const IndexPage = () => {
       >
         {upperMenu}
         {lowerMenu}
-      </Grid>
+      </StyledGrid>
     </Layout>
   )
 }
