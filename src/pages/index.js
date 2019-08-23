@@ -8,13 +8,13 @@ import ImageCarouselCard from "../components/ImageCarouselCard"
 import Layout from "../layouts/Layout"
 
 const StyledGrid = styled(Grid)`
-    margin: 64px auto;
+  margin: 64px auto;
+  width: 100%;
+
+  @media (max-width: 767px) {
+    margin: 16px auto;
     width: 100%;
-  
-    @media (max-width: 767px) {
-      margin: 16px auto;
-      width: 100%;
-    }
+  }
 `
 
 const IndexPage = () => {
