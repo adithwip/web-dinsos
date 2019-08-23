@@ -10,7 +10,13 @@ import AppBar from "./AppBar"
 import Container from "../layouts/Container"
 import Item from "../layouts/Item"
 
-const StyledHeader = styled.header``
+const StyledHeader = styled.header`
+  padding: 16px 64px;
+
+  & * {
+    color: black;
+  }
+`
 
 const Header = () => {
   const data = useStaticQuery(
@@ -43,7 +49,6 @@ const Header = () => {
 
       <MediaQuery minDeviceWidth={768}>
         <Container
-          style={{ padding: "16px 64px" }}
           alignItems="center"
           justify="space-between"
         >
