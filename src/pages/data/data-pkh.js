@@ -41,10 +41,10 @@ const DataPKH = ({ data }) => {
       {
         label: 'Jumlah Penerima PKH Tahun 2019',
         backgroundColor: [
-        '#36A2EB',
-        '#FF6384',
-        '#FFCE56',
-        '#36A2EB',
+        '#1572E8',
+        '#F03A47',
+        '#F0A202',
+        '#06D6A0',
         '#FFCE56',
         '#36A2EB',
         ],
@@ -66,8 +66,8 @@ const DataPKH = ({ data }) => {
     datasets: [
       {
         label: 'Jumlah Penerima PKH Tahun 2019',
-        backgroundColor: 'rgba(255,99,132,0.2)',
-        borderColor: 'rgba(255,99,132,1)',
+        backgroundColor: 'rgba(255,199,132,0.2)',
+        borderColor: 'rgba(255,199,132,1)',
         borderWidth: 1,
         hoverBackgroundColor: 'rgba(255,99,132,0.4)',
         hoverBorderColor: 'rgba(255,99,132,1)',
@@ -80,9 +80,7 @@ const DataPKH = ({ data }) => {
     <Item align="center">
       <div style={{ position: 'relative', width: 300, margin: '0 auto'}}>
         <Img
-          // src={data.jakartaMap.childImageSharp.fixed.publicUrl}
-          // alt=""
-          usemap="#Map"
+          alt="jakarta-map"
           fixed={data.jakartaMap.childImageSharp.fixed}
         />
         <div style={{ position: "absolute", top: '30%', left: '15%' }}>
