@@ -45,7 +45,7 @@ const IndexPage = () => {
               <CardMenu menu="pusat-berita" to="/blog" />
             </Grid>
             <Grid item>
-              <CardMenu menu="struktur-organisasi" to="/blog" />
+              <CardMenu menu="grafik-data" to="/data" />
             </Grid>
           </Grid>
         </Grid>
@@ -81,7 +81,6 @@ const IndexPage = () => {
       <StyledGrid
         container
         direction="column"
-        // style={{ margin: "64px auto", width: "100%" }}
         justify="center"
         alignContent="center"
         alignItems="center"
