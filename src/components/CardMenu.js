@@ -4,16 +4,11 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
 import styled from "styled-components"
 import Img from "gatsby-image"
-// import { IconContext } from "react-icons"
-
-// import { FaHandsHelping, FaRegNewspaper } from "react-icons/fa"
-// import { GoOrganization } from "react-icons/go"
-// import { MdContactMail } from "react-icons/md"
 
 import ContactTwoToneIcon from "@material-ui/icons/ContactMailTwoTone"
 import LKSTwoToneIcon from "@material-ui/icons/PublicTwoTone"
 import NewsTwoToneIcon from "@material-ui/icons/ImportContactsTwoTone"
-import OrganizationTwoToneIcon from "@material-ui/icons/PeopleTwoTone"
+import GraphDataTwoToneIcon from "@material-ui/icons/AssessmentTwoTone"
 
 import Grid from "@material-ui/core/Grid"
 import Card from "@material-ui/core/Card"
@@ -23,7 +18,7 @@ const StyledCard = styled(Card)`
   background-color: #f8ffe5;
   background-color: ${props =>
     (props.menu === "lks" && "#1572E8") ||
-    (props.menu === "struktur-organisasi" && "#F03A47") ||
+    (props.menu === "grafik-data" && "#F03A47") ||
     (props.menu === "pusat-berita" && "#F0A202") ||
     (props.menu === "kontak" && "#06D6A0")};
   padding: 8px;
@@ -86,12 +81,6 @@ const CardMenu = ({ href, to, menu }) => {
   )
 
   const Component = (
-    // <IconContext.Provider
-    //   value={{
-    //     color: "white",
-    //     className: classes.icon,
-    //   }}
-    // >
     <StyledCard menu={menu}>
       <Grid
         style={{ height: "100%" }}
@@ -101,8 +90,8 @@ const CardMenu = ({ href, to, menu }) => {
       >
         <Grid style={{ textAlign: "center" }} item>
           {menu === "lks" && <LKSTwoToneIcon className={classes.icon} />}
-          {menu === "struktur-organisasi" && (
-            <OrganizationTwoToneIcon className={classes.icon} />
+          {menu === "grafik-data" && (
+            <GraphDataTwoToneIcon className={classes.icon} />
           )}
           {menu === "pusat-berita" && (
             <NewsTwoToneIcon className={classes.icon} />
@@ -121,7 +110,7 @@ const CardMenu = ({ href, to, menu }) => {
         <Grid style={{ textAlign: "center" }} item>
           <MenuText menu={menu} variant="caption">
             {menu === "lks" && "Lembaga Kesejahteraan Sosial"}
-            {menu === "struktur-organisasi" && "Struktur Organisasi"}
+            {menu === "grafik-data" && "Pusat Grafik Data"}
             {menu === "pusat-berita" && "Pusat Berita"}
             {menu === "kontak" && "Kontak DINSOS"}
             {menu === "jakarta" && "Jakarta Smartcity"}
@@ -158,7 +147,7 @@ CardMenu.propTypes = {
     "lks",
     "pusat-berita",
     "kontak",
-    "struktur-organisasi",
+    "grafik-data",
     "jakarta",
     "lpse",
     "open-data",

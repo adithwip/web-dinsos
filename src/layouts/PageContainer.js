@@ -23,14 +23,14 @@ const StyledPageContainer = styled.section`
     padding: 0 !important;
   } */
 
-  /* @media (min-width: 992px) {
+  @media (min-width: 992px) {
     max-width: 960px;
     ${props =>
       props.mobileFirst &&
       css`
         max-width: 720px;
       `}
-  } */
+  }
 
   @media (min-width: 1200px) {
     max-width: 1140px;
