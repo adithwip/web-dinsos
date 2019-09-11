@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
 
@@ -36,8 +36,6 @@ const Header = () => {
       }
     `
   )
-
-  console.log("data", data)
 
   return (
     <StyledHeader id="header">
@@ -79,11 +77,11 @@ const Header = () => {
                   <Typography variant="button">Kontak</Typography>
                 </Link>
               </Item>
-              <Item>
+              {/* <Item>
                 <a href="https://rasetprojects.com/pusdatin/home_grafik.html">
                   <Typography variant="button">Pusat Data</Typography>
                 </a>
-              </Item>
+              </Item> */}
               <Item>
                 <Link to="/blog">
                   <Typography variant="button">Berita</Typography>
