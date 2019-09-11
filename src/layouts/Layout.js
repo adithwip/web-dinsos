@@ -37,7 +37,7 @@ const Layout = ({
       <title>{`Dinas Sosial DKI Jakarta - ${siteTitle}`}</title>
       <link
         rel="canonical"
-        href="https://suspicious-payne-767500.netlify.com"
+        href="https://pusdatin-dinsos-dev.netlify.com"
       />
       <link
         rel="stylesheet"
