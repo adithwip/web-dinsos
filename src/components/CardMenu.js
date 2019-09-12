@@ -110,11 +110,11 @@ const CardMenu = ({ href, to, menu }) => {
         <Grid style={{ textAlign: "center" }} item>
           <MenuText menu={menu} variant="caption">
             {menu === "lks" && "Lembaga Kesejahteraan Sosial"}
-            {menu === "grafik-data" && "Pusat Grafik Data"}
+            {menu === "grafik-data" && "Pusat Data"}
             {menu === "pusat-berita" && "Pusat Berita"}
-            {menu === "kontak" && "Kontak DINSOS"}
-            {menu === "jakarta" && "Jakarta Smartcity"}
-            {menu === "lpse" && "Layanan Pengaduan Secara Elektronik"}
+            {menu === "kontak" && "Kontak Pusdatin Jamsos"}
+            {menu === "jakarta" && "Data FMOTM"}
+            {menu === "lpse" && "UEB dan KUBE"}
             {menu === "open-data" && "Jakarta Open Data"}
           </MenuText>
         </Grid>

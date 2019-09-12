@@ -87,11 +87,11 @@ const Header = () => {
                   <Typography variant="button">Berita</Typography>
                 </Link>
               </Item>
-              <Item>
+              {/* <Item>
                 <Link to="/files">
                   <Typography variant="button">File System</Typography>
                 </Link>
-              </Item>
+              </Item> */}
             </Container>
           </Item>
         </Container>
