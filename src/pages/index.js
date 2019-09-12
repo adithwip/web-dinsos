@@ -59,7 +59,7 @@ const IndexPage = () => {
     <Grid item style={{ width: "100%" }}>
       <Grid container spacing={2} alignItems="center">
         <Grid item xs={6} sm={6} md={3}>
-          <CardMenu menu="lpse" href="uepkube.pusdatin-dinsos.jakarta.go.id" />
+          <CardMenu menu="lpse" href="http://uepkube.pusdatin-dinsos.jakarta.go.id" />
         </Grid>
         <Grid item xs={6} sm={6} md={3}>
           <CardMenu menu="jakarta" href="http://smartcity.jakarta.go.id/" />
@@ -68,7 +68,7 @@ const IndexPage = () => {
           <CardMenu menu="open-data" href="http://data.jakarta.go.id/" />
         </Grid>
         <Grid item xs={6} sm={6} md={3}>
-          <CardMenu menu="lpse" href="uepkube.pusdatin-dinsos.jakarta.go.id" />
+          <CardMenu menu="lpse" href="http://uepkube.pusdatin-dinsos.jakarta.go.id" />
         </Grid>
       </Grid>
     </Grid>
