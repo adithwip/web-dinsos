@@ -61,7 +61,7 @@ export default DataVarious
 
 export const query = graphql`
   query {
-    imageOne: file(relativePath: { eq: "images/dinsos-logo.png" }) {
+    imageOne: file(relativePath: { eq: "images/data-var-1.jpeg" }) {
       childImageSharp {
         fluid(maxWidth: 1200) {
           ...GatsbyImageSharpFluid
