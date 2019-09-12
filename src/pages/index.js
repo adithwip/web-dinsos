@@ -68,7 +68,7 @@ const IndexPage = () => {
           <CardMenu menu="open-data" href="http://data.jakarta.go.id/" />
         </Grid>
         <Grid item xs={6} sm={6} md={3}>
-          <CardMenu menu="lpse" to="uepkube.pusdatin-dinsos.jakarta.go.id" />
+          <CardMenu menu="lpse" href="uepkube.pusdatin-dinsos.jakarta.go.id" />
         </Grid>
       </Grid>
     </Grid>
