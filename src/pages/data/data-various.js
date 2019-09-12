@@ -47,10 +47,10 @@ const DataVarious = ({ data }) => {
     <Layout siteTitle="Data page" siteDescription="Pusat data dinas sosial">
       <StyledPaper>
         <Container flexDirection="column" spacing={32}>  
-          <Item><Typography variant="h4">Data Petugas Pelayanan Pengawasan dan Pengendalian Sosial</Typography></Item>
-          <Item><Img fluid={data.ImageOne.childImageSharp.fluid} /></Item>
+          <Item><Typography variant="h4">Various Data</Typography></Item>
+          {/* <Item><Img fluid={data.ImageOne.childImageSharp.fluid} /></Item>
           <Item><Img fluid={data.ImageTwo.childImageSharp.fluid} /></Item>
-          <Item><Img fluid={data.ImageThree.childImageSharp.fluid} /></Item>
+          <Item><Img fluid={data.ImageThree.childImageSharp.fluid} /></Item> */}
         </Container>
       </StyledPaper>
     </Layout>
