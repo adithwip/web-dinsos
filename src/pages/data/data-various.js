@@ -2,16 +2,9 @@ import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 import Img from "gatsby-image"
-import { Doughnut, HorizontalBar } from "react-chartjs-2"
 
 import Paper from "@material-ui/core/Paper"
-import Table from "@material-ui/core/Table"
 import Typography from "@material-ui/core/Typography"
-import Chip from "@material-ui/core/Chip"
-import TableBody from "@material-ui/core/TableBody"
-import TableCell from "@material-ui/core/TableCell"
-import TableHead from "@material-ui/core/TableHead"
-import TableRow from "@material-ui/core/TableRow"
 
 import Layout from "../../layouts/Layout"
 import Container from "../../layouts/Container"
@@ -48,35 +41,16 @@ const rowsData = [
   createData('Amalia Mardhia Ersa', 'Petugas P3S'),
 ]
 
-const DataVarious = () => {
-
-  const TableData = (
-    <Item>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>{'Nama PJLP'}</TableCell>
-            <TableCell align="right">{'Jabatan/Jenis Pekerjaan'}</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rowsData.map(row => (
-            <TableRow>
-              <TableCell>{row.name}</TableCell>
-              <TableCell align="right">{row.role}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </Item>
-  )
+const DataVarious = ({ data }) => {
 
   return (
     <Layout siteTitle="Data page" siteDescription="Pusat data dinas sosial">
       <StyledPaper>
         <Container flexDirection="column" spacing={32}>  
           <Item><Typography variant="h4">Data Petugas Pelayanan Pengawasan dan Pengendalian Sosial</Typography></Item>
-          {TableData}
+          <Item><Img fluid={data.ImageOne.childImageSharp.fluid} /></Item>
+          <Item><Img fluid={data.ImageTwo.childImageSharp.fluid} /></Item>
+          <Item><Img fluid={data.ImageThree.childImageSharp.fluid} /></Item>
         </Container>
       </StyledPaper>
     </Layout>
@@ -87,10 +61,24 @@ export default DataVarious
 
 export const query = graphql`
   query {
-    jakartaMap: file(relativePath: { eq: "images/jakarta-maps.png" }) {
+    imageOne: file(relativePath: { eq: "images/dinsos-logo.png" }) {
       childImageSharp {
-        fixed(width: 300) {
-          ...GatsbyImageSharpFixed
+        fluid(maxWidth: 1200) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    imageTwo: file(relativePath: { eq: "images/data-var-2.jpeg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1200) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    imageThree: file(relativePath: { eq: "images/data-var-3.jpeg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1200) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
