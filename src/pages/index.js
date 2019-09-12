@@ -21,9 +21,6 @@ const IndexPage = () => {
   const upperMenu = (
     <Grid item style={{ width: "100%" }}>
       <Grid container spacing={2} alignItems="center">
-        <Grid item xs={12} sm={12} md={4}>
-          <ImageCarouselCard />
-        </Grid>
 
         <Grid item xs={6} sm={6} md={4}>
           <Grid container spacing={2} direction="column">
@@ -49,6 +46,11 @@ const IndexPage = () => {
             </Grid>
           </Grid>
         </Grid>
+
+        <Grid item xs={12} sm={12} md={4}>
+          <ImageCarouselCard />
+        </Grid>
+
       </Grid>
     </Grid>
   )
@@ -57,7 +59,7 @@ const IndexPage = () => {
     <Grid item style={{ width: "100%" }}>
       <Grid container spacing={2} alignItems="center">
         <Grid item xs={6} sm={6} md={3}>
-          <CardMenu menu="lpse" href="http://lpse.jakarta.go.id/eproc/" />
+          <CardMenu menu="lpse" href="uepkube.pusdatin-dinsos.jakarta.go.id" />
         </Grid>
         <Grid item xs={6} sm={6} md={3}>
           <CardMenu menu="jakarta" href="http://smartcity.jakarta.go.id/" />
@@ -66,7 +68,7 @@ const IndexPage = () => {
           <CardMenu menu="open-data" href="http://data.jakarta.go.id/" />
         </Grid>
         <Grid item xs={6} sm={6} md={3}>
-          <CardMenu menu="lpse" to="/about" />
+          <CardMenu menu="lpse" to="uepkube.pusdatin-dinsos.jakarta.go.id" />
         </Grid>
       </Grid>
     </Grid>
