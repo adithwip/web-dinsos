@@ -74,7 +74,7 @@ const ImageCarouselCard = () => {
         emulateTouch
       >
         {images.map(image => (
-          <div>
+          <div key={image.fluidImg}>
             <StyledBgImage fluid={image.fluidImg} />
           </div>
         ))}

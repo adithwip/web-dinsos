@@ -55,7 +55,6 @@ const AboutPage = () => (
           <Link to="/blog">Berita dan Informasi</Link>
         </li>
       </ul>
-
     </StyledPaper>
   </Layout>
 )
