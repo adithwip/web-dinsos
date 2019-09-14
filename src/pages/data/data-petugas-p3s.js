@@ -1,13 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
-import Img from "gatsby-image"
-import { Doughnut, HorizontalBar } from "react-chartjs-2"
 
 import Paper from "@material-ui/core/Paper"
 import Table from "@material-ui/core/Table"
 import Typography from "@material-ui/core/Typography"
-import Chip from "@material-ui/core/Chip"
 import TableBody from "@material-ui/core/TableBody"
 import TableCell from "@material-ui/core/TableCell"
 import TableHead from "@material-ui/core/TableHead"
