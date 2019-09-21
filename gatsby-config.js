@@ -12,7 +12,7 @@ module.exports = {
     image: `./static/images/blog-image.jpg`,
   },
   plugins: [
-    `all-news`,
+    `pusdatin-datasource`,
     {
       resolve: `gatsby-plugin-html-attributes`,
       options: {
