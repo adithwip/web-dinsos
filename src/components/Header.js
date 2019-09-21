@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
 
@@ -10,7 +10,11 @@ import AppBar from "./AppBar"
 import Container from "../layouts/Container"
 import Item from "../layouts/Item"
 
-const StyledHeader = styled.header``
+const StyledHeader = styled.header`
+  & * {
+    color: black;
+  }
+`
 
 const Header = () => {
   const data = useStaticQuery(
@@ -32,8 +36,6 @@ const Header = () => {
       }
     `
   )
-
-  // console.log("data", data)
 
   return (
     <StyledHeader id="header">
@@ -75,21 +77,21 @@ const Header = () => {
                   <Typography variant="button">Kontak</Typography>
                 </Link>
               </Item>
-              <Item>
+              {/* <Item>
                 <a href="https://rasetprojects.com/pusdatin/home_grafik.html">
                   <Typography variant="button">Pusat Data</Typography>
                 </a>
-              </Item>
+              </Item> */}
               <Item>
                 <Link to="/blog">
                   <Typography variant="button">Berita</Typography>
                 </Link>
               </Item>
-              <Item>
+              {/* <Item>
                 <Link to="/files">
                   <Typography variant="button">File System</Typography>
                 </Link>
-              </Item>
+              </Item> */}
             </Container>
           </Item>
         </Container>

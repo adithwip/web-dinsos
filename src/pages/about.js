@@ -1,37 +1,29 @@
 import React, { useEffect } from "react"
 import { Link } from "gatsby"
-import axios from "axios"
+import styled from "styled-components"
 
 import Layout from "../layouts/Layout"
+import Paper from "@material-ui/core/Paper"
 
-const getData = async () => {
-  const API_URI = "https://rasetprojects.com/pusdatin/api/v1/cms/news"
+const StyledPaper = styled(Paper)`
+  padding: 32px 16px;
+`
 
-  try {
-    const result = await axios(API_URI)
-    console.log("RESULT =====>", result.data)
-
-    return result.data
-  } catch (err) {
-    throw new Error(err)
-  }
-}
-
-const AboutPage = () => {
-  useEffect(() => {
-    getData()
-  })
-
-  const data = getData()
-
-  return (
-    <Layout
-      siteTitle="About Page"
-      siteDescription="Will provide my readers about myself"
-    >
+const AboutPage = () => (
+  <Layout
+    siteTitle="About Page"
+    siteDescription="Will provide my readers about myself"
+  >
+    <StyledPaper>
       <h1>Dinas Sosial DKI Jakarta</h1>
       <p>Hubungi kami:</p>
       <ul>
+        <li>
+          <p>Email: pusdatinjamsosdki@gmail.com</p>
+        </li>
+        <li>
+          <p>Telp: 021-22684824</p>
+        </li>
         <li>
           <a
             href="https://twitter.com/dinsosdki1?lang=en"
@@ -63,8 +55,8 @@ const AboutPage = () => {
           <Link to="/blog">Berita dan Informasi</Link>
         </li>
       </ul>
-    </Layout>
-  )
-}
+    </StyledPaper>
+  </Layout>
+)
 
 export default AboutPage

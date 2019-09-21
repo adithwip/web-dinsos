@@ -62,7 +62,6 @@ const ImageCarouselCard = () => {
     { fluidImg: data.imageTwo.childImageSharp.fluid },
     { fluidImg: data.imageThree.childImageSharp.fluid },
   ]
-  // console.log("images ===", images)
 
   return (
     <Card>
@@ -75,7 +74,7 @@ const ImageCarouselCard = () => {
         emulateTouch
       >
         {images.map(image => (
-          <div>
+          <div key={image.fluidImg}>
             <StyledBgImage fluid={image.fluidImg} />
           </div>
         ))}

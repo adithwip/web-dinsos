@@ -35,10 +35,7 @@ const Layout = ({
       {siteUrl && <meta property="og:url" content={siteUrl} />}
       <meta name="Description" content={siteDescription} />
       <title>{`Dinas Sosial DKI Jakarta - ${siteTitle}`}</title>
-      <link
-        rel="canonical"
-        href="https://suspicious-payne-767500.netlify.com"
-      />
+      <link rel="canonical" href="https://pusdatin-dinsos-dev.netlify.com" />
       <link
         rel="stylesheet"
         type="text/css"
