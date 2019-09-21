@@ -33,7 +33,7 @@ const Header = () => {
     `
   )
 
-  console.log("data", data)
+  // console.log("data", data)
 
   return (
     <StyledHeader id="header">

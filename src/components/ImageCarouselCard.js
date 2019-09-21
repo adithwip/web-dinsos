@@ -62,7 +62,7 @@ const ImageCarouselCard = () => {
     { fluidImg: data.imageTwo.childImageSharp.fluid },
     { fluidImg: data.imageThree.childImageSharp.fluid },
   ]
-  console.log("images ===", images)
+  // console.log("images ===", images)
 
   return (
     <Card>

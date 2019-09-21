@@ -12,7 +12,7 @@ module.exports = {
     image: `./static/images/blog-image.jpg`,
   },
   plugins: [
-    `random-jokes`,
+    `all-news`,
     {
       resolve: `gatsby-plugin-html-attributes`,
       options: {
