@@ -2,7 +2,10 @@ import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 import Img from "gatsby-image"
+import axios from "axios"
 import { Doughnut, HorizontalBar } from "react-chartjs-2"
+
+import { dataPkhArray } from "../../utils/functions"
 
 import Paper from "@material-ui/core/Paper"
 import Table from "@material-ui/core/Table"
@@ -17,146 +20,19 @@ import Layout from "../../layouts/Layout"
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
 
-const StyledPaper = styled(Paper)`
-  padding: 32px 16px;
-`
-
-const createData = (name, value) => {
-  return { name, value }
-}
-
-const rowsData = [
-  createData('Kab. Kepulauan Seribu', 820),
-  createData('Kab. Jakarta Utara', 14265),
-  createData('Kab. Jakarta Pusat', 7830),
-  createData('Kab. Jakarta Selatan', 13633),
-  createData('Kab. Jakarta Timur', 16757),
-  createData('Kab. Jakarta Barat', 14064),
-]
-
-const DataPKH = ({ data }) => {
-  const chartData = {
-    labels: ['Kab. Kepulauan Seribu', 'Jakarta Utara', 'Jakarta Pusat', 'Jakarta Selatan', 'Jakarta Timur', 'Jakarta Barat'],
-    datasets: [
-      {
-        label: 'Jumlah Penerima PKH Tahun 2019',
-        backgroundColor: [
-        '#1572E8',
-        '#F03A47',
-        '#F0A202',
-        '#06D6A0',
-        '#FFCE56',
-        '#36A2EB',
-        ],
-        hoverBackgroundColor: [
-        '#FF6384',
-        '#36A2EB',
-        '#36A2EB',
-        '#FFCE56',
-        '#FFCE56',
-        '#FF6384',
-        ],
-        data: [820, 14265, 7830, 13633, 16757, 14064]
-      }
-    ]
-  }
-
-  const chartData2 = {
-    labels: ['Kab. Kepulauan Seribu', 'Jakarta Utara', 'Jakarta Pusat', 'Jakarta Selatan', 'Jakarta Timur', 'Jakarta Barat'],
-    datasets: [
-      {
-        label: 'Jumlah Penerima PKH Tahun 2019',
-        backgroundColor: 'rgba(255,199,132,0.2)',
-        borderColor: 'rgba(255,199,132,1)',
-        borderWidth: 1,
-        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-        hoverBorderColor: 'rgba(255,99,132,1)',
-        data: [820, 14265, 7830, 13633, 16757, 14064]
-      }
-    ]
-  }
-
-  const MapData = (
-    <Item align="center">
-      <div style={{ position: 'relative', width: 300, margin: '0 auto'}}>
-        <Img
-          alt="jakarta-map"
-          fixed={data.jakartaMap.childImageSharp.fixed}
-        />
-        <div style={{ position: "absolute", top: '30%', left: '15%' }}>
-          <Chip color="primary" label={14064} />
-        </div>
-        <div style={{ position: "absolute", top: '15%', left: '70%' }}>
-          <Chip color="primary" label={14265} />
-        </div>
-        <div style={{ position: "absolute", top: '22%', left: '45%' }}>
-          <Chip color="primary" label={7830} />
-        </div>
-        <div style={{ position: "absolute", top: '65%', left: '35%' }}>
-          <Chip color="primary" label={13633} />
-        </div>
-        <div style={{ position: "absolute", top: '40%', left: '65%' }}>
-          <Chip color="primary" label={16757} />
-        </div>
-    </div>
-      </Item>
-  )
-
-  const GraphData = (
-    <>
-      <Item flex={1}>
-        <Doughnut
-          data={chartData}
-        />
-      </Item>
-      <Item flex={1}>
-        <HorizontalBar
-          data={chartData2}
-        />
-      </Item>
-    </>
-  )
-
-  const TableData = (
-    <Item>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>{'Kabupaten/Kota'}</TableCell>
-            <TableCell align="right">{'Jumlah KPM'}</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rowsData.map(row => (
-            <TableRow>
-              <TableCell>{row.name}</TableCell>
-              <TableCell align="right">{row.value}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </Item>
-  )
-
-  return (
-    <Layout siteTitle="Data page" siteDescription="Pusat data dinas sosial">
-      <StyledPaper>
-        <Container flexDirection="column" spacing={32}>  
-          <Item><Typography variant="h4">Data Penerima PKH</Typography></Item>
-          {MapData}
-          {GraphData}
-          {TableData}
-        </Container>
-      </StyledPaper>
-    </Layout>
-  )
-}
-
-export default DataPKH
-
 export const query = graphql`
   query {
-    jakartaMap: file(relativePath: { eq: "images/jakarta-maps.png" }) {
+    # allDataPkh {
+    #   edges {
+    #     node {
+    #       wilayah
+    #       total
+    #       tahun
+    #     }
+    #   }
+    # }
+
+    jakartaMap: file(relativePath: { eq: "images/jakarta-maps-01.png" }) {
       childImageSharp {
         fixed(width: 300) {
           ...GatsbyImageSharpFixed
@@ -165,3 +41,155 @@ export const query = graphql`
     }
   }
 `
+
+const StyledPaper = styled(Paper)`
+  padding: 32px 16px;
+`
+
+class DataPKH extends React.Component {
+  state = {
+    dataPkh: null,
+    error: false,
+    loading: false,
+  }
+
+  fetchDataPkh = () => {
+    this.setState({ loading: true })
+    axios
+      .get(`http://rasetprojects.com/pusdatin/api/v1/opendata/summary/pkh`, {
+        crossdomain: true,
+      })
+      .then(result => {
+        const { data } = result.data
+        this.setState({
+          loading: false,
+          dataPkh: data,
+        })
+      })
+      .catch(error => {
+        this.setState({ loading: false, error })
+      })
+  }
+
+  componentDidMount() {
+    this.fetchDataPkh()
+  }
+
+  render() {
+    const { data } = this.props
+    const { dataPkh, error, loading } = this.state
+    const dataForMaps = createDataForMaps(dataPkh)
+
+    const chartDataDoughnut = {
+      labels: dataPkhArray('area', dataPkh),
+      datasets: [
+        {
+          label: 'Jumlah Penerima PKH Tahun 2019',
+          backgroundColor: [
+          '#1572E8',
+          '#F03A47',
+          '#F0A202',
+          '#06D6A0',
+          '#FFCE56',
+          '#36A2EB',
+          ],
+          hoverBackgroundColor: [
+          '#FF6384',
+          '#36A2EB',
+          '#36A2EB',
+          '#FFCE56',
+          '#FFCE56',
+          '#FF6384',
+          ],
+          data: dataPkhArray('total', dataPkh)
+        }
+      ]
+    }
+  
+    const chartDataBar = {
+      labels: dataPkhArray('area', dataPkh),
+      datasets: [
+        {
+          label: 'Jumlah Penerima PKH Tahun 2019',
+          backgroundColor: 'rgba(255,199,132,0.2)',
+          borderColor: 'rgba(255,199,132,1)',
+          borderWidth: 1,
+          hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+          hoverBorderColor: 'rgba(255,99,132,1)',
+          data: dataPkhArray('total', dataPkh)
+        }
+      ]
+    }
+  
+    const MapData = (
+      <Item align="center">
+        <div style={{ position: 'relative', width: 300, margin: '0 auto'}}>
+          <Img
+            alt="jakarta-map"
+            fixed={data.jakartaMap.childImageSharp.fixed}
+          />
+          {!!dataForMaps && dataForMaps.map(data => (
+            <div key={data.id} style={{ position: "absolute", top: data.top, left: data.left }}>
+              <Chip color="primary" label={data.label} />
+            </div>
+          ))}
+      </div>
+        </Item>
+    )
+  
+    const GraphData = (
+      <>
+        <Item flex={1}>
+          <Doughnut
+            data={chartDataDoughnut}
+          />
+        </Item>
+        <Item flex={1}>
+          <HorizontalBar
+            data={chartDataBar}
+          />
+        </Item>
+      </>
+    )
+  
+    const TableData = (
+      <Item>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>{'Kabupaten/Kota'}</TableCell>
+              <TableCell align="right">{'Jumlah KPM'}</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {!!dataPkh && dataPkh.map(data => (
+              <TableRow key={data.total}>
+                <TableCell>{data.wilayah}</TableCell>
+                <TableCell align="right">{data.total}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Item>
+    )
+  
+    return (
+      <Layout siteTitle="Data page" siteDescription="Pusat data dinas sosial">
+        <StyledPaper>
+          {loading ? (
+            <p>Fetching data from data source...</p>
+          ) : (
+            <Container flexDirection="column" spacing={32}>  
+              <Item><Typography variant="h4">Data Penerima PKH</Typography></Item>
+              {MapData}
+              {GraphData}
+              {TableData}
+            </Container>
+          )}
+        </StyledPaper>
+      </Layout>
+    )
+  }
+}
+
+export default DataPKH
