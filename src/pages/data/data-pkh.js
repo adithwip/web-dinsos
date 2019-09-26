@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import axios from "axios"
 import { Doughnut, HorizontalBar } from "react-chartjs-2"
 
-import { dataPkhArray } from "../../utils/functions"
+import { dataPkhArray, createDataForMaps } from "../../utils/functions"
 
 import Paper from "@material-ui/core/Paper"
 import Table from "@material-ui/core/Table"
@@ -176,9 +176,8 @@ class DataPKH extends React.Component {
     return (
       <Layout siteTitle="Data page" siteDescription="Pusat data dinas sosial">
         <StyledPaper>
-          {loading ? (
-            <p>Fetching data from data source...</p>
-          ) : (
+          {!!loading && <p>Fetching data from data source...</p>}
+          {!loading && (
             <Container flexDirection="column" spacing={32}>  
               <Item><Typography variant="h4">Data Penerima PKH</Typography></Item>
               {MapData}
@@ -186,6 +185,7 @@ class DataPKH extends React.Component {
               {TableData}
             </Container>
           )}
+          {!!error && <p>There is something wrong. Maybe check your connections or refresh...</p>}
         </StyledPaper>
       </Layout>
     )
