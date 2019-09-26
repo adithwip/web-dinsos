@@ -1,5 +1,4 @@
 import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
@@ -8,16 +7,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from "react-responsive-carousel"
 import BackgroundImage from "gatsby-background-image"
 import Card from "@material-ui/core/Card"
-
-const useStyles = makeStyles({
-  card: {
-    height: "100%",
-    minHeight: 300,
-  },
-  media: {
-    height: "100%",
-  },
-})
 
 const StyledBgImage = styled(BackgroundImage)`
   width: 100%;
@@ -29,7 +18,6 @@ const StyledBgImage = styled(BackgroundImage)`
 `
 
 const ImageCarouselCard = () => {
-  const classes = useStyles()
   const data = useStaticQuery(
     graphql`
       query {
