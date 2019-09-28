@@ -56,7 +56,7 @@ class DataPKH extends React.Component {
   fetchDataPkh = () => {
     this.setState({ loading: true })
     axios
-      .get(`http://rasetprojects.com/pusdatin/api/v1/opendata/summary/pkh`, {
+      .get(`https://rasetprojects.com/pusdatin/api/v1/opendata/summary/pkh`, {
         crossdomain: true,
       })
       .then(result => {
