@@ -26,9 +26,9 @@ const Header = () => {
           }
         }
 
-        headerLogo: file(relativePath: { eq: "images/dinsos-logo.png" }) {
+        headerLogo: file(relativePath: { eq: "images/dinsos-logo-full.png" }) {
           childImageSharp {
-            fixed(width: 40, height: 40) {
+            fixed {
               ...GatsbyImageSharpFixed
             }
           }
@@ -54,13 +54,6 @@ const Header = () => {
               <Container alignItems="center" spacing={16}>
                 <Item>
                   <Img fixed={data.headerLogo.childImageSharp.fixed} />
-                </Item>
-                <Item>
-                  <span
-                    style={{ fontWeight: "bold", fontSize: 20, color: "black" }}
-                  >
-                    Pusdatin Dinas Sosial DKI Jakarta
-                  </span>
                 </Item>
               </Container>
             </Link>

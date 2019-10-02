@@ -6,7 +6,7 @@ import Item from "../layouts/Item"
 const Footer = () => (
   <Container justify="center">
     <Item>
-      <h6>© Copyright - Tenaga Ahli Dinas Sosial DKI Jakarta</h6>
+      <h6>&copy; Copyright - Pusdatin Dinas Sosial Provinsi DKI Jakarta</h6>
     </Item>
   </Container>
 )
