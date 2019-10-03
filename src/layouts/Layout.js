@@ -34,7 +34,7 @@ const Layout = ({
       <meta property="og:image:alt" content="Blog image" />
       {siteUrl && <meta property="og:url" content={siteUrl} />}
       <meta name="Description" content={siteDescription} />
-      <title>{`Dinas Sosial DKI Jakarta - ${siteTitle}`}</title>
+      <title>{`Pusdatin Dinsos Provinsi DKI Jakarta - ${siteTitle}`}</title>
       <link rel="canonical" href="https://pusdatin-dinsos-dev.netlify.com" />
       <link
         rel="stylesheet"
