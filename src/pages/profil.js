@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
@@ -9,13 +9,13 @@ const StyledPaper = styled(Paper)`
   padding: 32px 16px;
 `
 
-const AboutPage = () => (
+const ProfilPage = () => (
   <Layout
     siteTitle="Profil"
     siteDescription="Will provide my readers about myself"
   >
     <StyledPaper>
-      <h1>Dinas Sosial DKI Jakarta</h1>
+      <h1>Pusdatin Dinas Sosial Provinsi DKI Jakarta</h1>
       <p>Hubungi kami:</p>
       <ul>
         <li>
@@ -52,11 +52,11 @@ const AboutPage = () => (
           </a>
         </li>
         <li>
-          <Link to="/blog">Berita dan Informasi</Link>
+          <Link to="/berita">Berita dan Informasi</Link>
         </li>
       </ul>
     </StyledPaper>
   </Layout>
 )
 
-export default AboutPage
+export default ProfilPage

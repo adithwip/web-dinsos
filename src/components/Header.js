@@ -26,9 +26,9 @@ const Header = () => {
           }
         }
 
-        headerLogo: file(relativePath: { eq: "images/dinsos-logo.png" }) {
+        headerLogo: file(relativePath: { eq: "images/dinsos-logo-full.png" }) {
           childImageSharp {
-            fixed(width: 40, height: 40) {
+            fixed {
               ...GatsbyImageSharpFixed
             }
           }
@@ -55,13 +55,6 @@ const Header = () => {
                 <Item>
                   <Img fixed={data.headerLogo.childImageSharp.fixed} />
                 </Item>
-                <Item>
-                  <span
-                    style={{ fontWeight: "bold", fontSize: 20, color: "black" }}
-                  >
-                    Pusdatin Dinas Sosial DKI Jakarta
-                  </span>
-                </Item>
               </Container>
             </Link>
           </Item>
@@ -69,29 +62,29 @@ const Header = () => {
             <Container spacing={16}>
               <Item>
                 <Link to="/">
-                  <Typography variant="button">Home</Typography>
+                  <Typography variant="button">Beranda</Typography>
                 </Link>
               </Item>
               <Item>
-                <Link to="/about">
-                  <Typography variant="button">Kontak</Typography>
+                <Link to="/profil">
+                  <Typography variant="button">Profil</Typography>
                 </Link>
               </Item>
-              {/* <Item>
-                <a href="https://rasetprojects.com/pusdatin/home_grafik.html">
-                  <Typography variant="button">Pusat Data</Typography>
-                </a>
-              </Item> */}
               <Item>
-                <Link to="/blog">
+                <Link to="/berita">
                   <Typography variant="button">Berita</Typography>
                 </Link>
               </Item>
-              {/* <Item>
-                <Link to="/files">
-                  <Typography variant="button">File System</Typography>
+              <Item>
+                <Link to="/infografis">
+                  <Typography variant="button">Infografis</Typography>
                 </Link>
-              </Item> */}
+              </Item>
+              <Item>
+                <Link to="/login">
+                  <Typography variant="button">Login</Typography>
+                </Link>
+              </Item>
             </Container>
           </Item>
         </Container>
