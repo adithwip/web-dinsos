@@ -104,6 +104,16 @@ const IndexPage = () => {
         <Grid item xs={6} sm={6} md={4}>
           <DataPetugasP3SChart />
         </Grid>
+
+        <Grid item xs={6} sm={6} md={4}>
+          <DataPetugasP3SChart />
+        </Grid>
+        <Grid item xs={6} sm={6} md={4}>
+          <DataPKHChart />
+        </Grid>
+        <Grid item xs={6} sm={6} md={4}>
+          <DataPKHChart />
+        </Grid>
       </StyledGrid>
     </Layout>
   )
