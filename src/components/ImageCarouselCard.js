@@ -11,7 +11,7 @@ import Card from "@material-ui/core/Card"
 const StyledBgImage = styled(BackgroundImage)`
   width: 100%;
   height: 100%;
-  min-height: 300px;
+  min-height: 380px;
   background-position: center center;
   background-repeat: repeat-y;
   background-size: cover;
