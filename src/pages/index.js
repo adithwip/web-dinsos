@@ -57,10 +57,10 @@ const IndexPage = () => {
   return (
     <Layout
       noGrid
-      siteTitle="Pusdatin Dinsos"
-      siteDescription="Pusat Data & Informasi Dinas Sosial Provinsi DKI Jakarta"
+      siteTitle="Pusdatin Jamsos"
+      siteDescription="Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta"
     >
-      <h2>Pusat Data & Informasi Dinas Sosial Provinsi DKI Jakarta</h2>
+      <h2>Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta</h2>
       <StyledGrid
         container
         justify="center"
@@ -70,10 +70,10 @@ const IndexPage = () => {
         style={{ marginTop : "0px" }}
       >
       
-        <Grid item xs={4} spacing={0} style={{ textAlign: "left" }}>
+        <Grid item xs={12} md={4} spacing={0} style={{ textAlign: "left" }}>
           <Img fixed={data.jakartaMap.childImageSharp.fixed} />
         </Grid>
-        <Grid item xs={8} style={{ textAlign: "left"}}>
+        <Grid item xs={12} md={8} style={{ textAlign: "left"}}>
             <h3>Data Fakir Miskin & Orang Tidak Mampu (FMOTM) DKI Jakarta</h3>
             <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -85,33 +85,33 @@ const IndexPage = () => {
             </p>
         </Grid>
 
-        <Grid item xs={6} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={6}>
           <DataPKHChart />
         </Grid>
-        <Grid item xs={6} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={6}>
           <DataPetugasP3SChart />
         </Grid>
-        <Grid item xs={6} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={6}>
           <DataPKHChart />
         </Grid>
 
-        <Grid item xs={6} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={6}>
           <DataPKHChart />
         </Grid>
-        <Grid item xs={6} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={6}>
           <DataPKHChart />
         </Grid>
-        <Grid item xs={6} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={6}>
           <DataPetugasP3SChart />
         </Grid>
 
-        <Grid item xs={6} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={6}>
           <DataPetugasP3SChart />
         </Grid>
-        <Grid item xs={6} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={6}>
           <DataPKHChart />
         </Grid>
-        <Grid item xs={6} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={6}>
           <DataPKHChart />
         </Grid>
       </StyledGrid>
