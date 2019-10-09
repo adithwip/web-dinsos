@@ -8,6 +8,8 @@ import Card from "@material-ui/core/Card"
 import Typography from "@material-ui/core/Typography"
 
 import Layout from "../layouts/Layout"
+import DataPKHChart from "../components/charts/DataPKHChart"
+import DataPetugasP3SChart from "../components/charts/DataPetugasP3SChart"
 
 const StyledGrid = styled(Grid)`
   margin: 64px auto;
@@ -20,7 +22,8 @@ const StyledGrid = styled(Grid)`
 `
 
 const StyledCard = styled(Card)`
-  background-color: #f8ffe5;
+  background-color: rgba(248, 255, 229, 0.5);
+  opacity: 0.8;
   padding: 8px;
   height: 140px;
 
@@ -63,7 +66,7 @@ const IndexPage = () => {
         justify="center"
         alignContent="center"
         alignItems="flex-start"
-        spacing={4}
+        spacing={2}
         style={{ marginTop : "0px" }}
       >
       
@@ -82,68 +85,24 @@ const IndexPage = () => {
             </p>
         </Grid>
 
-        <Grid item xs={6} sm={6} md={3}>
-          <Link to="/data/data-pkh">
-            <StyledCard>
-              <Grid style={{ height: "100%" }} container direction="column" justify="center">
-                <Grid item style={{ textAlign: "center" }}>
-                  <Typography variant="button">Chart</Typography>
-                </Grid>
-              </Grid>
-            </StyledCard>
-          </Link>
+        <Grid item xs={6} sm={6} md={4}>
+          <DataPKHChart />
         </Grid>
-        <Grid item xs={6} sm={6} md={3}>
-          <Link to="/data/data-petugas-p3s">
-            <StyledCard>
-              <Grid
-                style={{ height: "100%" }}
-                container
-                direction="column"
-                justify="center"
-              >
-                <Grid item style={{ textAlign: "center" }}>
-                  <Typography variant="button">Chart</Typography>
-                </Grid>
-              </Grid>
-            </StyledCard>
-          </Link>
+        <Grid item xs={6} sm={6} md={4}>
+          <DataPetugasP3SChart />
         </Grid>
-        <Grid item xs={6} sm={6} md={3}>
-          <Link to="/data/data-lokasi-rawan-pmks">
-            <StyledCard>
-              <Grid
-                style={{ height: "100%" }}
-                container
-                direction="column"
-                justify="center"
-              >
-                <Grid item style={{ textAlign: "center" }}>
-                  <Typography variant="button">
-                    Chart
-                  </Typography>
-                </Grid>
-              </Grid>
-            </StyledCard>
-          </Link>
+        <Grid item xs={6} sm={6} md={4}>
+          <DataPKHChart />
         </Grid>
-        <Grid item xs={6} sm={6} md={3}>
-          <Link to="/data/data-lokasi-rawan-pmks">
-            <StyledCard>
-              <Grid
-                style={{ height: "100%" }}
-                container
-                direction="column"
-                justify="center"
-              >
-                <Grid item style={{ textAlign: "center" }}>
-                  <Typography variant="button">
-                    Chart
-                  </Typography>
-                </Grid>
-              </Grid>
-            </StyledCard>
-          </Link>
+
+        <Grid item xs={6} sm={6} md={4}>
+          <DataPKHChart />
+        </Grid>
+        <Grid item xs={6} sm={6} md={4}>
+          <DataPKHChart />
+        </Grid>
+        <Grid item xs={6} sm={6} md={4}>
+          <DataPetugasP3SChart />
         </Grid>
       </StyledGrid>
     </Layout>
