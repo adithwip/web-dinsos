@@ -58,9 +58,9 @@ const IndexPage = () => {
           }
         }
 
-        jakartaMap: file(relativePath: { eq: "images/jakarta-maps.png" }) {
+        jakartaMap: file(relativePath: { eq: "images/jakarta-maps-01.png" }) {
           childImageSharp {
-            fluid {
+            fluid(maxWidth: 200) {
               ...GatsbyImageSharpFluid
             }
           }
