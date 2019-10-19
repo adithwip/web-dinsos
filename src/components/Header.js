@@ -81,6 +81,11 @@ const Header = () => {
                 </Link>
               </Item>
               <Item>
+                <Link to="/kontak">
+                  <Typography variant="button">Kontak</Typography>
+                </Link>
+              </Item>
+              <Item>
                 <Link to="/login">
                   <Typography variant="button">Login</Typography>
                 </Link>

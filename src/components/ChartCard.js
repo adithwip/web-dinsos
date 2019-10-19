@@ -8,6 +8,8 @@ const StyledCard = styled(Card)`
   opacity: 0.8;
   padding: 8px;
   /* height: 140px; */
+  background-color : #00acc1; 
+  color: white;
 
   &:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
