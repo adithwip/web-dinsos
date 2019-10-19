@@ -8,7 +8,7 @@ const StyledCard = styled(Card)`
   opacity: 0.8;
   padding: 8px;
   /* height: 140px; */
-  background-color : #00acc1; 
+  background-color: #00acc1;
   color: white;
 
   &:hover {
@@ -16,15 +16,15 @@ const StyledCard = styled(Card)`
   }
 `
 
-const ChartCard = (props) => {
+const ChartCard = props => {
   return (
     <>
-    <Link to={props.to}>
-      <StyledCard>
-        <strong>{props.title}</strong>
-        {props.children}
-      </StyledCard>
-    </Link>
+      <Link to={props.to}>
+        <StyledCard>
+          <strong>{props.title}</strong>
+          {props.children}
+        </StyledCard>
+      </Link>
     </>
   )
 }
