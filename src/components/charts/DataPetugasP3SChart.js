@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
 import { Doughnut } from "react-chartjs-2"
+import { convertDataP3StoChartData } from "../../utils/charts/dataPetugasP3SUtils"
 
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
@@ -18,7 +19,7 @@ class DataP3SChart extends React.Component {
   fetchDataPkh = () => {
     this.setState({ loading: true })
     axios
-      .get(`https://api.myjson.com/bins/12ipi9`, {
+      .get(`https://api.myjson.com/bins/kv1wk`, {
         crossdomain: true,
       })
       .then(result => {
@@ -40,41 +41,26 @@ class DataP3SChart extends React.Component {
   render() {
     const { dataP3S, error, loading } = this.state
 
-    const dataP3sArray = (type, dataFromState) => {
-      let arr = []
-      !!dataFromState &&
-        dataFromState.forEach(data => {
-          type === "area" && arr.push(data.wilayah)
-          type === "total" && arr.push(data.total)
-        })
-      return arr
-    }
-
     const chartDataDoughnut = {
-      labels: dataP3sArray('area', dataP3S),
-      datasets: [
-        {
-          label: 'Jumlah Petugas P3S Tahun 2019',
-          backgroundColor: [
-          '#1572E8',
-          '#F03A47',
-          '#F0A202',
-          '#06D6A0',
-          '#FFCE56',
-          '#36A2EB',
-          ],
-          hoverBackgroundColor: [
-          '#FF6384',
-          '#36A2EB',
-          '#36A2EB',
-          '#FFCE56',
-          '#FFCE56',
-          '#FF6384',
-          ],
-          data: dataP3sArray('total', dataP3S)
-        }
-      ]
-    }
+      labels: convertDataP3StoChartData(dataP3S, "labels"),
+      datasets: [{
+        data: convertDataP3StoChartData(dataP3S, "data"),
+        backgroundColor: [
+        '#CCDBDC',
+        '#D5D6AA',
+        '#8AA399',
+        '#7AE7C7',
+        '#FAFAFA',
+        ],
+        hoverBackgroundColor: [
+        '#CCDBDC',
+        '#D5D6AA',
+        '#8AA399',
+        '#7AE7C7',
+        '#FAFAFA',
+        ]
+      }]
+    };
 
     return (
       <ChartCard title="Data Petugas P3S" to="data/data-petugas-p3s">
