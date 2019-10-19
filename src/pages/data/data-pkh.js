@@ -5,7 +5,8 @@ import Img from "gatsby-image"
 import axios from "axios"
 import { Doughnut, HorizontalBar } from "react-chartjs-2"
 
-import { dataPkhArray, createDataForMaps } from "../../utils/charts/dataPKHChart"
+import { dataPkhArray } from "../../utils/charts/dataPKHChart"
+import { createDataForMaps } from "../../utils/functions"
 
 import Paper from "@material-ui/core/Paper"
 import Table from "@material-ui/core/Table"
@@ -56,7 +57,7 @@ class DataPKH extends React.Component {
   fetchDataPkh = () => {
     this.setState({ loading: true })
     axios
-      .get(`https://rasetprojects.com/pusdatin/api/v1/opendata/summary/pkh`, {
+      .get(`https://api.myjson.com/bins/1g0h31`, {
         crossdomain: true,
       })
       .then(result => {
@@ -81,7 +82,7 @@ class DataPKH extends React.Component {
     const dataForMaps = createDataForMaps(dataPkh)
 
     const chartDataDoughnut = {
-      labels: dataPkhArray('area', dataPkh),
+      labels: dataPkhArray("labels", dataPkh),
       datasets: [
         {
           label: 'Jumlah Penerima PKH Tahun 2019',
@@ -101,13 +102,13 @@ class DataPKH extends React.Component {
           '#FFCE56',
           '#FF6384',
           ],
-          data: dataPkhArray('total', dataPkh)
+          data: dataPkhArray("data", dataPkh)
         }
       ]
     }
   
     const chartDataBar = {
-      labels: dataPkhArray('area', dataPkh),
+      labels: dataPkhArray('labels', dataPkh),
       datasets: [
         {
           label: 'Jumlah Penerima PKH Tahun 2019',
@@ -116,7 +117,7 @@ class DataPKH extends React.Component {
           borderWidth: 1,
           hoverBackgroundColor: 'rgba(255,99,132,0.4)',
           hoverBorderColor: 'rgba(255,99,132,1)',
-          data: dataPkhArray('total', dataPkh)
+          data: dataPkhArray('data', dataPkh)
         }
       ]
     }
