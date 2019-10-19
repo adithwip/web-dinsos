@@ -52,7 +52,6 @@ const StyledCard = styled(Card)`
 `
 
 const IndexPage = () => {
-
   const data = useStaticQuery(
     graphql`
       query {
@@ -79,35 +78,44 @@ const IndexPage = () => {
       siteTitle="Pusdatin Jamsos"
       siteDescription="Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta"
     >
-      <h2>Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta</h2>
+      <h2>
+        Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI
+        Jakarta
+      </h2>
       <StyledGrid
         container
         justify="center"
         alignContent="center"
         alignItems="flex-start"
         spacing={2}
-        style={{ marginTop : "0px" }}
+        style={{ marginTop: "0px" }}
       >
-        <Grid item xs={12} md={12} style={{ textAlign: "left"}}>
+        <Grid item xs={12} md={12} style={{ textAlign: "left" }}>
           <h3>Data Fakir Miskin & Orang Tidak Mampu (FMOTM) DKI Jakarta</h3>
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-        </Grid>            
-        <Grid item xs={12} md={8}>            
-          <CustomChart title="Sebaran FMOTM berdasarkan Wilayah"/>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </Grid>
+        <Grid item xs={12} md={8}>
+          <CustomChart title="Sebaran FMOTM berdasarkan Wilayah" />
           <br />
           <CustomChart2 />
         </Grid>
-        <Grid item xs={12} md={4}>            
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d507680.95838321565!2d106.829518!3d-6.229746!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta%2C%20Indonesia!5e0!3m2!1sen!2sus!4v1570862418475!5m2!1sen!2sus" width="100%" height="380" frameborder="0"></iframe>
+        <Grid item xs={12} md={4}>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d507680.95838321565!2d106.829518!3d-6.229746!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta%2C%20Indonesia!5e0!3m2!1sen!2sus!4v1570862418475!5m2!1sen!2sus"
+            width="100%"
+            height="380"
+            frameborder="0"
+          ></iframe>
           <CustomChart3 />
-          <br/>
+          <br />
           <CustomChart4 />
         </Grid>
 
@@ -133,7 +141,7 @@ const IndexPage = () => {
           <CustomChart4 />
         </Grid>*/}
 
-        <Grid item xs={12} style={{ textAlign: "left"}}>
+        <Grid item xs={12} style={{ textAlign: "left" }}>
           <h3>Open Data Dinas Sosial Provinsi DKI Jakarta</h3>
         </Grid>
 
