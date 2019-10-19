@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
 import { Doughnut, HorizontalBar, Bar } from "react-chartjs-2"
-import { dataPkhArray } from "../../utils/functions"
+import { dataPkhArray } from "../../utils/charts/dataPKHChart"
 
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
