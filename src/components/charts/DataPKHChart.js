@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
 import { Doughnut, HorizontalBar } from "react-chartjs-2"
-import { dataPkhArray } from "../../utils/functions"
+import { dataPkhArray } from "../../utils/charts/dataPKHChart"
 
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
@@ -83,7 +83,7 @@ class DataPKHChart extends React.Component {
     }
 
     return (
-      <ChartCard title="Data PKH" to="data/data-pkh">
+      <ChartCard title="Data Penerima PKH" to="data/data-pkh">
         <Grid
           style={{ height: "100%" }}
           container
