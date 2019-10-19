@@ -13,6 +13,7 @@ module.exports = {
   },
   plugins: [
     `pusdatin-datasource`,
+    `gatsby-plugin-lodash`,
     {
       resolve: `gatsby-plugin-html-attributes`,
       options: {
