@@ -1,16 +1,17 @@
 import React from "react"
 import axios from "axios"
 import Grid from "@material-ui/core/Grid"
+import { Bar } from "react-chartjs-2"
 
 import ChartCard from "../ChartCard"
-import { Doughnut } from "react-chartjs-2"
+import { convertDataBersihPMKSToChartData } from "../../utils/charts/dataLokasiBersihPMKS"
 
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
 
 class DataLokasiBersihPMKSChart extends React.Component {
   state = {
-    dataP3S: null,
+    dataBersihPMKS: null,
     error: false,
     loading: false,
   }
@@ -18,14 +19,14 @@ class DataLokasiBersihPMKSChart extends React.Component {
   fetchDataPkh = () => {
     this.setState({ loading: true })
     axios
-      .get(`https://api.myjson.com/bins/12ipi9`, {
+      .get(`https://api.myjson.com/bins/12pb5t`, {
         crossdomain: true,
       })
       .then(result => {
         const { data } = result.data
         this.setState({
           loading: false,
-          dataP3S: data,
+          dataBersihPMKS: data,
         })
       })
       .catch(error => {
@@ -38,43 +39,26 @@ class DataLokasiBersihPMKSChart extends React.Component {
   }
 
   render() {
-    const { dataP3S, error, loading } = this.state
+    const { dataBersihPMKS, error, loading } = this.state
 
-    const dataP3sArray = (type, dataFromState) => {
-      let arr = []
-      !!dataFromState &&
-        dataFromState.forEach(data => {
-          type === "area" && arr.push(data.wilayah)
-          type === "total" && arr.push(data.total)
-        })
-      return arr
-    }
+    convertDataBersihPMKSToChartData(dataBersihPMKS, 'labels')
+    // convertDataBersihPMKSToChartData(dataBersihPMKS, 'month')
+    // convertDataBersihPMKSToChartData(dataBersihPMKS, 'area')
 
-    const chartDataDoughnut = {
-      labels: dataP3sArray('area', dataP3S),
-      datasets: [
-        {
-          label: 'Jumlah Petugas P3S Tahun 2019',
-          backgroundColor: [
-          '#1572E8',
-          '#F03A47',
-          '#F0A202',
-          '#06D6A0',
-          '#FFCE56',
-          '#36A2EB',
-          ],
-          hoverBackgroundColor: [
-          '#FF6384',
-          '#36A2EB',
-          '#36A2EB',
-          '#FFCE56',
-          '#FFCE56',
-          '#FF6384',
-          ],
-          data: dataP3sArray('total', dataP3S)
-        }
-      ]
-    }
+    // const dataBarChart = {
+    //   labels: convertDataBersihPMKSToChartData(dataPemulangan, 'labels'),
+    //   datasets: [
+    //     {
+    //       label: 'Data Lokasi Bersih PMKS',
+    //       backgroundColor: '#CCDBDC',
+    //       borderColor: '#CCDBDC',
+    //       borderWidth: 1,
+    //       hoverBackgroundColor: '#CCDBDC',
+    //       hoverBorderColor: '#CCDBDC',
+    //       data: [1, 2, 3, 4, 5]
+    //     }
+    //   ]
+    // };
 
     return (
       <ChartCard title="Data Lokasi Bersih PMKS" to="data/data-petugas-p3s">
@@ -86,9 +70,9 @@ class DataLokasiBersihPMKSChart extends React.Component {
         >
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <Doughnut
-                data={chartDataDoughnut}
-              />
+              {/* <Bar
+                data={dataBarChart}
+              /> */}
             </Item>
           </Container>
         </Grid>
