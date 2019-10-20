@@ -1,16 +1,17 @@
 import React from "react"
 import axios from "axios"
 import Grid from "@material-ui/core/Grid"
+import { Doughnut } from "react-chartjs-2"
 
 import ChartCard from "../ChartCard"
-import { Doughnut } from "react-chartjs-2"
+import { convertDataTitikPMKStoChartData } from "../../utils/charts/dataTitikRawanPMKS"
 
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
 
 class DataTitikRawanPMKSChart extends React.Component {
   state = {
-    dataP3S: null,
+    dataTitikPMKS: null,
     error: false,
     loading: false,
   }
@@ -18,14 +19,14 @@ class DataTitikRawanPMKSChart extends React.Component {
   fetchDataPkh = () => {
     this.setState({ loading: true })
     axios
-      .get(`https://api.myjson.com/bins/12ipi9`, {
+      .get(`https://api.myjson.com/bins/168at0`, {
         crossdomain: true,
       })
       .then(result => {
         const { data } = result.data
         this.setState({
           loading: false,
-          dataP3S: data,
+          dataTitikPMKS: data,
         })
       })
       .catch(error => {
@@ -38,43 +39,28 @@ class DataTitikRawanPMKSChart extends React.Component {
   }
 
   render() {
-    const { dataP3S, error, loading } = this.state
-
-    const dataP3sArray = (type, dataFromState) => {
-      let arr = []
-      !!dataFromState &&
-        dataFromState.forEach(data => {
-          type === "area" && arr.push(data.wilayah)
-          type === "total" && arr.push(data.total)
-        })
-      return arr
-    }
+    const { dataTitikPMKS, error, loading } = this.state
 
     const chartDataDoughnut = {
-      labels: dataP3sArray('area', dataP3S),
-      datasets: [
-        {
-          label: 'Jumlah Petugas P3S Tahun 2019',
-          backgroundColor: [
-          '#1572E8',
-          '#F03A47',
-          '#F0A202',
-          '#06D6A0',
-          '#FFCE56',
-          '#36A2EB',
-          ],
-          hoverBackgroundColor: [
-          '#FF6384',
-          '#36A2EB',
-          '#36A2EB',
-          '#FFCE56',
-          '#FFCE56',
-          '#FF6384',
-          ],
-          data: dataP3sArray('total', dataP3S)
-        }
-      ]
-    }
+      labels: convertDataTitikPMKStoChartData(dataTitikPMKS, "labels"),
+      datasets: [{
+        data: convertDataTitikPMKStoChartData(dataTitikPMKS, "data"),
+        backgroundColor: [
+        '#CCDBDC',
+        '#D5D6AA',
+        '#8AA399',
+        '#7AE7C7',
+        '#FAFAFA',
+        ],
+        hoverBackgroundColor: [
+        '#CCDBDC',
+        '#D5D6AA',
+        '#8AA399',
+        '#7AE7C7',
+        '#FAFAFA',
+        ]
+      }]
+    };
 
     return (
       <ChartCard title="Data Titik Rawan PMKS" to="data/data-petugas-p3s">
