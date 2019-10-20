@@ -95,7 +95,7 @@ const KontakPage = () => {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.819982213951!2d106.83455031413696!3d-6.154859362039576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f59245fac57d%3A0x43046ee5708f9c5!2sPUSDATIN%20JAMSOS!5e0!3m2!1sen!2sid!4v1570860514287!5m2!1sen!2sid"
             width="100%"
             height="380"
-            frameborder="0"
+            frameBorder="0"
             allowfullscreen=""
           ></iframe>
         </Grid>
