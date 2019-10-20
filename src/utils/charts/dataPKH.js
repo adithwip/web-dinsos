@@ -1,4 +1,4 @@
-const dataPkhArray = (type, dataFromState) => {
+const convertDataPKHtoChartData = (dataFromState, type) => {
   let arr = []
   !!dataFromState &&
     dataFromState.forEach(data => {
@@ -8,4 +8,4 @@ const dataPkhArray = (type, dataFromState) => {
   return arr
 }
 
-export { dataPkhArray }
+export { convertDataPKHtoChartData }

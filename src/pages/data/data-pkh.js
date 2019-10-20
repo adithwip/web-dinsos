@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import axios from "axios"
 import { Doughnut, HorizontalBar } from "react-chartjs-2"
 
-import { dataPkhArray } from "../../utils/charts/dataPKHChart"
+import { convertDataPKHtoChartData } from "../../utils/charts/dataPKH"
 import { createDataForMaps } from "../../utils/functions"
 
 import Paper from "@material-ui/core/Paper"
@@ -82,7 +82,7 @@ class DataPKH extends React.Component {
     const dataForMaps = createDataForMaps(dataPkh)
 
     const chartDataDoughnut = {
-      labels: dataPkhArray("labels", dataPkh),
+      labels: convertDataPKHtoChartData(dataPkh, 'labels'),
       datasets: [
         {
           label: 'Jumlah Penerima PKH Tahun 2019',
@@ -102,13 +102,13 @@ class DataPKH extends React.Component {
           '#FFCE56',
           '#FF6384',
           ],
-          data: dataPkhArray("data", dataPkh)
+          data: convertDataPKHtoChartData(dataPkh, 'data')
         }
       ]
     }
   
     const chartDataBar = {
-      labels: dataPkhArray('labels', dataPkh),
+      labels: convertDataPKHtoChartData(dataPkh, 'labels'),
       datasets: [
         {
           label: 'Jumlah Penerima PKH Tahun 2019',
@@ -117,7 +117,7 @@ class DataPKH extends React.Component {
           borderWidth: 1,
           hoverBackgroundColor: 'rgba(255,99,132,0.4)',
           hoverBorderColor: 'rgba(255,99,132,1)',
-          data: dataPkhArray('data', dataPkh)
+          data: convertDataPKHtoChartData(dataPkh, 'data')
         }
       ]
     }

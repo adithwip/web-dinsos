@@ -3,8 +3,8 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
-import { Doughnut, HorizontalBar } from "react-chartjs-2"
-import { dataPkhArray } from "../../utils/charts/dataPKHChart"
+import { Bar } from "react-chartjs-2"
+import { convertDataPKHtoChartData } from "../../utils/charts/dataPKH"
 
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
@@ -41,46 +41,21 @@ class DataPKHChart extends React.Component {
   render() {
     const { dataPkh, error, loading } = this.state
 
-    const chartDataDoughnut = {
-      labels: dataPkhArray('area', dataPkh),
-      datasets: [
-        {
-          label: 'Jumlah Penerima PKH Tahun 2019',
-          backgroundColor: [
-          '#1572E8',
-          '#F03A47',
-          '#F0A202',
-          '#06D6A0',
-          '#FFCE56',
-          '#36A2EB',
-          ],
-          hoverBackgroundColor: [
-          '#FF6384',
-          '#36A2EB',
-          '#36A2EB',
-          '#FFCE56',
-          '#FFCE56',
-          '#FF6384',
-          ],
-          data: dataPkhArray('total', dataPkh)
-        }
-      ]
-    }
-  
     const chartDataBar = {
-      labels: dataPkhArray('area', dataPkh),
+      labels: convertDataPKHtoChartData(dataPkh, "labels"),
       datasets: [
         {
-          label: 'Jumlah Penerima PKH Tahun 2019',
-          backgroundColor: 'rgba(255,199,132,0.2)',
-          borderColor: 'rgba(255,199,132,1)',
+          label: 'My First dataset',
+          backgroundColor: '#C42021',
+          borderColor: '#C42021',
           borderWidth: 1,
-          hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-          hoverBorderColor: 'rgba(255,99,132,1)',
-          data: dataPkhArray('total', dataPkh)
+          hoverBackgroundColor: '#C42021',
+          hoverBorderColor: '#C42021',
+          data: convertDataPKHtoChartData(dataPkh, "data")
         }
       ]
-    }
+    };
+    
 
     return (
       <ChartCard title="Data Penerima PKH" to="data/data-pkh">
@@ -91,13 +66,9 @@ class DataPKHChart extends React.Component {
           justify="center"
         >
           <Container flexDirection="column" spacing={16}>
-            {/* <Item flex={1}>
-              <Doughnut
-                data={chartDataDoughnut}
-              />
-            </Item> */}
+
             <Item flex={1}>
-              <HorizontalBar
+              <Bar
                 data={chartDataBar}
               />
             </Item>

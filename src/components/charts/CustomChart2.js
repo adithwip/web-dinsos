@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
 import { Doughnut, HorizontalBar, Bar } from "react-chartjs-2"
-import { dataPkhArray } from "../../utils/charts/dataPKHChart"
+import { convertDataPKHtoChartData } from "../../utils/charts/dataPKH"
 
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
@@ -51,7 +51,7 @@ class CustomChart2 extends React.Component {
     const { dataPkh, error, loading } = this.state
   
     const chartDataBar = {
-      labels: dataPkhArray('area', dataPkh),
+      labels: convertDataPKHtoChartData(dataPkh, 'labels'),
       datasets: [
         {
           label: 'FMOTM',
@@ -59,7 +59,7 @@ class CustomChart2 extends React.Component {
           borderColor: 'rgba(255,255,255,1)',
           hoverBackgroundColor: '#009688',
           borderWidth: 1,
-          data: dataPkhArray('total', dataPkh)
+          data: convertDataPKHtoChartData(dataPkh, 'data')
         }
       ]
     }
