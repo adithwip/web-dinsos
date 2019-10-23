@@ -1,16 +1,17 @@
 import React from "react"
 import axios from "axios"
 import Grid from "@material-ui/core/Grid"
+import { HorizontalBar } from "react-chartjs-2"
 
 import ChartCard from "../ChartCard"
-import { Doughnut } from "react-chartjs-2"
+import { convertDataKejadianBencanaToChartData } from "../../utils/charts/dataKejadianBencana"
 
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
 
 class DataKejadianBencanaChart extends React.Component {
   state = {
-    dataP3S: null,
+    dataKejadianBencana: null,
     error: false,
     loading: false,
   }
@@ -18,14 +19,14 @@ class DataKejadianBencanaChart extends React.Component {
   fetchDataPkh = () => {
     this.setState({ loading: true })
     axios
-      .get(`https://api.myjson.com/bins/12ipi9`, {
+      .get(`https://api.myjson.com/bins/1e1tsp`, {
         crossdomain: true,
       })
       .then(result => {
         const { data } = result.data
         this.setState({
           loading: false,
-          dataP3S: data,
+          dataKejadianBencana: data,
         })
       })
       .catch(error => {
@@ -38,43 +39,22 @@ class DataKejadianBencanaChart extends React.Component {
   }
 
   render() {
-    const { dataP3S, error, loading } = this.state
-
-    const dataP3sArray = (type, dataFromState) => {
-      let arr = []
-      !!dataFromState &&
-        dataFromState.forEach(data => {
-          type === "area" && arr.push(data.wilayah)
-          type === "total" && arr.push(data.total)
-        })
-      return arr
-    }
-
-    const chartDataDoughnut = {
-      labels: dataP3sArray('area', dataP3S),
+    const { dataKejadianBencana, error, loading } = this.state
+    
+    const dataBarChart = {
+      labels: convertDataKejadianBencanaToChartData(dataKejadianBencana, 'labels'),
       datasets: [
         {
-          label: 'Jumlah Petugas P3S Tahun 2019',
-          backgroundColor: [
-          '#1572E8',
-          '#F03A47',
-          '#F0A202',
-          '#06D6A0',
-          '#FFCE56',
-          '#36A2EB',
-          ],
-          hoverBackgroundColor: [
-          '#FF6384',
-          '#36A2EB',
-          '#36A2EB',
-          '#FFCE56',
-          '#FFCE56',
-          '#FF6384',
-          ],
-          data: dataP3sArray('total', dataP3S)
+          label: 'Data Kejadian Bencana',
+          backgroundColor: '#CCDBDC',
+          borderColor: '#CCDBDC',
+          borderWidth: 1,
+          hoverBackgroundColor: '#CCDBDC',
+          hoverBorderColor: '#CCDBDC',
+          data: convertDataKejadianBencanaToChartData(dataKejadianBencana, 'data')
         }
       ]
-    }
+    };
 
     return (
       <ChartCard title="Data Kejadian Bencana" to="data/data-petugas-p3s">
@@ -86,8 +66,8 @@ class DataKejadianBencanaChart extends React.Component {
         >
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <Doughnut
-                data={chartDataDoughnut}
+              <HorizontalBar
+                data={dataBarChart}
               />
             </Item>
           </Container>
