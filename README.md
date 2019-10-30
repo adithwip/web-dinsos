@@ -13,11 +13,12 @@
 1.  **How to run this project?**
     - Set Up your environment here [Gatsby Environment setup](https://www.gatsbyjs.org/tutorial/part-zero/)
     - Use the best node version you have
-    - [updated] Since we use @bit as [new charts library](https://bit.dev/primefaces/primereact/chart?example=5d42e64160fbc6001439e6d1), we should consider some new configurations
+    - run `npm install`
+    - [**updated**] Since we use @bit as [new charts library](https://bit.dev/primefaces/primereact/chart?example=5d42e64160fbc6001439e6d1), we should consider some new configurations
+      - You might find an error if not run this command below
       - We need to configure scoped registry, use `npm config` command
       - `npm config set '@bit:registry' https://node.bit.dev`
       - Refer to this doc for [more](https://docs.bit.dev/docs/installing-components)
-    - run `npm install`
     - run `npm run develop` to start development mode
 
 2. **What if you encountered problems?**
