@@ -39,9 +39,11 @@ class CustomChart2 extends React.Component {
     this.setState({
       loading: false, 
       dataPkh : [
-        {"wilayah":"KJP","total":3200,"tahun":2019},
-        {"wilayah":"KJLP","total":6500,"tahun":2019},
-        {"wilayah":"Lain-lain","total":4300,"tahun":2019}
+        {"wilayah":"Kartu Jakarta Pintar","total":459083,"tahun":2019},
+        {"wilayah":"Kartu Lansia Jakarta","total":103604,"tahun":2019},
+        {"wilayah":"Kartu Jakarta Mahasiswa Unggulan","total":7004,"tahun":2019},
+        {"wilayah":"Pemenuhan Kebutuhan Dasar Anak","total":69085,"tahun":2019},
+        {"wilayah":"Pemenuhan Kebutuhan Dasar Disabilitas","total":12759,"tahun":2019}
         ]
 
     })
@@ -54,7 +56,7 @@ class CustomChart2 extends React.Component {
       labels: convertDataPKHtoChartData(dataPkh, 'labels'),
       datasets: [
         {
-          label: 'FMOTM',
+          label: 'Penerima Bantuan',
           backgroundColor: ['red','yellow','magenta','blue','green','cyan'],
           data: convertDataPKHtoChartData(dataPkh, 'data')
         }
