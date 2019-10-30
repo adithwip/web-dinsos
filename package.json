@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build npm run npmconfig@bit",
+    "build": "npm run npmconfig@bit && gatsby build",
     "npmconfig@bit": "npm config set '@bit:registry' https://node.bit.dev",
     "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
