@@ -3,7 +3,7 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
-import { Pie } from "react-chartjs-2"
+import { Chart } from "@bit/primefaces.primereact.chart"
 
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
@@ -104,7 +104,7 @@ class CustomChart4 extends React.Component {
         >
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <Pie data={chartDataDoughnut} options={customOptions}
+              <Chart type="pie" data={chartDataDoughnut} options={customOptions}
               />
             </Item>
           </Container>

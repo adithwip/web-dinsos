@@ -3,7 +3,7 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
-import { HorizontalBar } from "react-chartjs-2"
+import { Chart } from "@bit/primefaces.primereact.chart"
 
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
@@ -73,7 +73,7 @@ class DataPendapingPKHChart extends React.Component {
         <Grid style={{ height: "100%" }} container direction="column" justify="center">
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <HorizontalBar data={dataBarChart} options={ customOptions }/>
+              <Chart type="horizontalBar" data={dataBarChart} options={ customOptions }/>
             </Item>
           </Container>
         </Grid>

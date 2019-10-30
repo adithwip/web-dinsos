@@ -3,7 +3,7 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
-import { Doughnut } from "react-chartjs-2"
+import { Chart } from "@bit/primefaces.primereact.chart"
 import { convertDataP3StoChartData } from "../../utils/charts/dataPetugasP3SUtils"
 
 import Container from "../../layouts/Container"
@@ -72,7 +72,8 @@ class DataP3SChart extends React.Component {
         >
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <Doughnut
+              <Chart
+  type="doughnut"
                 data={chartDataDoughnut}
               />
             </Item>

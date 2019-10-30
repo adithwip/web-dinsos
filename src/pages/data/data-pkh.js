@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import axios from "axios"
-import { Doughnut, HorizontalBar } from "react-chartjs-2"
+import { Chart } from "@bit/primefaces.primereact.chart"
 
 import { convertDataPKHtoChartData } from "../../utils/charts/dataPKH"
 import { createDataForMaps } from "../../utils/functions"
@@ -141,12 +141,14 @@ class DataPKH extends React.Component {
     const GraphData = (
       <>
         <Item flex={1}>
-          <Doughnut
+          <Chart
+            type="doughnut"
             data={chartDataDoughnut}
           />
         </Item>
         <Item flex={1}>
-          <HorizontalBar
+          <Chart
+            type="horizontalBar"
             data={chartDataBar}
           />
         </Item>
