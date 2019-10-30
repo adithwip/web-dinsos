@@ -44,23 +44,24 @@ class DataPemulanganOrangTerlantarChart extends React.Component {
 
     const dataBarChart = {
       labels: convertDataPemulanganToChartData(dataPemulangan, 'labels'),
-      datasets: [
-        {
-          label: 'Data Pemulangan Orang Terlantar',
-          backgroundColor: '#CCDBDC',
-          borderColor: '#CCDBDC',
-          borderWidth: 1,
-          hoverBackgroundColor: '#CCDBDC',
-          hoverBorderColor: '#CCDBDC',
-          data: convertDataPemulanganToChartData(dataPemulangan, 'data')
-        }
-      ]
+      // datasets: [
+      //   {
+      //     label: 'Data Pemulangan Orang Terlantar',
+      //     backgroundColor: '#CCDBDC',
+      //     borderColor: '#CCDBDC',
+      //     borderWidth: 1,
+      //     hoverBackgroundColor: '#CCDBDC',
+      //     hoverBorderColor: '#CCDBDC',
+      //     data: convertDataPemulanganToChartData(dataPemulangan, 'data')
+      //   }
+      // ]
+      datasets: convertDataPemulanganToChartData(dataPemulangan, 'data')
     };
 
     const customOptions = {
-      legend : { 
-        display: false,
-      },
+      // legend : { 
+      //   display: false,
+      // },
       scales : {
         xAxes:[{
           ticks: {
