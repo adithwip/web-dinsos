@@ -55,10 +55,7 @@ class CustomChart2 extends React.Component {
       datasets: [
         {
           label: 'FMOTM',
-          backgroundColor: 'rgba(255,255,255, 1)',
-          borderColor: 'rgba(255,255,255,1)',
-          hoverBackgroundColor: '#009688',
-          borderWidth: 1,
+          backgroundColor: ['red','yellow','magenta','blue','green','cyan'],
           data: convertDataPKHtoChartData(dataPkh, 'data')
         }
       ]
@@ -66,9 +63,7 @@ class CustomChart2 extends React.Component {
 
     const customOptions = {
       legend : { 
-        labels : {
-          fontColor:"#fff"
-        }
+        display: false,
       },
       scales : {
         xAxes:[{
