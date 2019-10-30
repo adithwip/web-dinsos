@@ -91,7 +91,7 @@ class CustomChart2 extends React.Component {
         >
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <Bar
+              <HorizontalBar
                 data={chartDataBar} options={ customOptions }
               />
             </Item>

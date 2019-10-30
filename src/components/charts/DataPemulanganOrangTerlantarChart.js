@@ -57,6 +57,24 @@ class DataPemulanganOrangTerlantarChart extends React.Component {
       ]
     };
 
+    const customOptions = {
+      legend : { 
+        display: false,
+      },
+      scales : {
+        xAxes:[{
+          ticks: {
+            fontColor: "white"
+          }
+        }],
+        yAxes:[{
+          ticks: {
+            fontColor: "white"
+          }
+        }]
+      }
+    }
+
     return (
       <ChartCard title="Data Pemulangan Orang Terlantar" to="data/data-petugas-p3s">
         <Grid
@@ -67,9 +85,7 @@ class DataPemulanganOrangTerlantarChart extends React.Component {
         >
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <Bar
-                data={dataBarChart}
-              />
+              <Bar data={dataBarChart} options={customOptions} />
             </Item>
           </Container>
         </Grid>

@@ -55,6 +55,24 @@ class DataKejadianBencanaChart extends React.Component {
         }
       ]
     };
+    
+    const customOptions = {
+      legend : { 
+        display: false,
+      },
+      scales : {
+        xAxes:[{
+          ticks: {
+            fontColor: "white"
+          }
+        }],
+        yAxes:[{
+          ticks: {
+            fontColor: "white"
+          }
+        }]
+      }
+    }
 
     return (
       <ChartCard title="Data Kejadian Bencana" to="data/data-petugas-p3s">
@@ -66,9 +84,7 @@ class DataKejadianBencanaChart extends React.Component {
         >
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <HorizontalBar
-                data={dataBarChart}
-              />
+              <HorizontalBar data={dataBarChart} options={customOptions}/>
             </Item>
           </Container>
         </Grid>
