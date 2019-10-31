@@ -82,6 +82,7 @@ class CustomChart extends React.Component {
     }
 
     return (
+      /*<ChartCard title="Sebaran FMOTM berdasarkan Wilayah">*/
       <ChartCard title={this.props.title}>
         <Grid
           style={{ height: "100%", backgroundColor: "#00acc1", borderColor: "#fff" }}
@@ -91,7 +92,7 @@ class CustomChart extends React.Component {
         >
           <Container flexDirection="column" spacing={16} >
             <Item flex={1}>
-              <Chart type="line" data={chartDataBar} options={ customOptions } />
+              <Chart type="bar" data={chartDataBar} options={ customOptions } />
             </Item>
           </Container>
         </Grid>
