@@ -5,8 +5,7 @@ import Grid from "@material-ui/core/Grid"
 import ChartCard from "../ChartCard"
 import { Chart } from "@bit/primefaces.primereact.chart"
 
-import Container from "../../layouts/Container"
-import Item from "../../layouts/Item"
+import { convertDataJandaPerintisKemerdekaanToChartData } from "../../utils/charts/dataJandaPerintisKemerdekaan"
 
 class DataJandaPerintisKemerdekaanChart extends React.Component {
   state = {
@@ -18,7 +17,7 @@ class DataJandaPerintisKemerdekaanChart extends React.Component {
   fetchDataPkh = () => {
     this.setState({ loading: true })
     axios
-      .get(`https://api.myjson.com/bins/12ipi9`, {
+      .get(`https://api.myjson.com/bins/ihlmp`, {
         crossdomain: true,
       })
       .then(result => {
@@ -40,58 +39,56 @@ class DataJandaPerintisKemerdekaanChart extends React.Component {
   render() {
     const { dataP3S, error, loading } = this.state
 
-    const dataP3sArray = (type, dataFromState) => {
-      let arr = []
-      !!dataFromState &&
-        dataFromState.forEach(data => {
-          type === "area" && arr.push(data.wilayah)
-          type === "total" && arr.push(data.total)
-        })
-      return arr
-    }
-
-    const chartDataDoughnut = {
-      labels: dataP3sArray('area', dataP3S),
+    const chartDataDoughnut1 = {
+      labels: convertDataJandaPerintisKemerdekaanToChartData(dataP3S, 'labels', 1),
       datasets: [
         {
-          label: 'Jumlah Petugas P3S Tahun 2019',
-          backgroundColor: [
-          '#1572E8',
-          '#F03A47',
-          '#F0A202',
-          '#06D6A0',
-          '#FFCE56',
-          '#36A2EB',
-          ],
-          hoverBackgroundColor: [
-          '#FF6384',
-          '#36A2EB',
-          '#36A2EB',
-          '#FFCE56',
-          '#FFCE56',
-          '#FF6384',
-          ],
-          data: dataP3sArray('total', dataP3S)
+          label: 'Janda',
+          backgroundColor: ['#1572E8', '#F03A47', '#F0A202', '#06D6A0', '#FFCE56', '#36A2EB'],
+          data: convertDataJandaPerintisKemerdekaanToChartData(dataP3S, 'data', 1)
         }
       ]
+    }
+
+    const chartDataDoughnut2 = {
+      labels: convertDataJandaPerintisKemerdekaanToChartData(dataP3S, 'labels', 2),
+      datasets: [
+        {
+          label: 'Janda',
+          backgroundColor: ['#1572E8', '#F03A47', '#F0A202', '#06D6A0', '#FFCE56', '#36A2EB'],
+          data: convertDataJandaPerintisKemerdekaanToChartData(dataP3S, 'data', 2)
+        }
+      ]
+    }
+
+    const customOptions = {
+      legend : { 
+        labels : {
+          fontColor:"#fff",
+        },
+        position: 'bottom'
+      }
     }
 
     return (
       <ChartCard title="Data Janda Perintis Kemerdekaan" to="data/data-petugas-p3s">
         <Grid
-          style={{ height: "100%" }}
+          style={{ minHeight: "380px", marginTop: "25px" }}
           container
-          direction="column"
           justify="center"
+          alignItems="flex-start"
+          spacing={2}
         >
-          <Container flexDirection="column" spacing={16}>
-            <Item flex={1}>
-              <Chart
-                type="doughnut"
-                data={chartDataDoughnut}
-              />
-            </Item>
-          </Container>
+          <Grid item xs={12} md={6} style={{height:"100%", textAlign:"center", paddingTop: "40px"}}> 
+            <Chart type="doughnut" data={chartDataDoughnut1} options={customOptions} style={{marginBottom: "10px"}}/>
+            <hr/>
+            <strong>Januari - Juni</strong>
+          </Grid>
+          <Grid item xs={12} md={6} style={{ textAlign:"center", paddingTop: "40px" }} > 
+            <Chart type="doughnut" data={chartDataDoughnut2} options={customOptions} style={{marginBottom: "10px"}}/>
+            <hr/>
+            <strong>Juli - Desember</strong>
+          </Grid>
         </Grid>
       </ChartCard>
     )

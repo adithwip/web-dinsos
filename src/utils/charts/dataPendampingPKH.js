@@ -6,7 +6,11 @@ const convertDataPendampingPKHToChartData = (dataJson, type) => {
 
     if (typeof type === 'string' && type === 'labels') {    
         const fields = _.keys(dataPendampingGroupedByWilayah)
-        return fields
+        let cleanFields = []
+        fields.forEach(wilayah => {
+            cleanFields.push(wilayah.replace("DKI JAKARTA - ", ""))
+        })
+        return cleanFields
     }
 
     if (typeof type === 'string' && type === 'data') {

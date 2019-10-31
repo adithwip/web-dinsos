@@ -13,6 +13,7 @@ import Item from "../layouts/Item"
 const StyledHeader = styled.header`
   & * {
     color: black;
+    font-weight: bold;
   }
 `
 
@@ -45,13 +46,13 @@ const Header = () => {
 
       <MediaQuery minDeviceWidth={768}>
         <Container
-          style={{ padding: "16px 64px" }}
+          style={{ padding: "8px 64px", backgroundColor: "snow" }}
           alignItems="center"
           justify="space-between"
         >
           <Item>
             <Link to="/">
-              <Container alignItems="center" spacing={16}>
+              <Container alignItems="center" spacing={5}>
                 <Item>
                   <Img fixed={data.headerLogo.childImageSharp.fixed} />
                 </Item>

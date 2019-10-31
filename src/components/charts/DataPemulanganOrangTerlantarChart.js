@@ -44,18 +44,37 @@ class DataPemulanganOrangTerlantarChart extends React.Component {
 
     const dataBarChart = {
       labels: convertDataPemulanganToChartData(dataPemulangan, 'labels'),
-      datasets: [
-        {
-          label: 'Data Pemulangan Orang Terlantar',
-          backgroundColor: '#CCDBDC',
-          borderColor: '#CCDBDC',
-          borderWidth: 1,
-          hoverBackgroundColor: '#CCDBDC',
-          hoverBorderColor: '#CCDBDC',
-          data: convertDataPemulanganToChartData(dataPemulangan, 'data')
-        }
-      ]
+      // datasets: [
+      //   {
+      //     label: 'Data Pemulangan Orang Terlantar',
+      //     backgroundColor: '#CCDBDC',
+      //     borderColor: '#CCDBDC',
+      //     borderWidth: 1,
+      //     hoverBackgroundColor: '#CCDBDC',
+      //     hoverBorderColor: '#CCDBDC',
+      //     data: convertDataPemulanganToChartData(dataPemulangan, 'data')
+      //   }
+      // ]
+      datasets: convertDataPemulanganToChartData(dataPemulangan, 'data')
     };
+
+    const customOptions = {
+      // legend : { 
+      //   display: false,
+      // },
+      scales : {
+        xAxes:[{
+          ticks: {
+            fontColor: "white"
+          }
+        }],
+        yAxes:[{
+          ticks: {
+            fontColor: "white"
+          }
+        }]
+      }
+    }
 
     return (
       <ChartCard title="Data Pemulangan Orang Terlantar" to="data/data-petugas-p3s">
@@ -67,10 +86,7 @@ class DataPemulanganOrangTerlantarChart extends React.Component {
         >
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <Chart
-                type="bar"
-                data={dataBarChart}
-              />
+              <Chart type="bar" data={dataBarChart} options={customOptions} />
             </Item>
           </Container>
         </Grid>

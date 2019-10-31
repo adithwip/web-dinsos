@@ -19,7 +19,7 @@ class DataPKHChart extends React.Component {
   fetchDataPkh = () => {
     this.setState({ loading: true })
     axios
-      .get(`https://api.myjson.com/bins/1g0h31`, {
+      .get(`https://api.myjson.com/bins/c8tb4`, {
         crossdomain: true,
       })
       .then(result => {
@@ -45,20 +45,35 @@ class DataPKHChart extends React.Component {
       labels: convertDataPKHtoChartData(dataPkh, "labels"),
       datasets: [
         {
-          label: 'My First dataset',
-          backgroundColor: '#C42021',
-          borderColor: '#C42021',
-          borderWidth: 1,
-          hoverBackgroundColor: '#C42021',
-          hoverBorderColor: '#C42021',
+          label: 'Penerima PKH',
+          backgroundColor: ['red','yellow','magenta','blue','green','cyan'],
+          borderWidth: 0,
           data: convertDataPKHtoChartData(dataPkh, "data")
         }
       ]
     };
     
+    const customOptions = {
+      legend : { 
+        display: false,
+      },
+      scales : {
+        xAxes:[{
+          ticks: {
+            fontColor: "white"
+          }
+        }],
+        yAxes:[{
+          ticks: {
+            fontColor: "white"
+          }
+        }]
+      }
+    }
+    
 
     return (
-      <ChartCard title="Data Penerima PKH" to="data/data-pkh">
+      <ChartCard title="Data Penerima Program Keluarga Harapan (PKH)" to="data/data-pkh">
         <Grid
           style={{ height: "100%" }}
           container
@@ -68,10 +83,7 @@ class DataPKHChart extends React.Component {
           <Container flexDirection="column" spacing={16}>
 
             <Item flex={1}>
-              <Chart
-                type="bar"
-                data={chartDataBar}
-              />
+              <Chart type="bar" data={chartDataBar} options={ customOptions } />
             </Item>
           </Container>
         </Grid>

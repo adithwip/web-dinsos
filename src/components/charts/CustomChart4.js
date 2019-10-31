@@ -72,14 +72,6 @@ class CustomChart4 extends React.Component {
           '#FFCE56',
           '#36A2EB',
           ],
-          hoverBackgroundColor: [
-          '#FF6384',
-          '#36A2EB',
-          '#36A2EB',
-          '#FFCE56',
-          '#FFCE56',
-          '#FF6384',
-          ],
           data: dataP3sArray('total', dataP3S)
         }
       ]
