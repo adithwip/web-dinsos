@@ -146,6 +146,9 @@ const IndexPage = () => {
         </Grid>
 
         <Grid item xs={12} sm={6} md={6}>
+          <DataLokasiBersihPMKSChart />
+        </Grid>
+        <Grid item xs={12} sm={6} md={6}>
           <DataPKHChart />
         </Grid>
         <Grid item xs={12} sm={6} md={6}>
@@ -189,9 +192,6 @@ const IndexPage = () => {
         </Grid>
         <Grid item xs={12} sm={6} md={6}>
           <DataPresentasiSARPChart />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <DataLokasiBersihPMKSChart />
         </Grid>
       </StyledGrid>
     </Layout>
