@@ -3,6 +3,7 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
+import { converDataPMKSToChartDataSetsByArea, getDataPMKSGroupByMonthNames } from "../../utils/charts/dataLokasiBersihPMKS"
 import { Chart } from "@bit/primefaces.primereact.chart"
 
 import Container from "../../layouts/Container"
@@ -10,7 +11,7 @@ import Item from "../../layouts/Item"
 
 class DataLokasiBersihPMKSChart extends React.Component {
   state = {
-    dataP3S: null,
+    dataBersihPMKS: null,
     error: false,
     loading: false,
   }
@@ -18,14 +19,14 @@ class DataLokasiBersihPMKSChart extends React.Component {
   fetchDataPkh = () => {
     this.setState({ loading: true })
     axios
-      .get(`https://api.myjson.com/bins/12ipi9`, {
+      .get(`https://api.myjson.com/bins/dohq4`, {
         crossdomain: true,
       })
       .then(result => {
         const { data } = result.data
         this.setState({
           loading: false,
-          dataP3S: data,
+          dataBersihPMKS: data,
         })
       })
       .catch(error => {
@@ -38,42 +39,31 @@ class DataLokasiBersihPMKSChart extends React.Component {
   }
 
   render() {
-    const { dataP3S, error, loading } = this.state
+    const { dataBersihPMKS, error, loading } = this.state
 
-    const dataP3sArray = (type, dataFromState) => {
-      let arr = []
-      !!dataFromState &&
-        dataFromState.forEach(data => {
-          type === "area" && arr.push(data.wilayah)
-          type === "total" && arr.push(data.total)
-        })
-      return arr
+    const stackedData = {
+      labels: getDataPMKSGroupByMonthNames(dataBersihPMKS),
+      datasets: converDataPMKSToChartDataSetsByArea(dataBersihPMKS)
     }
 
-    const chartDataDoughnut = {
-      labels: dataP3sArray('area', dataP3S),
-      datasets: [
-        {
-          label: 'Jumlah Petugas P3S Tahun 2019',
-          backgroundColor: [
-          '#1572E8',
-          '#F03A47',
-          '#F0A202',
-          '#06D6A0',
-          '#FFCE56',
-          '#36A2EB',
-          ],
-          hoverBackgroundColor: [
-          '#FF6384',
-          '#36A2EB',
-          '#36A2EB',
-          '#FFCE56',
-          '#FFCE56',
-          '#FF6384',
-          ],
-          data: dataP3sArray('total', dataP3S)
-        }
-      ]
+    const stackedOptions = {
+      tooltips: {
+        mode: 'index',
+        intersect: false
+      },
+      responsive: true,
+      scales: {
+        xAxes: [
+          {
+            stacked: true
+          }
+        ],
+        yAxes: [
+          {
+            stacked: true
+          }
+        ]
+      }
     }
 
     return (
@@ -87,8 +77,9 @@ class DataLokasiBersihPMKSChart extends React.Component {
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
               <Chart
-                type="doughnut"
-                data={chartDataDoughnut}
+                type="bar"
+                data={stackedData}
+                options={stackedOptions}
               />
             </Item>
           </Container>

@@ -1,6 +1,5 @@
 import React from "react"
 import axios from "axios"
-import _ from "lodash"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
