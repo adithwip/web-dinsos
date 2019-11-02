@@ -3,11 +3,7 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
-import { Doughnut } from "react-chartjs-2"
-
-import Container from "../../layouts/Container"
-import Item from "../../layouts/Item"
-import { height } from "../../../node_modules/@material-ui/system";
+import { Chart } from "@bit/primefaces.primereact.chart"
 
 import { convertDataJandaPerintisKemerdekaanToChartData } from "../../utils/charts/dataJandaPerintisKemerdekaan"
 
@@ -77,23 +73,22 @@ class DataJandaPerintisKemerdekaanChart extends React.Component {
     return (
       <ChartCard title="Data Janda Perintis Kemerdekaan" to="data/data-petugas-p3s">
         <Grid
-          style={{ minHeight: "300px", marginTop: "25px" }}
+          style={{ minHeight: "380px", marginTop: "25px" }}
           container
           justify="center"
           alignItems="flex-start"
           spacing={2}
         >
           <Grid item xs={12} md={6} style={{height:"100%", textAlign:"center", paddingTop: "40px"}}> 
-            <Doughnut data={chartDataDoughnut1} options={customOptions} style={{marginBottom: "10px"}}/>
+            <Chart type="doughnut" data={chartDataDoughnut1} options={customOptions} style={{marginBottom: "10px"}}/>
             <hr/>
             <strong>Januari - Juni</strong>
           </Grid>
           <Grid item xs={12} md={6} style={{ textAlign:"center", paddingTop: "40px" }} > 
-            <Doughnut data={chartDataDoughnut2} options={customOptions} style={{marginBottom: "10px"}}/>
+            <Chart type="doughnut" data={chartDataDoughnut2} options={customOptions} style={{marginBottom: "10px"}}/>
             <hr/>
             <strong>Juli - Desember</strong>
           </Grid>
-
         </Grid>
       </ChartCard>
     )

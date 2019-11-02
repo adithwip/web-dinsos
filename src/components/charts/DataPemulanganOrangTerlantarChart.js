@@ -4,7 +4,7 @@ import _ from "lodash"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
-import { Bar } from "react-chartjs-2"
+import { Chart } from "@bit/primefaces.primereact.chart"
 import { convertDataPemulanganToChartData } from "../../utils/charts/dataPemulanganOrangTerlantar"
 
 import Container from "../../layouts/Container"
@@ -86,7 +86,7 @@ class DataPemulanganOrangTerlantarChart extends React.Component {
         >
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <Bar data={dataBarChart} options={customOptions} />
+              <Chart type="bar" data={dataBarChart} options={customOptions} />
             </Item>
           </Container>
         </Grid>
