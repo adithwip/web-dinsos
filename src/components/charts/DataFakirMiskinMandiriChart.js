@@ -8,24 +8,26 @@ import { Chart } from "@bit/primefaces.primereact.chart"
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
 
+import { convertDataFakirMiskinMandiriToChartData } from "../../utils/charts/dataFakirMiskinMandiri"
+
 class DataFakirMiskinMandiriChart extends React.Component {
   state = {
-    dataP3S: null,
+    dataJson: null,
     error: false,
     loading: false,
   }
 
-  fetchDataPkh = () => {
+  fetchData = () => {
     this.setState({ loading: true })
     axios
-      .get(`https://api.myjson.com/bins/12ipi9`, {
+      .get(`https://api.myjson.com/bins/aazhw`, {
         crossdomain: true,
       })
       .then(result => {
         const { data } = result.data
         this.setState({
           loading: false,
-          dataP3S: data,
+          dataJson: data,
         })
       })
       .catch(error => {
@@ -34,47 +36,41 @@ class DataFakirMiskinMandiriChart extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchDataPkh()
+    console.log('')
+    this.fetchData()
   }
 
   render() {
-    const { dataP3S, error, loading } = this.state
+    const { dataJson, error, loading } = this.state
 
-    const dataP3sArray = (type, dataFromState) => {
-      let arr = []
-      !!dataFromState &&
-        dataFromState.forEach(data => {
-          type === "area" && arr.push(data.wilayah)
-          type === "total" && arr.push(data.total)
-        })
-      return arr
-    }
+    const stackedData = {
+      labels: convertDataFakirMiskinMandiriToChartData(dataJson, 'labels'),
+      datasets: convertDataFakirMiskinMandiriToChartData(dataJson, 'data')
+    };
 
-    const chartDataDoughnut = {
-      labels: dataP3sArray('area', dataP3S),
-      datasets: [
-        {
-          label: 'Jumlah Petugas P3S Tahun 2019',
-          backgroundColor: [
-          '#1572E8',
-          '#F03A47',
-          '#F0A202',
-          '#06D6A0',
-          '#FFCE56',
-          '#36A2EB',
-          ],
-          hoverBackgroundColor: [
-          '#FF6384',
-          '#36A2EB',
-          '#36A2EB',
-          '#FFCE56',
-          '#FFCE56',
-          '#FF6384',
-          ],
-          data: dataP3sArray('total', dataP3S)
-        }
-      ]
-    }
+
+    const stackedOptions = {
+      tooltips: {
+        // mode: 'nearest',
+      //   intersect: false
+      },
+      legend : { 
+        display: false,
+      },
+      responsive: true,
+      scales: {
+        xAxes: [
+          {
+            stacked: true
+          }
+        ],
+        yAxes: [
+          {
+            stacked: true
+          }
+        ]
+      }
+    };
 
     return (
       <ChartCard title="Data Fakir Miskin Mandiri" to="data/data-petugas-p3s">
@@ -86,10 +82,7 @@ class DataFakirMiskinMandiriChart extends React.Component {
         >
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <Chart
-                type="doughnut"
-                data={chartDataDoughnut}
-              />
+              <Chart type="bar" data={stackedData} options={ stackedOptions } />
             </Item>
           </Container>
         </Grid>
