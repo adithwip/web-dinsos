@@ -3,7 +3,7 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
-import { Doughnut, HorizontalBar, Bar } from "react-chartjs-2"
+import { Chart } from "@bit/primefaces.primereact.chart"
 import { convertDataPKHtoChartData } from "../../utils/charts/dataPKH"
 
 import Container from "../../layouts/Container"
@@ -57,10 +57,7 @@ class CustomChart extends React.Component {
       datasets: [
         {
           label: 'FMOTM',
-          backgroundColor: 'rgba(255,255,255, 1)',
-          borderColor: 'rgba(255,255,255,1)',
-          hoverBackgroundColor: '#009688',
-          borderWidth: 1,
+          backgroundColor: ['red','yellow','magenta','blue','green','cyan'],
           data: convertDataPKHtoChartData(dataPkh, 'data')
         }
       ]
@@ -68,9 +65,7 @@ class CustomChart extends React.Component {
 
     const customOptions = {
       legend : { 
-        labels : {
-          fontColor:"#fff"
-        }
+        display: false,
       },
       scales : {
         xAxes:[{
@@ -97,7 +92,7 @@ class CustomChart extends React.Component {
         >
           <Container flexDirection="column" spacing={16} >
             <Item flex={1}>
-              <Bar data={chartDataBar} options={ customOptions } />
+              <Chart type="bar" data={chartDataBar} options={ customOptions } />
             </Item>
           </Container>
         </Grid>

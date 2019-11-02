@@ -3,29 +3,31 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
-import { Doughnut } from "react-chartjs-2"
+import { Chart } from "@bit/primefaces.primereact.chart"
 
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
 
+import { convertDataPendampingPKHToChartData } from "../../utils/charts/dataPendampingPKH"
+
 class DataPendapingPKHChart extends React.Component {
   state = {
-    dataP3S: null,
+    dataJson: null,
     error: false,
     loading: false,
   }
 
-  fetchDataPkh = () => {
+  fetchData = () => {
     this.setState({ loading: true })
     axios
-      .get(`https://api.myjson.com/bins/12ipi9`, {
+      .get(`https://api.myjson.com/bins/ihysc`, {
         crossdomain: true,
       })
       .then(result => {
         const { data } = result.data
         this.setState({
           loading: false,
-          dataP3S: data,
+          dataJson: data,
         })
       })
       .catch(error => {
@@ -34,61 +36,44 @@ class DataPendapingPKHChart extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchDataPkh()
+    this.fetchData()
   }
 
   render() {
-    const { dataP3S, error, loading } = this.state
+    const { dataJson, error, loading } = this.state
+    
+    const dataBarChart = {
+      labels: convertDataPendampingPKHToChartData(dataJson, 'labels'),
+      datasets: convertDataPendampingPKHToChartData(dataJson, 'data')
+    };
+    
 
-    const dataP3sArray = (type, dataFromState) => {
-      let arr = []
-      !!dataFromState &&
-        dataFromState.forEach(data => {
-          type === "area" && arr.push(data.wilayah)
-          type === "total" && arr.push(data.total)
-        })
-      return arr
-    }
-
-    const chartDataDoughnut = {
-      labels: dataP3sArray('area', dataP3S),
-      datasets: [
-        {
-          label: 'Jumlah Petugas P3S Tahun 2019',
-          backgroundColor: [
-          '#1572E8',
-          '#F03A47',
-          '#F0A202',
-          '#06D6A0',
-          '#FFCE56',
-          '#36A2EB',
-          ],
-          hoverBackgroundColor: [
-          '#FF6384',
-          '#36A2EB',
-          '#36A2EB',
-          '#FFCE56',
-          '#FFCE56',
-          '#FF6384',
-          ],
-          data: dataP3sArray('total', dataP3S)
+    const customOptions = {
+      legend : { 
+        labels : {
+          fontColor:"#fff"
         }
-      ]
+      },
+      scales : {
+        xAxes:[{
+          ticks: {
+            fontColor: "white"
+          }
+        }],
+        yAxes:[{
+          ticks: {
+            fontColor: "white"
+          }
+        }]
+      }
     }
 
     return (
       <ChartCard title="Data Pendamping PKH" to="data/data-petugas-p3s">
-        <Grid
-          style={{ height: "100%" }}
-          container
-          direction="column"
-          justify="center"
-        >
+        <Grid style={{ height: "100%" }} container direction="column" justify="center">
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <Doughnut
-                data={chartDataDoughnut}
-              />
+              <Chart type="horizontalBar" data={dataBarChart} options={ customOptions }/>
             </Item>
           </Container>
         </Grid>

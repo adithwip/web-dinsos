@@ -5,6 +5,7 @@ import { Bar } from "react-chartjs-2"
 
 import ChartCard from "../ChartCard"
 import { convertDataBersihPMKSToChartData } from "../../utils/charts/dataLokasiBersihPMKS"
+import { Chart } from "@bit/primefaces.primereact.chart"
 
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
