@@ -102,18 +102,18 @@ const IndexPage = () => {
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
         </Grid>
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12} md={6}>
           <CustomChart title="Sebaran FMOTM berdasarkan Wilayah" />
           <br />
           <CustomChart2 />
         </Grid>
-        <Grid item xs={12} md={4}>
-          <iframe
+        <Grid item xs={12} md={6}>
+          {/* <iframe
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d507680.95838321565!2d106.829518!3d-6.229746!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta%2C%20Indonesia!5e0!3m2!1sen!2sus!4v1570862418475!5m2!1sen!2sus"
             width="100%"
             height="380"
             frameBorder="0"
-          ></iframe>
+          ></iframe> */}
           <CustomChart3 />
           <br />
           <CustomChart4 />

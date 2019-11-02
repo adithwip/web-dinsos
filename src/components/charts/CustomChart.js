@@ -85,7 +85,7 @@ class CustomChart extends React.Component {
       /*<ChartCard title="Sebaran FMOTM berdasarkan Wilayah">*/
       <ChartCard title={this.props.title}>
         <Grid
-          style={{ height: "100%", backgroundColor: "#00acc1", borderColor: "#fff" }}
+          style={{ height: "100%", backgroundColor: "#418189", borderColor: "#fff" }}
           container
           direction="column"
           justify="center"
