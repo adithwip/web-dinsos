@@ -50,6 +50,11 @@ class DataFakirMiskinMandiriChart extends React.Component {
 
 
     const stackedOptions = {
+      legend : { 
+        labels : {
+          fontColor:"#fff",
+        }
+      },
       tooltips: {
         // mode: 'nearest',
       //   intersect: false
@@ -61,12 +66,18 @@ class DataFakirMiskinMandiriChart extends React.Component {
       scales: {
         xAxes: [
           {
-            stacked: true
+            stacked: true,
+            ticks: {
+              fontColor: "white"
+            }
           }
         ],
         yAxes: [
           {
-            stacked: true
+            stacked: true,
+            ticks: {
+              fontColor: "white"
+            }
           }
         ]
       }

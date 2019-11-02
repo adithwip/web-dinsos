@@ -47,6 +47,11 @@ class DataLokasiBersihPMKSChart extends React.Component {
     }
 
     const stackedOptions = {
+      legend : { 
+        labels : {
+          fontColor:"#fff",
+        }
+      },
       tooltips: {
         mode: 'index',
         intersect: false
@@ -55,14 +60,36 @@ class DataLokasiBersihPMKSChart extends React.Component {
       scales: {
         xAxes: [
           {
-            stacked: true
+            stacked: true,
+            ticks: {
+              fontColor: "white"
+            }
           }
         ],
         yAxes: [
           {
-            stacked: true
+            stacked: true,
+            ticks: {
+              fontColor: "white"
+            }
           }
         ]
+      }
+    }
+
+    
+    const customOptions = {
+      legend : { 
+        display: false,
+      },
+      scales : {
+        xAxes:[{
+        }],
+        yAxes:[{
+          ticks: {
+            fontColor: "white"
+          }
+        }]
       }
     }
 
