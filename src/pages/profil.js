@@ -1,4 +1,5 @@
 import React from "react"
+import axios from "axios"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
 import Img from "gatsby-image"
@@ -17,70 +18,62 @@ const NavButton = styled.a`
   border: 1px solid gray;
 `
 
-const ProfilPage = () => {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-          }
-        }
+class ProfilPage extends React.Component {
+  state = {
+    dataJson: null,
+    error: false,
+    loading: false,
+  }
 
-        strukturOrganisasi: file(
-          relativePath: { eq: "images/struktur-organisasi.png" }
-        ) {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    `
-  )
+  fetchData = () => {
+    this.setState({ loading: true })
+    axios
+      .get(`https://api.myjson.com/bins/6716o`, {
+        crossdomain: true,
+      })
+      .then(result => {
+        const { data } = result.data
+        this.setState({ dataJson : data, loading: false })
+      })
+      .catch(error => {
+        console.log(error)
+        this.setState({ loading: false, error: error })
+      })
+  }
 
-  return (
-    <Layout
-      siteTitle="Profil"
-      siteDescription="Will provide my readers about myself"
-    >
-      <h2>
-        Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI
-        Jakarta
-      </h2>
+  componentDidMount() {
+    this.fetchData()
+  }
 
-      <div style={{ textAlign: "center", marginTop: "1.2rem" }}>
-        <NavButton href="#visi">Visi</NavButton>
-        <NavButton href="#visi">Misi</NavButton>
-        <NavButton href="#struktur">Struktur Organisasi</NavButton>
-      </div>
+  render() {
+    const { dataJson, error, loading } = this.state
 
-      <h3 id="visi">Visi</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </p>
-      <h3 id="misi">Misi</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </p>
+    return (
+      <Layout
+        siteTitle="Profil"
+        siteDescription="Will provide my readers about myself"
+      >
+        <h2>
+          Profil
+        </h2>
 
-      <h3 id="struktur">Struktur Organisasi</h3>
-      <Img fluid={data.strukturOrganisasi.childImageSharp.fluid} />
-    </Layout>
-  )
+        <div style={{ textAlign: "center", marginTop: "1.2rem" }}>
+          <NavButton href="#tugas">Tugas</NavButton>
+          <NavButton href="#fungsi">Fungsi</NavButton>
+          <NavButton href="#struktur">Struktur Organisasi</NavButton>
+        </div>
+
+        <h3 id="tugas">Tugas</h3>
+        <div dangerouslySetInnerHTML={{__html: !!dataJson && dataJson.tasks }} />
+
+        <h3 id="fungsi">Fungsi</h3>
+        <div dangerouslySetInnerHTML={{__html: !!dataJson && dataJson.functions }} />
+
+        <h3 id="struktur">Struktur Organisasi</h3>
+        <img src={!!dataJson && dataJson.structure} width="100%" />
+
+      </Layout>
+    )
+  }
 }
-
 export default ProfilPage
