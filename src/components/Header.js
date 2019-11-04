@@ -87,9 +87,9 @@ const Header = () => {
                 </Link>
               </Item>
               <Item>
-                <Link to="/login">
+                <a href="http://siaplus.pusdatin-dinsos.jakarta.go.id/admin/login" >
                   <Typography variant="button">Login</Typography>
-                </Link>
+                </a>
               </Item>
             </Container>
           </Item>
