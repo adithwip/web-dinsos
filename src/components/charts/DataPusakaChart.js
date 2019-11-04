@@ -76,6 +76,15 @@ class DataPusakaChart extends React.Component {
       ]
     }
 
+    const customOptions = {
+      legend : { 
+        labels : {
+          fontColor:"#fff",
+        },
+        position: 'left'
+      }
+    }
+
     return (
       <ChartCard title="Data Pusaka" to="data/data-petugas-p3s">
         <Grid
@@ -86,10 +95,7 @@ class DataPusakaChart extends React.Component {
         >
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <Chart
-                type="doughnut"
-                data={chartDataDoughnut}
-              />
+              <Chart type="doughnut" data={chartDataDoughnut} options={customOptions} />
             </Item>
           </Container>
         </Grid>

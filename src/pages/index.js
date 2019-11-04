@@ -92,15 +92,6 @@ const IndexPage = () => {
       >
         <Grid item xs={12} md={12} style={{ textAlign: "left" }}>
           <h3>Data Fakir Miskin & Orang Tidak Mampu (FMOTM) DKI Jakarta</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
         </Grid>
         <Grid item xs={12} md={6}>
           <CustomChart title="Sebaran FMOTM berdasarkan Wilayah" />
@@ -118,28 +109,6 @@ const IndexPage = () => {
           <br />
           <CustomChart4 />
         </Grid>
-
-        {/*<Grid item xs={12} md={12} style={{ textAlign: "left"}}>
-          <h3>Pengaduan (iAsk)</h3>
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-        </Grid>            
-        <Grid item xs={12} md={8} style={{ textAlign: "left"}}>            
-          <CustomChart title="Jumlah Pengaduan berdasarkan Wilayah" />
-          <br />
-          <CustomChart2 />
-        </Grid>
-        <Grid item xs={12} md={4} style={{ textAlign: "left"}}>
-          <CustomChart3 />
-          <br/>
-          <CustomChart4 />
-        </Grid>*/}
 
         <Grid item xs={12} style={{ textAlign: "left" }}>
           <h3>Open Data Dinas Sosial Provinsi DKI Jakarta</h3>

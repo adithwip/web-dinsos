@@ -42,7 +42,7 @@ const convertDataPemulanganToChartData = (dataPemulangan, type) => {
     let result = [
       {        
         label : "Darat",
-        backgroundColor: "green",
+        backgroundColor: "orange",
         data : groupByDarat
       },
       {        

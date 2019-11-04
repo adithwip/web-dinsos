@@ -58,9 +58,12 @@ class DataPemulanganOrangTerlantarChart extends React.Component {
     };
 
     const customOptions = {
-      // legend : { 
-      //   display: false,
-      // },
+      legend : { 
+        labels : {
+          fontColor:"#fff",
+        },
+        position: 'bottom'
+      },
       scales : {
         xAxes:[{
           ticks: {

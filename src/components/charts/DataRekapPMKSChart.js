@@ -75,6 +75,15 @@ class DataRekapPMKSChart extends React.Component {
         }
       ]
     }
+    
+
+    const customOptions = {
+      legend : { 
+        labels : {
+          fontColor:"#fff",
+        }
+      }
+    }
 
     return (
       <ChartCard title="Data Rekap Penertiban / Penjangkauan PMKS" to="data/data-petugas-p3s">
@@ -86,10 +95,7 @@ class DataRekapPMKSChart extends React.Component {
         >
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <Chart
-                type="doughnut"
-                data={chartDataDoughnut}
-              />
+              <Chart type="doughnut" data={chartDataDoughnut} options={customOptions} />
             </Item>
           </Container>
         </Grid>

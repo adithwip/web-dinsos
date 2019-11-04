@@ -76,6 +76,15 @@ class DataProgramKegiatanDinsosChart extends React.Component {
       ]
     }
 
+    const customOptions = {
+      legend : { 
+        labels : {
+          fontColor:"#fff",
+        },
+        position: 'right'
+      }
+    }
+
     return (
       <ChartCard title="Data Program Kegiatan Dinsos" to="data/data-petugas-p3s">
         <Grid
@@ -86,10 +95,7 @@ class DataProgramKegiatanDinsosChart extends React.Component {
         >
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <Chart
-                type="doughnut"
-                data={chartDataDoughnut}
-              />
+              <Chart type="doughnut" data={chartDataDoughnut} options={customOptions} />
             </Item>
           </Container>
         </Grid>

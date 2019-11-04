@@ -61,6 +61,16 @@ class DataP3SChart extends React.Component {
         ]
       }]
     };
+    
+
+    const customOptions = {
+      legend : { 
+        labels : {
+          fontColor:"#fff",
+        },
+        position: 'left'
+      }
+    }
 
     return (
       <ChartCard title="Data Petugas P3S" to="data/data-petugas-p3s">
@@ -72,10 +82,7 @@ class DataP3SChart extends React.Component {
         >
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <Chart
-  type="doughnut"
-                data={chartDataDoughnut}
-              />
+              <Chart type="doughnut" data={chartDataDoughnut} options={customOptions} />
             </Item>
           </Container>
         </Grid>
