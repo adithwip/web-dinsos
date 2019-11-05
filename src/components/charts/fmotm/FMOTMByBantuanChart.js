@@ -8,7 +8,7 @@ import { Chart } from "@bit/primefaces.primereact.chart"
 import Container from "../../../layouts/Container"
 import Item from "../../../layouts/Item"
 
-class FMOTMByAgeChart extends React.Component {
+class FMOTMByBantuanChart extends React.Component {
   state = {
     dataJson: null,
     error: false,
@@ -17,10 +17,10 @@ class FMOTMByAgeChart extends React.Component {
 
   fetchDataAPI = () => {
     this.setState({ loading: true })
-    const api = "http://ppds.pusdatin-dinsos.jakarta.go.id/api/age/2019";
+    const api = "http://ppds.pusdatin-dinsos.jakarta.go.id/api/bantuan/2019";
     axios
     //   .get(api, { crossdomain: true })
-      .get(`https://api.myjson.com/bins/tlkz4`, { crossdomain: true })
+      .get(`https://api.myjson.com/bins/111pr4`, { crossdomain: true })
       .then(result => {
         console.log(api, result)
         const { data } = result.data
@@ -42,45 +42,41 @@ class FMOTMByAgeChart extends React.Component {
     const { dataJson, error, loading } = this.state
 
     const extractData = (type, dataFromState) => {
-        if (type === "age") {
-            return ['0 - 4', '5 - 19', '20 - 64', '> 65']
-        }
+        let arr = []
+        console.log('dataFromState', dataFromState)
+        !!dataFromState && dataFromState.forEach(data => {
+            type === "keterangan" && arr.push(data.keterangan)
+            type === "total" && arr.push(data.total)
+        })
 
-        if (type === "total") {
-            console.log('total', dataFromState)
-            return [
-                !!dataFromState && dataFromState.h_nage04,
-                !!dataFromState && dataFromState.h_nage0519,
-                !!dataFromState && dataFromState.h_nage2064,
-                !!dataFromState && dataFromState.h_nage65up
-            ]
-        }
-
-        return []
+        return arr
     }
-
-    const chartDataDoughnut = {
-      labels: extractData('age', dataJson),
-      datasets: [
-        {
-          label: extractData('age', dataJson),
-          backgroundColor: [ '#b2ffb2', '#00ff00', '#009900', '#004c00' ],
-          data: extractData('total', dataJson)
-        }
-      ]
-    }
-
-    const customOptions = {
-      legend : { 
-        labels : {
-          fontColor:"#fff",
-        },
-        position: 'right'
+    
+    const chartDataBar = {
+        labels: extractData('keterangan', dataJson),
+        datasets: [
+          {
+            label: 'Penerima Bantuan',
+            backgroundColor: ['#324376','#E7EBC5','#646881','#C6D8FF','#0C0910 ','#F9DC5C'],
+            data: extractData('total', dataJson)
+          }
+        ]
       }
-    }
+  
+      const customOptions = {
+        legend : { display: false },
+        scales : {
+          xAxes:[{
+            ticks: { fontColor: "white" }
+          }],
+          yAxes:[{
+            ticks: { fontColor: "white" }
+          }]
+        }
+      }
 
     return (
-      <ChartCard title="FMOTM Berdasarkan Rentang Usia">
+      <ChartCard title="FMOTM Berdasarkan Jenis Bantuan">
         <Grid
           style={{ height: "100%" }}
           container
@@ -89,7 +85,7 @@ class FMOTMByAgeChart extends React.Component {
         >
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <Chart type="pie" data={chartDataDoughnut} options={customOptions} />
+              <Chart type="horizontalBar" data={chartDataBar} options={ customOptions } />
             </Item>
           </Container>
         </Grid>
@@ -98,4 +94,4 @@ class FMOTMByAgeChart extends React.Component {
   }
 }
 
-export default FMOTMByAgeChart
+export default FMOTMByBantuanChart
