@@ -23,8 +23,7 @@ import DataJumlahTKSKAktifChart from "../components/charts/DataJumlahTKSKAktifCh
 import DataPresentasiSARPChart from "../components/charts/DataPresentasiSARPChart"
 import DataLokasiBersihPMKSChart from "../components/charts/DataLokasiBersihPMKSChart"
 
-import CustomChart from "../components/charts/CustomChart"
-import CustomChart2 from "../components/charts/CustomChart2"
+import FMOTMByWilayahChart from "../components/charts/fmotm/FMOTMByWilayahChart"
 import FMOTMByBantuanChart from "../components/charts/fmotm/FMOTMByBantuanChart"
 import FMOTMByGenderChart from "../components/charts/fmotm/FMOTMByGenderChart"
 import FMOTMByAgeChart from "../components/charts/fmotm/FMOTMByAgeChart"
@@ -63,7 +62,7 @@ const IndexPage = () => {
           <h3>Data Fakir Miskin & Orang Tidak Mampu (FMOTM) DKI Jakarta</h3>
         </Grid>
         <Grid item xs={12} md={6}>
-          <CustomChart title="Sebaran FMOTM berdasarkan Wilayah" />
+          <FMOTMByWilayahChart />
           <br />
           <FMOTMByBantuanChart />
         </Grid>
