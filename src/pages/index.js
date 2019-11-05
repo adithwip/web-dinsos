@@ -39,7 +39,6 @@ const StyledGrid = styled(Grid)`
 `
 
 const IndexPage = () => {
-
   return (
     <Layout
       noGrid

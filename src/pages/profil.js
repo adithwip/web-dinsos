@@ -33,7 +33,7 @@ class ProfilPage extends React.Component {
       })
       .then(result => {
         const { data } = result.data
-        this.setState({ dataJson : data, loading: false })
+        this.setState({ dataJson: data, loading: false })
       })
       .catch(error => {
         console.log(error)
@@ -53,9 +53,7 @@ class ProfilPage extends React.Component {
         siteTitle="Profil"
         siteDescription="Will provide my readers about myself"
       >
-        <h2>
-          Profil
-        </h2>
+        <h2>Profil</h2>
 
         <div style={{ textAlign: "center", marginTop: "1.2rem" }}>
           <NavButton href="#tugas">Tugas</NavButton>
@@ -64,14 +62,17 @@ class ProfilPage extends React.Component {
         </div>
 
         <h3 id="tugas">Tugas</h3>
-        <div dangerouslySetInnerHTML={{__html: !!dataJson && dataJson.tasks }} />
+        <div
+          dangerouslySetInnerHTML={{ __html: !!dataJson && dataJson.tasks }}
+        />
 
         <h3 id="fungsi">Fungsi</h3>
-        <div dangerouslySetInnerHTML={{__html: !!dataJson && dataJson.functions }} />
+        <div
+          dangerouslySetInnerHTML={{ __html: !!dataJson && dataJson.functions }}
+        />
 
         <h3 id="struktur">Struktur Organisasi</h3>
         <img src={!!dataJson && dataJson.structure} width="100%" />
-
       </Layout>
     )
   }

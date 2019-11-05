@@ -28,18 +28,20 @@ const StyledGrid = styled(Grid)`
 `
 
 class InfografisPage extends React.Component {
-
   state = { dataJson: null, error: false, loading: false }
 
   fetchData = () => {
     this.setState({ loading: true })
     axios
-      .get(`http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/galleries`, {
-        crossdomain: true,
-      })
+      .get(
+        `http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/galleries`,
+        {
+          crossdomain: true,
+        }
+      )
       .then(result => {
         const { data } = result.data
-        this.setState({ dataJson : data, loading: false })
+        this.setState({ dataJson: data, loading: false })
       })
       .catch(error => {
         console.log(error)
@@ -75,32 +77,36 @@ class InfografisPage extends React.Component {
           <Grid item xs={12} sm={6} md={7}>
             <p>
               Infografik adalah representasi visual informasi, data atau ilmu
-              pengetahuan secara grafis. Grafik ini memperlihatkan informasi rumit
-              dengan singkat dan jelas, seperti pada papan, peta, jurnalisme,
-              penulisan teknis, dan pendidikan. Melalui infografik, ilmuwan
-              komputer, matematikawan dan statistikawan mampu mengembangkan dan
-              mengomunikasikan konsep menggunakan satu simbol untuk memproses
-              informasi.
+              pengetahuan secara grafis. Grafik ini memperlihatkan informasi
+              rumit dengan singkat dan jelas, seperti pada papan, peta,
+              jurnalisme, penulisan teknis, dan pendidikan. Melalui infografik,
+              ilmuwan komputer, matematikawan dan statistikawan mampu
+              mengembangkan dan mengomunikasikan konsep menggunakan satu simbol
+              untuk memproses informasi.
             </p>
           </Grid>
 
           <Grid item xs={12} sm={6} md={5}>
-            <Carousel infiniteLoop={true} autoPlay={true} showThumbs={false} showIndicators={true} width="100%">
-                { 
-                  !!dataJson && dataJson.map((data) => {
-                    return (
-                      <a href={ data.url } target={ "_blank" } >
-                        <div style={{ height : "500px" }}>
-                            <img src={ sourceUrl + data.image } height="100%" />
-                            <p className="legend">{ data.title }</p>
-                        </div>
-                      </a>
-                    )
-                  })
-                }
+            <Carousel
+              infiniteLoop={true}
+              autoPlay={true}
+              showThumbs={false}
+              showIndicators={true}
+              width="100%"
+            >
+              {!!dataJson &&
+                dataJson.map(data => {
+                  return (
+                    <a href={data.url} target={"_blank"}>
+                      <div style={{ height: "500px" }}>
+                        <img src={sourceUrl + data.image} height="100%" />
+                        <p className="legend">{data.title}</p>
+                      </div>
+                    </a>
+                  )
+                })}
             </Carousel>
           </Grid>
-
         </StyledGrid>
       </Layout>
     )

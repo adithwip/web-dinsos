@@ -19,7 +19,7 @@ import MailOutlineIcon from "@material-ui/icons/MailOutline"
 import TwitterIcon from "@material-ui/icons/Twitter"
 import FacebookIcon from "@material-ui/icons/Facebook"
 import PhoneIcon from "@material-ui/icons/Phone"
-import BusinessIcon from '@material-ui/icons/Business';
+import BusinessIcon from "@material-ui/icons/Business"
 
 const StyledPaper = styled(Paper)`
   padding: 32px 16px;
@@ -32,7 +32,6 @@ const NavButton = styled.a`
   border: 1px solid gray;
 `
 class KontakPage extends React.Component {
-  
   state = {
     dataJson: null,
     error: false,
@@ -47,7 +46,7 @@ class KontakPage extends React.Component {
       })
       .then(result => {
         const { data } = result.data
-        this.setState({ dataJson : data, loading: false })
+        this.setState({ dataJson: data, loading: false })
       })
       .catch(error => {
         console.log(error)
@@ -59,7 +58,7 @@ class KontakPage extends React.Component {
     this.fetchData()
   }
 
-  render () {
+  render() {
     const { dataJson, error, loading } = this.state
 
     const address = !!dataJson && dataJson.address
@@ -97,11 +96,7 @@ class KontakPage extends React.Component {
                   <ListItemIcon>
                     <TwitterIcon />
                   </ListItemIcon>
-                  <a
-                    href={twitter}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href={twitter} target="_blank" rel="noopener noreferrer">
                     <ListItemText primary="Twitter Dinsos DKI" />
                   </a>
                 </ListItem>
@@ -109,11 +104,7 @@ class KontakPage extends React.Component {
                   <ListItemIcon>
                     <FacebookIcon />
                   </ListItemIcon>
-                  <a
-                    href={facebook}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href={facebook} target="_blank" rel="noopener noreferrer">
                     <ListItemText primary="Facebook Dinsos DKI" />
                   </a>
                 </ListItem>
