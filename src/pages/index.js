@@ -1,11 +1,9 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import Img from "gatsby-image"
 
 import Grid from "@material-ui/core/Grid"
 import Card from "@material-ui/core/Card"
-import Typography from "@material-ui/core/Typography"
 
 import Layout from "../layouts/Layout"
 import DataPKHChart from "../components/charts/DataPKHChart"
@@ -28,7 +26,7 @@ import DataLokasiBersihPMKSChart from "../components/charts/DataLokasiBersihPMKS
 import CustomChart from "../components/charts/CustomChart"
 import CustomChart2 from "../components/charts/CustomChart2"
 import FMOTMByGenderChart from "../components/charts/fmotm/FMOTMByGenderChart"
-import CustomChart4 from "../components/charts/CustomChart4"
+import FMOTMByAgeChart from "../components/charts/fmotm/FMOTMByAgeChart"
 
 const StyledGrid = styled(Grid)`
   margin: 64px auto;
@@ -40,37 +38,37 @@ const StyledGrid = styled(Grid)`
   }
 `
 
-const StyledCard = styled(Card)`
-  background-color: rgba(248, 255, 229, 0.5);
-  opacity: 0.8;
-  padding: 8px;
-  height: 140px;
+// const StyledCard = styled(Card)`
+//   background-color: rgba(248, 255, 229, 0.5);
+//   opacity: 0.8;
+//   padding: 8px;
+//   height: 140px;
 
-  &:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  }
-`
+//   &:hover {
+//     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+//   }
+// `
 
 const IndexPage = () => {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-          }
-        }
+  // const data = useStaticQuery(
+  //   graphql`
+  //     query {
+  //       site {
+  //         siteMetadata {
+  //           title
+  //         }
+  //       }
 
-        jakartaMap: file(relativePath: { eq: "images/jakarta-maps-01.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 200) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    `
-  )
+  //       jakartaMap: file(relativePath: { eq: "images/jakarta-maps-01.png" }) {
+  //         childImageSharp {
+  //           fluid(maxWidth: 200) {
+  //             ...GatsbyImageSharpFluid
+  //           }
+  //         }
+  //       }
+  //     }
+  //   `
+  // )
 
   return (
     <Layout
@@ -107,7 +105,7 @@ const IndexPage = () => {
           ></iframe> */}
           <FMOTMByGenderChart />
           <br />
-          <CustomChart4 />
+          <FMOTMByAgeChart />
         </Grid>
 
         <Grid item xs={12} style={{ textAlign: "left" }}>
