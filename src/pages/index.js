@@ -27,7 +27,7 @@ import DataLokasiBersihPMKSChart from "../components/charts/DataLokasiBersihPMKS
 
 import CustomChart from "../components/charts/CustomChart"
 import CustomChart2 from "../components/charts/CustomChart2"
-import CustomChart3 from "../components/charts/CustomChart3"
+import FMOTMByGenderChart from "../components/charts/fmotm/FMOTMByGenderChart"
 import CustomChart4 from "../components/charts/CustomChart4"
 
 const StyledGrid = styled(Grid)`
@@ -105,7 +105,7 @@ const IndexPage = () => {
             height="380"
             frameBorder="0"
           ></iframe> */}
-          <CustomChart3 />
+          <FMOTMByGenderChart />
           <br />
           <CustomChart4 />
         </Grid>
