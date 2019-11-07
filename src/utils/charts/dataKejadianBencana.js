@@ -1,10 +1,18 @@
 import _ from "lodash"
 
+const randomColor = () => {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
 const convertDataKejadianBencanaToChartData = (dataKejadianBencana, type) => {
-  const dataKejadianBencanaGroupedByMonth = _.mapValues(_.groupBy(dataKejadianBencana, 'BULAN'), clist => clist.map(data => _.omit(data, 'make')))
+  const dataKejadianBencanaGroupedByMonth = _.mapValues(_.groupBy(dataKejadianBencana, 'BULAN'), clist => clist.map(data => _.omit(data, 'make')))  
 
   if (typeof type === 'string' && type === 'labels') {
-    
     const dataKejadianBencanaGroupedKeys = _.keys(dataKejadianBencanaGroupedByMonth)
   
     const monthName = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
@@ -21,9 +29,38 @@ const convertDataKejadianBencanaToChartData = (dataKejadianBencana, type) => {
   }
 
   if (typeof type === 'string' && type === 'data') {
-    const data = _.map(dataKejadianBencanaGroupedByMonth, (value, key) => value.length)
+    
+    const dataKejadianBencanaGroupedByJenis = _.mapValues(_.groupBy(dataKejadianBencana, 'JENIS'), clist => clist.map(data => _.omit(data, 'make')))
 
-    return data
+    const labelBulan = _.keys(dataKejadianBencanaGroupedByMonth)
+
+    const result = []
+    const data2 = _.map(dataKejadianBencanaGroupedByJenis, (dataPerJenis, jenisBencana) => {
+      const groupedByMonth = _.mapValues(_.groupBy(dataPerJenis, 'BULAN'), clist => clist.map(data => _.omit(data, 'make')))
+      
+      const jumlahKejadianBencanaByBulanBencana = []
+      labelBulan.forEach( bulan => {
+        jumlahKejadianBencanaByBulanBencana[bulan] = (groupedByMonth[bulan] === undefined ? 0 : (groupedByMonth[bulan].length > 0 ? groupedByMonth[bulan].length : 0))
+      })
+
+      result[jenisBencana] = jumlahKejadianBencanaByBulanBencana.slice(1)
+    })
+
+    // console.log('kejadianBencanaResultFinal',result)
+
+    const datasets = []
+    for (let jenisBencana in result) {
+      // console.log()
+      datasets.push({
+        type: 'bar',
+        label: jenisBencana,
+        backgroundColor: randomColor(),
+        data: result[jenisBencana]
+      })
+    }
+    // console.log('kejadianBencana',datasets)
+
+    return datasets
   }
 
   if (typeof type !== 'string' || type == null) {
