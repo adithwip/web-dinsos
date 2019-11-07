@@ -66,26 +66,26 @@ class DataJandaPerintisKemerdekaanChart extends React.Component {
         labels : {
           fontColor:"#fff",
         },
-        position: 'bottom'
+        position: 'right'
       }
     }
 
     return (
       <ChartCard title="Data Janda Perintis Kemerdekaan" to="data/data-petugas-p3s">
         <Grid
-          style={{ minHeight: "380px", marginTop: "25px" }}
+          style={{ minHeight: "300px", marginTop: "18px" }}
           container
           justify="center"
           alignItems="flex-start"
           spacing={2}
         >
           <Grid item xs={12} md={6} style={{height:"100%", textAlign:"center", paddingTop: "40px"}}> 
-            <Chart type="doughnut" data={chartDataDoughnut1} options={customOptions} style={{marginBottom: "10px"}}/>
+            <Chart type="pie" data={chartDataDoughnut1} options={customOptions} style={{marginBottom: "10px"}}/>
             <hr/>
             <strong>Januari - Juni</strong>
           </Grid>
           <Grid item xs={12} md={6} style={{ textAlign:"center", paddingTop: "40px" }} > 
-            <Chart type="doughnut" data={chartDataDoughnut2} options={customOptions} style={{marginBottom: "10px"}}/>
+            <Chart type="pie" data={chartDataDoughnut2} options={customOptions} style={{marginBottom: "10px"}}/>
             <hr/>
             <strong>Juli - Desember</strong>
           </Grid>
