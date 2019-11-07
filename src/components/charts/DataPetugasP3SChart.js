@@ -41,24 +41,20 @@ class DataP3SChart extends React.Component {
   render() {
     const { dataP3S, error, loading } = this.state
 
+    const randomColor = () => {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
     const chartDataDoughnut = {
       labels: convertDataP3StoChartData(dataP3S, "labels"),
       datasets: [{
         data: convertDataP3StoChartData(dataP3S, "data"),
-        backgroundColor: [
-        '#CCDBDC',
-        '#D5D6AA',
-        '#8AA399',
-        '#7AE7C7',
-        '#FAFAFA',
-        ],
-        hoverBackgroundColor: [
-        '#CCDBDC',
-        '#D5D6AA',
-        '#8AA399',
-        '#7AE7C7',
-        '#FAFAFA',
-        ]
+        backgroundColor: [randomColor(),randomColor(),randomColor(),randomColor(),randomColor()]
       }]
     };
     
