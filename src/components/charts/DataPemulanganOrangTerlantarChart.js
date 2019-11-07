@@ -66,11 +66,13 @@ class DataPemulanganOrangTerlantarChart extends React.Component {
       },
       scales : {
         xAxes:[{
+          stacked: true,
           ticks: {
             fontColor: "white"
           }
         }],
         yAxes:[{
+          stacked: true,
           ticks: {
             fontColor: "white"
           }
