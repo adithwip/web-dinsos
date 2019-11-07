@@ -1,5 +1,14 @@
 import _ from "lodash"
 
+const randomColor = () => {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
 const convertDataFakirMiskinMandiriToChartData = (dataJson, type) => {
     const groupBySemester = _.mapValues(_.groupBy(dataJson, 'semester'), clist => clist.map(data => _.omit(data, 'make')))
     // console.log('Semester', groupBySemester)
@@ -33,21 +42,21 @@ const convertDataFakirMiskinMandiriToChartData = (dataJson, type) => {
                 type: 'bar',
                 label: 'UEP',
                 stack : semester,
-                backgroundColor: '#EE6352',
+                backgroundColor: randomColor(),
                 data: dataUEP
             })
             datasets.push({
                 type: 'bar',
                 label: 'KUBE',
                 stack : semester,
-                backgroundColor: '#F9ADA0',
+                backgroundColor: randomColor(),
                 data: dataKUBE
             })
             datasets.push({
                 type: 'bar',
                 label: 'Wirausaha PKH',
                 stack : semester,
-                backgroundColor: '#F7DBA7',
+                backgroundColor: randomColor(),
                 data: dataPKH
             })
 
