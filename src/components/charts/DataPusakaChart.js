@@ -63,14 +63,6 @@ class DataPusakaChart extends React.Component {
           '#FFCE56',
           '#36A2EB',
           ],
-          hoverBackgroundColor: [
-          '#FF6384',
-          '#36A2EB',
-          '#36A2EB',
-          '#FFCE56',
-          '#FFCE56',
-          '#FF6384',
-          ],
           data: dataP3sArray('total', dataP3S)
         }
       ]
@@ -95,7 +87,7 @@ class DataPusakaChart extends React.Component {
         >
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <Chart type="doughnut" data={chartDataDoughnut} options={customOptions} />
+              <Chart type="pie" data={chartDataDoughnut} options={customOptions} />
             </Item>
           </Container>
         </Grid>

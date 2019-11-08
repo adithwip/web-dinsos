@@ -18,7 +18,6 @@ const StyledBackgroundImage = styled(BackgroundImage)`
   background-position: bottom center;
   background-repeat: repeat-y;
   background-size: cover;
-
   @media (max-width: 576px) {
     height: 50vh;
   }
@@ -120,7 +119,6 @@ export const query = graphql`
       }
       totalCount
     }
-
     imageOne: file(relativePath: { eq: "images/image-one.jpg" }) {
       ...fluidImage
     }

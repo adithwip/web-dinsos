@@ -56,7 +56,7 @@ class DataFakirMiskinMandiriChart extends React.Component {
         }
       },
       tooltips: {
-        // mode: 'nearest',
+        mode: 'x',
       //   intersect: false
       },
       legend : { 
@@ -84,7 +84,7 @@ class DataFakirMiskinMandiriChart extends React.Component {
     };
 
     return (
-      <ChartCard title="Data Fakir Miskin Mandiri" to="data/data-petugas-p3s">
+      <ChartCard title="Data Fakir Miskin Mandiri ( Januari - Juni / Juli - Desember )" to="data/data-petugas-p3s">
         <Grid
           style={{ height: "100%" }}
           container

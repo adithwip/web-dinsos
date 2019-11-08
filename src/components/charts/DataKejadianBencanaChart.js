@@ -19,7 +19,7 @@ class DataKejadianBencanaChart extends React.Component {
   fetchDataPkh = () => {
     this.setState({ loading: true })
     axios
-      .get(`https://api.myjson.com/bins/1e1tsp`, {
+      .get(`https://api.myjson.com/bins/sdr4c`, {
         crossdomain: true,
       })
       .then(result => {
@@ -43,30 +43,37 @@ class DataKejadianBencanaChart extends React.Component {
     
     const dataBarChart = {
       labels: convertDataKejadianBencanaToChartData(dataKejadianBencana, 'labels'),
-      datasets: [
-        {
-          label: 'Data Kejadian Bencana',
-          backgroundColor: '#CCDBDC',
-          borderColor: '#CCDBDC',
-          borderWidth: 1,
-          hoverBackgroundColor: '#CCDBDC',
-          hoverBorderColor: '#CCDBDC',
-          data: convertDataKejadianBencanaToChartData(dataKejadianBencana, 'data')
-        }
-      ]
+      // datasets: [
+      //   {
+      //     label: 'Data Kejadian Bencana',
+      //     backgroundColor: '#CCDBDC',
+      //     borderColor: '#CCDBDC',
+      //     borderWidth: 1,
+      //     hoverBackgroundColor: '#CCDBDC',
+      //     hoverBorderColor: '#CCDBDC',
+      //     data: convertDataKejadianBencanaToChartData(dataKejadianBencana, 'data')
+      //   }
+      // ]
+      datasets : convertDataKejadianBencanaToChartData(dataKejadianBencana, 'data')
     };
     
     const customOptions = {
       legend : { 
         display: false,
       },
+      tooltips: {
+        mode: 'x',
+      },
+      responsive: true,
       scales : {
         xAxes:[{
+          stacked: true,
           ticks: {
             fontColor: "white"
           }
         }],
         yAxes:[{
+          stacked: true,
           ticks: {
             fontColor: "white"
           }
@@ -84,7 +91,7 @@ class DataKejadianBencanaChart extends React.Component {
         >
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <Chart type="horizontalBar" data={dataBarChart} options={customOptions}/>
+              <Chart type="bar" data={dataBarChart} options={customOptions}/>
             </Item>
           </Container>
         </Grid>

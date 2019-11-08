@@ -83,7 +83,7 @@ class DataPKHChart extends React.Component {
           <Container flexDirection="column" spacing={16}>
 
             <Item flex={1}>
-              <Chart type="bar" data={chartDataBar} options={ customOptions } />
+              <Chart type="horizontalBar" data={chartDataBar} options={ customOptions } />
             </Item>
           </Container>
         </Grid>
