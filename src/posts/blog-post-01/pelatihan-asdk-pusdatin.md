@@ -1,19 +1,29 @@
 ---
-title: "Pelatihan ASDK Pusdatin Tingkat Kabupaten Kota Batch-3 di Jakarta"
+title: "Dinsos Bangun Tenda Layak untuk Korban Rumah Ambles di Pademangan"
 date: "2017-08-10"
-thumbnail: "./image-blog-post-01.jpg"
+thumbnail: "./image-blog-01.jpeg"
 ---
 
-![Stay positives](image-blog-post-01.jpg)
+![Stay positives](image-blog-01.jpeg)
 
-Pelatihan Aplikasi Satu Data Kesehatan (ASDK) Tingkat Kabupaten / Kota di Makassar Angkatan terakhir telah dilaksanakan selama 5 hari sejak Hari Senin tanggal 17 sampai degan hari Sabtu tanggal  22 September 2018 bertempat di Hotel Aston Makassar.
+Dinas Sosial DKI Jakarta membangun tenda baru untuk warga RT 01 RW 08, Kelurahan Ancol, Pademangan, Jakarta Utara, yang rumahnya ambles. Tenda baru ini lebih layak dibanding tenda yang sebelumnya sudah didirikan.
 
-Pelatihan diikuti oleh 105 peserta dari 17 kabupaten / kota  yaitu Kota Jayapura, Kabupaten Jayapura, Kabupaten Mimika, Kota Manokwari, Kabupaten Nabire, Kota Sorong, Kota Manado, Kota Samarinda, Kota Kendari, Kota Ambon, Kabupaten Seram Bagian Barat, Kota Pare Pare, Kota Makassar, Kabupaten Lombok Timur, Kabupaten Lombok Barat, Kota Denpasar, dan Kabupaten Badung. Peserta dari pusat berasal dari subdit Kesehatan Keluarga (Kesga), Imunisasi, Gizi, TB, HIV/AIDS, Malaria, SIK dan lainnya. Peserta dibagi ke dalam 4 kelas, yakni: A, B, C, D, untuk setiap kelas dengan 4 Kabupaten dan hanya satu kelas dengan peserta dari 5 Kabupaten. Dalam setiap kelas terdapat peserta dari kabupaten periode implementasi sebelumnya yaitu : Kota Makassar, Kota Pare-Pare, Kota Ambon, Kabupaten Lombok Timur, Kabupaten Lombok Barat, dan Kabupaten Seram Bagian Barat.
+Pantauan detikcom, tenda ini dibangun pada pukul 16.00 WIB. Tenda ini didirikan di lokasi yang sama dengan tenda sebelumnya, yakni di halaman PT Perikanan Nusantara (Persero) Cabang Jakarta, Jalan Lodan No 1, Pademangan, Ancol, Jakarta Utara.
 
-Sementara narasumber dan instruktur pelatihan berasal dari Pusdatin Kemenkes, Subdit TB, Subdit HIV, Center of Excellent (CoE), dan Konsultan Nasional. CoE yang terlibat dalam pelatihan ASDK Angkatan ke-3 di Makassar adalah CoE dari 4 Universitas yaitu CoE dari Universitas Mulawarman Samarinda, Universitas Hasanudin Makassar, Universitas Dr. Sam Ratulangi Manado, dan Universitas Cendrawasih Jayapura. Setiap CoE mengirimkan 2 orang Narasumber. 
 
-Pelaksanaan Pelatihan dimulai dengan pembukaan oleh Kepala Pusdatin Bapak  Dr.drh. Didik Budijanto, M.Kes yang diwakili oleh Kepala Bidang Pengembangan Sistem Informasi. Bapak Yudianto, SKM, M.Si. Dalam sambutan dan sesi Pembukaan disampaikan tentang Kebijakan Sistem Informasi Kesehatan, dan upaya yang sudah dilakukan dalam Periode Pertama Implementasi. Antara lain dengan mengintegrasikan penggunaan Dashboard ASDK di Command Center Smart City  Makassar dan Command Center Smart City Manado.
+Tenda dilengkapi dengan kipas anginTenda dilengkapi kipas angin. (M Guruh Nuary/detikcom)
 
-Sesi berikutnya disampaikan di kelas masing-masing antara lain oleh Kepala Bidang Pengembangan Sistem Informasi, Bapak Yudianto, SKM, M.Si, dan Kepala Subbid Arsitektur Sistem Informasi,  Farida Sibuea, SKM, MScPH, Konsultan Nasional ASDK serta oleh  semua Narasumber termasuk CoE dari 4 Universitas.
+"Ini langsung dari Dinas Sosial, dipasang tadi. (Diyakini lebih) nyaman, kita udah tambah kipas angin di dalam. Yang pasti lebih nyaman dari yang kemarin," kata Wakil Ketua Kampung Siaga Bencana (KSB) Kelurahan Ancol, Ammar, saat ditemui di lokasi, Selasa (20/11/2018).
 
-Acara pelatihan ditutup pada hari Sabtu, dan diakhiri dengan penyerahan hadiah bagi peserta dengan nilai tertinggi, penanda tanganan Rencana Tindak Lanjut oleh masing-masing kabupaten, dan pembagian user dan password untuk setiap kabupaten kota peserta. Pelatihan ditutup oleh Kepala Subbid Arsitektur Sistem Informasi, Farida Sibuea, SKM, MScPH.
+
+Tenda ini berukuran 12x5 meter. Dengan luas yang lebih besar dari sebelumnya, tenda ini diperkirakan bisa menampung 50 orang.
+
+Bantuan untuk warga juga datang. Bantuan tersebut di antaranya beras, biskuit, selimut, kaus, perlengkapan anak, terpal, mi instan, kecap, minyak, dan ikan dalam kemasan.
+
+Sebelumnya, Gubernur DKI Jakarta Anies Baswedan meninjau tenda warga yang mengungsi karena rumahnya ambles. Ada delapan keluarga yang mengungsi di tenda tersebut.
+
+Bantuan untuk warga yang rumahnya amblesBantuan untuk warga yang rumahnya ambles. (M Guruh Nuary/detikcom)
+
+Warga menyampaikan keluhan kepada Anies soal kondisi tenda yang panas. Menjawab keluhan itu, Anies mengatakan akan mengganti tenda secepatnya.
+
+Sebelumnya, Anies sempat berkeliling meninjau rumah yang tanahnya ambles. Dia didampingi Kadis Lingkungan Hidup Isnawa Adji.
