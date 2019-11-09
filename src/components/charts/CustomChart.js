@@ -3,11 +3,15 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
-import { Chart } from "@bit/primefaces.primereact.chart"
+
+import Chart from "../Chart"
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { convertDataPKHtoChartData } from "../../utils/charts/dataPKH"
 
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
+
+Chart.plugins.unregister(ChartDataLabels);
 
 class CustomChart extends React.Component {
   state = {

@@ -3,7 +3,8 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
-import { Chart } from "@bit/primefaces.primereact.chart"
+
+import Chart from "../Chart"
 
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
@@ -58,6 +59,21 @@ class DataFakirMiskinMandiriChart extends React.Component {
       tooltips: {
         mode: 'x',
       //   intersect: false
+      },
+      plugins: {
+        datalabels: {
+            color: 'white',
+            labels: {
+                title: {
+                    font: {
+                        weight: 'bold'
+                    }
+                },
+                value: {
+                    color: 'white'
+                }
+            }
+        }
       },
       legend : { 
         display: false,

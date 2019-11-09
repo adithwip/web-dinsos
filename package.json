@@ -5,8 +5,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "npm run npmconfig@bit && gatsby build",
-    "npmconfig@bit": "npm config set '@bit:registry' https://node.bit.dev",
+    "build": "gatsby build",
     "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
@@ -14,13 +13,14 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
-    "@bit/primefaces.primereact.chart": "^3.1.8",
     "@material-ui/core": "^4.3.2",
     "@material-ui/icons": "^4.2.1",
     "@material-ui/styles": "^4.3.0",
     "axios": "^0.19.0",
     "babel-plugin-styled-components": "^1.10.6",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.2",
+    "chartjs-plugin-datalabels": "^0.7.0",
+    "classnames": "^2.2.6",
     "gatsby": "^2.13.3",
     "gatsby-background-image": "^0.8.3",
     "gatsby-image": "^2.2.8",
