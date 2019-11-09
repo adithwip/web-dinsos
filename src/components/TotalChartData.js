@@ -10,7 +10,11 @@ const StyledContainer = styled.div`
   background-color: ${props => props.backgroundColor};
   padding: 4px 8px;
   border-radius: 4px;
-  max-width: 180px;
+  max-width: 220px;
+`
+
+const StyledItem = styled(Item)`
+  min-width: 90px;
 `
 
 const TotalChartData = props => {
@@ -23,14 +27,14 @@ const TotalChartData = props => {
   return (
     <StyledContainer backgroundColor={props.backgroundColor}>
       <Container alignContent="center" alignItems="center" justify="center">
-        <Item flex={1}>
+        <Item>
           <Typography variant="caption">{props.label}</Typography>
         </Item>
-        <Item flex={1} align="right">
+        <StyledItem flex={1} align="right">
           <Typography variant="caption">
             {totalNumber}
           </Typography>
-        </Item>
+        </StyledItem>
       </Container>
     </StyledContainer>
   )
