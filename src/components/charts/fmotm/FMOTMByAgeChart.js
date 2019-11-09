@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid"
 import ChartCard from "../../ChartCard"
 
 import Chart from "../../Chart"
+import TotalChartData from "../../TotalChartData"
 
 import Container from "../../../layouts/Container"
 import Item from "../../../layouts/Item"
@@ -20,7 +21,7 @@ class FMOTMByAgeChart extends React.Component {
     this.setState({ loading: true })
     const api = "http://ppds.pusdatin-dinsos.jakarta.go.id/api/age/2019";
     axios
-    //   .get(api, { crossdomain: true })
+      // .get(api, { crossdomain: true })
       .get(`https://api.myjson.com/bins/tlkz4`, { crossdomain: true })
       .then(result => {
         const { data } = result.data
@@ -78,6 +79,9 @@ class FMOTMByAgeChart extends React.Component {
       },
       plugins: {
         datalabels: {
+            formatter: function(value, context) {
+                return value > 0 ? value : "";
+            },
             color: 'black',
             anchor: 'end',
             align: 'start',
@@ -107,6 +111,9 @@ class FMOTMByAgeChart extends React.Component {
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
               <Chart type="pie" data={chartDataDoughnut} options={customOptions} />
+            </Item>
+            <Item>
+              <TotalChartData data={extractData('total', dataJson)} />
             </Item>
           </Container>
         </Grid>
