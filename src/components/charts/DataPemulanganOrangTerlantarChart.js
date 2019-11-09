@@ -3,7 +3,8 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
-import { Chart } from "@bit/primefaces.primereact.chart"
+
+import Chart from "../Chart"
 import { convertDataPemulanganToChartData } from "../../utils/charts/dataPemulanganOrangTerlantar"
 
 import Container from "../../layouts/Container"
@@ -63,6 +64,21 @@ class DataPemulanganOrangTerlantarChart extends React.Component {
           fontColor:"#fff",
         },
         position: 'bottom'
+      },
+      plugins: {
+        datalabels: {
+            color: 'white',
+            labels: {
+                title: {
+                    font: {
+                        weight: 'bold'
+                    }
+                },
+                value: {
+                    color: 'white'
+                }
+            }
+        }
       },
       scales : {
         xAxes:[{

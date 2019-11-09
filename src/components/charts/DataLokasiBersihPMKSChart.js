@@ -4,7 +4,8 @@ import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
 import { converDataPMKSToChartDataSetsByArea, getDataPMKSGroupByMonthNames } from "../../utils/charts/dataLokasiBersihPMKS"
-import { Chart } from "@bit/primefaces.primereact.chart"
+
+import Chart from "../Chart"
 
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
@@ -50,6 +51,21 @@ class DataLokasiBersihPMKSChart extends React.Component {
       legend : { 
         labels : {
           fontColor:"#fff",
+        }
+      },
+      plugins: {
+        datalabels: {
+            color: 'white',
+            labels: {
+                title: {
+                    font: {
+                        weight: 'bold'
+                    }
+                },
+                value: {
+                    color: 'white'
+                }
+            }
         }
       },
       tooltips: {

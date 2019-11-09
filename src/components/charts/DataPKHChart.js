@@ -3,7 +3,8 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
-import { Chart } from "@bit/primefaces.primereact.chart"
+
+import Chart from "../Chart"
 import { convertDataPKHtoChartData } from "../../utils/charts/dataPKH"
 
 import Container from "../../layouts/Container"
@@ -56,6 +57,21 @@ class DataPKHChart extends React.Component {
     const customOptions = {
       legend : { 
         display: false,
+      },
+      plugins: {
+        datalabels: {
+            color: 'white',
+            labels: {
+                title: {
+                    font: {
+                        weight: 'bold'
+                    }
+                },
+                value: {
+                    color: 'white'
+                }
+            }
+        }
       },
       scales : {
         xAxes:[{

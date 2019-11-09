@@ -1,7 +1,8 @@
 import React from "react"
 import axios from "axios"
 import Grid from "@material-ui/core/Grid"
-import { Chart } from "@bit/primefaces.primereact.chart"
+
+import Chart from "../Chart"
 
 import ChartCard from "../ChartCard"
 import { convertDataTitikPMKStoChartData } from "../../utils/charts/dataTitikRawanPMKS"
@@ -68,7 +69,22 @@ class DataTitikRawanPMKSChart extends React.Component {
           fontColor:"#fff",
         },
         position: 'right'
-      }
+      },
+      plugins: {
+        datalabels: {
+            color: 'black',
+            labels: {
+                title: {
+                    font: {
+                        weight: 'bold'
+                    }
+                },
+                value: {
+                    color: 'white'
+                }
+            }
+        }
+      },
     }
 
     return (

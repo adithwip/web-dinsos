@@ -3,7 +3,8 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
-import { Chart } from "@bit/primefaces.primereact.chart"
+
+import Chart from "../Chart"
 
 import { convertDataJandaPerintisKemerdekaanToChartData } from "../../utils/charts/dataJandaPerintisKemerdekaan"
 
@@ -67,7 +68,22 @@ class DataJandaPerintisKemerdekaanChart extends React.Component {
           fontColor:"#fff",
         },
         position: 'right'
-      }
+      },
+      plugins: {
+        datalabels: {
+            color: 'white',
+            labels: {
+                title: {
+                    font: {
+                        weight: 'bold'
+                    }
+                },
+                value: {
+                    color: 'white'
+                }
+            }
+        }
+      },
     }
 
     return (
