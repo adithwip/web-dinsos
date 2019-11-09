@@ -105,12 +105,62 @@ class DataPendapingPKHChart extends React.Component {
       }
     }
 
+    const stackedOptions = {
+      legend : { 
+        labels : {
+          fontColor:"#fff",
+        },
+        position: 'right'
+      },
+      plugins: {
+        datalabels: {
+            formatter: function(value, context) {
+                return value > 1 ? value : "";
+            },
+            color: 'white',
+            labels: {
+                title: {
+                    font: {
+                        weight: 'bold'
+                    }
+                },
+                value: {
+                    color: 'white'
+                }
+            }
+        }
+      },
+      tooltips: {
+        mode: 'index',
+        intersect: false
+      },
+      responsive: true,
+      scales: {
+        xAxes: [
+          {
+            stacked: true,
+            ticks: {
+              fontColor: "white"
+            }
+          }
+        ],
+        yAxes: [
+          {
+            stacked: true,
+            ticks: {
+              fontColor: "white"
+            }
+          }
+        ]
+      }
+    }
+
     return (
       <ChartCard title="Data Pendamping PKH" to="data/data-petugas-p3s">
         <Grid style={{ height: "100%" }} container direction="column" justify="center">
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <Chart type="horizontalBar" data={dataBarChart} options={ customOptions }/>
+              <Chart type="bar" data={dataBarChart} options={stackedOptions}/>
             </Item>
             <Item flex={1}>
               {renderSetsOfTotalChartData()}

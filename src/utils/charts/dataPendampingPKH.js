@@ -15,7 +15,7 @@ const convertDataPendampingPKHToChartData = (dataJson, type) => {
     if (typeof type === 'string' && type === 'data') {
         const data = _.map(dataPendampingGroupedByWilayah, (value, key) => value.length)
 
-        let colorList = ["red","blue","yellow","green","cyan","black","white"];
+        let colorList = ["#9C28B0","#4CAE50","#03A9F4","#C2185B","#FFA000","#F7464A","#00796B"];
         
         let listJabatan = []
         _.map(dataPendampingGroupedByWilayah, (daftarPKHWilayah, key) => {
