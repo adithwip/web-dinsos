@@ -10,11 +10,17 @@ const StyledContainer = styled.div`
   background-color: ${props => props.backgroundColor};
   padding: 4px 8px;
   border-radius: 4px;
-  max-width: 220px;
+  max-width: 320px;
+  mix-blend-mode: difference;
 `
 
 const StyledItem = styled(Item)`
   min-width: 90px;
+`
+
+const StyledTypography = styled(Typography)`
+  color: white;
+  mix-blend-mode: difference;
 `
 
 const TotalChartData = props => {
@@ -28,12 +34,14 @@ const TotalChartData = props => {
     <StyledContainer backgroundColor={props.backgroundColor}>
       <Container alignContent="center" alignItems="center" justify="center">
         <Item>
-          <Typography variant="caption">{props.label}</Typography>
+          <StyledTypography variant="caption">
+            {props.label}
+          </StyledTypography>
         </Item>
         <StyledItem flex={1} align="right">
-          <Typography variant="caption">
+          <StyledTypography variant="caption">
             {totalNumber}
-          </Typography>
+          </StyledTypography>
         </StyledItem>
       </Container>
     </StyledContainer>
