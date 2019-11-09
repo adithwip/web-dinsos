@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import styled from "styled-components"
 
 import Container from "../layouts/Container"
@@ -8,8 +9,8 @@ import Typography from "@material-ui/core/Typography"
 const StyledContainer = styled.div`
   background-color: black;
   padding: 4px 8px;
-  border-radius: 100px;
-  max-width: 220px;
+  border-radius: 4px;
+  max-width: 180px;
 `
 
 const TotalChartData = props => {
@@ -21,16 +22,27 @@ const TotalChartData = props => {
 
   return (
     <StyledContainer>
-      <Container spacing={16} alignContent="center" alignItems="center">
-        <Item flex={1} align="center">
-          <Typography variant="overline">Total Data</Typography>
+      <Container alignContent="center" alignItems="center">
+        <Item flex={1}>
+          <Typography variant="overline">{props.label}</Typography>
         </Item>
-        <Item flex={1} align="center">
-          <Typography variant="overline">{totalNumber}</Typography>
+        <Item flex={1} align="right">
+          <Typography variant="overline">
+            {totalNumber}
+          </Typography>
         </Item>
       </Container>
     </StyledContainer>
   )
+}
+
+TotalChartData.defaultProps = {
+  label: 'Total Data'
+}
+
+TotalChartData.propTypes = {
+  data: PropTypes.array,
+  label: PropTypes.string,
 }
 
 export default TotalChartData
