@@ -3,8 +3,8 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
-
 import Chart from "../Chart"
+import TotalChartData from "../TotalChartData"
 
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
@@ -42,6 +42,23 @@ class DataPendapingPKHChart extends React.Component {
 
   render() {
     const { dataJson, error, loading } = this.state
+    const dataPendampingPKHChartData = convertDataPendampingPKHToChartData(dataJson, 'data')
+
+    const renderSetsOfTotalChartData = () => (
+      <Container flexWrap="wrap" spacing={8}>
+        {dataPendampingPKHChartData.map(data => {
+          return (
+            <Item>
+              <TotalChartData
+                data={data.data}
+                label={data.label}
+                backgroundColor={data.backgroundColor}
+              />
+            </Item>
+          )
+        })}
+      </Container>
+    )
     
     const dataBarChart = {
       labels: convertDataPendampingPKHToChartData(dataJson, 'labels'),
@@ -53,7 +70,8 @@ class DataPendapingPKHChart extends React.Component {
       legend : { 
         labels : {
           fontColor:"#fff"
-        }
+        },
+        position: 'right'
       },
       plugins: {
         datalabels: {
@@ -90,6 +108,9 @@ class DataPendapingPKHChart extends React.Component {
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
               <Chart type="horizontalBar" data={dataBarChart} options={ customOptions }/>
+            </Item>
+            <Item flex={1}>
+              {renderSetsOfTotalChartData()}
             </Item>
           </Container>
         </Grid>

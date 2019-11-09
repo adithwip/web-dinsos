@@ -63,7 +63,7 @@ class FMOTMByAgeChart extends React.Component {
       datasets: [
         {
           label: extractData('age', dataJson),
-          backgroundColor: [ '#b2ffb2', '#00ff00', '#009900', '#004c00' ],
+          backgroundColor: [ '#FF5252', '#02C752', '#03A9F4', '#FE9F00' ],
           data: extractData('total', dataJson)
         }
       ]

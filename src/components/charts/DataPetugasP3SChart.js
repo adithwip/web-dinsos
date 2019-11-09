@@ -3,7 +3,7 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
-
+import TotalChartData from "../TotalChartData"
 import Chart from "../Chart"
 import { convertDataP3StoChartData } from "../../utils/charts/dataPetugasP3SUtils"
 
@@ -95,6 +95,9 @@ class DataP3SChart extends React.Component {
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
               <Chart type="doughnut" data={chartDataDoughnut} options={customOptions} />
+            </Item>
+            <Item flex={1}>
+              <TotalChartData data={convertDataP3StoChartData(dataP3S, "data")} />
             </Item>
           </Container>
         </Grid>
