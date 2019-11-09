@@ -23,7 +23,6 @@ class FMOTMByBantuanChart extends React.Component {
     //   .get(api, { crossdomain: true })
       .get(`https://api.myjson.com/bins/111pr4`, { crossdomain: true })
       .then(result => {
-        console.log(api, result)
         const { data } = result.data
         this.setState({
           loading: false,
@@ -44,7 +43,6 @@ class FMOTMByBantuanChart extends React.Component {
 
     const extractData = (type, dataFromState) => {
         let arr = []
-        console.log('dataFromState', dataFromState)
         !!dataFromState && dataFromState.forEach(data => {
             type === "keterangan" && arr.push(data.keterangan)
             type === "total" && arr.push(data.total)

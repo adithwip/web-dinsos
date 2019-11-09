@@ -3,8 +3,8 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../../ChartCard"
-
 import Chart from "../../Chart"
+import TotalChartData from "../../TotalChartData"
 
 import Container from "../../../layouts/Container"
 import Item from "../../../layouts/Item"
@@ -25,8 +25,6 @@ class FMOTMByGenderChart extends React.Component {
       })
       .then(result => {
         const { data } = result.data
-        console.log(api, result)
-        // console.log("http://ppds.pusdatin-dinsos.jakarta.go.id/api/gender/2019",data)
         this.setState({
           loading: false,
           dataJson: data,
@@ -102,6 +100,9 @@ class FMOTMByGenderChart extends React.Component {
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
               <Chart type="pie" data={chartDataDoughnut} options={customOptions} />
+            </Item>
+            <Item>
+              <TotalChartData data={extractData('total', dataJson)} />
             </Item>
           </Container>
         </Grid>

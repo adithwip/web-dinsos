@@ -37,7 +37,6 @@ class DataFakirMiskinMandiriChart extends React.Component {
   }
 
   componentDidMount() {
-    console.log('')
     this.fetchData()
   }
 

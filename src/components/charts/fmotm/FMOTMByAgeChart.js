@@ -23,7 +23,6 @@ class FMOTMByAgeChart extends React.Component {
     //   .get(api, { crossdomain: true })
       .get(`https://api.myjson.com/bins/tlkz4`, { crossdomain: true })
       .then(result => {
-        console.log(api, result)
         const { data } = result.data
         this.setState({
           loading: false,
@@ -48,7 +47,6 @@ class FMOTMByAgeChart extends React.Component {
         }
 
         if (type === "total") {
-            console.log('total', dataFromState)
             return [
                 !!dataFromState && dataFromState.h_nage04,
                 !!dataFromState && dataFromState.h_nage0519,

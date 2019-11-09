@@ -46,11 +46,8 @@ const convertDataKejadianBencanaToChartData = (dataKejadianBencana, type) => {
       result[jenisBencana] = jumlahKejadianBencanaByBulanBencana.slice(1)
     })
 
-    // console.log('kejadianBencanaResultFinal',result)
-
     const datasets = []
     for (let jenisBencana in result) {
-      // console.log()
       datasets.push({
         type: 'bar',
         label: jenisBencana,
@@ -58,7 +55,6 @@ const convertDataKejadianBencanaToChartData = (dataKejadianBencana, type) => {
         data: result[jenisBencana]
       })
     }
-    // console.log('kejadianBencana',datasets)
 
     return datasets
   }

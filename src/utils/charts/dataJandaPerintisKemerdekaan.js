@@ -10,8 +10,6 @@ const convertDataJandaPerintisKemerdekaanToChartData = (dataJson, type, semester
     }
 
     if (typeof type === 'string' && type === 'data') {
-        // console.log("wilayah "+ semester)
-        // console.log(dataPendampingGroupedByWilayah)
         const data = _.map(dataPendampingGroupedByWilayah, (value, key) => value.length)
         return data
     }

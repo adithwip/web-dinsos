@@ -36,9 +36,6 @@ const convertDataPemulanganToChartData = (dataPemulangan, type) => {
       
     });
 
-    // console.log(groupByDarat)
-    // console.log(groupByLaut)
-
     let result = [
       {        
         label : "Darat",
@@ -51,8 +48,6 @@ const convertDataPemulanganToChartData = (dataPemulangan, type) => {
         data : groupByLaut
       }
     ]
-    
-    // console.log(result)
 
     return result
   }

@@ -11,7 +11,6 @@ const randomColor = () => {
 
 const convertDataFakirMiskinMandiriToChartData = (dataJson, type) => {
     const groupBySemester = _.mapValues(_.groupBy(dataJson, 'semester'), clist => clist.map(data => _.omit(data, 'make')))
-    // console.log('Semester', groupBySemester)
 
     if (typeof type === 'string' && type === 'labels') {    
         const labels = _.keys(_.mapValues(_.groupBy(dataJson, 'wilayah'), clist => clist.map(data => _.omit(data, 'make'))))
@@ -25,13 +24,11 @@ const convertDataFakirMiskinMandiriToChartData = (dataJson, type) => {
         const datasets = []
         _.map(groupBySemester, (dataPerSemester, semester) => {
             const groupByWilayah = _.mapValues(_.groupBy(dataPerSemester, 'wilayah'), clist => clist.map(data => _.omit(data, 'make')))
-            // console.log(semester, groupByWilayah)
             
             const dataKUBE  = []
             const dataUEP   = []
             const dataPKH   = []
             _.map(groupByWilayah, (dataPerWilayah, wilayah) => {
-                console.log(wilayah, dataPerWilayah)
             //     const objWilayah = groupByWilayah[labelWilayah]
                 dataKUBE.push(dataPerWilayah[0].kube)
                 dataUEP.push(dataPerWilayah[0].uep)
@@ -62,7 +59,6 @@ const convertDataFakirMiskinMandiriToChartData = (dataJson, type) => {
 
         })
 
-        // console.log(datasets)
         return datasets
 
         // return [
