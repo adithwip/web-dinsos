@@ -3,6 +3,7 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import Chart from "../Chart"
+import TotalChartData from "../TotalChartData"
 
 import ChartCard from "../ChartCard"
 import { convertDataTitikPMKStoChartData } from "../../utils/charts/dataTitikRawanPMKS"
@@ -98,6 +99,9 @@ class DataTitikRawanPMKSChart extends React.Component {
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
               <Chart type="doughnut" data={chartDataDoughnut} options={customOptions} />
+            </Item>
+            <Item>
+              <TotalChartData data={ convertDataTitikPMKStoChartData(dataTitikPMKS, "data") } />
             </Item>
           </Container>
         </Grid>

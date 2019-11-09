@@ -3,6 +3,7 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
+import TotalChartData from "../TotalChartData"
 
 import Chart from "../Chart"
 import { convertDataPKHtoChartData } from "../../utils/charts/dataPKH"
@@ -97,9 +98,11 @@ class DataPKHChart extends React.Component {
           justify="center"
         >
           <Container flexDirection="column" spacing={16}>
-
             <Item flex={1}>
               <Chart type="horizontalBar" data={chartDataBar} options={ customOptions } />
+            </Item>
+            <Item>
+              <TotalChartData data={convertDataPKHtoChartData(dataPkh, "data")} />
             </Item>
           </Container>
         </Grid>

@@ -3,6 +3,8 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
+import TotalChartData from "../TotalChartData"
+
 
 import Chart from "../Chart"
 
@@ -112,6 +114,9 @@ class DataProgramKegiatanDinsosChart extends React.Component {
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
               <Chart type="doughnut" data={chartDataDoughnut} options={customOptions} />
+            </Item>
+            <Item>
+              <TotalChartData data={ dataP3sArray('total', dataP3S) } />
             </Item>
           </Container>
         </Grid>
