@@ -7,7 +7,7 @@ import Item from "../layouts/Item"
 import Typography from "@material-ui/core/Typography"
 
 const StyledContainer = styled.div`
-  background-color: black;
+  background-color: ${props => props.backgroundColor};
   padding: 4px 8px;
   border-radius: 4px;
   max-width: 180px;
@@ -21,13 +21,13 @@ const TotalChartData = props => {
   const totalNumber = new Intl.NumberFormat('id-ID', ).format(sumOfData)
 
   return (
-    <StyledContainer>
-      <Container alignContent="center" alignItems="center">
+    <StyledContainer backgroundColor={props.backgroundColor}>
+      <Container alignContent="center" alignItems="center" justify="center">
         <Item flex={1}>
-          <Typography variant="overline">{props.label}</Typography>
+          <Typography variant="caption">{props.label}</Typography>
         </Item>
         <Item flex={1} align="right">
-          <Typography variant="overline">
+          <Typography variant="caption">
             {totalNumber}
           </Typography>
         </Item>
@@ -37,7 +37,8 @@ const TotalChartData = props => {
 }
 
 TotalChartData.defaultProps = {
-  label: 'Total Data'
+  label: 'Total Data',
+  backgroundColor: 'black',
 }
 
 TotalChartData.propTypes = {

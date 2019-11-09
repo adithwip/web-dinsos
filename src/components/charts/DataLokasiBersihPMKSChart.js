@@ -9,6 +9,7 @@ import Chart from "../Chart"
 
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
+import TotalChartData from "../TotalChartData"
 
 class DataLokasiBersihPMKSChart extends React.Component {
   state = {
@@ -41,6 +42,23 @@ class DataLokasiBersihPMKSChart extends React.Component {
 
   render() {
     const { dataBersihPMKS, error, loading } = this.state
+    const DataSetsToShownAsTotalChartData = converDataPMKSToChartDataSetsByArea(dataBersihPMKS)
+
+    const renderSetsOfTotalChartData = () => (
+      <Container flexWrap="wrap" spacing={8}>
+        {DataSetsToShownAsTotalChartData.map(data => {
+          return (
+            <Item>
+              <TotalChartData
+                data={data.data}
+                label={data.label}
+                backgroundColor={data.backgroundColor}
+              />
+            </Item>
+          )
+        })}
+      </Container>
+    )
 
     const stackedData = {
       labels: getDataPMKSGroupByMonthNames(dataBersihPMKS),
@@ -51,7 +69,8 @@ class DataLokasiBersihPMKSChart extends React.Component {
       legend : { 
         labels : {
           fontColor:"#fff",
-        }
+        },
+        position: 'right'
       },
       plugins: {
         datalabels: {
@@ -93,22 +112,6 @@ class DataLokasiBersihPMKSChart extends React.Component {
       }
     }
 
-    
-    const customOptions = {
-      legend : { 
-        display: false,
-      },
-      scales : {
-        xAxes:[{
-        }],
-        yAxes:[{
-          ticks: {
-            fontColor: "white"
-          }
-        }]
-      }
-    }
-
     return (
       <ChartCard title="Data Lokasi Bersih PMKS" to="data/data-petugas-p3s">
         <Grid
@@ -124,6 +127,9 @@ class DataLokasiBersihPMKSChart extends React.Component {
                 data={stackedData}
                 options={stackedOptions}
               />
+            </Item>
+            <Item flex={1}>
+              {renderSetsOfTotalChartData()}
             </Item>
           </Container>
         </Grid>
