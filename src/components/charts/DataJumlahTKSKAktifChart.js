@@ -3,8 +3,8 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
-
 import Chart from "../Chart"
+import TotalChartData from "../TotalChartData"
 
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
@@ -86,6 +86,9 @@ class DataJumlahTKSKAktifChart extends React.Component {
       },
       plugins: {
         datalabels: {
+            formatter: function(value, context) {
+                return value > 0 ? value : "";
+            },
             color: 'white',
             labels: {
                 title: {
@@ -112,6 +115,9 @@ class DataJumlahTKSKAktifChart extends React.Component {
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
               <Chart type="doughnut" data={chartDataDoughnut} options={customOptions}/>
+            </Item>
+            <Item flex={1}>
+              <TotalChartData data={dataP3sArray('total', dataP3S)} />
             </Item>
           </Container>
         </Grid>

@@ -2,7 +2,6 @@ import _ from "lodash"
 
 const convertDataPendampingPKHToChartData = (dataJson, type) => {
     const dataPendampingGroupedByWilayah = _.mapValues(_.groupBy(dataJson, 'wilayah'), clist => clist.map(data => _.omit(data, 'make')))
-    // console.log(dataPendampingGroupedByWilayah)
 
     if (typeof type === 'string' && type === 'labels') {    
         const fields = _.keys(dataPendampingGroupedByWilayah)
@@ -26,7 +25,6 @@ const convertDataPendampingPKHToChartData = (dataJson, type) => {
 
         let listData = []
         listJabatan.forEach( jabatan => {
-            // console.log(jabatan)
             let tempCount = []
             _.map(dataPendampingGroupedByWilayah, (daftarPKHWilayah, wilayah) => {
                 const groupByJabatan = _.mapValues(_.groupBy(daftarPKHWilayah, 'jabatan'), clist => clist.map(data => _.omit(data, 'make')))
@@ -37,7 +35,6 @@ const convertDataPendampingPKHToChartData = (dataJson, type) => {
                     }
                 })
                 tempCount.push(count)
-                // console.log(wilayah + ' => ' + count)
             })
 
             listData.push(
@@ -48,8 +45,6 @@ const convertDataPendampingPKHToChartData = (dataJson, type) => {
                 }
             )
         })
-
-        // console.log(listData)
 
         return listData
     }

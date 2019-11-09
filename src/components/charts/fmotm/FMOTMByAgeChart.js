@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid"
 import ChartCard from "../../ChartCard"
 
 import Chart from "../../Chart"
+import TotalChartData from "../../TotalChartData"
 
 import Container from "../../../layouts/Container"
 import Item from "../../../layouts/Item"
@@ -20,10 +21,9 @@ class FMOTMByAgeChart extends React.Component {
     this.setState({ loading: true })
     const api = "http://ppds.pusdatin-dinsos.jakarta.go.id/api/age/2019";
     axios
-    //   .get(api, { crossdomain: true })
+      // .get(api, { crossdomain: true })
       .get(`https://api.myjson.com/bins/tlkz4`, { crossdomain: true })
       .then(result => {
-        console.log(api, result)
         const { data } = result.data
         this.setState({
           loading: false,
@@ -48,7 +48,6 @@ class FMOTMByAgeChart extends React.Component {
         }
 
         if (type === "total") {
-            console.log('total', dataFromState)
             return [
                 !!dataFromState && dataFromState.h_nage04,
                 !!dataFromState && dataFromState.h_nage0519,
@@ -65,7 +64,7 @@ class FMOTMByAgeChart extends React.Component {
       datasets: [
         {
           label: extractData('age', dataJson),
-          backgroundColor: [ '#b2ffb2', '#00ff00', '#009900', '#004c00' ],
+          backgroundColor: [ '#FF5252', '#02C752', '#03A9F4', '#FE9F00' ],
           data: extractData('total', dataJson)
         }
       ]
@@ -80,6 +79,9 @@ class FMOTMByAgeChart extends React.Component {
       },
       plugins: {
         datalabels: {
+            formatter: function(value, context) {
+                return value > 0 ? value : "";
+            },
             color: 'black',
             anchor: 'end',
             align: 'start',
@@ -109,6 +111,9 @@ class FMOTMByAgeChart extends React.Component {
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
               <Chart type="pie" data={chartDataDoughnut} options={customOptions} />
+            </Item>
+            <Item>
+              <TotalChartData data={extractData('total', dataJson)} />
             </Item>
           </Container>
         </Grid>

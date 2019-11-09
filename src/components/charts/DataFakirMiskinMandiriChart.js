@@ -3,8 +3,8 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
-
 import Chart from "../Chart"
+import TotalChartData from "../TotalChartData"
 
 import Container from "../../layouts/Container"
 import Item from "../../layouts/Item"
@@ -37,12 +37,28 @@ class DataFakirMiskinMandiriChart extends React.Component {
   }
 
   componentDidMount() {
-    console.log('')
     this.fetchData()
   }
 
   render() {
     const { dataJson, error, loading } = this.state
+    const dataFakirMiskinMandiri = convertDataFakirMiskinMandiriToChartData(dataJson, 'data')
+
+    const renderSetsOfTotalChartData = () => (
+      <Container flexWrap="wrap" spacing={8}>
+        {dataFakirMiskinMandiri.map(data => {
+          return (
+            <Item>
+              <TotalChartData
+                data={data.data}
+                label={`${data.label} - ${data.stack}`}
+                backgroundColor={data.backgroundColor}
+              />
+            </Item>
+          )
+        })}
+      </Container>
+    )
 
     const stackedData = {
       labels: convertDataFakirMiskinMandiriToChartData(dataJson, 'labels'),
@@ -54,7 +70,8 @@ class DataFakirMiskinMandiriChart extends React.Component {
       legend : { 
         labels : {
           fontColor:"#fff",
-        }
+        },
+        position: 'right'
       },
       tooltips: {
         mode: 'x',
@@ -62,6 +79,9 @@ class DataFakirMiskinMandiriChart extends React.Component {
       },
       plugins: {
         datalabels: {
+            formatter: function(value, context) {
+                return value > 0 ? value : "";
+            },
             color: 'white',
             labels: {
                 title: {
@@ -75,9 +95,9 @@ class DataFakirMiskinMandiriChart extends React.Component {
             }
         }
       },
-      legend : { 
-        display: false,
-      },
+      // legend : { 
+      //   display: false,
+      // },
       responsive: true,
       scales: {
         xAxes: [
@@ -110,6 +130,9 @@ class DataFakirMiskinMandiriChart extends React.Component {
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
               <Chart type="bar" data={stackedData} options={ stackedOptions } />
+            </Item>
+            <Item>
+              {renderSetsOfTotalChartData()}
             </Item>
           </Container>
         </Grid>

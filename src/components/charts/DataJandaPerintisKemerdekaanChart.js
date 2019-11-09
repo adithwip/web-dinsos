@@ -7,6 +7,7 @@ import ChartCard from "../ChartCard"
 import Chart from "../Chart"
 
 import { convertDataJandaPerintisKemerdekaanToChartData } from "../../utils/charts/dataJandaPerintisKemerdekaan"
+import TotalChartData from "../TotalChartData"
 
 class DataJandaPerintisKemerdekaanChart extends React.Component {
   state = {
@@ -71,6 +72,9 @@ class DataJandaPerintisKemerdekaanChart extends React.Component {
       },
       plugins: {
         datalabels: {
+            formatter: function(value, context) {
+                return value > 0 ? value : "";
+            },
             color: 'white',
             labels: {
                 title: {
@@ -91,7 +95,6 @@ class DataJandaPerintisKemerdekaanChart extends React.Component {
         <Grid
           style={{ minHeight: "300px", marginTop: "18px" }}
           container
-          justify="center"
           alignItems="flex-start"
           spacing={2}
         >
@@ -104,6 +107,16 @@ class DataJandaPerintisKemerdekaanChart extends React.Component {
             <Chart type="pie" data={chartDataDoughnut2} options={customOptions} style={{marginBottom: "10px"}}/>
             <hr/>
             <strong>Juli - Desember</strong>
+          </Grid>
+          <Grid item>
+            <Grid container spacing={2}>
+              <Grid item>
+                <TotalChartData data={convertDataJandaPerintisKemerdekaanToChartData(dataP3S, 'data', 1)} />
+              </Grid>
+              <Grid item>
+                <TotalChartData data={convertDataJandaPerintisKemerdekaanToChartData(dataP3S, 'data', 2)} />
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
       </ChartCard>

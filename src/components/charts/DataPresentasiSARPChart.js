@@ -3,6 +3,7 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
+import TotalChartData from "../TotalChartData"
 
 import Chart from "../Chart"
 
@@ -86,6 +87,9 @@ class DataPresentasiSARPChart extends React.Component {
       },
       plugins: {
         datalabels: {
+            formatter: function(value, context) {
+                return value > 0 ? value : "";
+            },
             color: 'white',
             labels: {
                 title: {
@@ -112,6 +116,9 @@ class DataPresentasiSARPChart extends React.Component {
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
               <Chart type="doughnut" data={chartDataDoughnut} options={customOptions} />
+            </Item>
+            <Item>
+              <TotalChartData data={ dataP3sArray('total', dataP3S) } />
             </Item>
           </Container>
         </Grid>

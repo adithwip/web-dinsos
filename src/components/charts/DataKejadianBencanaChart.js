@@ -3,7 +3,7 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import Chart from "../Chart"
-
+import TotalChartData from "../TotalChartData"
 import ChartCard from "../ChartCard"
 import { convertDataKejadianBencanaToChartData } from "../../utils/charts/dataKejadianBencana"
 
@@ -41,20 +41,26 @@ class DataKejadianBencanaChart extends React.Component {
 
   render() {
     const { dataKejadianBencana, error, loading } = this.state
-    
+    const dataKejadianBencanaToChartData = convertDataKejadianBencanaToChartData(dataKejadianBencana, 'data')
+
+    const renderSetsOfTotalChartData = () => (
+      <Container flexWrap="wrap" spacing={8}>
+        {dataKejadianBencanaToChartData.map(data => {
+          return (
+            <Item>
+              <TotalChartData
+                data={data.data}
+                label={data.label}
+                backgroundColor={data.backgroundColor}
+              />
+            </Item>
+          )
+        })}
+      </Container>
+    )
+
     const dataBarChart = {
       labels: convertDataKejadianBencanaToChartData(dataKejadianBencana, 'labels'),
-      // datasets: [
-      //   {
-      //     label: 'Data Kejadian Bencana',
-      //     backgroundColor: '#CCDBDC',
-      //     borderColor: '#CCDBDC',
-      //     borderWidth: 1,
-      //     hoverBackgroundColor: '#CCDBDC',
-      //     hoverBorderColor: '#CCDBDC',
-      //     data: convertDataKejadianBencanaToChartData(dataKejadianBencana, 'data')
-      //   }
-      // ]
       datasets : convertDataKejadianBencanaToChartData(dataKejadianBencana, 'data')
     };
     
@@ -67,6 +73,9 @@ class DataKejadianBencanaChart extends React.Component {
       },
       plugins: {
         datalabels: {
+            formatter: function(value, context) {
+                return value > 0 ? value : "";
+            },
             color: 'white',
             labels: {
                 title: {
@@ -108,6 +117,9 @@ class DataKejadianBencanaChart extends React.Component {
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
               <Chart type="bar" data={dataBarChart} options={customOptions}/>
+            </Item>
+            <Item flex={1}>
+              {renderSetsOfTotalChartData()}
             </Item>
           </Container>
         </Grid>

@@ -58,8 +58,6 @@ const converDataPMKSToChartDataSetsByArea = (dataBersihPMKS) => {
     })
   })
 
-  console.log("totalDinsosData", totalDinsosData)
-
   return (
     [
       {

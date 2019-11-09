@@ -3,7 +3,7 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../ChartCard"
-
+import TotalChartData from "../TotalChartData"
 import Chart from "../Chart"
 import { convertDataPemulanganToChartData } from "../../utils/charts/dataPemulanganOrangTerlantar"
 
@@ -41,20 +41,26 @@ class DataPemulanganOrangTerlantarChart extends React.Component {
 
   render() {
     const { dataPemulangan, error, loading } = this.state
+    const dataPemulanganToChartData = convertDataPemulanganToChartData(dataPemulangan, 'data')
+
+    const renderSetsOfTotalChartData = () => (
+      <Container flexWrap="wrap" spacing={8}>
+        {dataPemulanganToChartData.map(data => {
+          return (
+            <Item>
+              <TotalChartData
+                data={data.data}
+                label={data.label}
+                backgroundColor={data.backgroundColor}
+              />
+            </Item>
+          )
+        })}
+      </Container>
+    )
 
     const dataBarChart = {
       labels: convertDataPemulanganToChartData(dataPemulangan, 'labels'),
-      // datasets: [
-      //   {
-      //     label: 'Data Pemulangan Orang Terlantar',
-      //     backgroundColor: '#CCDBDC',
-      //     borderColor: '#CCDBDC',
-      //     borderWidth: 1,
-      //     hoverBackgroundColor: '#CCDBDC',
-      //     hoverBorderColor: '#CCDBDC',
-      //     data: convertDataPemulanganToChartData(dataPemulangan, 'data')
-      //   }
-      // ]
       datasets: convertDataPemulanganToChartData(dataPemulangan, 'data')
     };
 
@@ -67,6 +73,9 @@ class DataPemulanganOrangTerlantarChart extends React.Component {
       },
       plugins: {
         datalabels: {
+            formatter: function(value, context) {
+                return value > 0 ? value : "";
+            },
             color: 'white',
             labels: {
                 title: {
@@ -107,6 +116,9 @@ class DataPemulanganOrangTerlantarChart extends React.Component {
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
               <Chart type="bar" data={dataBarChart} options={customOptions} />
+            </Item>
+            <Item flex={1}>
+              {renderSetsOfTotalChartData()}
             </Item>
           </Container>
         </Grid>

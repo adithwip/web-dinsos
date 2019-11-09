@@ -3,8 +3,8 @@ import axios from "axios"
 import Grid from "@material-ui/core/Grid"
 
 import ChartCard from "../../ChartCard"
-
 import Chart from "../../Chart"
+import TotalChartData from "../../TotalChartData"
 
 import Container from "../../../layouts/Container"
 import Item from "../../../layouts/Item"
@@ -23,7 +23,6 @@ class FMOTMByBantuanChart extends React.Component {
     //   .get(api, { crossdomain: true })
       .get(`https://api.myjson.com/bins/111pr4`, { crossdomain: true })
       .then(result => {
-        console.log(api, result)
         const { data } = result.data
         this.setState({
           loading: false,
@@ -44,7 +43,6 @@ class FMOTMByBantuanChart extends React.Component {
 
     const extractData = (type, dataFromState) => {
         let arr = []
-        console.log('dataFromState', dataFromState)
         !!dataFromState && dataFromState.forEach(data => {
             type === "keterangan" && arr.push(data.keterangan)
             type === "total" && arr.push(data.total)
@@ -76,6 +74,9 @@ class FMOTMByBantuanChart extends React.Component {
         },
         plugins: {
           datalabels: {
+              formatter: function(value, context) {
+                  return value > 0 ? value : "";
+              },
               color: 'white',
               anchor: 'end',
               align: 'end',
@@ -104,6 +105,9 @@ class FMOTMByBantuanChart extends React.Component {
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
               <Chart type="horizontalBar" data={chartDataBar} options={ customOptions } />
+            </Item>
+            <Item flex={1}>
+              <TotalChartData data={extractData('total', dataJson)} />
             </Item>
           </Container>
         </Grid>

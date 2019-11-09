@@ -9,8 +9,6 @@ exports.sourceNodes = async ({boundActionCreators}) => {
   const {createNode} = boundActionCreators
   const result = await axios.get(API_URI)
 
-  // console.log("result data", result.data)
-
   await result.data.data.forEach(el => {
       createNode({
         children: [],

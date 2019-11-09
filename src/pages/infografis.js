@@ -44,7 +44,6 @@ class InfografisPage extends React.Component {
         this.setState({ dataJson: data, loading: false })
       })
       .catch(error => {
-        console.log(error)
         this.setState({ loading: false, error: error })
       })
   }
