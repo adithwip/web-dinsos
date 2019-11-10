@@ -63,8 +63,7 @@ class DataPendapingPKHChart extends React.Component {
     const dataBarChart = {
       labels: convertDataPendampingPKHToChartData(dataJson, 'labels'),
       datasets: convertDataPendampingPKHToChartData(dataJson, 'data')
-    };
-    
+    };    
 
     const customOptions = {
       legend : { 
@@ -72,6 +71,9 @@ class DataPendapingPKHChart extends React.Component {
           fontColor:"#fff"
         },
         position: 'right'
+      },
+      tooltips: {
+        mode: 'x',
       },
       plugins: {
         datalabels: {
@@ -93,11 +95,13 @@ class DataPendapingPKHChart extends React.Component {
       },
       scales : {
         xAxes:[{
+          stacked: true,
           ticks: {
             fontColor: "white"
           }
         }],
         yAxes:[{
+          stacked: true,
           ticks: {
             fontColor: "white"
           }
@@ -110,7 +114,7 @@ class DataPendapingPKHChart extends React.Component {
         <Grid style={{ height: "100%" }} container direction="column" justify="center">
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <Chart type="horizontalBar" data={dataBarChart} options={ customOptions }/>
+              <Chart type="bar" data={dataBarChart} options={ customOptions }/>
             </Item>
             <Item flex={1}>
               {renderSetsOfTotalChartData()}
