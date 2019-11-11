@@ -71,6 +71,9 @@ class DataPemulanganOrangTerlantarChart extends React.Component {
         },
         position: 'bottom'
       },
+      tooltips : {
+        mode : 'x'
+      },
       plugins: {
         datalabels: {
             formatter: function(value, context) {

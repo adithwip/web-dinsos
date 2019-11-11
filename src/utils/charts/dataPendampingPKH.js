@@ -1,5 +1,14 @@
 import _ from "lodash"
 
+const randomColor = () => {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
 const convertDataPendampingPKHToChartData = (dataJson, type) => {
     const dataPendampingGroupedByWilayah = _.mapValues(_.groupBy(dataJson, 'wilayah'), clist => clist.map(data => _.omit(data, 'make')))
 
@@ -15,7 +24,7 @@ const convertDataPendampingPKHToChartData = (dataJson, type) => {
     if (typeof type === 'string' && type === 'data') {
         const data = _.map(dataPendampingGroupedByWilayah, (value, key) => value.length)
 
-        let colorList = ["red","blue","yellow","green","cyan","black","white"];
+        let colorList = [randomColor(),randomColor(),randomColor(),randomColor(),randomColor(),randomColor(),randomColor()];
         
         let listJabatan = []
         _.map(dataPendampingGroupedByWilayah, (daftarPKHWilayah, key) => {
