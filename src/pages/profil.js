@@ -105,6 +105,7 @@ class ProfilPage extends React.Component {
     return (
       <Layout
         noGrid
+        mobileFirst
         siteTitle="Profil"
         siteDescription="Will provide my readers about myself"
       >
@@ -141,19 +142,21 @@ function VerticalTabs(props) {
       </Tabs>
 
       <TabPanel value={value} index={0}>
-        <h3 id="tugas">Tugas</h3>
-        <div
-          dangerouslySetInnerHTML={{ __html: !!dataJson && dataJson.tasks }}
-        />
+        <div style={{ maxWidth: 640 }}>
+          <h1 id="tugas">Tugas</h1>
+          <div 
+            dangerouslySetInnerHTML={{ __html: !!dataJson && dataJson.tasks }}
+          />
 
-        <h3 id="fungsi">Fungsi</h3>
-        <div
-          dangerouslySetInnerHTML={{ __html: !!dataJson && dataJson.functions }}
-        />
+          <h1 id="fungsi">Fungsi</h1>
+          <div
+            dangerouslySetInnerHTML={{ __html: !!dataJson && dataJson.functions }}
+          />
+        </div>
       </TabPanel>
 
       <TabPanel value={value} index={1}>
-        <h3 id="struktur">Struktur Organisasi</h3>
+        <h1 id="struktur">Struktur Organisasi</h1>
         <img src={!!dataJson && dataJson.structure} width="100%" />
       </TabPanel>
 
