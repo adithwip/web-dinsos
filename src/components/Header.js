@@ -15,6 +15,10 @@ const StyledHeader = styled.header`
     color: black;
     font-weight: bold;
   }
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  background-color: #5e92f3;
+  /* background-color: #1565c0; */
 `
 
 const Header = () => {
@@ -46,7 +50,7 @@ const Header = () => {
 
       <MediaQuery minDeviceWidth={768}>
         <Container
-          style={{ padding: "8px 64px", backgroundColor: "snow" }}
+          style={{ padding: "8px 64px" }}
           alignItems="center"
           justify="space-between"
         >
