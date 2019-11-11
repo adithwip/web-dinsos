@@ -22,7 +22,7 @@ class FMOTMByAgeChart extends React.Component {
     const api = "http://ppds.pusdatin-dinsos.jakarta.go.id/api/age/2019";
     axios
       // .get(api, { crossdomain: true })
-      .get(`https://api.myjson.com/bins/tlkz4`, { crossdomain: true })
+      .get(`https://api.myjson.com/bins/7y79m`, { crossdomain: true })
       .then(result => {
         const { data } = result.data
         this.setState({

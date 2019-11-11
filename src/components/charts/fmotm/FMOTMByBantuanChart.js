@@ -21,7 +21,7 @@ class FMOTMByBantuanChart extends React.Component {
     const api = "http://ppds.pusdatin-dinsos.jakarta.go.id/api/bantuan/2019";
     axios
     //   .get(api, { crossdomain: true })
-      .get(`https://api.myjson.com/bins/111pr4`, { crossdomain: true })
+      .get(`https://api.myjson.com/bins/oohd6`, { crossdomain: true })
       .then(result => {
         const { data } = result.data
         this.setState({

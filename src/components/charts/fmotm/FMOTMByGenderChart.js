@@ -20,7 +20,7 @@ class FMOTMByGenderChart extends React.Component {
     this.setState({ loading: true })
     const api = "http://ppds.pusdatin-dinsos.jakarta.go.id/api/gender/2019";
     axios
-      .get(`https://api.myjson.com/bins/14sj5c`, {
+      .get(`https://api.myjson.com/bins/172ryi`, {
         crossdomain: true,
       })
       .then(result => {
