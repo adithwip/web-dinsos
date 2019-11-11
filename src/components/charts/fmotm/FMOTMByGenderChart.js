@@ -102,7 +102,7 @@ class FMOTMByGenderChart extends React.Component {
         >
           <Container flexDirection="column" spacing={16}>
             <Item flex={1}>
-              <Chart type="pie" data={chartDataDoughnut} options={customOptions} />
+              <Chart type="doughnut" data={chartDataDoughnut} options={customOptions} />
             </Item>
             <Item>
               <TotalChartData data={extractData('total', dataJson)} />
