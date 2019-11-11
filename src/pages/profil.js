@@ -72,13 +72,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
 class ProfilPage extends React.Component {
   state = {
     dataJson: null,
     error: false,
     loading: false,
   }
+  
 
   fetchData = () => {
     this.setState({ loading: true })
@@ -138,7 +138,7 @@ function VerticalTabs(props) {
         className={classes.tabs}
       >
         <Tab label="Tugas dan Fungsi" {...a11yProps(0)} style={{ width:'300px' }} />
-        <Tab label="Struktur Organisasi" {...a11yProps(1)} />
+        <Tab label="Struktur Organisasi" {...a11yProps(1)} style={{ width:'300px' }} />
       </Tabs>
 
       <TabPanel value={value} index={0}>
@@ -156,8 +156,10 @@ function VerticalTabs(props) {
       </TabPanel>
 
       <TabPanel value={value} index={1}>
-        <h1 id="struktur">Struktur Organisasi</h1>
-        <img src={!!dataJson && dataJson.structure} width="100%" />
+        <div style={{ maxWidth: 640 }}>
+          <h1 id="struktur">Struktur Organisasi</h1>
+          <img src="http://dinsos.alimshare.com/photos/shares/pusdatin/struktur-organisasi-pusdatin-jamsos.png" width="100%" />
+        </div>
       </TabPanel>
 
     </div>
