@@ -31,7 +31,7 @@ const Header = () => {
           }
         }
 
-        headerLogo: file(relativePath: { eq: "images/dinsos-logo.png" }) {
+        headerLogo: file(relativePath: { eq: "images/pusdatin-logo.png" }) {
           childImageSharp {
             fixed {
               ...GatsbyImageSharpFixed
