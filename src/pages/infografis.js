@@ -97,7 +97,7 @@ class InfografisPage extends React.Component {
                 dataJson.map(data => {
                   return (
                     <a href={data.url} target={"_blank"}>
-                      <div style={{ height: "500px" }}>
+                      <div style={{ height: "650px" }}>
                         <img src={sourceUrl + data.image} height="100%" />
                         <p className="legend">{data.title}</p>
                       </div>
