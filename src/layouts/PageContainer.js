@@ -3,6 +3,9 @@ import PropTypes from "prop-types"
 import styled, { css } from "styled-components"
 
 const StyledPageContainer = styled.section`
+  /* Fix header style accommodation */
+  margin-top: 120px;
+
   && {
     width: 100%;
     padding-right: 32px;
