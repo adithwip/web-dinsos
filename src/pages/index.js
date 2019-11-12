@@ -28,27 +28,30 @@ import FMOTMByBantuanChart from "../components/charts/fmotm/FMOTMByBantuanChart"
 import FMOTMByGenderChart from "../components/charts/fmotm/FMOTMByGenderChart"
 import FMOTMByAgeChart from "../components/charts/fmotm/FMOTMByAgeChart"
 
+import KontakSection from "../components/KontakSection"
+
 const StyledGrid = styled(Grid)`
   margin: 64px auto;
   width: 100%;
 
   @media (max-width: 767px) {
-    margin: 16px auto;
+    margin: 16px auto;  
     width: 100%;
   }
 `
 
 const IndexPage = () => {
   return (
-    <Layout
-      noGrid
-      siteTitle="Pusdatin Jamsos"
-      siteDescription="Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta"
-    >
-      <h2>
+    <>
+      <Layout
+        noGrid
+        siteTitle="Pusdatin Jamsos"
+        siteDescription="Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta"
+      >
+      {/* <h2>
         Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI
         Jakarta
-      </h2>
+      </h2> */}
       <StyledGrid
         container
         justify="center"
@@ -124,7 +127,9 @@ const IndexPage = () => {
           <DataPresentasiSARPChart />
         </Grid>
       </StyledGrid>
-    </Layout>
+      </Layout>
+      <KontakSection id="kontak" />
+    </>
   )
 }
 

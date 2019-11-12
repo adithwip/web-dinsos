@@ -63,7 +63,8 @@ const Layout = ({
       </Container>
     )}
     {noGrid && <PageContainer mobileFirst={mobileFirst}>{children}</PageContainer>}
-    <Footer />
+    
+    {/* <Footer /> */}
   </React.Fragment>
 )
 

@@ -19,6 +19,10 @@ const StyledHeader = styled.header`
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   background-color: #5e92f3;
   /* background-color: #1565c0; */
+  width: 100%;
+  position: fixed;
+  z-index : 99;
+  top: 0;
 `
 
 const Header = () => {
@@ -67,32 +71,32 @@ const Header = () => {
             <Container spacing={16}>
               <Item>
                 <Link to="/">
-                  <Typography variant="button">Beranda</Typography>
+                  <Typography variant="button" style={{ color:"white" }} >Beranda</Typography>
                 </Link>
               </Item>
               <Item>
                 <Link to="/profil">
-                  <Typography variant="button">Profil</Typography>
+                  <Typography variant="button" style={{ color:"white" }}>Profil</Typography>
                 </Link>
               </Item>
               <Item>
                 <Link to="/berita">
-                  <Typography variant="button">Berita</Typography>
+                  <Typography variant="button" style={{ color:"white" }}>Berita</Typography>
                 </Link>
               </Item>
               <Item>
                 <Link to="/infografis">
-                  <Typography variant="button">Infografis</Typography>
+                  <Typography variant="button" style={{ color:"white" }}>Infografis</Typography>
                 </Link>
               </Item>
               <Item>
-                <Link to="/kontak">
-                  <Typography variant="button">Kontak</Typography>
-                </Link>
+                <a href="/#kontak">
+                  <Typography variant="button" style={{ color:"white" }}>Kontak</Typography>
+                </a>
               </Item>
               <Item>
                 <a href="http://siaplus.pusdatin-dinsos.jakarta.go.id/dashboard/login">
-                  <Typography variant="button">Login</Typography>
+                  <Typography variant="button" style={{ color:"white" }}>Login</Typography>
                 </a>
               </Item>
             </Container>

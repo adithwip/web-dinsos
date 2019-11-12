@@ -73,7 +73,7 @@ class InfografisPage extends React.Component {
             <h2>Infografis</h2>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={7}>
+          <Grid item xs={12}>
             <p>
               Infografik adalah representasi visual informasi, data atau ilmu
               pengetahuan secara grafis. Grafik ini memperlihatkan informasi
@@ -85,7 +85,7 @@ class InfografisPage extends React.Component {
             </p>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={5}>
+          {/* <Grid item xs={12} sm={6} md={5}>
             <Carousel
               infiniteLoop={true}
               autoPlay={true}
@@ -105,6 +105,22 @@ class InfografisPage extends React.Component {
                   )
                 })}
             </Carousel>
+          </Grid> */}
+
+          <Grid container item xs={12} spacing={3}>                
+            {!!dataJson &&
+              dataJson.map(data => {
+                return (                  
+                  <Grid item xs={12} sm={4} md={3}>
+                    <a href={data.url} target={"_blank"}>
+                      <div style={{ height: "350px" }}>
+                        <img src={sourceUrl + data.image} height="100%" />
+                        <p className="legend">{data.title}</p>
+                      </div>
+                    </a>                  
+                  </Grid>
+                )
+              })}
           </Grid>
         </StyledGrid>
       </Layout>
