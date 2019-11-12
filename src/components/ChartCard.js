@@ -7,7 +7,7 @@ const StyledCard = styled(Card)`
   /* background-color: rgba(248, 255, 229, 0.5); */
   opacity: 0.8;
   padding: 8px;
-  /* height: 140px; */
+  /* max-height: 488px; */
   background-color: #1565c0;
   color: white;
 

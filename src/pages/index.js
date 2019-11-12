@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
 import Grid from "@material-ui/core/Grid"
-import Card from "@material-ui/core/Card"
 
 import Layout from "../layouts/Layout"
 import DataPKHChart from "../components/charts/DataPKHChart"
@@ -60,12 +59,12 @@ const IndexPage = () => {
         <Grid item xs={12} md={12} style={{ textAlign: "left" }}>
           <h3>Data Fakir Miskin & Orang Tidak Mampu (FMOTM) DKI Jakarta</h3>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={8}>
           <FMOTMByWilayahChart />
           <br />
           <FMOTMByBantuanChart />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={4}>
           <FMOTMByGenderChart />
           <br />
           <FMOTMByAgeChart />
