@@ -18,11 +18,13 @@ const StyledHeader = styled.header`
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   background-color: #5e92f3;
-  /* background-color: #1565c0; */
-  width: 100%;
+
+  /* Fix position style */
+  overflow: hidden;
   position: fixed;
-  z-index : 99;
   top: 0;
+  width: 100%;
+  z-index: 1;
 `
 
 const Header = () => {
