@@ -63,37 +63,37 @@ const converDataPMKSToChartDataSetsByArea = (dataBersihPMKS) => {
       {
         type: 'bar',
         label: 'Dinas Sosial',
-        backgroundColor: '#579DDB',
+        backgroundColor: '#00171F',
         data: totalDinsosData
       },
       {
         type: 'bar',
         label: 'Jakarta Pusat',
-        backgroundColor: '#A5A5A5',
+        backgroundColor: '#D36582',
         data: totalJakpusData
       },
       {
         type: 'bar',
         label: 'Jakarta Utara',
-        backgroundColor: '#70AD46',
+        backgroundColor: '#3772FF',
         data: totalJakutData
       },
       {
         type: 'bar',
         label: 'Jakarta Barat',
-        backgroundColor: '#ED7D31',
+        backgroundColor: '#2F4858',
         data: totalJakbarData
       },
       {
         type: 'bar',
         label: 'Jakarta Selatan',
-        backgroundColor: '#FEC000',
+        backgroundColor: '#246A73',
         data: totalJakselData
       },
       {
         type: 'bar',
         label: 'Jakarta Timur',
-        backgroundColor: '#4473C5',
+        backgroundColor: '#3A1772',
         data: totalJaktimData
       },
     ]
