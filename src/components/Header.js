@@ -62,7 +62,7 @@ const Header = () => {
         >
           <Item>
             <Link to="/">
-              <Container alignItems="center" spacing={5}>
+              <Container alignItems="center">
                 <Item>
                   <Img fixed={data.headerLogo.childImageSharp.fixed} />
                 </Item>
@@ -94,6 +94,11 @@ const Header = () => {
               <Item>
                 <a href="/#kontak">
                   <Typography variant="button" style={{ color:"white" }}>Kontak</Typography>
+                </a>
+              </Item>
+              <Item>
+                <a href="/data">
+                  <Typography variant="button" style={{ color:"white" }}>Data</Typography>
                 </a>
               </Item>
               <Item>
