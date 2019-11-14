@@ -28,7 +28,9 @@ import FMOTMByBantuanChart from "../components/charts/fmotm/FMOTMByBantuanChart"
 import FMOTMByGenderChart from "../components/charts/fmotm/FMOTMByGenderChart"
 import FMOTMByAgeChart from "../components/charts/fmotm/FMOTMByAgeChart"
 
+import BeritaSection from "../components/BeritaSection"
 import KontakSection from "../components/KontakSection"
+import Footer from "../components/Footer"
 
 const StyledGrid = styled(Grid)`
   margin: 64px auto;
@@ -39,97 +41,25 @@ const StyledGrid = styled(Grid)`
     width: 100%;
   }
 `
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
 const IndexPage = () => {
   return (
-    <>
+    <Wrapper>
       <Layout
         noGrid
         siteTitle="Pusdatin Jamsos"
         siteDescription="Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta"
       >
-      {/* <h2>
-        Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI
-        Jakarta
-      </h2> */}
-      <StyledGrid
-        container
-        justify="center"
-        alignContent="center"
-        alignItems="flex-start"
-        spacing={2}
-        style={{ marginTop: "0px" }}
-      >
-        <Grid item xs={12} md={12} style={{ textAlign: "left" }}>
-          <h3>Data Fakir Miskin & Orang Tidak Mampu (FMOTM) DKI Jakarta</h3>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <FMOTMByWilayahChart />
-          <br />
-          <FMOTMByBantuanChart />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <FMOTMByGenderChart />
-          <br />
-          <FMOTMByAgeChart />
-        </Grid>
-
-        <Grid item xs={12} style={{ textAlign: "left" }}>
-          <h3>Open Data Dinas Sosial Provinsi DKI Jakarta</h3>
-        </Grid>
-
-        <Grid item xs={12} sm={6} md={6}>
-          <DataLokasiBersihPMKSChart />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <DataPKHChart />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <DataPendampingPKHChart />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <DataKejadianBencanaChart />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <DataPemulanganOrangTerlantarChart />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <DataProgramKegiatanDinsosChart />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <DataJandaPerintisKemerdekaanChart />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <DataRekapPMKSChart />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <DataPusakaChart />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <DataTitikRawanPMKSChart />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <DataPetugasP3SChart />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <DataPantiSosialChart />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <DataFakirMiskinMandiriChart />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <DataLKSChart />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <DataJumlahTKSKAktifChart />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <DataPresentasiSARPChart />
-        </Grid>
-      </StyledGrid>
+      
       </Layout>
+      <BeritaSection />
       <KontakSection id="kontak" />
-    </>
+      <Footer background="#0A369D" color="#9E9E9E" />
+    </Wrapper>
   )
 }
 
