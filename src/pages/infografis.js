@@ -98,8 +98,8 @@ class InfografisPage extends React.Component {
                   <Grid item xs={12} sm={4} md={3}>
                     <a href={data.url} target={"_blank"}>
                       <div style={{ height: "350px" }}>
-                        <img src={ data.image } height="100%" />
-                        <p className="legend">{data.title}</p>
+                        <img src={ data.image } width="100%" height="100%" />
+                        {/* <p className="legend">{data.title}</p> */}
                       </div>
                     </a>
                   </Grid>
