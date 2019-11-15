@@ -8,13 +8,14 @@ import Surface from "../components/Surface"
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      excerpt
-      frontmatter {
-        title
-        date(formatString: "DD MMMM, YYYY")
-      }
+    # PusdatinNews(fields: { slug: { eq: $slug } }) {
+      
+    # }
+    pusdatinNews(slug: { eq: $slug }) {
+      title
+      content
+      created_at(formatString: "DD MMMM, YYYY")
+      image
     }
     site {
       siteMetadata {
@@ -25,28 +26,29 @@ export const query = graphql`
 `
 
 const Post = ({ data, location }) => {
-  const post = data.markdownRemark
+  const post = data.pusdatinNews
   const url = location.href
   const image = data.site.siteMetadata.image
 
   return (
     <Layout
-      siteTitle={post.frontmatter.title}
+      // siteTitle={post.frontmatter.title}
       siteType="article"
-      siteUrl={url}
-      siteImage={image}
-      siteDescription={post.excerpt}
+      mobileFirst
+      // siteUrl={url}
+      // siteImage={image}
+      // siteDescription={post.excerpt}
     >
       <Surface>
         <Container flexDirection="column">
           <Item>
-            <h1>{post.frontmatter.title}</h1>
+            <h1>{post.title}</h1>
           </Item>
           <Item>
-            <p style={{ color: "#1CA086" }}>{post.frontmatter.date}</p>
+            <p style={{ color: "#1CA086" }}>{post.created_at}</p>
           </Item>
           <Item>
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            <div dangerouslySetInnerHTML={{ __html: post.content }} />
           </Item>
         </Container>
       </Surface>

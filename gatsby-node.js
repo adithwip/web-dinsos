@@ -16,30 +16,55 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
+// exports.createPages = ({ graphql, actions }) => {
+//   const { createPage } = actions
+//   return graphql(`
+//     {
+//       allMarkdownRemark {
+//         edges {
+//           node {
+//             fields {
+//               slug
+//             }
+//           }
+//         }
+//       }
+//     }
+//   `).then(result => {
+//     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+//       createPage({
+//         path: node.fields.slug,
+//         component: path.resolve(`./src/templates/Post.js`),
+//         context: {
+//           // Data passed to context is available
+//           // in page queries as GraphQL variables.
+//           slug: node.fields.slug,
+//         },
+//       })
+//     })
+//   })
+// }
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return graphql(`
     {
-      allMarkdownRemark {
+      allPusdatinNews {
         edges {
           node {
-            fields {
-              slug
-            }
+            slug
           }
         }
       }
     }
   `).then(result => {
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    result.data.allPusdatinNews.edges.forEach(({ node }) => {
       createPage({
-        path: node.fields.slug,
+        path: `berita/${node.slug}`,
         component: path.resolve(`./src/templates/Post.js`),
         context: {
-          // Data passed to context is available
-          // in page queries as GraphQL variables.
-          slug: node.fields.slug,
-        },
+          slug: node.slug
+        }
       })
     })
   })

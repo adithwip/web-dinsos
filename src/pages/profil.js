@@ -7,12 +7,12 @@ import Img from "gatsby-image"
 import Layout from "../layouts/Layout"
 import Paper from "@material-ui/core/Paper"
 
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
+import PropTypes from "prop-types"
+import { makeStyles } from "@material-ui/core/styles"
+import Tabs from "@material-ui/core/Tabs"
+import Tab from "@material-ui/core/Tab"
+import Typography from "@material-ui/core/Typography"
+import Box from "@material-ui/core/Box"
 
 import PageContainer from "../layouts/PageContainer"
 import Container from "../layouts/Container"
@@ -30,7 +30,7 @@ const NavButton = styled.a`
 `
 
 function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+  const { children, value, index, ...other } = props
 
   return (
     <Typography
@@ -43,34 +43,34 @@ function TabPanel(props) {
     >
       <Box p={3}>{children}</Box>
     </Typography>
-  );
+  )
 }
 
 TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.any.isRequired,
   value: PropTypes.any.isRequired,
-};
+}
 
 function a11yProps(index) {
   return {
     id: `vertical-tab-${index}`,
-    'aria-controls': `vertical-tabpanel-${index}`,
-  };
+    "aria-controls": `vertical-tabpanel-${index}`,
+  }
 }
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
-    display: 'flex',
+    display: "flex",
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
     width: `300px`,
-    fontWeight: `bold`
+    fontWeight: `bold`,
   },
-}));
+}))
 
 class ProfilPage extends React.Component {
   state = {
@@ -78,7 +78,6 @@ class ProfilPage extends React.Component {
     error: false,
     loading: false,
   }
-  
 
   fetchData = () => {
     this.setState({ loading: true })
@@ -111,21 +110,20 @@ class ProfilPage extends React.Component {
       >
         <h2>Profil</h2>
 
-        <VerticalTabs data={ dataJson } />
-
+        <VerticalTabs data={dataJson} />
       </Layout>
     )
   }
 }
 
 function VerticalTabs(props) {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const classes = useStyles()
+  const [value, setValue] = React.useState(0)
   const dataJson = props.data
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+    setValue(newValue)
+  }
 
   return (
     <div className={classes.root}>
@@ -137,20 +135,30 @@ function VerticalTabs(props) {
         aria-label="Vertical tabs example"
         className={classes.tabs}
       >
-        <Tab label="Tugas dan Fungsi" {...a11yProps(0)} style={{ width:'300px' }} />
-        <Tab label="Struktur Organisasi" {...a11yProps(1)} style={{ width:'300px' }} />
+        <Tab
+          label="Tugas dan Fungsi"
+          {...a11yProps(0)}
+          style={{ width: "300px" }}
+        />
+        <Tab
+          label="Struktur Organisasi"
+          {...a11yProps(1)}
+          style={{ width: "300px" }}
+        />
       </Tabs>
 
       <TabPanel value={value} index={0}>
         <div style={{ maxWidth: 640 }}>
           <h1 id="tugas">Tugas</h1>
-          <div 
+          <div
             dangerouslySetInnerHTML={{ __html: !!dataJson && dataJson.tasks }}
           />
 
           <h1 id="fungsi">Fungsi</h1>
           <div
-            dangerouslySetInnerHTML={{ __html: !!dataJson && dataJson.functions }}
+            dangerouslySetInnerHTML={{
+              __html: !!dataJson && dataJson.functions,
+            }}
           />
         </div>
       </TabPanel>
@@ -158,12 +166,14 @@ function VerticalTabs(props) {
       <TabPanel value={value} index={1}>
         <div style={{ maxWidth: 640 }}>
           <h1 id="struktur">Struktur Organisasi</h1>
-          <img src="http://dinsos.alimshare.com/photos/shares/pusdatin/struktur-organisasi-pusdatin-jamsos.png" width="100%" />
+          <img
+            src="http://dinsos.alimshare.com/photos/shares/pusdatin/struktur-organisasi-pusdatin-jamsos.png"
+            width="100%"
+          />
         </div>
       </TabPanel>
-
     </div>
-  );
+  )
 }
 
 export default ProfilPage
