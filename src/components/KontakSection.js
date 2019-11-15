@@ -29,76 +29,89 @@ const StyleContainer = styled(Container)`
 }`
 
 const StyledIFrame = styled.iframe`
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 `
 
-const KontakSection = (props) => (
+const KontakSection = props => (
   <StyleContainer justify="center" id={props.id}>
     <Grid container spacing={2}>
-        <Grid item xs={12} md={12}>
-            <h2 style={{ textAlign:"center" }}>Kontak</h2>
-            <br />
-        </Grid>
-        <Grid item xs={12} md={5}>
+      <Grid item xs={12} md={12}>
+        <h2 style={{ textAlign: "center" }}>Kontak</h2>
+        <br />
+      </Grid>
+      <Grid item xs={12} md={5}>
         <div>
-            <List>
+          <List>
             <ListItem>
-                <ListItemIcon>
-                <BusinessIcon style={{ color:"white" }} />
-                </ListItemIcon>
-                <ListItemText primary="Jl. Gunung Sahari X No.31, RT.2/RW.3, Gn. Sahari Utara, Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10720" />
+              <ListItemIcon>
+                <BusinessIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary="Jl. Gunung Sahari X No.31, RT.2/RW.3, Gn. Sahari Utara, Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10720" />
             </ListItem>
             <ListItem>
-                <ListItemIcon>
-                <MailOutlineIcon style={{ color:"white" }} />
-                </ListItemIcon>
-                <ListItemText primary="pusdatinjamsosdki@jakarta.go.id" />
+              <ListItemIcon>
+                <MailOutlineIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary="pusdatinjamsosdki@jakarta.go.id" />
             </ListItem>
             <ListItem>
-                <ListItemIcon>
-                <PhoneIcon style={{ color:"white" }} />
-                </ListItemIcon>
-                <ListItemText primary="021-22684824" />
+              <ListItemIcon>
+                <PhoneIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary="021-22684824" />
             </ListItem>
             <ListItem>
-                <ListItemIcon>
-                <TwitterIcon style={{ color:"white" }} />
-                </ListItemIcon>
-                <a href="https://twitter.com/dinso" target="_blank" rel="noopener noreferrer" style={{ color:"white" }}>
+              <ListItemIcon>
+                <TwitterIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <a
+                href="https://twitter.com/dinso"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "white" }}
+              >
                 <ListItemText primary="Twitter Dinsos DKI" />
-                </a>
+              </a>
             </ListItem>
             <ListItem>
-                <ListItemIcon>
-                <FacebookIcon style={{ color:"white" }} />
-                </ListItemIcon>
-                <a href="https://id-id.facebook.co/" target="_blank" rel="noopener noreferrer" style={{ color:"white" }}>
+              <ListItemIcon>
+                <FacebookIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <a
+                href="https://id-id.facebook.co/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "white" }}
+              >
                 <ListItemText primary="Facebook Dinsos DKI" />
-                </a>
+              </a>
             </ListItem>
             <ListItem>
-                <ListItemIcon>
-                <InstagramIcon style={{ color:"white" }} />
-                </ListItemIcon>
-                <a href="#" target="_blank" rel="noopener noreferrer">
-                <ListItemText primary="Instagram Pusdatin Jamsos" style={{ color:"white" }}/>
-                </a>
+              <ListItemIcon>
+                <InstagramIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <ListItemText
+                  primary="Instagram Pusdatin Jamsos"
+                  style={{ color: "white" }}
+                />
+              </a>
             </ListItem>
-            </List>
+          </List>
         </div>
-        </Grid>
+      </Grid>
 
-        <Grid item xs={12} md={7}>
+      <Grid item xs={12} md={7}>
         <StyledIFrame
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.819982213951!2d106.83455031413696!3d-6.154859362039576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f59245fac57d%3A0x43046ee5708f9c5!2sPUSDATIN%20JAMSOS!5e0!3m2!1sen!2sid!4v1570860514287!5m2!1sen!2sid"
-            width="100%"
-            height="380"
-            frameBorder="0"
-            allowfullscreen=""
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.819982213951!2d106.83455031413696!3d-6.154859362039576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f59245fac57d%3A0x43046ee5708f9c5!2sPUSDATIN%20JAMSOS!5e0!3m2!1sen!2sid!4v1570860514287!5m2!1sen!2sid"
+          width="100%"
+          height="380"
+          frameBorder="0"
+          allowfullscreen=""
         />
-        </Grid>
-        <br/>
-        <br/>
+      </Grid>
+      <br />
+      <br />
     </Grid>
   </StyleContainer>
 )

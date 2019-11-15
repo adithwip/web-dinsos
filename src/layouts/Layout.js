@@ -20,7 +20,7 @@ const Layout = ({
   children,
   noPageContainer,
   noGrid,
-  mobileFirst
+  mobileFirst,
 }) => (
   <React.Fragment>
     <Helmet>
@@ -62,8 +62,10 @@ const Layout = ({
         <Item>{children}</Item>
       </Container>
     )}
-    {noGrid && <PageContainer mobileFirst={mobileFirst}>{children}</PageContainer>}
-    
+    {noGrid && (
+      <PageContainer mobileFirst={mobileFirst}>{children}</PageContainer>
+    )}
+
     {/* <Footer /> */}
   </React.Fragment>
 )
