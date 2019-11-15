@@ -24,24 +24,19 @@ const StyledTypography = styled(Typography)`
 `
 
 const TotalChartData = props => {
-  
   const sumOfData = props.data.reduce((total, num) => {
     return total + num
   }, 0)
-  const totalNumber = new Intl.NumberFormat('id-ID', ).format(sumOfData)
+  const totalNumber = new Intl.NumberFormat("id-ID").format(sumOfData)
 
   return (
     <StyledContainer backgroundColor={props.backgroundColor}>
       <Container alignContent="center" alignItems="center" justify="center">
         <Item>
-          <StyledTypography variant="caption">
-            {props.label}
-          </StyledTypography>
+          <StyledTypography variant="caption">{props.label}</StyledTypography>
         </Item>
         <StyledItem flex={1} align="right">
-          <StyledTypography variant="caption">
-            {totalNumber}
-          </StyledTypography>
+          <StyledTypography variant="caption">{totalNumber}</StyledTypography>
         </StyledItem>
       </Container>
     </StyledContainer>
@@ -49,8 +44,8 @@ const TotalChartData = props => {
 }
 
 TotalChartData.defaultProps = {
-  label: 'Total Data',
-  backgroundColor: 'black',
+  label: "Total Data",
+  backgroundColor: "black",
 }
 
 TotalChartData.propTypes = {

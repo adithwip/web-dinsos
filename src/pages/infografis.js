@@ -107,17 +107,17 @@ class InfografisPage extends React.Component {
             </Carousel>
           </Grid> */}
 
-          <Grid container item xs={12} spacing={3}>                
+          <Grid container item xs={12} spacing={3}>
             {!!dataJson &&
               dataJson.map(data => {
-                return (                  
+                return (
                   <Grid item xs={12} sm={4} md={3}>
                     <a href={data.url} target={"_blank"}>
                       <div style={{ height: "350px" }}>
                         <img src={sourceUrl + data.image} height="100%" />
                         <p className="legend">{data.title}</p>
                       </div>
-                    </a>                  
+                    </a>
                   </Grid>
                 )
               })}

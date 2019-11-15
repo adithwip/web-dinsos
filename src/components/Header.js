@@ -15,8 +15,8 @@ const StyledHeader = styled.header`
     color: black;
     font-weight: bold;
   }
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   background-color: #5e92f3;
 
   /* Fix position style */
@@ -73,37 +73,51 @@ const Header = () => {
             <Container spacing={16}>
               <Item>
                 <Link to="/">
-                  <Typography variant="button" style={{ color:"white" }} >Beranda</Typography>
+                  <Typography variant="button" style={{ color: "white" }}>
+                    Beranda
+                  </Typography>
                 </Link>
               </Item>
               <Item>
                 <Link to="/profil">
-                  <Typography variant="button" style={{ color:"white" }}>Profil</Typography>
+                  <Typography variant="button" style={{ color: "white" }}>
+                    Profil
+                  </Typography>
                 </Link>
               </Item>
               <Item>
                 <Link to="/berita">
-                  <Typography variant="button" style={{ color:"white" }}>Berita</Typography>
+                  <Typography variant="button" style={{ color: "white" }}>
+                    Berita
+                  </Typography>
                 </Link>
               </Item>
               <Item>
                 <Link to="/infografis">
-                  <Typography variant="button" style={{ color:"white" }}>Infografis</Typography>
+                  <Typography variant="button" style={{ color: "white" }}>
+                    Infografis
+                  </Typography>
                 </Link>
               </Item>
               <Item>
                 <a href="/#kontak">
-                  <Typography variant="button" style={{ color:"white" }}>Kontak</Typography>
+                  <Typography variant="button" style={{ color: "white" }}>
+                    Kontak
+                  </Typography>
                 </a>
               </Item>
               <Item>
                 <a href="/data">
-                  <Typography variant="button" style={{ color:"white" }}>Data</Typography>
+                  <Typography variant="button" style={{ color: "white" }}>
+                    Data
+                  </Typography>
                 </a>
               </Item>
               <Item>
                 <a href="http://siaplus.pusdatin-dinsos.jakarta.go.id/dashboard/login">
-                  <Typography variant="button" style={{ color:"white" }}>Login</Typography>
+                  <Typography variant="button" style={{ color: "white" }}>
+                    Login
+                  </Typography>
                 </a>
               </Item>
             </Container>
