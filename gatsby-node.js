@@ -60,7 +60,7 @@ exports.createPages = ({ graphql, actions }) => {
   `).then(result => {
     result.data.allPusdatinNews.edges.forEach(({ node }) => {
       createPage({
-        path: node.slug,
+        path: `berita/${node.slug}`,
         component: path.resolve(`./src/templates/Post.js`),
         context: {
           slug: node.slug
