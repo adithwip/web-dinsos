@@ -2,20 +2,25 @@ const axios = require('axios')
 const crypto = require('crypto')
 
 // const API_URI = 'https://api.chucknorris.io/jokes/random'
-const API_URI = 'https://rasetprojects.com/pusdatin/api/v1/cms/news'
+const API_URI = 'http://104.43.9.40:8089/api/v1/cms/news'
+// const API_URI = 'https://rasetprojects.com/pusdatin/api/v1/cms/news'
 // const PKH_API_URI = 'https://rasetprojects.com/pusdatin/sample/json/1.data_penerima_pkh.json'
 
 exports.sourceNodes = async ({boundActionCreators}) => {
   const {createNode} = boundActionCreators
   const result = await axios.get(API_URI)
 
+  console.log("result ==>", result.data)
+
   await result.data.data.forEach(el => {
       createNode({
         children: [],
         id: el.id.toString(),
         title: el.title,
+        slug: el.slug,
         created_at: el.created_at,
         content: el.content,
+        image: el.image,
         category: el.category,
         parent: null,
         internal: {
