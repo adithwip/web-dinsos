@@ -82,7 +82,10 @@ class ProfilPage extends React.Component {
   fetchData = () => {
     this.setState({ loading: true })
     axios
-      .get(`http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/profile`, {
+      // .get(`http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/profile`, {
+      //   crossdomain: true,
+      // })
+      .get(`http://104.43.9.40:8089/api/v1/cms/profile`, {
         crossdomain: true,
       })
       .then(result => {
@@ -148,13 +151,11 @@ function VerticalTabs(props) {
       </Tabs>
 
       <TabPanel value={value} index={0}>
-        <div style={{ maxWidth: 640 }}>
-          <h1 id="tugas">Tugas</h1>
+        <div style={{ maxWidth: 860 }}>
+          <h1 id="tugas">Tugas & Fungsi</h1>
           <div
             dangerouslySetInnerHTML={{ __html: !!dataJson && dataJson.tasks }}
           />
-
-          <h1 id="fungsi">Fungsi</h1>
           <div
             dangerouslySetInnerHTML={{
               __html: !!dataJson && dataJson.functions,
@@ -164,11 +165,10 @@ function VerticalTabs(props) {
       </TabPanel>
 
       <TabPanel value={value} index={1}>
-        <div style={{ maxWidth: 640 }}>
+        <div style={{ maxWidth: 860 }}>
           <h1 id="struktur">Struktur Organisasi</h1>
           <img
-            src="http://dinsos.alimshare.com/photos/shares/pusdatin/struktur-organisasi-pusdatin-jamsos.png"
-            width="100%"
+            src={ !!dataJson && dataJson.structure } width="100%"
           />
         </div>
       </TabPanel>
