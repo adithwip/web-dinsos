@@ -57,6 +57,7 @@ const BeritaSection = () => {
                 <Link to={`berita/${node.slug}`} style={{ textDecoration:"none" }}>
                   <NewsCard>
                     <div>
+                      <img src={node.image} width="100%" height="180px" />
                       <h3>{node.title}</h3>
                       <p>
                         {node.title}
