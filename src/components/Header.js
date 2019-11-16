@@ -10,12 +10,12 @@ import AppBar from "./AppBar"
 import Container from "../layouts/Container"
 import Item from "../layouts/Item"
 
-import MailIcon from "@material-ui/icons/Mail"
+import MailOutlineIcon from "@material-ui/icons/MailOutline"
+import PhoneIcon from "@material-ui/icons/Phone"
 
 const StyledHeader = styled.header`
   & * {
-    color: black;
-    font-weight: bold;
+
   }
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -58,12 +58,19 @@ const Header = () => {
 
       <MediaQuery minDeviceWidth={768}>
         <Container
-          style={{ padding: "5px 32px", borderRadius: "0px 0px 0px 100px", backgroundColor: "#3177cc", color: "#fff" }}
+          style={{ 
+            padding: "5px 32px", 
+            borderRadius: "0px 0px 0px 100px", 
+            backgroundColor: "#0d47a1", 
+            color: "#fff" 
+          }}
           alignItems="center"
           justify="flex-end"
         >
           <Item style={{ display:"flex", color: "#fff" }}>            
-            <MailIcon style={{ color: "white" }} /> &nbsp; pusdatinjamsosdki@jakarta.go.id | 021-22684824
+            <MailOutlineIcon style={{ color: "white" }} /> &nbsp; pusdatinjamsosdki@jakarta.go.id 
+            &nbsp; &nbsp; &nbsp;
+            <PhoneIcon style={{ color: "white" }} /> &nbsp; 021-22684824
           </Item>
         </Container>
         <Container
