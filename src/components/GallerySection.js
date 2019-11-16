@@ -1,38 +1,75 @@
 import React from "react"
+import { Link } from "gatsby"
+import axios from "axios"
 import styled from "styled-components"
 import Grid from "@material-ui/core/Grid"
+import Button from '@material-ui/core/Button';
 
 const StyleContainer = styled(Grid)`
     padding : 0 32px;
     margin-bottom: 12px;
 `
+class GallerySection extends React.Component {
+  
+  state = { dataJson: null, error: false, loading: false }
 
-const GallerySection = () => {
-  return (
-    <StyleContainer style={{ marginTop:"10px", marginBottom:"40px" }}>
-      <h2>Galeri</h2>
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={2}>
-          <img src="https://s3.ap-south-1.amazonaws.com/zoomin-new/live-product/prints_4x4/1.0.0/product_images/web/detail-2.jpg" width="100%" height="100%" />
+  fetchData = () => {
+    this.setState({ loading: true })
+    axios
+      // .get(
+      //   `http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/galleries`,
+      //   {
+      //     crossdomain: true,
+      //   }
+      // )
+      .get(
+        `http://104.43.9.40:8089/api/v1/cms/galleries?type=galeri&perpage=6`,
+        {
+          crossdomain: true,
+        }
+      )
+      .then(result => {
+        const { data } = result.data
+        this.setState({ dataJson: data, loading: false })
+      })
+      .catch(error => {
+        this.setState({ loading: false, error: error })
+      })
+  }
+
+  componentDidMount() {
+    this.fetchData()
+  }
+
+  render() {
+    const { dataJson, error, loading } = this.state
+  
+    return (
+      <StyleContainer style={{ marginTop:"10px", marginBottom:"40px" }}>
+        <h2>Galeri</h2>
+        <Grid container spacing={2}>
+          {!!dataJson &&
+            dataJson.map(data => {
+              return (
+                <Grid item xs={12} md={2}>
+                  <a href={data.url} target={"_blank"}>
+                    <img src={ data.image } width="100%" height="100%" />
+                  </a>
+                </Grid>
+              )
+          })}
         </Grid>
-        <Grid item xs={12} md={2}>
-          <img src="https://www.innonthesquare.com/resourcefiles/mobilehomeimages/inn-on-the-square-falmouth-massachusetts-mobile.jpg" width="100%" height="100%" />
+        <Grid container item xs={12} justify="center"> 
+          <Link to="/galeri">      
+            <Button variant="contained"  color="secondary" style={{ margin: "35px 0 0 20px" }}>
+              Lihat Lainnya &gt;&gt;
+            </Button>
+          </Link>  
         </Grid>
-        <Grid item xs={12} md={2}>
-          <img src="https://s3-eu-west-1.amazonaws.com/brussels-images/content/gallery/visit/place/Square-du-Petit-Sablon_f8403e6b1dfadb4762d84ebb53b717fc21a4dc20_sq_640.jpg" width="100%" height="100%" />
-        </Grid>
-        <Grid item xs={12} md={2}>
-          <img src="https://images.glaciermedia.ca/polopoly_fs/1.23969082.1573753246!/fileImage/httpImage/image.jpg_gen/derivatives/landscape_804/st-andrews-on-square.jpg" width="100%" height="100%" />
-        </Grid>
-        <Grid item xs={12} md={2}>
-          <img src="https://d1nabgopwop1kh.cloudfront.net/hotel-asset/30000002100438673_wh_68" width="100%" height="100%" />
-        </Grid>
-        <Grid item xs={12} md={2}>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGu4oESzphf0FBslV2MEwCsHItKOBP0YfEQzlxkkSx_V4Ap2Zb&s" width="100%" height="100%" />
-        </Grid>
-      </Grid>
-    </StyleContainer>
-  )
-}
+      </StyleContainer>
+    )
+  }
+
+} 
 
 export default GallerySection

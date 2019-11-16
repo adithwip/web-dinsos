@@ -9,7 +9,7 @@ import Button from "@material-ui/core/Button"
 const StyleContainer = styled(Grid)`
     background-color : #f6f6f6;
     padding : 12px 32px;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
 `
 
 const NewsCard = styled(Card)`
@@ -71,8 +71,12 @@ const BeritaSection = () => {
           })}
         </Grid>
       </Grid>
-      <Grid item xs={12} align="center">
-        <Link to={`/berita`}>Lihat Lainnya &gt;&gt;</Link>
+      <Grid item xs={12} align="center">        
+        <Link to="/berita">      
+            <Button variant="contained"  color="secondary" style={{ margin: "25px 0 0 25px" }}>
+              Lihat Lainnya &gt;&gt;
+            </Button>
+          </Link>  
       </Grid>
     </StyleContainer>
   )
