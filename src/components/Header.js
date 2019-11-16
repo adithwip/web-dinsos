@@ -58,12 +58,18 @@ const Header = () => {
 
       <MediaQuery minDeviceWidth={768}>
         <Container
-          style={{ padding: "5px 32px", borderRadius: "0px 0px 0px 100px", backgroundColor: "#3177cc", color: "#fff" }}
+          style={{
+            padding: "5px 32px",
+            borderRadius: "0px 0px 0px 100px",
+            backgroundColor: "#3177cc",
+            color: "#fff",
+          }}
           alignItems="center"
           justify="flex-end"
         >
-          <Item style={{ display:"flex", color: "#fff" }}>            
-            <MailIcon style={{ color: "white" }} /> &nbsp; pusdatinjamsosdki@jakarta.go.id | 021-22684824
+          <Item style={{ display: "flex", color: "#fff" }}>
+            <MailIcon style={{ color: "white" }} /> &nbsp;
+            pusdatinjamsosdki@jakarta.go.id | 021-22684824
           </Item>
         </Container>
         <Container
@@ -132,7 +138,7 @@ const Header = () => {
                 </a>
               </Item>
             </Container>
-            </Item>
+          </Item>
         </Container>
       </MediaQuery>
     </StyledHeader>

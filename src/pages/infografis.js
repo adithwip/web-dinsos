@@ -39,12 +39,9 @@ class InfografisPage extends React.Component {
       //     crossdomain: true,
       //   }
       // )
-      .get(
-        `http://104.43.9.40:8089/api/v1/cms/galleries?type=infografis`,
-        {
-          crossdomain: true,
-        }
-      )
+      .get(`http://104.43.9.40:8089/api/v1/cms/galleries?type=infografis`, {
+        crossdomain: true,
+      })
       .then(result => {
         const { data } = result.data
         this.setState({ dataJson: data, loading: false })
@@ -98,7 +95,7 @@ class InfografisPage extends React.Component {
                   <Grid item xs={12} sm={4} md={3}>
                     <a href={data.url} target={"_blank"}>
                       <div style={{ height: "350px" }}>
-                        <img src={ data.image } width="100%" height="100%" />
+                        <img src={data.image} width="100%" height="100%" />
                         {/* <p className="legend">{data.title}</p> */}
                       </div>
                     </a>

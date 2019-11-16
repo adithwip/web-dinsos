@@ -4,7 +4,7 @@ import styled, { css } from "styled-components"
 
 const StyledPageContainer = styled.section`
   /* Fix header style accommodation */
-  margin-top: 84px;
+  margin-top: 160px;
 
   && {
     width: 100%;
@@ -31,18 +31,20 @@ const StyledPageContainer = styled.section`
   } */
 
   @media (min-width: 992px) {
+    max-width: 1280px;
     ${props =>
       props.mobileFirst &&
       css`
-        max-width: 1280px;
+        max-width: 860px;
       `}
   }
 
   @media (min-width: 1200px) {
+    max-width: 1280px;
     ${props =>
       props.mobileFirst &&
       css`
-        max-width: 1280px;
+        max-width: 860px;
       `}
   }
 `

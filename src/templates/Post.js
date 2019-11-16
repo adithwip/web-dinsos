@@ -9,7 +9,7 @@ import Surface from "../components/Surface"
 export const query = graphql`
   query($slug: String!) {
     # PusdatinNews(fields: { slug: { eq: $slug } }) {
-      
+
     # }
     pusdatinNews(slug: { eq: $slug }) {
       title
