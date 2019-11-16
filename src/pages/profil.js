@@ -167,9 +167,7 @@ function VerticalTabs(props) {
       <TabPanel value={value} index={1}>
         <div style={{ maxWidth: 860 }}>
           <h1 id="struktur">Struktur Organisasi</h1>
-          <img
-            src={ !!dataJson && dataJson.structure } width="100%"
-          />
+          <img src={!!dataJson && dataJson.structure} width="100%" />
         </div>
       </TabPanel>
     </div>

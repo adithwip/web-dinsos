@@ -1,9 +1,8 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
 import Grid from "@material-ui/core/Grid"
-import Card from "@material-ui/core/Card"
+
 
 import Layout from "../layouts/Layout"
 
@@ -13,15 +12,6 @@ import KontakSection from "../components/KontakSection"
 import GallerySection from "../components/GallerySection"
 import Footer from "../components/Footer"
 
-const StyledGrid = styled(Grid)`
-  margin: 64px auto;
-  width: 100%;
-
-  @media (max-width: 767px) {
-    margin: 16px auto;
-    width: 100%;
-  }
-`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -43,6 +33,5 @@ const IndexPage = () => {
     </Wrapper>
   )
 }
-
 
 export default IndexPage
