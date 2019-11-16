@@ -7,8 +7,10 @@ import Card from "@material-ui/core/Card"
 
 import Layout from "../layouts/Layout"
 
+import BannerSection from "../components/BannerSection"
 import BeritaSection from "../components/BeritaSection"
 import KontakSection from "../components/KontakSection"
+import GallerySection from "../components/GallerySection"
 import Footer from "../components/Footer"
 
 const StyledGrid = styled(Grid)`
@@ -33,11 +35,14 @@ const IndexPage = () => {
         siteTitle="Pusdatin Jamsos"
         siteDescription="Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta"
       ></Layout>
+      <BannerSection />
       <BeritaSection />
+      <GallerySection />
       <KontakSection id="kontak" />
       <Footer background="#0A369D" color="#9E9E9E" />
     </Wrapper>
   )
 }
+
 
 export default IndexPage

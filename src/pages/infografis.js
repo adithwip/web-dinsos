@@ -33,8 +33,14 @@ class InfografisPage extends React.Component {
   fetchData = () => {
     this.setState({ loading: true })
     axios
+      // .get(
+      //   `http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/galleries`,
+      //   {
+      //     crossdomain: true,
+      //   }
+      // )
       .get(
-        `http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/galleries`,
+        `http://104.43.9.40:8089/api/v1/cms/galleries?type=infografis`,
         {
           crossdomain: true,
         }
@@ -85,28 +91,6 @@ class InfografisPage extends React.Component {
             </p>
           </Grid>
 
-          {/* <Grid item xs={12} sm={6} md={5}>
-            <Carousel
-              infiniteLoop={true}
-              autoPlay={true}
-              showThumbs={false}
-              showIndicators={true}
-              width="100%"
-            >
-              {!!dataJson &&
-                dataJson.map(data => {
-                  return (
-                    <a href={data.url} target={"_blank"}>
-                      <div style={{ height: "650px" }}>
-                        <img src={sourceUrl + data.image} height="100%" />
-                        <p className="legend">{data.title}</p>
-                      </div>
-                    </a>
-                  )
-                })}
-            </Carousel>
-          </Grid> */}
-
           <Grid container item xs={12} spacing={3}>
             {!!dataJson &&
               dataJson.map(data => {
@@ -114,8 +98,8 @@ class InfografisPage extends React.Component {
                   <Grid item xs={12} sm={4} md={3}>
                     <a href={data.url} target={"_blank"}>
                       <div style={{ height: "350px" }}>
-                        <img src={sourceUrl + data.image} height="100%" />
-                        <p className="legend">{data.title}</p>
+                        <img src={ data.image } width="100%" height="100%" />
+                        {/* <p className="legend">{data.title}</p> */}
                       </div>
                     </a>
                   </Grid>

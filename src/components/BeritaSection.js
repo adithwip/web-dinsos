@@ -7,6 +7,7 @@ import Card from "@material-ui/core/Card"
 import Button from "@material-ui/core/Button"
 
 const StyleContainer = styled(Grid)`
+    background-color : #f6f6f6;
     padding : 12px 32px;
     margin-bottom: 12px;
 `
@@ -15,6 +16,10 @@ const NewsCard = styled(Card)`
   & div {
 		width: 100%;
     padding: 16px;
+  }
+
+  & :hover {
+    background-color: #f0f0f0
   }
 `
 
@@ -40,7 +45,7 @@ const BeritaSection = () => {
 	)
 
   return (
-    <StyleContainer container spacing={3}>
+    <StyleContainer container spacing={3} id="berita">
       <Grid item xs={12}>
         <h2>Berita Terkini</h2>
       </Grid>
@@ -49,13 +54,15 @@ const BeritaSection = () => {
           {data.allPusdatinNews.edges.map(({ node }) => {
             return (
               <Grid item md={3}>
-                <Link to={`berita/${node.slug}`}>
+                <Link to={`berita/${node.slug}`} style={{ textDecoration:"none" }}>
                   <NewsCard>
                     <div>
+                      <img src={node.image} width="100%" height="180px" />
                       <h3>{node.title}</h3>
                       <p>
                         {node.title}
                       </p>
+                      <span>{ node.created_at }</span>
                     </div>
                   </NewsCard>
                 </Link>
@@ -65,7 +72,7 @@ const BeritaSection = () => {
         </Grid>
       </Grid>
       <Grid item xs={12} align="center">
-        <Button variant="outlined">Lihat Lainnya &gt;&gt;</Button>
+        <Link to={`/berita`}>Lihat Lainnya &gt;&gt;</Link>
       </Grid>
     </StyleContainer>
   )

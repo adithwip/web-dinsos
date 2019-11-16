@@ -10,6 +10,8 @@ import AppBar from "./AppBar"
 import Container from "../layouts/Container"
 import Item from "../layouts/Item"
 
+import MailIcon from "@material-ui/icons/Mail"
+
 const StyledHeader = styled.header`
   & * {
     color: black;
@@ -17,7 +19,7 @@ const StyledHeader = styled.header`
   }
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  background-color: #5e92f3;
+  background-color: #fff;
 
   /* Fix position style */
   overflow: hidden;
@@ -56,7 +58,16 @@ const Header = () => {
 
       <MediaQuery minDeviceWidth={768}>
         <Container
-          style={{ padding: "8px 64px" }}
+          style={{ padding: "5px 32px", borderRadius: "0px 0px 0px 100px", backgroundColor: "#3177cc", color: "#fff" }}
+          alignItems="center"
+          justify="flex-end"
+        >
+          <Item style={{ display:"flex", color: "#fff" }}>            
+            <MailIcon style={{ color: "white" }} /> &nbsp; pusdatinjamsosdki@jakarta.go.id | 021-22684824
+          </Item>
+        </Container>
+        <Container
+          style={{ padding: "8px 32px" }}
           alignItems="center"
           justify="space-between"
         >
@@ -73,55 +84,55 @@ const Header = () => {
             <Container spacing={16}>
               <Item>
                 <Link to="/">
-                  <Typography variant="button" style={{ color: "white" }}>
+                  <Typography variant="button" style={{ color: "#2c2c2c" }}>
                     Beranda
                   </Typography>
                 </Link>
               </Item>
               <Item>
                 <Link to="/profil">
-                  <Typography variant="button" style={{ color: "white" }}>
+                  <Typography variant="button" style={{ color: "#2c2c2c" }}>
                     Profil
                   </Typography>
                 </Link>
               </Item>
               <Item>
                 <Link to="/berita">
-                  <Typography variant="button" style={{ color: "white" }}>
+                  <Typography variant="button" style={{ color: "#2c2c2c" }}>
                     Berita
                   </Typography>
                 </Link>
               </Item>
               <Item>
                 <Link to="/infografis">
-                  <Typography variant="button" style={{ color: "white" }}>
+                  <Typography variant="button" style={{ color: "#2c2c2c" }}>
                     Infografis
                   </Typography>
                 </Link>
               </Item>
               <Item>
                 <a href="/#kontak">
-                  <Typography variant="button" style={{ color: "white" }}>
+                  <Typography variant="button" style={{ color: "#2c2c2c" }}>
                     Kontak
                   </Typography>
                 </a>
               </Item>
               <Item>
                 <a href="/data">
-                  <Typography variant="button" style={{ color: "white" }}>
+                  <Typography variant="button" style={{ color: "#2c2c2c" }}>
                     Data
                   </Typography>
                 </a>
               </Item>
               <Item>
                 <a href="http://siaplus.pusdatin-dinsos.jakarta.go.id/dashboard/login">
-                  <Typography variant="button" style={{ color: "white" }}>
+                  <Typography variant="button" style={{ color: "#2c2c2c" }}>
                     Login
                   </Typography>
                 </a>
               </Item>
             </Container>
-          </Item>
+            </Item>
         </Container>
       </MediaQuery>
     </StyledHeader>

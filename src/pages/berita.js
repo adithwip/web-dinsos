@@ -38,7 +38,10 @@ class BeritaPage extends React.Component {
   fetchData = () => {
     this.setState({ loading: true })
     axios
-      .get(`http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/news`, {
+      // .get(`http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/news`, {
+      //   crossdomain: true,
+      // })
+      .get(`http://104.43.9.40:8089/api/v1/cms/news`, {
         crossdomain: true,
       })
       .then(result => {
