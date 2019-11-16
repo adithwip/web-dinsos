@@ -45,7 +45,7 @@ const BeritaSection = () => {
 	)
 
   return (
-    <StyleContainer container spacing={3}>
+    <StyleContainer container spacing={3} id="berita">
       <Grid item xs={12}>
         <h2>Berita Terkini</h2>
       </Grid>
