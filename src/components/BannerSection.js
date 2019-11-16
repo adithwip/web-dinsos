@@ -61,7 +61,7 @@ class BannerSection extends React.Component {
         dataJson.map(data => {
           return (
             <div style={{ width:'100%', height:'480px', backgroundColor:'#447694' }}>
-              <img src={ data.image } width="100%" height="100%" />
+              <img src={ data.image } width="100%" height="480px" />
             </div>
           )
         })
