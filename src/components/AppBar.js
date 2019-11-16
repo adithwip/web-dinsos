@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
 
+import Grid from "@material-ui/core/Grid"
 import AppBar from "@material-ui/core/AppBar"
 import Drawer from "@material-ui/core/Drawer"
 import Toolbar from "@material-ui/core/Toolbar"
@@ -16,6 +17,14 @@ import ListItemText from "@material-ui/core/ListItemText"
 
 import InfoTwoToneIcon from "@material-ui/icons/InfoTwoTone"
 import NewsTwoToneIcon from "@material-ui/icons/ImportContactsTwoTone"
+
+import HomeIcon from '@material-ui/icons/Home';
+import InfoIcon from '@material-ui/icons/Info';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
+import PersonIcon from '@material-ui/icons/Person';
+import ContactPhoneIcon from '@material-ui/icons/ContactPhone';
+import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -52,34 +61,86 @@ const HeaderAppBar = () => {
   }
 
   const drawerContent = (
-    <div
+    <Grid
       className={classes.list}
       role="presentation"
       onClick={toggleDrawer()}
       onKeyDown={toggleDrawer()}
+      direction="column"
+      justify="space-around"
     >
       <List>
         <Link to="/about">
           <ListItem button>
             <ListItemIcon>
-              <InfoTwoToneIcon />
+              <HomeIcon />
             </ListItemIcon>
-            <ListItemText primary="Tentang Dinsos" />
+            <ListItemText primary="Beranda" />
           </ListItem>
         </Link>
         <Divider />
 
-        <Link to="/blog">
+        <Link to="/profil">
           <ListItem button>
             <ListItemIcon>
-              <NewsTwoToneIcon />
+              <PersonIcon />
             </ListItemIcon>
-            <ListItemText primary="Pusat Berita" />
+            <ListItemText primary="Profil" />
           </ListItem>
         </Link>
         <Divider />
+
+        <Link to="/berita">
+          <ListItem button>
+            <ListItemIcon>
+              <MenuBookIcon />
+            </ListItemIcon>
+            <ListItemText primary="Berita" />
+          </ListItem>
+        </Link>
+        <Divider />
+
+        <Link to="/infografis">
+          <ListItem button>
+            <ListItemIcon>
+              <InfoIcon />
+            </ListItemIcon>
+            <ListItemText primary="Infografis" />
+          </ListItem>
+        </Link>
+        <Divider />
+
+        <Link to="/#kontak">
+          <ListItem button>
+            <ListItemIcon>
+              <ContactPhoneIcon />
+            </ListItemIcon>
+            <ListItemText primary="Kontak" />
+          </ListItem>
+        </Link>
+        <Divider />
+
+        <Link to="/data">
+          <ListItem button>
+            <ListItemIcon>
+              <TrendingUpIcon />
+            </ListItemIcon>
+            <ListItemText primary="Pusat Data" />
+          </ListItem>
+        </Link>
+        <Divider />
+        <a href="http://siaplus.pusdatin-dinsos.jakarta.go.id/dashboard/login" >
+          <ListItem button style={{ backgroundColor:"#dcdcdc" }}>
+            <ListItemIcon>
+              <VpnKeyIcon />
+            </ListItemIcon>
+            <ListItemText primary="Login" />
+          </ListItem>
+        </a>
+        <Divider />
+
       </List>
-    </div>
+    </Grid>
   )
 
   return (
