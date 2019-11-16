@@ -26,7 +26,7 @@ const StyledHeader = styled.header`
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 3;
 `
 
 const Header = () => {
@@ -59,7 +59,7 @@ const Header = () => {
       <MediaQuery minDeviceWidth={768}>
         <Container
           style={{ 
-            padding: "5px 32px", 
+            padding: "8px 32px", 
             borderRadius: "0px 0px 0px 100px", 
             backgroundColor: "#0d47a1", 
             color: "#fff" 

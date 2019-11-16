@@ -35,9 +35,9 @@ const IndexPage = () => {
         siteTitle="Pusdatin Jamsos"
         siteDescription="Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta"
       ></Layout>
-      <BannerSection />
-      <BeritaSection />
-      <GallerySection />
+      <BannerSection id="banner" />
+      <BeritaSection id="berita" />
+      <GallerySection id="galeri" />
       <KontakSection id="kontak" />
       <Footer background="#0A369D" color="#9E9E9E" />
     </Wrapper>

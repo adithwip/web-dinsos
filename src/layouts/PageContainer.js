@@ -4,7 +4,7 @@ import styled, { css } from "styled-components"
 
 const StyledPageContainer = styled.section`
   /* Fix header style accommodation */
-  margin-top: 125px;
+  margin-top: 132px;
 
   && {
     width: 100%;
