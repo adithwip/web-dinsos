@@ -16,7 +16,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-html-attributes`,
       options: {
-        lang: `en`
+        lang: `id`
       }
     },
     {
@@ -72,11 +72,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `GatsbyJS`,
-        short_name: `GatsbyJS`,
+        name: `Pusdatin Dinsos`,
+        short_name: `Pusdatin Dinsos`,
         start_url: `/`,
-        background_color: `#6b37bf`,
-        theme_color: `#6b37bf`,
+        background_color: `#3177cc`,
+        theme_color: `#3177cc`,
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: `standalone`,
