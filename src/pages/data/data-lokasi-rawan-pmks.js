@@ -1,5 +1,4 @@
 import React from "react"
-import { graphql } from "gatsby"
 import styled, { css } from "styled-components"
 
 import Paper from "@material-ui/core/Paper"
