@@ -41,7 +41,7 @@ class DataTitikRawanPMKSChart extends React.Component {
   }
 
   render() {
-    const { dataTitikPMKS, error, loading } = this.state
+    const { dataTitikPMKS,  } = this.state
 
     const chartDataDoughnut = {
       labels: convertDataTitikPMKStoChartData(dataTitikPMKS, "labels"),

@@ -30,7 +30,7 @@ class BeritaPage extends React.Component {
   }
 
   render() {
-    const { dataJson, error, loading } = this.state
+    const { dataJson } = this.state
 
     const daftarBerita = !!dataJson && dataJson.data
 

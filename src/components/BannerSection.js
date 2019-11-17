@@ -10,6 +10,7 @@ const BannerSection = () => {
           src="https://wowslider.com/sliders/demo-77/data1/images/field175959_1920.jpg"
           width="100%"
           height="100%"
+          alt="Banners"
         />
       </div>
     </div>

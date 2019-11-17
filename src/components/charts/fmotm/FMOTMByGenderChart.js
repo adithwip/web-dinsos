@@ -18,7 +18,6 @@ class FMOTMByGenderChart extends React.Component {
 
   fetchDataAPI = () => {
     this.setState({ loading: true })
-    const api = "http://ppds.pusdatin-dinsos.jakarta.go.id/api/gender/2019";
     axios
       .get(`https://api.myjson.com/bins/172ryi`, {
         crossdomain: true,
@@ -40,7 +39,7 @@ class FMOTMByGenderChart extends React.Component {
   }
 
   render() {
-    const { dataJson, error, loading } = this.state
+    const { dataJson } = this.state
 
     const extractData = (type, dataFromState) => {
       let arr = []

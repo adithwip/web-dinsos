@@ -50,7 +50,7 @@ class BeritaSection extends React.Component {
   render() {
     const { dataJson } = this.state
     const daftarBerita = !!dataJson && dataJson.data
-  
+
     return (
       <StyleContainer container spacing={3} id="berita">
         <Grid item xs={12}>
@@ -58,25 +58,31 @@ class BeritaSection extends React.Component {
         </Grid>
         <Grid item style={{ flex: 1 }}>
           <Grid container spacing={3}>
-            {!!daftarBerita && daftarBerita.map(berita => {
-              return (
-                <Grid item md={3}>
-                  <Link
-                    to={`news/${berita.id}`}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <NewsCard>
-                      <div>
-                        <img src={berita.image} width="100%" height="180px" />
-                        <h3>{berita.title }</h3>
-                        <p>{berita.title}</p>
-                        <span>{berita.created_at}</span>
-                      </div>
-                    </NewsCard>
-                  </Link>
-                </Grid>
-              )
-            })}
+            {!!daftarBerita &&
+              daftarBerita.map(berita => {
+                return (
+                  <Grid item md={3}>
+                    <Link
+                      to={`news/${berita.id}`}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <NewsCard>
+                        <div>
+                          <img
+                            src={berita.image}
+                            width="100%"
+                            height="180px"
+                            alt="berita-pusdatin"
+                          />
+                          <h3>{berita.title}</h3>
+                          <p>{berita.title}</p>
+                          <span>{berita.created_at}</span>
+                        </div>
+                      </NewsCard>
+                    </Link>
+                  </Grid>
+                )
+              })}
           </Grid>
         </Grid>
         <Grid item xs={12} align="center">

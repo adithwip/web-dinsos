@@ -1,11 +1,8 @@
 import React from "react"
-import { Link } from "gatsby"
 import styled from "styled-components"
 
 import Layout from "../layouts/Layout"
 import Grid from "@material-ui/core/Grid"
-import Card from "@material-ui/core/Card"
-import Typography from "@material-ui/core/Typography"
 
 import DataPKHChart from "../components/charts/DataPKHChart"
 import DataPetugasP3SChart from "../components/charts/DataPetugasP3SChart"
@@ -36,16 +33,6 @@ const StyledGrid = styled(Grid)`
   @media (max-width: 767px) {
     margin: 16px auto;
     width: 100%;
-  }
-`
-
-const StyledCard = styled(Card)`
-  background-color: #f8ffe5;
-  padding: 8px;
-  height: 140px;
-
-  &:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   }
 `
 

@@ -41,14 +41,14 @@ class DataPendapingPKHChart extends React.Component {
   }
 
   render() {
-    const { dataJson, error, loading } = this.state
+    const { dataJson } = this.state
     const dataPendampingPKHChartData = convertDataPendampingPKHToChartData(dataJson, 'data')
 
     const renderSetsOfTotalChartData = () => (
       <Container flexWrap="wrap" spacing={8}>
         {dataPendampingPKHChartData.map(data => {
           return (
-            <Item>
+            <Item key={data.label}>
               <TotalChartData
                 data={data.data}
                 label={data.label}
@@ -106,56 +106,6 @@ class DataPendapingPKHChart extends React.Component {
             fontColor: "white"
           }
         }]
-      }
-    }
-
-    const stackedOptions = {
-      legend : { 
-        labels : {
-          fontColor:"#fff",
-        },
-        position: 'right'
-      },
-      plugins: {
-        datalabels: {
-            formatter: function(value, context) {
-                return value > 1 ? value : "";
-            },
-            color: 'white',
-            labels: {
-                title: {
-                    font: {
-                        weight: 'bold'
-                    }
-                },
-                value: {
-                    color: 'white'
-                }
-            }
-        }
-      },
-      tooltips: {
-        mode: 'index',
-        intersect: false
-      },
-      responsive: true,
-      scales: {
-        xAxes: [
-          {
-            stacked: true,
-            ticks: {
-              fontColor: "white"
-            }
-          }
-        ],
-        yAxes: [
-          {
-            stacked: true,
-            ticks: {
-              fontColor: "white"
-            }
-          }
-        ]
       }
     }
 

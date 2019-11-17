@@ -78,8 +78,8 @@ class DataPKH extends React.Component {
   }
 
   render() {
-    const { data } = this.props
-    const { dataPkh, error, loading } = this.state
+    const { data, loading, error } = this.props
+    const { dataPkh,  } = this.state
     const dataForMaps = createDataForMaps(dataPkh)
 
     const chartDataDoughnut = {

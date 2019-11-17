@@ -18,7 +18,6 @@ class FMOTMByWilayahChart extends React.Component {
 
   fetchDataAPI = () => {
     this.setState({ loading: true })
-    const api = "http://ppds.pusdatin-dinsos.jakarta.go.id/api/summary/2019";
     axios
     //   .get(api, { crossdomain: true })
       .get(`https://api.myjson.com/bins/16hccq`, { crossdomain: true })
@@ -39,7 +38,7 @@ class FMOTMByWilayahChart extends React.Component {
   }
 
   render() {
-    const { dataJson, error, loading } = this.state
+    const { dataJson } = this.state
 
     const extractData = (type, dataFromState) => {
         let arr = []

@@ -40,7 +40,7 @@ class DataKejadianBencanaChart extends React.Component {
   }
 
   render() {
-    const { dataKejadianBencana, error, loading } = this.state
+    const { dataKejadianBencana, loading } = this.state
     const dataKejadianBencanaToChartData = convertDataKejadianBencanaToChartData(dataKejadianBencana, 'data')
 
     const renderSetsOfTotalChartData = () => (
@@ -114,14 +114,20 @@ class DataKejadianBencanaChart extends React.Component {
           direction="column"
           justify="center"
         >
-          <Container flexDirection="column" spacing={16}>
-            <Item flex={1}>
-              <Chart type="bar" data={dataBarChart} options={customOptions}/>
-            </Item>
-            <Item flex={1}>
-              {renderSetsOfTotalChartData()}
-            </Item>
-          </Container>
+          {loading ? (
+            <div>
+              <p>Loading Charts...</p>
+            </div>
+          ) : (
+            <Container flexDirection="column" spacing={16}>
+              <Item flex={1}>
+                <Chart type="bar" data={dataBarChart} options={customOptions}/>
+              </Item>
+              <Item flex={1}>
+                {renderSetsOfTotalChartData()}
+              </Item>
+            </Container>
+          )}
         </Grid>
       </ChartCard>
     )

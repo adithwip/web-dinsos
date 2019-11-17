@@ -41,7 +41,7 @@ class DataLokasiBersihPMKSChart extends React.Component {
   }
 
   render() {
-    const { dataBersihPMKS, error, loading } = this.state
+    const { dataBersihPMKS } = this.state
     const DataSetsToShownAsTotalChartData = converDataPMKSToChartDataSetsByArea(dataBersihPMKS)
 
     const renderSetsOfTotalChartData = () => (
