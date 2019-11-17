@@ -1,6 +1,7 @@
 import React from "react"
 import axios from "axios"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
+import { Link } from "@reach/router"
 import PageContainer from "../layouts/PageContainer"
 
 import Layout from "../layouts/Layout"
@@ -30,7 +31,7 @@ class BeritaPage extends React.Component {
   }
 
   render() {
-    const { dataJson, error, loading } = this.state
+    const { dataJson } = this.state
 
     const daftarBerita = !!dataJson && dataJson.data
 
@@ -49,8 +50,6 @@ class BeritaPage extends React.Component {
               <Container flexDirection="column" spacing={16} column={3}>
                 {!!daftarBerita &&
                   daftarBerita.map(berita => {
-                    console.log("berita", berita)
-
                     return (
                       <Item key={berita.id}>
                         <Container flexDirection="column">

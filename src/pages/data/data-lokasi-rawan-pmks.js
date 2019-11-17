@@ -149,15 +149,3 @@ export default function DataPMKS () {
     </Layout>
   )
 }
-
-export const query = graphql`
-  query {
-    jakartaMap: file(relativePath: { eq: "images/jakarta-maps.png" }) {
-      childImageSharp {
-        fixed(width: 300) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-  }
-`

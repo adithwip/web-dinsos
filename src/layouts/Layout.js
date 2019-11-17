@@ -9,7 +9,6 @@ import Container from "./Container"
 import Item from "./Item"
 
 import Header from "../components/Header"
-import Footer from "../components/Footer"
 
 const Layout = ({
   siteTitle,
@@ -78,7 +77,7 @@ Layout.propTypes = {
   siteType: PropTypes.string,
   siteImage: PropTypes.string,
   siteUrl: PropTypes.string,
-  children: PropTypes.any.isRequired,
+  children: PropTypes.any,
 }
 
 Layout.defaultProps = {

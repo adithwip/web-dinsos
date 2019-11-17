@@ -50,7 +50,6 @@ const StyledPageContainer = styled.section`
 `
 
 const PageContainer = ({ mobileFirst, ...props }) => {
-  console.log(mobileFirst)
   return (
     <StyledPageContainer
       className="page-container"

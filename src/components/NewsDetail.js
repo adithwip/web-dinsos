@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react"
-import PropTypes from "prop-types"
+import React from "react"
 import axios from "axios"
 
 import Layout from "../layouts/Layout"
@@ -41,7 +40,7 @@ class NewsDetail extends React.Component {
   }
 
   render() {
-    const { data, loading, error } = this.state
+    const { data } = this.state
     const news = data && data.data
 
     return (
@@ -60,7 +59,7 @@ class NewsDetail extends React.Component {
                 <h1>{news.title}</h1>
               </Item>
               <Item>
-                <img src={news.image} />
+                <img src={news.image} alt="pusdatin" />
               </Item>
               <Item>
                 <p style={{ color: "#1CA086" }}>{news.created_at}</p>

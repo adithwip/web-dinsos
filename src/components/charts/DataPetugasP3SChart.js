@@ -40,7 +40,7 @@ class DataP3SChart extends React.Component {
   }
 
   render() {
-    const { dataP3S, error, loading } = this.state
+    const { dataP3S } = this.state
 
     const randomColor = () => {
       const letters = '0123456789ABCDEF';

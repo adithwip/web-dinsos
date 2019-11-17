@@ -1,18 +1,14 @@
 import React from "react"
 
 import Container from "../layouts/Container"
-import Item from "../layouts/Item"
 
 import styled from "styled-components"
 
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
-import ListItemAvatar from "@material-ui/core/ListItemAvatar"
 import ListItemIcon from "@material-ui/core/ListItemIcon"
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction"
 import ListItemText from "@material-ui/core/ListItemText"
 import Grid from "@material-ui/core/Grid"
-import Typography from "@material-ui/core/Typography"
 import MailOutlineIcon from "@material-ui/icons/MailOutline"
 import TwitterIcon from "@material-ui/icons/Twitter"
 import FacebookIcon from "@material-ui/icons/Facebook"
@@ -90,7 +86,7 @@ const KontakSection = props => (
               <ListItemIcon>
                 <InstagramIcon style={{ color: "white" }} />
               </ListItemIcon>
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href="https://google.com" target="_blank" rel="noopener noreferrer">
                 <ListItemText
                   primary="Instagram Pusdatin Jamsos"
                   style={{ color: "white" }}

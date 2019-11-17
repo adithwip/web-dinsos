@@ -39,7 +39,7 @@ class DataJandaPerintisKemerdekaanChart extends React.Component {
   }
 
   render() {
-    const { dataP3S, error, loading } = this.state
+    const { dataP3S } = this.state
 
     const chartDataDoughnut1 = {
       labels: convertDataJandaPerintisKemerdekaanToChartData(dataP3S, 'labels', 1),

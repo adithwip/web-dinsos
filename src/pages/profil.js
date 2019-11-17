@@ -1,11 +1,7 @@
 import React from "react"
 import axios from "axios"
-import { useStaticQuery, graphql, Link } from "gatsby"
-import styled from "styled-components"
-import Img from "gatsby-image"
 
 import Layout from "../layouts/Layout"
-import Paper from "@material-ui/core/Paper"
 
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
@@ -13,21 +9,6 @@ import Tabs from "@material-ui/core/Tabs"
 import Tab from "@material-ui/core/Tab"
 import Typography from "@material-ui/core/Typography"
 import Box from "@material-ui/core/Box"
-
-import PageContainer from "../layouts/PageContainer"
-import Container from "../layouts/Container"
-import Item from "../layouts/Item"
-
-const StyledPaper = styled(Paper)`
-  padding: 32px 16px;
-`
-const NavButton = styled.a`
-  padding: 8px 12px;
-  border-radius: 20px;
-  width: 300px;
-  margin: 0 4px;
-  border: 1px solid gray;
-`
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -82,9 +63,6 @@ class ProfilPage extends React.Component {
   fetchData = () => {
     this.setState({ loading: true })
     axios
-      // .get(`http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/profile`, {
-      //   crossdomain: true,
-      // })
       .get(`http://104.43.9.40:8089/api/v1/cms/profile`, {
         crossdomain: true,
       })
@@ -102,7 +80,7 @@ class ProfilPage extends React.Component {
   }
 
   render() {
-    const { dataJson, error, loading } = this.state
+    const { dataJson } = this.state
 
     return (
       <Layout
@@ -167,7 +145,7 @@ function VerticalTabs(props) {
       <TabPanel value={value} index={1}>
         <div style={{ maxWidth: 860 }}>
           <h1 id="struktur">Struktur Organisasi</h1>
-          <img src={!!dataJson && dataJson.structure} width="100%" />
+          <img src={!!dataJson && dataJson.structure} width="100%" alt="pusdatin" />
         </div>
       </TabPanel>
     </div>

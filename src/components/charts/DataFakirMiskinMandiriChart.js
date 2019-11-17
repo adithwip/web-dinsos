@@ -41,14 +41,14 @@ class DataFakirMiskinMandiriChart extends React.Component {
   }
 
   render() {
-    const { dataJson, error, loading } = this.state
+    const { dataJson } = this.state
     const dataFakirMiskinMandiri = convertDataFakirMiskinMandiriToChartData(dataJson, 'data')
 
     const renderSetsOfTotalChartData = () => (
       <Container flexWrap="wrap" spacing={8}>
         {dataFakirMiskinMandiri.map(data => {
           return (
-            <Item>
+            <Item key={data.label}>
               <TotalChartData
                 data={data.data}
                 label={`${data.label} - ${data.stack}`}
@@ -95,9 +95,6 @@ class DataFakirMiskinMandiriChart extends React.Component {
             }
         }
       },
-      // legend : { 
-      //   display: false,
-      // },
       responsive: true,
       scales: {
         xAxes: [
