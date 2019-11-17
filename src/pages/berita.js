@@ -1,6 +1,7 @@
 import React from "react"
 import axios from "axios"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
+import { Link } from "@reach/router"
 import PageContainer from "../layouts/PageContainer"
 
 import Layout from "../layouts/Layout"

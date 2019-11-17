@@ -1,7 +1,8 @@
 import React from "react"
 import axios from "axios"
 import styled from "styled-components"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
+import { Link } from "@reach/router"
 
 import Grid from "@material-ui/core/Grid"
 import Card from "@material-ui/core/Card"
@@ -61,7 +62,7 @@ class BeritaSection extends React.Component {
             {!!daftarBerita &&
               daftarBerita.map(berita => {
                 return (
-                  <Grid item md={3}>
+                  <Grid key={berita.id} item md={3}>
                     <Link
                       to={`news/${berita.id}`}
                       style={{ textDecoration: "none" }}

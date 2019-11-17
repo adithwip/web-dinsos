@@ -77,7 +77,7 @@ Layout.propTypes = {
   siteType: PropTypes.string,
   siteImage: PropTypes.string,
   siteUrl: PropTypes.string,
-  children: PropTypes.any.isRequired,
+  children: PropTypes.any,
 }
 
 Layout.defaultProps = {

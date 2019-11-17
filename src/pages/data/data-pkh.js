@@ -24,16 +24,6 @@ import Item from "../../layouts/Item"
 
 export const query = graphql`
   query {
-    # allDataPkh {
-    #   edges {
-    #     node {
-    #       wilayah
-    #       total
-    #       tahun
-    #     }
-    #   }
-    # }
-
     jakartaMap: file(relativePath: { eq: "images/jakarta-maps-01.png" }) {
       childImageSharp {
         fixed(width: 300) {
