@@ -36,10 +36,8 @@ class BeritaSection extends React.Component {
       .then(result => {
         const { data } = result
         this.setState({ dataJson: data, loading: false })
-        console.log("ResponseApi", data)
       })
       .catch(error => {
-        console.log(error)
         this.setState({ loading: false, error: error })
       })
   }

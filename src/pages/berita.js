@@ -50,8 +50,6 @@ class BeritaPage extends React.Component {
               <Container flexDirection="column" spacing={16} column={3}>
                 {!!daftarBerita &&
                   daftarBerita.map(berita => {
-                    console.log("berita", berita)
-
                     return (
                       <Item key={berita.id}>
                         <Container flexDirection="column">
