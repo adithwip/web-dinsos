@@ -6,6 +6,7 @@ import { Link } from "@reach/router"
 
 import Grid from "@material-ui/core/Grid"
 import Card from "@material-ui/core/Card"
+import Button from "@material-ui/core/Button"
 
 const StyleContainer = styled(Grid)`
   background-color: #f6f6f6;
@@ -30,7 +31,7 @@ class BeritaSection extends React.Component {
   fetchData = () => {
     this.setState({ loading: true })
     axios
-      .get(`http://104.43.9.40:8089/api/v1/cms/news`, {
+      .get(`http://104.43.9.40:8089/api/v1/cms/news?perpage=8`, {
         crossdomain: true,
       })
       .then(result => {
@@ -85,7 +86,11 @@ class BeritaSection extends React.Component {
           </Grid>
         </Grid>
         <Grid item xs={12} align="center">
-          <Link to={`/berita`}>Lihat Lainnya &gt;&gt;</Link>
+          <Link to="/berita">      
+            <Button variant="contained"  color="secondary" style={{ margin: "35px 0 0 20px" }}>
+              Lihat Lainnya &gt;&gt;
+            </Button>
+          </Link>  
         </Grid>
       </StyleContainer>
     )

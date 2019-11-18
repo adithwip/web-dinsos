@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import axios from "axios"
 import styled from "styled-components"
 import Grid from "@material-ui/core/Grid"
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button"
 
 const StyleContainer = styled(Grid)`
   padding: 0 32px;
