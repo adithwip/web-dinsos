@@ -125,11 +125,11 @@ const Header = () => {
                 </a>
               </Item>
               <Item>
-                <a href="/data">
+                <Link to="/data">
                   <Typography variant="button" style={{ color: "#2c2c2c" }}>
                     Data
                   </Typography>
-                </a>
+                </Link>
               </Item>
               <Item>
                 <a href="http://siaplus.pusdatin-dinsos.jakarta.go.id/dashboard/login">
