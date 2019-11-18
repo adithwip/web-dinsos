@@ -7,6 +7,7 @@ import BannerSection from "../components/BannerSection"
 import BeritaSection from "../components/BeritaSection"
 import KontakSection from "../components/KontakSection"
 import GallerySection from "../components/GallerySection"
+import SummarySection from "../components/SummarySection"
 import Footer from "../components/Footer"
 
 const Wrapper = styled.div`
@@ -23,6 +24,7 @@ const IndexPage = () => {
         siteDescription="Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta"
       ></Layout>
       <BannerSection id="banner" />
+      <SummarySection id="summary" />
       <BeritaSection id="berita" />
       <GallerySection id="galeri" />
       <KontakSection id="kontak" />
