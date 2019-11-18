@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+
 import Slider from "react-slick"
 import axios from "axios"
 import Grid from "@material-ui/core/Grid"
@@ -14,15 +15,6 @@ const CustomSlider = styled(Slider)`
     right: 3% !important;
     z-index: 1;
   }
-`
-const StickyPostContainer = styled(Grid)`
-  z-index: 1;
-  position: absolute;
-  bottom: 0; 
-  padding: 0 35px;
-`
-const StickyPost = styled(Grid)`
-  border: none;
 `
 
 class BannerSection extends React.Component {
@@ -82,29 +74,36 @@ class BannerSection extends React.Component {
         </CustomSlider>
 
         <MediaQuery minDeviceWidth={768}>
-          <StickyPostContainer container xs direction="row" justify="center" alignItems="stretch">          
-            <StickyPost item xs={12} sm={4} style={{ backgroundColor: "#87cc00", padding:"10px", color:"#fff" }}>
+          <Grid container xs direction="row" justify="center" alignItems="stretch" 
+            style={{  
+              zIndex: "1",  
+              position: "absolute",  
+              bottom: "0",
+              padding: "0 35px" 
+            }}
+          >          
+            <Grid item xs={12} sm={4} style={{ backgroundColor: "#87cc00", padding:"10px", color:"#fff" }}>
               <h3 style={{ marginTop: "0.6rem" }}>Highlight 1</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
               </p>
-            </StickyPost>
-            <StickyPost item xs={12} sm={4} style={{ backgroundColor: "#fd5308", padding:"10px", color:"#fff" }}>
+            </Grid>
+            <Grid item xs={12} sm={4} style={{ backgroundColor: "#fd5308", padding:"10px", color:"#fff" }}>
               <h3 style={{ marginTop: "0.6rem" }}>Highlight 2</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
               </p>
-            </StickyPost>
-            <StickyPost item xs={12} sm={4} style={{ backgroundColor: "#00adef", padding:"10px", color:"#fff" }}>
+            </Grid>
+            <Grid item xs={12} sm={4} style={{ backgroundColor: "#00adef", padding:"10px", color:"#fff" }}>
               <h3 style={{ marginTop: "0.6rem" }}>Highlight 3</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
               </p>
-            </StickyPost>
-          </StickyPostContainer>
+            </Grid>
+          </Grid>
         </MediaQuery>
       </>
     )
