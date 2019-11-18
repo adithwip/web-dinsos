@@ -12,6 +12,7 @@ const StyleContainer = styled(Grid)`
   background-color: #f6f6f6;
   padding: 12px 32px;
   margin-bottom: 12px;
+  padding-top: 2.5rem;
 `
 
 const NewsCard = styled(Card)`
