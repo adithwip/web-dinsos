@@ -139,7 +139,7 @@ const Header = () => {
                 </a>
               </Item>
             </Container>
-            </Item>
+          </Item>
         </Container>
       </MediaQuery>
     </StyledHeader>

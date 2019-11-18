@@ -1,21 +1,11 @@
 import React from "react"
 import axios from "axios"
-import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
-import Img from "gatsby-image"
 import Grid from "@material-ui/core/Grid"
 
 import Layout from "../layouts/Layout"
-import Paper from "@material-ui/core/Paper"
 
-import { Carousel } from "react-responsive-carousel"
-import Card from "@material-ui/core/Card"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
-import BackgroundImage from "gatsby-background-image"
-
-// const StyledPaper = styled(Paper)`
-//   padding: 32px 16px;
-// `
 
 const StyledGrid = styled(Grid)`
   margin: 64px auto;
@@ -33,18 +23,9 @@ class InfografisPage extends React.Component {
   fetchData = () => {
     this.setState({ loading: true })
     axios
-      // .get(
-      //   `http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/galleries`,
-      //   {
-      //     crossdomain: true,
-      //   }
-      // )
-      .get(
-        `http://104.43.9.40:8089/api/v1/cms/galleries?type=infografis`,
-        {
-          crossdomain: true,
-        }
-      )
+      .get(`http://104.43.9.40:8089/api/v1/cms/galleries?type=infografis`, {
+        crossdomain: true,
+      })
       .then(result => {
         const { data } = result.data
         this.setState({ dataJson: data, loading: false })
@@ -59,8 +40,7 @@ class InfografisPage extends React.Component {
   }
 
   render() {
-    const { dataJson, error, loading } = this.state
-    let sourceUrl = "http://siaplus.pusdatin-dinsos.jakarta.go.id/"
+    const { dataJson } = this.state
 
     return (
       <Layout
@@ -98,8 +78,7 @@ class InfografisPage extends React.Component {
                   <Grid item xs={12} sm={4} md={3}>
                     <a href={data.url} target={"_blank"}>
                       <div style={{ height: "350px" }}>
-                        <img src={ data.image } width="100%" height="100%" />
-                        {/* <p className="legend">{data.title}</p> */}
+                        <img src={data.image} width="100%" height="100%" alt="pusdatin" />
                       </div>
                     </a>
                   </Grid>

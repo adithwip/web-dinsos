@@ -22,7 +22,7 @@ const convertDataPendampingPKHToChartData = (dataJson, type) => {
     }
 
     if (typeof type === 'string' && type === 'data') {
-        const data = _.map(dataPendampingGroupedByWilayah, (value, key) => value.length)
+        // const data = _.map(dataPendampingGroupedByWilayah, (value, key) => value.length)
 
         let colorList = [randomColor(),randomColor(),randomColor(),randomColor(),randomColor(),randomColor(),randomColor()];
         
@@ -39,7 +39,7 @@ const convertDataPendampingPKHToChartData = (dataJson, type) => {
                 const groupByJabatan = _.mapValues(_.groupBy(daftarPKHWilayah, 'jabatan'), clist => clist.map(data => _.omit(data, 'make')))
                 let count = 0;
                 _.map(groupByJabatan, (value, jabatanTemp) => {
-                    if (jabatanTemp == jabatan) {
+                    if (jabatanTemp === jabatan) {
                         count = value.length
                     }
                 })

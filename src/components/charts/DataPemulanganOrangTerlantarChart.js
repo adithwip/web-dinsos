@@ -40,7 +40,7 @@ class DataPemulanganOrangTerlantarChart extends React.Component {
   }
 
   render() {
-    const { dataPemulangan, error, loading } = this.state
+    const { dataPemulangan } = this.state
     const dataPemulanganToChartData = convertDataPemulanganToChartData(dataPemulangan, 'data')
 
     const renderSetsOfTotalChartData = () => (

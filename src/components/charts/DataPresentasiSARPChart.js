@@ -40,7 +40,7 @@ class DataPresentasiSARPChart extends React.Component {
   }
 
   render() {
-    const { dataP3S, error, loading } = this.state
+    const { dataP3S } = this.state
 
     const dataP3sArray = (type, dataFromState) => {
       let arr = []

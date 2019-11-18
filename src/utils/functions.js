@@ -53,6 +53,8 @@ const createDataForMaps = dataFromState => {
             label: data.total,
           })
           break
+        default:
+          dataForMaps.push({})
       }
     })
   return dataForMaps

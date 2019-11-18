@@ -1,24 +1,11 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
-import styled from "styled-components"
-import Img from "gatsby-image"
+import { makeStyles } from "@material-ui/core/styles"
 
 import Layout from "../layouts/Layout"
-import Paper from "@material-ui/core/Paper"
-
-import { makeStyles } from "@material-ui/core/styles"
-import Input from "@material-ui/core/Input"
-import InputLabel from "@material-ui/core/InputLabel"
-import InputAdornment from "@material-ui/core/InputAdornment"
-import FormControl from "@material-ui/core/FormControl"
 import TextField from "@material-ui/core/TextField"
 import Grid from "@material-ui/core/Grid"
 
 import Button from "@material-ui/core/Button"
-
-const StyledPaper = styled(Paper)`
-  padding: 32px 16px;
-`
 
 const useStyles = makeStyles(theme => ({
   margin: {
@@ -80,7 +67,7 @@ const LoginPage = () => {
         </div>
 
         <div style={{ textAlign: "right", marginTop: "15px" }}>
-          <a href="#" style={{ float: "left", marginTop: "20px" }}>
+          <a href="https://google.com" style={{ float: "left", marginTop: "20px" }}>
             Lupa Password ?
           </a>
           <Button

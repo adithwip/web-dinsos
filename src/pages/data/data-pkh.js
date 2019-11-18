@@ -24,16 +24,6 @@ import Item from "../../layouts/Item"
 
 export const query = graphql`
   query {
-    # allDataPkh {
-    #   edges {
-    #     node {
-    #       wilayah
-    #       total
-    #       tahun
-    #     }
-    #   }
-    # }
-
     jakartaMap: file(relativePath: { eq: "images/jakarta-maps-01.png" }) {
       childImageSharp {
         fixed(width: 300) {
@@ -78,8 +68,8 @@ class DataPKH extends React.Component {
   }
 
   render() {
-    const { data } = this.props
-    const { dataPkh, error, loading } = this.state
+    const { data, loading, error } = this.props
+    const { dataPkh,  } = this.state
     const dataForMaps = createDataForMaps(dataPkh)
 
     const chartDataDoughnut = {

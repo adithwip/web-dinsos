@@ -31,24 +31,25 @@ const StyledPageContainer = styled.section`
   } */
 
   @media (min-width: 992px) {
+    max-width: 1280px;
     ${props =>
       props.mobileFirst &&
       css`
-        max-width: 1280px;
+        max-width: 860px;
       `}
   }
 
   @media (min-width: 1200px) {
+    max-width: 1280px;
     ${props =>
       props.mobileFirst &&
       css`
-        max-width: 1280px;
+        max-width: 860px;
       `}
   }
 `
 
 const PageContainer = ({ mobileFirst, ...props }) => {
-  console.log(mobileFirst)
   return (
     <StyledPageContainer
       className="page-container"

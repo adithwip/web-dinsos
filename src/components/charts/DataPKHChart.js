@@ -41,7 +41,7 @@ class DataPKHChart extends React.Component {
   }
 
   render() {
-    const { dataPkh, error, loading } = this.state
+    const { dataPkh } = this.state
 
     const chartDataBar = {
       labels: convertDataPKHtoChartData(dataPkh, "labels"),

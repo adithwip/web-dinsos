@@ -6,8 +6,8 @@ import Grid from "@material-ui/core/Grid"
 import Button from '@material-ui/core/Button';
 
 const StyleContainer = styled(Grid)`
-    padding : 0 32px;
-    margin-bottom: 12px;
+  padding: 0 32px;
+  margin-bottom: 12px;
 `
 class GallerySection extends React.Component {
   

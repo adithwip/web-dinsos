@@ -1,5 +1,4 @@
 import React from "react"
-import { graphql } from "gatsby"
 import styled, { css } from "styled-components"
 
 import Paper from "@material-ui/core/Paper"
@@ -149,15 +148,3 @@ export default function DataPMKS () {
     </Layout>
   )
 }
-
-export const query = graphql`
-  query {
-    jakartaMap: file(relativePath: { eq: "images/jakarta-maps.png" }) {
-      childImageSharp {
-        fixed(width: 300) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-  }
-`
