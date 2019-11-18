@@ -9,6 +9,7 @@ import Tabs from "@material-ui/core/Tabs"
 import Tab from "@material-ui/core/Tab"
 import Typography from "@material-ui/core/Typography"
 import Box from "@material-ui/core/Box"
+import Hidden from '@material-ui/core/Hidden';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -85,13 +86,29 @@ class ProfilPage extends React.Component {
     return (
       <Layout
         noGrid
-        mobileFirst
         siteTitle="Profil"
         siteDescription="Will provide my readers about myself"
       >
         <h2>Profil</h2>
 
-        <VerticalTabs data={dataJson} />
+        <Hidden smDown>
+          <VerticalTabs data={dataJson} />
+        </Hidden>
+        
+        <Hidden mdUp>
+          <h3 id="tugas">Tugas & Fungsi</h3>
+          <div
+            dangerouslySetInnerHTML={{ __html: !!dataJson && dataJson.tasks }}
+          />
+          <div
+            dangerouslySetInnerHTML={{
+              __html: !!dataJson && dataJson.functions,
+            }}
+          />
+
+          <h3 id="struktur">Struktur Organisasi</h3>
+          <img src={!!dataJson && dataJson.structure} width="100%" alt="pusdatin" />
+        </Hidden>
       </Layout>
     )
   }
@@ -151,5 +168,7 @@ function VerticalTabs(props) {
     </div>
   )
 }
+
+
 
 export default ProfilPage
