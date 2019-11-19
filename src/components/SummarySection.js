@@ -14,6 +14,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import PeopleIcon from '@material-ui/icons/People';
 import PersonIcon from '@material-ui/icons/Person';
 import PaymentIcon from '@material-ui/icons/Payment';
+import AccessibleIcon from '@material-ui/icons/Accessible';
 
 import Typography from "@material-ui/core/Typography"
 import AppBar from '@material-ui/core/AppBar';
@@ -21,6 +22,9 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faWheelchair, faChild, faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 
 const StyleContainer = styled(Grid)`
   background-color: #fff;
@@ -76,22 +80,27 @@ class SummarySection extends React.Component {
             </Grid>
             <Grid item xs={12} md={3} style={{ padding:"8px" }}  >
                 <Card style={{ padding:"16px", textAlign:"center", height:"150px", backgroundColor:"#f8f8ff" }} align="justify"> 
-                    <PaymentIcon /> <br/> <Typography>x.xxx.xxxx <br/>Kartu Jakarta Pintar</Typography>
+                    <PaymentIcon /> <br/> <Typography>558.385 <br/>Kartu Jakarta Pintar</Typography>
                 </Card>
             </Grid>
             <Grid item xs={12} md={3} style={{ padding:"8px" }}  >
                 <Card style={{ padding:"16px", textAlign:"center", height:"150px", backgroundColor:"#f8f8ff" }} align="justify"> 
-                    <PaymentIcon /> <br/> <Typography>x.xxx.xxxx <br/>Kartu Lansia Jakarta</Typography>
+                    <PaymentIcon /> <br/> <Typography>128.614 <br/>Kartu Lansia Jakarta</Typography>
                 </Card>
             </Grid>
             <Grid item xs={12} md={3} style={{ padding:"8px" }}  >
                 <Card style={{ padding:"16px", textAlign:"center", height:"150px", backgroundColor:"#f8f8ff" }} align="justify"> 
-                    <PaymentIcon /> <br/> <Typography>x.xxx.xxxx <br/>Kartu Jakarta Mahasiswa Unggul</Typography>
+                  <FontAwesomeIcon icon={faGraduationCap} /> <br/> <Typography>8.024 <br/>Kartu Jakarta Mahasiswa Unggul</Typography>
                 </Card>
             </Grid>
             <Grid item xs={12} md={3} style={{ padding:"8px" }}  >
                 <Card style={{ padding:"16px", textAlign:"center", height:"150px", backgroundColor:"#f8f8ff" }} align="justify"> 
-                    <PaymentIcon /> <br/> <Typography>x.xxx.xxxx <br/>Pemenuhan Kebutuhan Dasar Anak</Typography>
+                  <FontAwesomeIcon icon={faChild} /> <br/> <Typography>82.476 <br/>Pemenuhan Kebutuhan Dasar Anak</Typography>
+                </Card>
+            </Grid>
+            <Grid item xs={12} md={3} style={{ padding:"8px" }}  >
+                <Card style={{ padding:"16px", textAlign:"center", height:"150px", backgroundColor:"#f8f8ff" }} align="justify"> 
+                  <FontAwesomeIcon icon={faWheelchair} /> <br/> <Typography>82.476 <br/>Pemenuhan Kebutuhan Dasar Disabilitas</Typography>
                 </Card>
             </Grid>
           </div>
