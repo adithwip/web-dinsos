@@ -5,7 +5,8 @@ import Grid from "@material-ui/core/Grid"
 
 import Layout from "../layouts/Layout"
 
-import "react-responsive-carousel/lib/styles/carousel.min.css"
+import KontakSection from "../components/KontakSection"
+import Footer from "../components/Footer"
 
 const StyledGrid = styled(Grid)`
   margin: 64px auto;
@@ -16,6 +17,11 @@ const StyledGrid = styled(Grid)`
     width: 100%;
   }
 `
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+` 
 
 class InfografisPage extends React.Component {
   state = { dataJson: null, error: false, loading: false }
@@ -43,50 +49,54 @@ class InfografisPage extends React.Component {
     const { dataJson } = this.state
 
     return (
-      <Layout
-        noGrid
-        siteTitle="Infografis"
-        siteDescription="Infografis Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta"
-      >
-        <StyledGrid
-          container
-          justify="center"
-          alignContent="center"
-          spacing={2}
-          style={{ marginTop: "0px" }}
+      <Wrapper>
+        <Layout
+          noGrid
+          siteTitle="Infografis"
+          siteDescription="Infografis Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta"
         >
-          <Grid item xs={12}>
-            <h2>Infografis</h2>
-          </Grid>
+          <StyledGrid
+            container
+            justify="center"
+            alignContent="center"
+            spacing={2}
+            style={{ marginTop: "0px", minHeight:"500px" }}
+          >
+            <Grid item xs={12}>
+              <h2>Infografis</h2>
+            </Grid>
 
-          <Grid item xs={12}>
-            <p>
-              Infografik adalah representasi visual informasi, data atau ilmu
-              pengetahuan secara grafis. Grafik ini memperlihatkan informasi
-              rumit dengan singkat dan jelas, seperti pada papan, peta,
-              jurnalisme, penulisan teknis, dan pendidikan. Melalui infografik,
-              ilmuwan komputer, matematikawan dan statistikawan mampu
-              mengembangkan dan mengomunikasikan konsep menggunakan satu simbol
-              untuk memproses informasi.
-            </p>
-          </Grid>
+            <Grid item xs={12}>
+              <p>
+                Infografik adalah representasi visual informasi, data atau ilmu
+                pengetahuan secara grafis. Grafik ini memperlihatkan informasi
+                rumit dengan singkat dan jelas, seperti pada papan, peta,
+                jurnalisme, penulisan teknis, dan pendidikan. Melalui infografik,
+                ilmuwan komputer, matematikawan dan statistikawan mampu
+                mengembangkan dan mengomunikasikan konsep menggunakan satu simbol
+                untuk memproses informasi.
+              </p>
+            </Grid>
 
-          <Grid container item xs={12} spacing={3}>
-            {!!dataJson &&
-              dataJson.map(data => {
-                return (
-                  <Grid item xs={12} sm={4} md={3}>
-                    <a href={data.url} target={"_blank"}>
-                      <div style={{ height: "350px" }}>
-                        <img src={data.image} width="100%" height="100%" alt="pusdatin" />
-                      </div>
-                    </a>
-                  </Grid>
-                )
-              })}
-          </Grid>
-        </StyledGrid>
-      </Layout>
+            <Grid container item xs={12} spacing={3}>
+              {!!dataJson &&
+                dataJson.map(data => {
+                  return (
+                    <Grid item xs={12} sm={4} md={3}>
+                      <a href={data.url} target={"_blank"}>
+                        <div style={{ height: "350px" }}>
+                          <img src={data.image} width="100%" height="100%" alt="pusdatin" />
+                        </div>
+                      </a>
+                    </Grid>
+                  )
+                })}
+            </Grid>
+          </StyledGrid>
+        </Layout>
+        <KontakSection id="kontak" />
+        <Footer background="#0A369D" color="#9E9E9E" />
+      </Wrapper>
     )
   }
 }

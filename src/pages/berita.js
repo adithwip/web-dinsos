@@ -7,6 +7,15 @@ import PageContainer from "../layouts/PageContainer"
 import Layout from "../layouts/Layout"
 import Container from "../layouts/Container"
 import Item from "../layouts/Item"
+import styled from "styled-components"
+
+import KontakSection from "../components/KontakSection"
+import Footer from "../components/Footer"
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+` 
 
 class BeritaPage extends React.Component {
   state = { dataJson: null, error: false, loading: false, page: 1 }
@@ -36,13 +45,14 @@ class BeritaPage extends React.Component {
     const daftarBerita = !!dataJson && dataJson.data
 
     return (
+      <Wrapper>
       <Layout
         noPageContainer
         siteTitle="Berita"
         siteDescription="Berita Pusdatin Dinas Sosial Provinsi DKI Jakarta"
       >
         <PageContainer>
-          <Container flexDirection="column">
+          <Container flexDirection="column" style={{ minHeight:"500px" }}>
             <Item>
               <h2>Berita dan Informasi</h2>
             </Item>
@@ -68,6 +78,9 @@ class BeritaPage extends React.Component {
           </Container>
         </PageContainer>
       </Layout>
+        <KontakSection id="kontak" />
+        <Footer background="#0A369D" color="#9E9E9E" />
+      </Wrapper>
     )
   }
 }

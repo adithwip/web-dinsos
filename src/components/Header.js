@@ -118,7 +118,7 @@ const Header = () => {
                 </Link>
               </Item>
               <Item>
-                <a href="/#kontak">
+                <a href="#kontak">
                   <Typography variant="button" style={{ color: "#2c2c2c" }}>
                     Kontak
                   </Typography>
