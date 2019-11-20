@@ -64,43 +64,58 @@ class SummarySection extends React.Component {
           <Grid item xs={12} md={8}>
           <div style={{ display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"row", flexWrap:"wrap", flexFlow:"row wrap", alignContent:"flex-end" }}>
             <Grid item xs={12} md={4} style={{ padding:"8px" }}  >
-                <Card style={{ padding:"24px", textAlign:"center", height:"120px", backgroundColor:"#f8f8ff" }} align="justify"> 
-                  <FontAwesomeIcon icon={faUsers} size="2x" /> <br/> <Typography>406.435 DTKS</Typography>
+                <Card style={{ padding:"24px", textAlign:"center", height:"150px", backgroundColor:"#f8f8ff" }} align="justify"> 
+                  <FontAwesomeIcon icon={faUsers} size="3x" style={{ marginBottom:"10px", color:"736c6e" }} /> <br/> 
+                  <Typography style={{ fontFamily: "fantasy", color:"orangered" }} >406.435</Typography> 
+                  <Typography style={{ fontWeight: "bold" }}>DTKS</Typography>
                 </Card>
             </Grid>
             <Grid item xs={12} md={4} style={{ padding:"8px" }}  >
-                <Card style={{ padding:"24px", textAlign:"center", height:"120px", backgroundColor:"#f8f8ff" }} align="justify"> 
-                  <FontAwesomeIcon icon={faUser} size="2x" /> <br/> <Typography>1.571.352 ART</Typography>
+                <Card style={{ padding:"24px", textAlign:"center", height:"150px", backgroundColor:"#f8f8ff" }} align="justify"> 
+                  <FontAwesomeIcon icon={faUser} size="3x" style={{ marginBottom:"10px", color:"736c6e" }} /> <br/> 
+                  <Typography style={{ fontFamily: "fantasy", color:"orangered" }}>1.571.352</Typography>                
+                  <Typography style={{ fontWeight: "bold" }}>ART</Typography>
                 </Card>
             </Grid>
             <Grid item xs={12} md={4} style={{ padding:"8px" }}  >
-                <Card style={{ padding:"24px", textAlign:"center", height:"120px", backgroundColor:"#f8f8ff" }} align="justify"> 
-                  <FontAwesomeIcon icon={faHome} size="2x" /> <br/> <Typography>xxx.xxx</Typography>
+                <Card style={{ padding:"24px", textAlign:"center", height:"150px", backgroundColor:"#f8f8ff" }} align="justify"> 
+                  <FontAwesomeIcon icon={faHome} size="3x" style={{ marginBottom:"10px", color:"736c6e" }} /> <br/> 
+                  <Typography style={{ fontFamily: "fantasy", color:"orangered" }}>xxx.xxx</Typography>
                 </Card>
             </Grid>
             <Grid item xs={12} md={3} style={{ padding:"8px" }}  >
-                <Card style={{ padding:"16px", textAlign:"center", height:"160px", backgroundColor:"#f8f8ff" }} align="justify"> 
-                <FontAwesomeIcon icon={faCreditCard} size="2x" /> <br/> <Typography>558.385 <br/>Kartu Jakarta Pintar</Typography>
+                <Card style={{ padding:"16px", textAlign:"center", height:"180px", backgroundColor:"#f8f8ff" }} align="justify"> 
+                <FontAwesomeIcon icon={faCreditCard} size="3x" style={{ marginBottom:"10px", color:"736c6e" }} /> <br/> 
+                <Typography style={{ fontFamily: "fantasy", color:"orangered" }}>558.385 </Typography>
+                  <Typography style={{ fontWeight: "bold" }}>Kartu Jakarta Pintar</Typography>
                 </Card>
             </Grid>
             <Grid item xs={12} md={3} style={{ padding:"8px" }}  >
-                <Card style={{ padding:"16px", textAlign:"center", height:"160px", backgroundColor:"#f8f8ff" }} align="justify"> 
-                <FontAwesomeIcon icon={faCreditCard} size="2x" /> <br/> <Typography>128.614 <br/>Kartu Lansia Jakarta</Typography>
+                <Card style={{ padding:"16px", textAlign:"center", height:"180px", backgroundColor:"#f8f8ff" }} align="justify"> 
+                <FontAwesomeIcon icon={faCreditCard} size="3x" style={{ marginBottom:"10px", color:"736c6e" }} /> <br/> 
+                <Typography style={{ fontFamily: "fantasy", color:"orangered" }}>128.614</Typography>
+                  <Typography style={{ fontWeight: "bold" }}>Kartu Lansia Jakarta</Typography>
                 </Card>
             </Grid>
             <Grid item xs={12} md={3} style={{ padding:"8px" }}  >
-                <Card style={{ padding:"16px", textAlign:"center", height:"160px", backgroundColor:"#f8f8ff" }} align="justify"> 
-                  <FontAwesomeIcon icon={faGraduationCap} size="2x" /> <br/> <Typography>8.024 <br/>Kartu Jakarta Mahasiswa Unggul</Typography>
+                <Card style={{ padding:"16px", textAlign:"center", height:"180px", backgroundColor:"#f8f8ff" }} align="justify"> 
+                  <FontAwesomeIcon icon={faGraduationCap} size="3x" style={{ marginBottom:"10px", color:"736c6e" }} /> <br/> 
+                  <Typography style={{ fontFamily: "fantasy", color:"orangered" }}>8.024</Typography>
+                  <Typography style={{ fontWeight: "bold" }}>Kartu Jakarta Mahasiswa Unggul</Typography>
                 </Card>
             </Grid>
             <Grid item xs={12} md={3} style={{ padding:"8px" }}  >
-                <Card style={{ padding:"16px", textAlign:"center", height:"160px", backgroundColor:"#f8f8ff" }} align="justify"> 
-                  <FontAwesomeIcon icon={faChild} size="2x" /> <br/> <Typography>82.476 <br/>Pemenuhan Kebutuhan Dasar Anak</Typography>
+                <Card style={{ padding:"16px", textAlign:"center", height:"180px", backgroundColor:"#f8f8ff" }} align="justify"> 
+                  <FontAwesomeIcon icon={faChild} size="3x" style={{ marginBottom:"10px", color:"736c6e" }} /> <br/> 
+                  <Typography style={{ fontFamily: "fantasy", color:"orangered" }}>82.476</Typography>
+                  <Typography style={{ fontWeight: "bold" }}>Pemenuhan Kebutuhan Dasar Anak</Typography>
                 </Card>
             </Grid>
             <Grid item xs={12} md={3} style={{ padding:"8px" }}  >
-                <Card style={{ padding:"16px", textAlign:"center", height:"160px", backgroundColor:"#f8f8ff" }} align="justify"> 
-                  <FontAwesomeIcon icon={faWheelchair} size="2x" /> <br/> <Typography>82.476 <br/>Pemenuhan Kebutuhan Dasar Disabilitas</Typography>
+                <Card style={{ padding:"16px", textAlign:"center", height:"180px", backgroundColor:"#f8f8ff" }} align="justify"> 
+                  <FontAwesomeIcon icon={faWheelchair} size="3x" style={{ marginBottom:"10px", color:"736c6e" }} /> <br/> 
+                  <Typography style={{ fontFamily: "fantasy", color:"orangered" }}>82.476 </Typography>                 
+                  <Typography style={{ fontWeight: "bold" }}>Pemenuhan Kebutuhan Dasar Disabilitas</Typography>
                 </Card>
             </Grid>
           </div>

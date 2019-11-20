@@ -31,7 +31,7 @@ class BeritaSection extends React.Component {
   fetchData = () => {
     this.setState({ loading: true })
     axios
-      .get(`http://104.43.9.40:8089/api/v1/cms/news?perpage=6`, {
+      .get(`http://104.43.9.40:8089/api/v1/cms/news?perpage=4`, {
         crossdomain: true,
       })
       .then(result => {
@@ -61,7 +61,7 @@ class BeritaSection extends React.Component {
             {!!daftarBerita &&
               daftarBerita.map(berita => {
                 return (
-                  <Grid key={berita.id} item md={2}>
+                  <Grid key={berita.id} item md={3}>
                     <Link
                       to={`news/${berita.id}`}
                       style={{ textDecoration: "none" }}
