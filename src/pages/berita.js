@@ -13,6 +13,7 @@ import Grid from "@material-ui/core/Grid"
 
 import KontakSection from "../components/KontakSection"
 import Footer from "../components/Footer"
+import HotNews from "../components/HotNews"
 
 const Wrapper = styled.div`
   display: flex;
@@ -56,6 +57,16 @@ class BeritaPage extends React.Component {
     const { dataJson } = this.state
 
     const daftarBerita = !!dataJson && dataJson.data
+    const firstNews = dataJson && dataJson.data[0]
+
+    const duplicateFirstNewsToArray = (firstNews) => {
+      const arr = []
+      for (let i =0; i < 4; i++) {
+        arr.push(firstNews)
+      }
+      return arr
+    }
+    const firstNewsArrDummy = dataJson && duplicateFirstNewsToArray(firstNews)
 
     return (
       <Wrapper>
@@ -69,34 +80,46 @@ class BeritaPage extends React.Component {
             <Grid item xs>
               <h2>Berita dan Informasi</h2>
             </Grid>
-            <Grid container direction="row" spacing={16}>
-                {!!daftarBerita &&
-                  daftarBerita.map(berita => {
-                    return (
-                      <Grid key={berita.id} xs={12} sm={6} md={4} lg={3} style={{ marginBottom:"10px" }}>
-                        <Link
-                        to={`news/${berita.id}`}
-                        style={{ textDecoration: "none" }}
-                        >
-                        <NewsCard style={{ height:"100%" }}>
-                          <div>
-                            { !!berita.image && (
-                              <img
-                                src={ berita.image }
-                                width="100%" height="180px" alt="berita-pusdatin" />
-                            ) }
-                            
-                            <h3>{berita.title}</h3>                            
-                            <span>{ new Date(berita.created_at).toLocaleDateString("id-ID") }</span>
-                            <p>
-                              { (berita.content.replace(/(<([^>]+)>)/ig,"")).substring(0, 150) } ...
-                            </p>
-                          </div>
-                        </NewsCard>
-                      </Link>
-                      </Grid>                      
-                    )
-                  })}
+            <Grid item>
+              <Grid container spacing={2}>
+                <Grid item md={8}>
+                  <HotNews newsArr={firstNewsArrDummy} />
+                </Grid>
+                <Grid item md={4}>
+                  <div>Reserved</div>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item>
+              <Grid container direction="row" spacing={2}>
+                  {!!daftarBerita &&
+                    daftarBerita.map(berita => {
+                      return (
+                        <Grid item key={berita.id} xs={12} sm={6} md={4} lg={3} style={{ marginBottom:"10px" }}>
+                          <Link
+                          to={`news/${berita.id}`}
+                          style={{ textDecoration: "none" }}
+                          >
+                          <NewsCard style={{ height:"100%" }}>
+                            <div>
+                              { !!berita.image && (
+                                <img
+                                  src={ berita.image }
+                                  width="100%" height="180px" alt="berita-pusdatin" />
+                              ) }
+                              
+                              <h3>{berita.title}</h3>                            
+                              <span>{ new Date(berita.created_at).toLocaleDateString("id-ID") }</span>
+                              <p>
+                                { (berita.content.replace(/(<([^>]+)>)/ig,"")).substring(0, 150) } ...
+                              </p>
+                            </div>
+                          </NewsCard>
+                        </Link>
+                        </Grid>                      
+                      )
+                    })}
+              </Grid>
             </Grid>
           </Grid>
         </PageContainer>
