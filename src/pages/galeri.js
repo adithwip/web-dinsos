@@ -1,21 +1,14 @@
 import React from "react"
 import axios from "axios"
-import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
-import Img from "gatsby-image"
 import Grid from "@material-ui/core/Grid"
 
 import Layout from "../layouts/Layout"
-import Paper from "@material-ui/core/Paper"
 
-import { Carousel } from "react-responsive-carousel"
-import Card from "@material-ui/core/Card"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
-import BackgroundImage from "gatsby-background-image"
 
-// const StyledPaper = styled(Paper)`
-//   padding: 32px 16px;
-// `
+import KontakSection from "../components/KontakSection"
+import Footer from "../components/Footer"
 
 const StyledGrid = styled(Grid)`
   margin: 64px auto;
@@ -26,6 +19,10 @@ const StyledGrid = styled(Grid)`
     width: 100%;
   }
 `
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+` 
 
 class GaleriPage extends React.Component {
   state = { dataJson: null, error: false, loading: false }
@@ -63,6 +60,7 @@ class GaleriPage extends React.Component {
     let sourceUrl = "http://siaplus.pusdatin-dinsos.jakarta.go.id/"
 
     return (
+      <Wrapper>
       <Layout
         noGrid
         siteTitle="Galeri | Pusdatin Jamsos"
@@ -95,6 +93,9 @@ class GaleriPage extends React.Component {
           </Grid>
         </StyledGrid>
       </Layout>
+        <KontakSection id="kontak" />
+        <Footer background="#0A369D" color="#9E9E9E" />
+      </Wrapper>
     )
   }
 }

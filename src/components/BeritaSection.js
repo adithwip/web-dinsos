@@ -32,7 +32,7 @@ class BeritaSection extends React.Component {
   fetchData = () => {
     this.setState({ loading: true })
     axios
-      .get(`http://104.43.9.40:8089/api/v1/cms/news?perpage=8`, {
+      .get(`http://104.43.9.40:8089/api/v1/cms/news?perpage=4`, {
         crossdomain: true,
       })
       .then(result => {
@@ -67,17 +67,21 @@ class BeritaSection extends React.Component {
                       to={`news/${berita.id}`}
                       style={{ textDecoration: "none" }}
                     >
-                      <NewsCard>
+                      <NewsCard style={{ height:"100%" }}>
                         <div>
-                          <img
-                            src={berita.image}
-                            width="100%"
-                            height="180px"
-                            alt="berita-pusdatin"
-                          />
-                          <h3>{berita.title}</h3>
-                          <p>{berita.title}</p>
-                          <span>{berita.created_at}</span>
+                          { !!berita.image ? (
+                            <img
+                              src={berita.image}
+                              width="100%"
+                              height="180px"
+                              alt="berita-pusdatin"
+                            />
+                          ) : ( <div style={{ backgroundColor:"ghostwhite", width:"100%", height:"180px" }}>&nbsp;</div> ) }
+                          <h4>{berita.title}</h4>
+                          <span>{ new Date(berita.created_at).toLocaleDateString("id-ID") }</span>
+                          <p style={{ textAlign:"justify" }}>
+                            { (berita.content.replace(/(<([^>]+)>)/ig,"")).substring(0, 150) } ...
+                          </p>
                         </div>
                       </NewsCard>
                     </Link>

@@ -7,6 +7,28 @@ import PageContainer from "../layouts/PageContainer"
 import Layout from "../layouts/Layout"
 import Container from "../layouts/Container"
 import Item from "../layouts/Item"
+import styled from "styled-components"
+import Card from "@material-ui/core/Card"
+import Grid from "@material-ui/core/Grid"
+
+import KontakSection from "../components/KontakSection"
+import Footer from "../components/Footer"
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+` 
+const NewsCard = styled(Card)`
+  
+  & div {
+    width: 100%;
+    padding: 16px;
+  }
+
+  & :hover {
+    background-color: #f0f0f0;
+  }
+`
 
 class BeritaPage extends React.Component {
   state = { dataJson: null, error: false, loading: false, page: 1 }
@@ -36,38 +58,52 @@ class BeritaPage extends React.Component {
     const daftarBerita = !!dataJson && dataJson.data
 
     return (
+      <Wrapper>
       <Layout
         noPageContainer
         siteTitle="Berita"
         siteDescription="Berita Pusdatin Dinas Sosial Provinsi DKI Jakarta"
       >
         <PageContainer>
-          <Container flexDirection="column">
-            <Item>
+          <Grid container direction="column" style={{ minHeight:"500px", marginBottom:"25px" }}>
+            <Grid item xs>
               <h2>Berita dan Informasi</h2>
-            </Item>
-            <Item>
-              <Container flexDirection="column" spacing={16} column={3}>
+            </Grid>
+            <Grid container direction="row" spacing={16}>
                 {!!daftarBerita &&
                   daftarBerita.map(berita => {
                     return (
-                      <Item key={berita.id}>
-                        <Container flexDirection="column">
-                          <Item>
-                            <Link to={"/news/" + berita.id}>
-                              <h4>{berita.title}</h4>
-                            </Link>
-                            <p>{berita.created_at}</p>
-                          </Item>
-                        </Container>
-                      </Item>
+                      <Grid key={berita.id} xs={12} sm={6} md={4} lg={3} style={{ marginBottom:"10px" }}>
+                        <Link
+                        to={`news/${berita.id}`}
+                        style={{ textDecoration: "none" }}
+                        >
+                        <NewsCard style={{ height:"100%" }}>
+                          <div>
+                            { !!berita.image && (
+                              <img
+                                src={ berita.image }
+                                width="100%" height="180px" alt="berita-pusdatin" />
+                            ) }
+                            
+                            <h3>{berita.title}</h3>                            
+                            <span>{ new Date(berita.created_at).toLocaleDateString("id-ID") }</span>
+                            <p>
+                              { (berita.content.replace(/(<([^>]+)>)/ig,"")).substring(0, 150) } ...
+                            </p>
+                          </div>
+                        </NewsCard>
+                      </Link>
+                      </Grid>                      
                     )
                   })}
-              </Container>
-            </Item>
-          </Container>
+            </Grid>
+          </Grid>
         </PageContainer>
       </Layout>
+        <KontakSection id="kontak" />
+        <Footer background="#0A369D" color="#9E9E9E" />
+      </Wrapper>
     )
   }
 }

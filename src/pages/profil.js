@@ -1,5 +1,6 @@
 import React from "react"
 import axios from "axios"
+import styled from "styled-components"
 
 import Layout from "../layouts/Layout"
 
@@ -9,6 +10,15 @@ import Tabs from "@material-ui/core/Tabs"
 import Tab from "@material-ui/core/Tab"
 import Typography from "@material-ui/core/Typography"
 import Box from "@material-ui/core/Box"
+import Hidden from '@material-ui/core/Hidden';
+
+import KontakSection from "../components/KontakSection"
+import Footer from "../components/Footer"
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+` 
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -83,16 +93,37 @@ class ProfilPage extends React.Component {
     const { dataJson } = this.state
 
     return (
-      <Layout
-        noGrid
-        mobileFirst
-        siteTitle="Profil"
-        siteDescription="Will provide my readers about myself"
-      >
-        <h2>Profil</h2>
+      <Wrapper>
+        <Layout
+          noGrid
+          siteTitle="Profil"
+          siteDescription="Will provide my readers about myself"
+          style={{ minHeight:"500px" }}
+        >
+          <h2>Profil</h2>
 
-        <VerticalTabs data={dataJson} />
-      </Layout>
+          <Hidden smDown>
+            <VerticalTabs data={dataJson} />
+          </Hidden>
+          
+          <Hidden mdUp>
+            <h3 id="tugas">Tugas & Fungsi</h3>
+            <div
+              dangerouslySetInnerHTML={{ __html: !!dataJson && dataJson.tasks }}
+            />
+            <div
+              dangerouslySetInnerHTML={{
+                __html: !!dataJson && dataJson.functions,
+              }}
+            />
+
+            <h3 id="struktur">Struktur Organisasi</h3>
+            <img src={!!dataJson && dataJson.structure} width="100%" alt="pusdatin" />
+          </Hidden>
+        </Layout>
+        <KontakSection id="kontak" />
+        <Footer background="#0A369D" color="#9E9E9E" />
+      </Wrapper>
     )
   }
 }
@@ -151,5 +182,7 @@ function VerticalTabs(props) {
     </div>
   )
 }
+
+
 
 export default ProfilPage

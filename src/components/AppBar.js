@@ -70,7 +70,7 @@ const HeaderAppBar = () => {
       justify="space-around"
     >
       <List>
-        <Link to="/about">
+        <Link to="/">
           <ListItem button>
             <ListItemIcon>
               <HomeIcon />
