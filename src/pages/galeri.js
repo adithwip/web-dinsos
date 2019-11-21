@@ -25,7 +25,7 @@ const Wrapper = styled.div`
 ` 
 
 class GaleriPage extends React.Component {
-  state = { dataJson: null, error: false, loading: false }
+  state = { dataJsonPhoto: null, dataJsonVideo: null, error: false, loading: false }
 
   fetchData = () => {
     this.setState({ loading: true })
@@ -44,11 +44,22 @@ class GaleriPage extends React.Component {
       )
       .then(result => {
         const { data } = result.data
-        this.setState({ dataJson: data, loading: false })
+        this.setState({ dataJsonPhoto: data, loading: false })
       })
       .catch(error => {
         this.setState({ loading: false, error: error })
       })
+
+      
+    axios
+    .get(`http://104.43.9.40:8089/api/v1/cms/links?type=video&perpage=6`, { cossdomain: true, })
+    .then(result => {
+      const { data } = result.data
+      this.setState({ dataJsonVideo: data, loading: false })
+    })
+    .catch(error => {
+      this.setState({ loading: false, error: error })
+    })
   }
 
   componentDidMount() {
@@ -56,7 +67,7 @@ class GaleriPage extends React.Component {
   }
 
   render() {
-    const { dataJson, error, loading } = this.state
+    const { dataJsonPhoto, dataJsonVideo, error, loading } = this.state
     let sourceUrl = "http://siaplus.pusdatin-dinsos.jakarta.go.id/"
 
     return (
@@ -74,12 +85,12 @@ class GaleriPage extends React.Component {
           style={{ marginTop: "0px" }}
         >
           <Grid item xs={12}>
-            <h2>Galeri</h2>
+            <h2>Galeri Foto</h2>
           </Grid>
 
           <Grid container item xs={12} spacing={3}>
-            {!!dataJson &&
-              dataJson.map(data => {
+            {!!dataJsonPhoto &&
+              dataJsonPhoto.map(data => {
                 return (
                   <Grid item xs={12} sm={4} md={2}>
                     <a href={data.url} target={"_blank"}>
@@ -87,6 +98,25 @@ class GaleriPage extends React.Component {
                         <img src={ data.image } width="100%" height="100%" />
                       </div>
                     </a>
+                  </Grid>
+                )
+              })}
+          </Grid>
+
+          
+          <Grid item xs={12}>
+            <h2>Galeri Video</h2>
+          </Grid>
+
+          <Grid container item xs={12} spacing={3}>
+            {!!dataJsonVideo &&
+              dataJsonVideo.map(data => {
+                return (
+                  <Grid item xs={12} md={4}>
+                    <iframe width="100%" height="350px" src="{{ data.url }}" 
+                      frameborder="0" 
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                      allowfullscreen></iframe>
                   </Grid>
                 )
               })}

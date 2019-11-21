@@ -11,17 +11,11 @@ const StyleContainer = styled(Grid)`
 `
 class GallerySection extends React.Component {
   
-  state = { dataJson: null, error: false, loading: false }
+  state = { dataJsonPhoto: null, dataJsonVideo: null, error: false, loading: false }
 
   fetchData = () => {
     this.setState({ loading: true })
     axios
-      // .get(
-      //   `http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/galleries`,
-      //   {
-      //     crossdomain: true,
-      //   }
-      // )
       .get(
         `http://104.43.9.40:8089/api/v1/cms/galleries?type=galeri&perpage=6`,
         {
@@ -30,11 +24,21 @@ class GallerySection extends React.Component {
       )
       .then(result => {
         const { data } = result.data
-        this.setState({ dataJson: data, loading: false })
+        this.setState({ dataJsonPhoto: data, loading: false })
       })
       .catch(error => {
         this.setState({ loading: false, error: error })
       })
+      
+    axios
+    .get(`http://104.43.9.40:8089/api/v1/cms/links?type=video&perpage=3`, { cossdomain: true, })
+    .then(result => {
+      const { data } = result.data
+      this.setState({ dataJsonVideo: data, loading: false })
+    })
+    .catch(error => {
+      this.setState({ loading: false, error: error })
+    })
   }
 
   componentDidMount() {
@@ -42,14 +46,14 @@ class GallerySection extends React.Component {
   }
 
   render() {
-    const { dataJson, error, loading } = this.state
+    const { dataJsonPhoto, dataJsonVideo, error, loading } = this.state
   
     return (
       <StyleContainer style={{ marginTop:"10px", marginBottom:"40px" }}>
-        <h2>Galeri</h2>
+        <h2>Galeri Foto & Video</h2>
         <Grid container spacing={2}>
-          {!!dataJson &&
-            dataJson.map(data => {
+          {!!dataJsonPhoto &&
+            dataJsonPhoto.map(data => {
               return (
                 <Grid item xs={12} md={2}>
                   <a href={data.url} target={"_blank"}>
@@ -58,6 +62,18 @@ class GallerySection extends React.Component {
                 </Grid>
               )
           })}
+        </Grid>
+        <Grid container spacing={2}>
+          {/* {!!dataJsonVideo && dataJsonVideo.map(data => {
+              return ( */}
+                <Grid item xs={12} md={4}>
+                  <iframe width="100%" height="350px" src="https://www.youtube.com/embed/QKsHEN1Oylg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <iframe width="100%" height="350" src="https://www.youtube.com/embed/GSzfRoEBHDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </Grid>
+              {/* )
+          })} */}
         </Grid>
         <Grid container item xs={12} justify="center"> 
           <Link to="/galeri">      
