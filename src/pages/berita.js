@@ -9,7 +9,7 @@ import Container from "../layouts/Container"
 import Item from "../layouts/Item"
 import styled from "styled-components"
 import Card from "@material-ui/core/Card"
-import Box from "@material-ui/core/Box"
+import Grid from "@material-ui/core/Grid"
 
 import KontakSection from "../components/KontakSection"
 import Footer from "../components/Footer"
@@ -65,16 +65,15 @@ class BeritaPage extends React.Component {
         siteDescription="Berita Pusdatin Dinas Sosial Provinsi DKI Jakarta"
       >
         <PageContainer>
-          <Container flexDirection="column" style={{ minHeight:"500px", marginBottom:"25px" }}>
-            <Item>
+          <Grid container direction="column" style={{ minHeight:"500px", marginBottom:"25px" }}>
+            <Grid item xs>
               <h2>Berita dan Informasi</h2>
-            </Item>
-            <Item>
-              <Container flexDirection="row" spacing={16} column={4}>
+            </Grid>
+            <Grid container direction="row" spacing={16}>
                 {!!daftarBerita &&
                   daftarBerita.map(berita => {
                     return (
-                      <Item key={berita.id}>                        
+                      <Grid key={berita.id} xs={12} sm={6} md={4} lg={3} style={{ marginBottom:"10px" }}>
                         <Link
                         to={`news/${berita.id}`}
                         style={{ textDecoration: "none" }}
@@ -95,12 +94,11 @@ class BeritaPage extends React.Component {
                           </div>
                         </NewsCard>
                       </Link>
-                      </Item>                      
+                      </Grid>                      
                     )
                   })}
-              </Container>
-            </Item>
-          </Container>
+            </Grid>
+          </Grid>
         </PageContainer>
       </Layout>
         <KontakSection id="kontak" />
