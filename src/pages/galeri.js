@@ -22,7 +22,7 @@ const StyledGrid = styled(Grid)`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-` 
+`
 
 class GaleriPage extends React.Component {
   state = { dataJson: null, error: false, loading: false }
@@ -36,12 +36,9 @@ class GaleriPage extends React.Component {
       //     crossdomain: true,
       //   }
       // )
-      .get(
-        `http://104.43.9.40:8089/api/v1/cms/galleries?type=galeri`,
-        {
-          crossdomain: true,
-        }
-      )
+      .get(`http://104.43.9.40:8089/api/v1/cms/galleries?type=galeri`, {
+        crossdomain: true,
+      })
       .then(result => {
         const { data } = result.data
         this.setState({ dataJson: data, loading: false })
@@ -61,38 +58,38 @@ class GaleriPage extends React.Component {
 
     return (
       <Wrapper>
-      <Layout
-        noGrid
-        siteTitle="Galeri | Pusdatin Jamsos"
-        siteDescription="Galeri Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta"
-      >
-        <StyledGrid
-          container
-          justify="center"
-          alignContent="center"
-          spacing={2}
-          style={{ marginTop: "0px" }}
+        <Layout
+          noGrid
+          siteTitle="Galeri | Pusdatin Jamsos"
+          siteDescription="Galeri Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta"
         >
-          <Grid item xs={12}>
-            <h2>Galeri</h2>
-          </Grid>
+          <StyledGrid
+            container
+            justify="center"
+            alignContent="center"
+            spacing={2}
+            style={{ marginTop: "0px" }}
+          >
+            <Grid item xs={12}>
+              <h2>Galeri</h2>
+            </Grid>
 
-          <Grid container item xs={12} spacing={3}>
-            {!!dataJson &&
-              dataJson.map(data => {
-                return (
-                  <Grid item xs={12} sm={4} md={2}>
-                    <a href={data.url} target={"_blank"}>
-                      <div style={{ height: "165px" }}>
-                        <img src={ data.image } width="100%" height="100%" />
-                      </div>
-                    </a>
-                  </Grid>
-                )
-              })}
-          </Grid>
-        </StyledGrid>
-      </Layout>
+            <Grid container item xs={12} spacing={3}>
+              {!!dataJson &&
+                dataJson.map(data => {
+                  return (
+                    <Grid item xs={12} sm={4} md={2}>
+                      <a href={data.url} target={"_blank"}>
+                        <div style={{ height: "165px" }}>
+                          <img src={data.image} width="100%" height="100%" />
+                        </div>
+                      </a>
+                    </Grid>
+                  )
+                })}
+            </Grid>
+          </StyledGrid>
+        </Layout>
         <KontakSection id="kontak" />
         <Footer background="#0A369D" color="#9E9E9E" />
       </Wrapper>

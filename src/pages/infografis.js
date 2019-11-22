@@ -21,7 +21,7 @@ const StyledGrid = styled(Grid)`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-` 
+`
 
 class InfografisPage extends React.Component {
   state = { dataJson: null, error: false, loading: false }
@@ -60,7 +60,7 @@ class InfografisPage extends React.Component {
             justify="center"
             alignContent="center"
             spacing={2}
-            style={{ marginTop: "0px", minHeight:"500px" }}
+            style={{ marginTop: "0px", minHeight: "500px" }}
           >
             <Grid item xs={12}>
               <h2>Infografis</h2>
@@ -71,10 +71,10 @@ class InfografisPage extends React.Component {
                 Infografik adalah representasi visual informasi, data atau ilmu
                 pengetahuan secara grafis. Grafik ini memperlihatkan informasi
                 rumit dengan singkat dan jelas, seperti pada papan, peta,
-                jurnalisme, penulisan teknis, dan pendidikan. Melalui infografik,
-                ilmuwan komputer, matematikawan dan statistikawan mampu
-                mengembangkan dan mengomunikasikan konsep menggunakan satu simbol
-                untuk memproses informasi.
+                jurnalisme, penulisan teknis, dan pendidikan. Melalui
+                infografik, ilmuwan komputer, matematikawan dan statistikawan
+                mampu mengembangkan dan mengomunikasikan konsep menggunakan satu
+                simbol untuk memproses informasi.
               </p>
             </Grid>
 
@@ -85,7 +85,12 @@ class InfografisPage extends React.Component {
                     <Grid item xs={12} sm={4} md={3}>
                       <a href={data.url} target={"_blank"}>
                         <div style={{ height: "350px" }}>
-                          <img src={data.image} width="100%" height="100%" alt="pusdatin" />
+                          <img
+                            src={data.image}
+                            width="100%"
+                            height="100%"
+                            alt="pusdatin"
+                          />
                         </div>
                       </a>
                     </Grid>

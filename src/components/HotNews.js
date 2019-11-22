@@ -8,22 +8,22 @@ import Typography from "@material-ui/core/Typography"
 const StyledBgImg = styled.div`
   /* Location of the image */
   background-image: url(${props => props.imgSrc});
-  
+
   /* Image is centered vertically and horizontally at all times */
   background-position: center center;
-  
+
   /* Image doesn't repeat */
   background-repeat: no-repeat;
-  
+
   /* Makes the image fixed in the viewport so that it doesn't move when 
      the content height is greater than the image height */
   /* background-attachment: fixed; */
-  
+
   /* This is what makes the background image rescale based on its container's size */
   background-size: cover;
-  
+
   /* Pick a solid background color that will be displayed while the background image is loading */
-  background-color:#464646;
+  background-color: #464646;
 
   position: relative;
   min-height: ${props => props.minHeight || 300}px;
@@ -48,12 +48,18 @@ const NewsDetailSection = styled.div`
   bottom: 0;
 `
 
-const LinkedStyledBgImg = ({ imgSrc, minHeight, title, newsId, newsCategory }) => {
+const LinkedStyledBgImg = ({
+  imgSrc,
+  minHeight,
+  title,
+  newsId,
+  newsCategory,
+}) => {
   return (
     <StyledBgImg imgSrc={imgSrc} minHeight={minHeight}>
       <NewsDetailSection>
         <Link to={`news/${newsId}`}>
-          <Typography style={{ color: 'white', fontWeight: 'bold' }}>
+          <Typography style={{ color: "white", fontWeight: "bold" }}>
             {title}
           </Typography>
         </Link>
@@ -66,7 +72,6 @@ const LinkedStyledBgImg = ({ imgSrc, minHeight, title, newsId, newsCategory }) =
     </StyledBgImg>
   )
 }
-
 
 class HotNews extends React.Component {
   render() {

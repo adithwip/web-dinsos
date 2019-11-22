@@ -18,7 +18,7 @@ const CustomSlider = styled(Slider)`
 const StickyPostContainer = styled(Grid)`
   z-index: 1;
   position: absolute;
-  bottom: 0; 
+  bottom: 0;
   padding: 0 35px;
 `
 const StickyPost = styled(Grid)`
@@ -31,12 +31,9 @@ class BannerSection extends React.Component {
   fetchData = () => {
     this.setState({ loading: true })
     axios
-      .get(
-        `http://104.43.9.40:8089/api/v1/cms/banners`,
-        {
-          crossdomain: true,
-        }
-      )
+      .get(`http://104.43.9.40:8089/api/v1/cms/banners`, {
+        crossdomain: true,
+      })
       .then(result => {
         const { data } = result.data
         this.setState({ dataJson: data, loading: false })
@@ -57,51 +54,92 @@ class BannerSection extends React.Component {
       dots: false,
       arrows: true,
       infinite: true,
-      speed:false,
+      speed: false,
       autoplay: true,
     }
 
-    return (      
+    return (
       <>
-        <CustomSlider {...settings} 
+        <CustomSlider
+          {...settings}
           style={{
-            width: '100%',
-            height: '480px'
+            width: "100%",
+            height: "480px",
           }}
         >
-        {!!dataJson &&
-          dataJson.map(data => {
-            return (
-              <div style={{ width:'100%', height:'480px', backgroundColor:'#447694' }}>
-                <img src={ data.image } width="100%" height="480px" />
-              </div>
-            )
-          })
-        }
-
+          {!!dataJson &&
+            dataJson.map(data => {
+              return (
+                <div
+                  style={{
+                    width: "100%",
+                    height: "480px",
+                    backgroundColor: "#447694",
+                  }}
+                >
+                  <img src={data.image} width="100%" height="480px" />
+                </div>
+              )
+            })}
         </CustomSlider>
 
         <MediaQuery minDeviceWidth={768}>
-          <StickyPostContainer container xs direction="row" justify="center" alignItems="stretch">          
-            <StickyPost item xs={12} sm={4} style={{ backgroundColor: "#87cc00", padding:"10px", color:"#fff" }}>
+          <StickyPostContainer
+            container
+            xs
+            direction="row"
+            justify="center"
+            alignItems="stretch"
+          >
+            <StickyPost
+              item
+              xs={12}
+              sm={4}
+              style={{
+                backgroundColor: "#87cc00",
+                padding: "10px",
+                color: "#fff",
+              }}
+            >
               <h3 style={{ marginTop: "0.6rem" }}>Highlight 1</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam.
               </p>
             </StickyPost>
-            <StickyPost item xs={12} sm={4} style={{ backgroundColor: "#fd5308", padding:"10px", color:"#fff" }}>
+            <StickyPost
+              item
+              xs={12}
+              sm={4}
+              style={{
+                backgroundColor: "#fd5308",
+                padding: "10px",
+                color: "#fff",
+              }}
+            >
               <h3 style={{ marginTop: "0.6rem" }}>Highlight 2</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam.
               </p>
             </StickyPost>
-            <StickyPost item xs={12} sm={4} style={{ backgroundColor: "#00adef", padding:"10px", color:"#fff" }}>
+            <StickyPost
+              item
+              xs={12}
+              sm={4}
+              style={{
+                backgroundColor: "#00adef",
+                padding: "10px",
+                color: "#fff",
+              }}
+            >
               <h3 style={{ marginTop: "0.6rem" }}>Highlight 3</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam.
               </p>
             </StickyPost>
           </StickyPostContainer>
@@ -109,7 +147,6 @@ class BannerSection extends React.Component {
       </>
     )
   }
-
 }
 
 export default BannerSection
