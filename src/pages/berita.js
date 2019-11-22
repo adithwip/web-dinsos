@@ -15,6 +15,7 @@ import KontakSection from "../components/KontakSection"
 import Footer from "../components/Footer"
 import HotNews from "../components/HotNews"
 import PopularNews from "../components/PopularNews"
+import SearchForm from "../components/SearchForm"
 
 const Wrapper = styled.div`
   display: flex;
@@ -142,6 +143,8 @@ class BeritaPage extends React.Component {
                     </Grid>
                   </Grid>
                   <Grid item md={4}>
+                    <SearchForm />
+                    <h3>Paling Banyak Dilihat</h3>
                     <PopularNews newsArr={popularNewsArrDummy} />
                   </Grid>
                 </Grid>
