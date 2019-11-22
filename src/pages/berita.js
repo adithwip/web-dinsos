@@ -14,6 +14,7 @@ import Grid from "@material-ui/core/Grid"
 import KontakSection from "../components/KontakSection"
 import Footer from "../components/Footer"
 import HotNews from "../components/HotNews"
+import PopularNews from "../components/PopularNews"
 
 const Wrapper = styled.div`
   display: flex;
@@ -59,14 +60,15 @@ class BeritaPage extends React.Component {
     const daftarBerita = !!dataJson && dataJson.data
     const firstNews = dataJson && dataJson.data[0]
 
-    const duplicateFirstNewsToArray = (firstNews) => {
+    const duplicateFirstNewsToArray = (firstNews, arrayLen) => {
       const arr = []
-      for (let i =0; i < 4; i++) {
+      for (let i =0; i < arrayLen; i++) {
         arr.push(firstNews)
       }
       return arr
     }
-    const firstNewsArrDummy = dataJson && duplicateFirstNewsToArray(firstNews)
+    const hotNewsArrDummy = dataJson && duplicateFirstNewsToArray(firstNews, 4)
+    const popularNewsArrDummy = dataJson && duplicateFirstNewsToArray(firstNews, 10)
 
     return (
       <Wrapper>
@@ -83,10 +85,10 @@ class BeritaPage extends React.Component {
             <Grid item>
               <Grid container spacing={2}>
                 <Grid item md={8}>
-                  <HotNews newsArr={firstNewsArrDummy} />
+                  <HotNews newsArr={hotNewsArrDummy} />
                 </Grid>
                 <Grid item md={4}>
-                  <div>Reserved</div>
+                  <PopularNews newsArr={popularNewsArrDummy} />
                 </Grid>
               </Grid>
             </Grid>
