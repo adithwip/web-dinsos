@@ -67,7 +67,10 @@ const LoginPage = () => {
         </div>
 
         <div style={{ textAlign: "right", marginTop: "15px" }}>
-          <a href="https://google.com" style={{ float: "left", marginTop: "20px" }}>
+          <a
+            href="https://google.com"
+            style={{ float: "left", marginTop: "20px" }}
+          >
             Lupa Password ?
           </a>
           <Button

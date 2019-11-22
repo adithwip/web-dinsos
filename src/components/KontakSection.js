@@ -86,7 +86,11 @@ const KontakSection = props => (
               <ListItemIcon>
                 <InstagramIcon style={{ color: "white" }} />
               </ListItemIcon>
-              <a href="https://google.com" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <ListItemText
                   primary="Instagram Pusdatin Jamsos"
                   style={{ color: "white" }}

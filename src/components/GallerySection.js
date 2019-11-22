@@ -10,7 +10,6 @@ const StyleContainer = styled(Grid)`
   margin-bottom: 12px;
 `
 class GallerySection extends React.Component {
-  
   state = { dataJson: null, error: false, loading: false }
 
   fetchData = () => {
@@ -43,9 +42,9 @@ class GallerySection extends React.Component {
 
   render() {
     const { dataJson, error, loading } = this.state
-  
+
     return (
-      <StyleContainer style={{ marginTop:"10px", marginBottom:"40px" }}>
+      <StyleContainer style={{ marginTop: "10px", marginBottom: "40px" }}>
         <h2>Galeri</h2>
         <Grid container spacing={2}>
           {!!dataJson &&
@@ -53,23 +52,26 @@ class GallerySection extends React.Component {
               return (
                 <Grid item xs={12} md={2}>
                   <a href={data.url} target={"_blank"}>
-                    <img src={ data.image } width="100%" height="100%" />
+                    <img src={data.image} width="100%" height="100%" />
                   </a>
                 </Grid>
               )
-          })}
+            })}
         </Grid>
-        <Grid container item xs={12} justify="center"> 
-          <Link to="/galeri">      
-            <Button variant="contained"  color="secondary" style={{ margin: "35px 0 0 20px" }}>
+        <Grid container item xs={12} justify="center">
+          <Link to="/galeri">
+            <Button
+              variant="contained"
+              color="secondary"
+              style={{ margin: "35px 0 0 20px" }}
+            >
               Lihat Lainnya &gt;&gt;
             </Button>
-          </Link>  
+          </Link>
         </Grid>
       </StyleContainer>
     )
   }
-
-} 
+}
 
 export default GallerySection

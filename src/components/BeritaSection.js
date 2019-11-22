@@ -12,6 +12,7 @@ const StyleContainer = styled(Grid)`
   background-color: #f6f6f6;
   padding: 12px 32px;
   margin-bottom: 12px;
+  padding-top: 2.5rem;
 `
 
 const NewsCard = styled(Card)`
@@ -66,20 +67,37 @@ class BeritaSection extends React.Component {
                       to={`news/${berita.id}`}
                       style={{ textDecoration: "none" }}
                     >
-                      <NewsCard style={{ height:"100%" }}>
+                      <NewsCard style={{ height: "100%" }}>
                         <div>
-                          { !!berita.image ? (
+                          {!!berita.image ? (
                             <img
                               src={berita.image}
                               width="100%"
                               height="180px"
                               alt="berita-pusdatin"
                             />
-                          ) : ( <div style={{ backgroundColor:"ghostwhite", width:"100%", height:"180px" }}>&nbsp;</div> ) }
+                          ) : (
+                            <div
+                              style={{
+                                backgroundColor: "ghostwhite",
+                                width: "100%",
+                                height: "180px",
+                              }}
+                            >
+                              &nbsp;
+                            </div>
+                          )}
                           <h4>{berita.title}</h4>
-                          <span>{ new Date(berita.created_at).toLocaleDateString("id-ID") }</span>
-                          <p style={{ textAlign:"justify" }}>
-                            { (berita.content.replace(/(<([^>]+)>)/ig,"")).substring(0, 150) } ...
+                          <span>
+                            {new Date(berita.created_at).toLocaleDateString(
+                              "id-ID"
+                            )}
+                          </span>
+                          <p style={{ textAlign: "justify" }}>
+                            {berita.content
+                              .replace(/(<([^>]+)>)/gi, "")
+                              .substring(0, 150)}{" "}
+                            ...
                           </p>
                         </div>
                       </NewsCard>
@@ -90,11 +108,15 @@ class BeritaSection extends React.Component {
           </Grid>
         </Grid>
         <Grid item xs={12} align="center">
-          <Link to="/berita">      
-            <Button variant="contained"  color="secondary" style={{ margin: "35px 0 0 20px" }}>
+          <Link to="/berita">
+            <Button
+              variant="contained"
+              color="secondary"
+              style={{ margin: "35px 0 0 20px" }}
+            >
               Lihat Lainnya &gt;&gt;
             </Button>
-          </Link>  
+          </Link>
         </Grid>
       </StyleContainer>
     )

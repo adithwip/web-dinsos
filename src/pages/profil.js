@@ -10,7 +10,7 @@ import Tabs from "@material-ui/core/Tabs"
 import Tab from "@material-ui/core/Tab"
 import Typography from "@material-ui/core/Typography"
 import Box from "@material-ui/core/Box"
-import Hidden from '@material-ui/core/Hidden';
+import Hidden from "@material-ui/core/Hidden"
 
 import KontakSection from "../components/KontakSection"
 import Footer from "../components/Footer"
@@ -18,7 +18,7 @@ import Footer from "../components/Footer"
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-` 
+`
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -98,14 +98,14 @@ class ProfilPage extends React.Component {
           noGrid
           siteTitle="Profil"
           siteDescription="Will provide my readers about myself"
-          style={{ minHeight:"500px" }}
+          style={{ minHeight: "500px" }}
         >
           <h2>Profil</h2>
 
           <Hidden smDown>
             <VerticalTabs data={dataJson} />
           </Hidden>
-          
+
           <Hidden mdUp>
             <h3 id="tugas">Tugas & Fungsi</h3>
             <div
@@ -118,7 +118,11 @@ class ProfilPage extends React.Component {
             />
 
             <h3 id="struktur">Struktur Organisasi</h3>
-            <img src={!!dataJson && dataJson.structure} width="100%" alt="pusdatin" />
+            <img
+              src={!!dataJson && dataJson.structure}
+              width="100%"
+              alt="pusdatin"
+            />
           </Hidden>
         </Layout>
         <KontakSection id="kontak" />
@@ -176,13 +180,15 @@ function VerticalTabs(props) {
       <TabPanel value={value} index={1}>
         <div style={{ maxWidth: 860 }}>
           <h1 id="struktur">Struktur Organisasi</h1>
-          <img src={!!dataJson && dataJson.structure} width="100%" alt="pusdatin" />
+          <img
+            src={!!dataJson && dataJson.structure}
+            width="100%"
+            alt="pusdatin"
+          />
         </div>
       </TabPanel>
     </div>
   )
 }
-
-
 
 export default ProfilPage
