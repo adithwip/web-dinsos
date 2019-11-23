@@ -57,18 +57,6 @@ class BeritaPage extends React.Component {
     const { dataJson } = this.state
 
     const daftarBerita = !!dataJson && dataJson.data
-    const firstNews = dataJson && dataJson.data[0]
-
-    const duplicateFirstNewsToArray = (firstNews, arrayLen) => {
-      const arr = []
-      for (let i = 0; i < arrayLen; i++) {
-        arr.push(firstNews)
-      }
-      return arr
-    }
-    const hotNewsArrDummy = dataJson && duplicateFirstNewsToArray(firstNews, 4)
-    const popularNewsArrDummy =
-      dataJson && duplicateFirstNewsToArray(firstNews, 10)
 
     return (
       <Wrapper>
@@ -91,7 +79,7 @@ class BeritaPage extends React.Component {
                   <Grid item md={8}>
                     <Grid container spacing={2} direction="column">
                       <Grid item>
-                        <HotNews newsArr={hotNewsArrDummy} />
+                        <HotNews />
                       </Grid>
                       <Grid item>
                         <Grid container direction="row" spacing={2}>
@@ -142,7 +130,7 @@ class BeritaPage extends React.Component {
                     </Grid>
                   </Grid>
                   <Grid item md={4}>
-                    <PopularNews newsArr={popularNewsArrDummy} />
+                    <PopularNews />
                   </Grid>
                 </Grid>
               </Grid>
