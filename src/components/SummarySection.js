@@ -33,12 +33,12 @@ const StyleContainer = styled(Grid)`
 const StyledCard = styled(Card)`
   padding: 16px 24px;
   text-align: center;
-  background-color: #F9F5FF;
+  background-color: #f9f5ff;
 `
 
 const StyledLabel = styled.div`
   padding: 4px 8px;
-  background-color: #F2545B;
+  background-color: #f2545b;
   color: white;
   width: 140px;
   border-radius: 8px;
@@ -46,42 +46,42 @@ const StyledLabel = styled.div`
 
 const dataTerpaduKesejahteraanSosial = [
   {
-    name: 'DTKS',
+    name: "DTKS",
     data: 406435,
     icon: faUsers,
   },
   {
-    name: 'Asisten Rumah Tangga',
+    name: "Asisten Rumah Tangga",
     data: 1571352,
     icon: faUser,
   },
   {
-    name: 'Rumah',
+    name: "Rumah",
     data: 490800,
     icon: faHome,
   },
   {
-    name: 'Kartu Jakarta Pintar',
+    name: "Kartu Jakarta Pintar",
     data: 558385,
     icon: faCreditCard,
   },
   {
-    name: 'Kartu Lansia Jakarta',
+    name: "Kartu Lansia Jakarta",
     data: 128614,
     icon: faCreditCard,
   },
   {
-    name: 'Kartu Jakarta Mahasiswa Unggul',
+    name: "Kartu Jakarta Mahasiswa Unggul",
     data: 8024,
     icon: faGraduationCap,
   },
   {
-    name: 'Pemenuhan Kebutuhan Dasar Anak',
+    name: "Pemenuhan Kebutuhan Dasar Anak",
     data: 82476,
     icon: faChild,
   },
   {
-    name: 'Pemenuhan Kebutuhan Dasar Disabilitas',
+    name: "Pemenuhan Kebutuhan Dasar Disabilitas",
     data: 82476,
     icon: faWheelchair,
   },
@@ -90,26 +90,32 @@ const dataTerpaduKesejahteraanSosial = [
 const SummaryCard = ({ icon, data, label }) => {
   return (
     <StyledCard>
-      <Grid container direction="column" spacing={1} alignContent="center" justify="center" alignItems="center" style={{ height: '100%' }}>
+      <Grid
+        container
+        direction="column"
+        spacing={1}
+        alignContent="center"
+        justify="center"
+        alignItems="center"
+        style={{ height: "100%" }}
+      >
         <Grid item>
           <FontAwesomeIcon
             icon={icon}
             size="3x"
             style={{
               marginBottom: "8px",
-              color: "#0D1321"
+              color: "#0D1321",
             }}
           />
         </Grid>
         <Grid item>
-          <Typography variant="body2">
-            {label}
-          </Typography>
+          <Typography variant="body2">{label}</Typography>
         </Grid>
         <Grid item>
-          <Typography variant="subtitle2" style={{ fontWeight: 'bold' }}>
+          <Typography variant="subtitle2" style={{ fontWeight: "bold" }}>
             <StyledLabel>
-              {new Intl.NumberFormat('id-ID').format(data)}
+              {new Intl.NumberFormat("id-ID").format(data)}
             </StyledLabel>
           </Typography>
         </Grid>
@@ -119,35 +125,34 @@ const SummaryCard = ({ icon, data, label }) => {
 }
 
 const SummarySection = () => {
-    return (
-      <StyleContainer container spacing={3} id="summary">
-        <Grid item xs={12}>
-          <h2>Data Terpadu Kesejahteraan Sosial</h2>
-        </Grid>
+  return (
+    <StyleContainer container spacing={3} id="summary">
+      <Grid item xs={12}>
+        <h2>Data Terpadu Kesejahteraan Sosial</h2>
+      </Grid>
 
-        <Grid container item spacing={3} align="flex-start">
-          <Grid item xs={12} md={8}>
-            <Grid container >
-              {dataTerpaduKesejahteraanSosial.map(data => {
-                return (
-                  <Grid item xs={12} md={4} style={{ padding: "8px" }}>
-                    <SummaryCard
-                      label={data.name}
-                      data={data.data}
-                      icon={data.icon}
-                    />
-                  </Grid>
-                )
-              })}
-            </Grid>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <SocialMediaSection />
+      <Grid container item spacing={3} align="flex-start">
+        <Grid item xs={12} md={8}>
+          <Grid container>
+            {dataTerpaduKesejahteraanSosial.map(data => {
+              return (
+                <Grid item xs={12} md={4} style={{ padding: "8px" }}>
+                  <SummaryCard
+                    label={data.name}
+                    data={data.data}
+                    icon={data.icon}
+                  />
+                </Grid>
+              )
+            })}
           </Grid>
         </Grid>
-      </StyleContainer>
-    )
-
+        <Grid item xs={12} md={4}>
+          <SocialMediaSection />
+        </Grid>
+      </Grid>
+    </StyleContainer>
+  )
 }
 
 function TabPanel(props) {
