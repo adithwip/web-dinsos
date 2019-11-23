@@ -55,25 +55,22 @@ class GallerySection extends React.Component {
           {!!dataJsonPhoto &&
             dataJsonPhoto.map(data => {
               return (
-                <Grid item xs={12} md={2}>
+                <Grid item xs={12} sm={6} md={2}>
                   <a href={data.url} target={"_blank"}>
-                    <img src={data.image} width="100%" height="100%" />
+                    <img src={data.image} width="100%" height="180px" />
                   </a>
                 </Grid>
               )
             })}
         </Grid>
         <Grid container spacing={2}>
-          {/* {!!dataJsonVideo && dataJsonVideo.map(data => {
-              return ( */}
+          {!!dataJsonVideo && dataJsonVideo.map(data => {
+              return (
                 <Grid item xs={12} md={4}>
-                  <iframe width="100%" height="350px" src="https://www.youtube.com/embed/QKsHEN1Oylg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  { this.convertPlaceholderVideo(data) }
                 </Grid>
-                <Grid item xs={12} md={4}>
-                  <iframe width="100%" height="350" src="https://www.youtube.com/embed/GSzfRoEBHDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </Grid>
-              {/* )
-          })} */}
+              )
+          })}
         </Grid>
         <Grid container item xs={12} justify="center"> 
           <Link to="/galeri">      
@@ -84,6 +81,21 @@ class GallerySection extends React.Component {
         </Grid>
       </StyleContainer>
     )
+  }
+
+  convertPlaceholderVideo(data) {
+    if (data.url.search("youtube.com/embed") !== -1) {      
+      return (
+        <iframe width="100%" height="350px" src={data.url} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      )
+    }
+
+    return (
+      <a href={data.url} title={data.title} target="_blank">
+        <img src={data.image} alt={data.title} style={{width:"100%", height:"350px"}} />
+      </a>
+    )
+
   }
 }
 

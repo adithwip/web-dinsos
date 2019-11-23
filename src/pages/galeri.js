@@ -10,15 +10,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"
 import KontakSection from "../components/KontakSection"
 import Footer from "../components/Footer"
 
-const StyledGrid = styled(Grid)`
-  margin: 64px auto;
-  width: 100%;
-
-  @media (max-width: 767px) {
-    margin: 16px auto;
-    width: 100%;
-  }
-`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -30,13 +21,7 @@ class GaleriPage extends React.Component {
   fetchData = () => {
     this.setState({ loading: true })
     axios
-      // .get(
-      //   `http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/galleries`,
-      //   {
-      //     crossdomain: true,
-      //   }
-      // )
-      .get(`http://104.43.9.40:8089/api/v1/cms/galleries?type=galeri`, {
+      .get(`http://104.43.9.40:8089/api/v1/cms/galleries?type=galeri&perpage=12`, {
         crossdomain: true,
       })
       .then(result => {
@@ -82,7 +67,7 @@ class GaleriPage extends React.Component {
             {!!dataJsonPhoto &&
               dataJsonPhoto.map(data => {
                 return (
-                  <Grid item xs={12} sm={4} md={2}>
+                  <Grid item xs={12} sm={4} md={3} lg={2}>
                     <a href={data.url} target={"_blank"}>
                       <div style={{ height: "165px" }}>
                         <img src={ data.image } width="100%" height="100%" />
@@ -102,21 +87,32 @@ class GaleriPage extends React.Component {
             {!!dataJsonVideo &&
               dataJsonVideo.map(data => {
                 return (
-                  <Grid item xs={12} md={4}>
-                    <iframe width="100%" height="350px" src="{{ data.url }}" 
-                      frameborder="0" 
-                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                      allowfullscreen></iframe>
+                  <Grid item xs={12} sm={6} md={4}>
+                    { this.convertPlaceholderVideo(data) }
                   </Grid>
                 )
               })}
           </Grid>
-        </StyledGrid>
-      </Layout>
+        </Layout>
         <KontakSection id="kontak" />
         <Footer background="#0A369D" color="#9E9E9E" />
       </Wrapper>
     )
+  }
+
+  convertPlaceholderVideo(data) {
+    if (data.url.search("youtube.com/embed") !== -1) {      
+      return (
+        <iframe title={data.title} width="100%" height="350px" src={data.url} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      )
+    }
+
+    return (
+      <a href={data.url} title={data.title} target="_blank" rel="noopener noreferrer" >
+        <img src={data.image} alt={data.title} style={{width:"100%", height:"350px"}} />
+      </a>
+    )
+
   }
 }
 
