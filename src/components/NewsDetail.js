@@ -101,7 +101,7 @@ class NewsDetail extends React.Component {
                   <h2>Berita Populer</h2>
                 </Grid>
                 <Grid item>
-                  <PopularNews maxNews={5}/>
+                  <PopularNews maxNews={5} />
                 </Grid>
               </Grid>
             </Grid>

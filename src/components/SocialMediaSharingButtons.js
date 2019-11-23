@@ -11,7 +11,12 @@ const StyledSocialButton = styled.a`
 
 const SocialButton = ({ url, bgColor, socialName }) => {
   return (
-    <StyledSocialButton href={url} bgColor={bgColor} target="_blank" rel="noopener noreferrer">
+    <StyledSocialButton
+      href={url}
+      bgColor={bgColor}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {socialName}
     </StyledSocialButton>
   )

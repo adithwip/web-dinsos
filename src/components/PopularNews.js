@@ -82,7 +82,6 @@ class PopularNews extends React.Component {
     const dataPopNewsShuffle = dataPopNews && shuffleArray(dataPopNews.data)
     let dataPopNewstoRender = []
 
-
     if (dataPopNews && dataPopNews.total > 10) {
       if (maxNews != null) {
         dataPopNewsShuffle.forEach((data, index) => {
