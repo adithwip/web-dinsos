@@ -1,9 +1,10 @@
 import React from "react"
 import axios from "axios"
-import { Link } from "@reach/router"
 import styled from "styled-components"
 import Grid from "@material-ui/core/Grid"
 import Typography from "@material-ui/core/Typography"
+
+import { shuffleArray } from "../utils/functions"
 
 const StyledBgImg = styled.div`
   background-image: url(${props => props.imgSrc});
@@ -23,10 +24,13 @@ const StyledNewsContainer = styled.div`
   padding: 8px;
 `
 
-const NewsContainer = ({ imgSrc, title, newsId }) => {
+const NewsContainer = props => {
+  const { imgSrc, title, newsId } = props
+  const locationOrigin = window.location.origin
+
   return (
     <StyledNewsContainer>
-      <Link to={`news/${newsId}`}>
+      <a href={`${locationOrigin}/news/${newsId}`}>
         <Grid container alignContent="center" alignItems="center" spacing={1}>
           <Grid item>
             <StyledBgImg imgSrc={imgSrc} />
@@ -35,7 +39,7 @@ const NewsContainer = ({ imgSrc, title, newsId }) => {
             <Typography style={{ color: "black" }}>{title}</Typography>
           </Grid>
         </Grid>
-      </Link>
+      </a>
     </StyledNewsContainer>
   )
 }
@@ -49,22 +53,23 @@ class PopularNews extends React.Component {
 
   fetchDataNewsPopular = () => {
     this.setState({ loading: true })
-    axios.get(`http://104.43.9.40:8089/api/v1/cms/news?order_by=seen`, {
-      crossdomain: true,
-    })
-    .then(result => {
-      const { data } = result
-      this.setState({
-        dataPopNews: data,
-        loading: false
+    axios
+      .get(`http://104.43.9.40:8089/api/v1/cms/news?order_by=seen`, {
+        crossdomain: true,
       })
-    })
-    .catch(error => {
-      this.setState({
-        loading: false,
-        error: error
+      .then(result => {
+        const { data } = result
+        this.setState({
+          dataPopNews: data,
+          loading: false,
+        })
       })
-    })
+      .catch(error => {
+        this.setState({
+          loading: false,
+          error: error,
+        })
+      })
   }
 
   componentDidMount() {
@@ -73,18 +78,26 @@ class PopularNews extends React.Component {
 
   render() {
     const { dataPopNews } = this.state
+    const { maxNews } = this.props
+    const dataPopNewsShuffle = dataPopNews && shuffleArray(dataPopNews.data)
     let dataPopNewstoRender = []
 
-    console.log("dataPopNews", dataPopNews)
-
     if (dataPopNews && dataPopNews.total > 10) {
-      dataPopNews.data.forEach((data, index) => {
-        if (index < 10) {
-          dataPopNewstoRender.push(data)
-        }
-      })
+      if (maxNews != null) {
+        dataPopNewsShuffle.forEach((data, index) => {
+          if (index < maxNews) {
+            dataPopNewstoRender.push(data)
+          }
+        })
+      } else {
+        dataPopNewsShuffle.forEach((data, index) => {
+          if (index < 10) {
+            dataPopNewstoRender.push(data)
+          }
+        })
+      }
     } else {
-      dataPopNewstoRender = dataPopNews && dataPopNews.data
+      dataPopNewstoRender = dataPopNews && dataPopNewsShuffle
     }
 
     return (
@@ -92,7 +105,7 @@ class PopularNews extends React.Component {
         {dataPopNewstoRender != null &&
           dataPopNewstoRender.map(news => {
             return (
-              <Grid item>
+              <Grid item key={news.id}>
                 <NewsContainer
                   imgSrc={news.image}
                   title={news.title}
