@@ -1,12 +1,27 @@
 import React from "react"
 import axios from "axios"
+import styled from "styled-components"
+
+import Grid from "@material-ui/core/Grid"
 
 import Layout from "../layouts/Layout"
-import Container from "../layouts/Container"
-import Item from "../layouts/Item"
 import Surface from "../components/Surface"
+import PopularNews from "./PopularNews"
+import SocialMediaSharingButtons from "./SocialMediaSharingButtons"
 
 const BASE_URL = `http://104.43.9.40:8089/api/v1/cms/news`
+
+const StyledBgImg = styled.div`
+  background-image: url(${props => props.imgSrc});
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #464646;
+
+  position: relative;
+  width: 100%;
+  height: 400px;
+`
 
 class NewsDetail extends React.Component {
   state = {
@@ -47,28 +62,50 @@ class NewsDetail extends React.Component {
       <Layout
         // siteTitle={post.frontmatter.title}
         siteType="article"
-        mobileFirst
+        // mobileFirst
         // siteUrl={url}
         // siteImage={image}
         siteDescription={data && news.title}
       >
         {data != null ? (
-          <Surface>
-            <Container flexDirection="column">
-              <Item>
-                <h1>{news.title}</h1>
-              </Item>
-              <Item>
-                <img src={news.image} alt="pusdatin" />
-              </Item>
-              <Item>
-                <p style={{ color: "#1CA086" }}>{news.created_at}</p>
-              </Item>
-              <Item>
-                <div dangerouslySetInnerHTML={{ __html: news.content }} />
-              </Item>
-            </Container>
-          </Surface>
+          <Grid container spacing={4}>
+            <Grid item md={8}>
+              <Surface>
+                <Grid container direction="column">
+                  <Grid item>
+                    {/* <img src={news.image} alt="pusdatin" /> */}
+                    <StyledBgImg imgSrc={news.image} />
+                  </Grid>
+                  <Grid item>
+                    <h1>{news.title}</h1>
+                  </Grid>
+                  <Grid item>
+                    <Grid container>
+                      <Grid item style={{ flex: 1 }}>
+                        <p style={{ color: "#1CA086" }}>{news.created_at}</p>
+                      </Grid>
+                      <Grid item style={{ flex: 1 }}>
+                        <SocialMediaSharingButtons />
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                  <Grid item>
+                    <div dangerouslySetInnerHTML={{ __html: news.content }} />
+                  </Grid>
+                </Grid>
+              </Surface>
+            </Grid>
+            <Grid item md={4}>
+              <Grid container direction="column" spacing={2}>
+                <Grid item>
+                  <h2>Berita Populer</h2>
+                </Grid>
+                <Grid item>
+                  <PopularNews maxNews={5}/>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
         ) : (
           <div>Sedang Memuat Berita...</div>
         )}
