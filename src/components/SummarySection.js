@@ -1,20 +1,10 @@
 import React from "react"
-import axios from "axios"
 import styled from "styled-components"
-// import { Link } from "gatsby"
-import { Link } from "@reach/router"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
 
 import Grid from "@material-ui/core/Grid"
 import Card from "@material-ui/core/Card"
-import Button from "@material-ui/core/Button"
-
-import HomeIcon from "@material-ui/icons/Home"
-import PeopleIcon from "@material-ui/icons/People"
-import PersonIcon from "@material-ui/icons/Person"
-import PaymentIcon from "@material-ui/icons/Payment"
-import AccessibleIcon from "@material-ui/icons/Accessible"
 
 import Typography from "@material-ui/core/Typography"
 import AppBar from "@material-ui/core/AppBar"
@@ -40,26 +30,95 @@ const StyleContainer = styled(Grid)`
   margin-bottom: 12px;
 `
 
-const NewsCard = styled(Card)`
-  & div {
-    width: 100%;
-    padding: 16px;
-  }
-
-  & :hover {
-    background-color: #f0f0f0;
-  }
+const StyledCard = styled(Card)`
+  padding: 16px 24px;
+  text-align: center;
+  background-color: #F9F5FF;
 `
 
-class SummarySection extends React.Component {
-  state = { dataJson: null, error: false, loading: false, page: 1 }
+const StyledLabel = styled.div`
+  padding: 4px 8px;
+  background-color: #F2545B;
+  color: white;
+  width: 140px;
+  border-radius: 8px;
+`
 
-  componentDidMount() {}
+const dataTerpaduKesejahteraanSosial = [
+  {
+    name: 'DTKS',
+    data: 406435,
+    icon: faUsers,
+  },
+  {
+    name: 'Asisten Rumah Tangga',
+    data: 1571352,
+    icon: faUser,
+  },
+  {
+    name: 'Rumah',
+    data: 490800,
+    icon: faHome,
+  },
+  {
+    name: 'Kartu Jakarta Pintar',
+    data: 558385,
+    icon: faCreditCard,
+  },
+  {
+    name: 'Kartu Lansia Jakarta',
+    data: 128614,
+    icon: faCreditCard,
+  },
+  {
+    name: 'Kartu Jakarta Mahasiswa Unggul',
+    data: 8024,
+    icon: faGraduationCap,
+  },
+  {
+    name: 'Pemenuhan Kebutuhan Dasar Anak',
+    data: 82476,
+    icon: faChild,
+  },
+  {
+    name: 'Pemenuhan Kebutuhan Dasar Disabilitas',
+    data: 82476,
+    icon: faWheelchair,
+  },
+]
 
-  render() {
-    const { dataJson } = this.state
-    const daftarBerita = !!dataJson && dataJson.data
+const SummaryCard = ({ icon, data, label }) => {
+  return (
+    <StyledCard>
+      <Grid container direction="column" spacing={1} alignContent="center" justify="center" alignItems="center" style={{ height: '100%' }}>
+        <Grid item>
+          <FontAwesomeIcon
+            icon={icon}
+            size="3x"
+            style={{
+              marginBottom: "8px",
+              color: "#0D1321"
+            }}
+          />
+        </Grid>
+        <Grid item>
+          <Typography variant="body2">
+            {label}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant="subtitle2" style={{ fontWeight: 'bold' }}>
+            <StyledLabel>
+              {new Intl.NumberFormat('id-ID').format(data)}
+            </StyledLabel>
+          </Typography>
+        </Grid>
+      </Grid>
+    </StyledCard>
+  )
+}
 
+const SummarySection = () => {
     return (
       <StyleContainer container spacing={3} id="summary">
         <Grid item xs={12}>
@@ -68,219 +127,19 @@ class SummarySection extends React.Component {
 
         <Grid container item spacing={3} align="flex-start">
           <Grid item xs={12} md={8}>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexDirection: "row",
-                flexWrap: "wrap",
-                flexFlow: "row wrap",
-                alignContent: "flex-end",
-              }}
-            >
-              <Grid item xs={12} md={4} style={{ padding: "8px" }}>
-                <Card
-                  style={{
-                    padding: "24px",
-                    textAlign: "center",
-                    height: "150px",
-                    backgroundColor: "#f8f8ff",
-                  }}
-                  align="justify"
-                >
-                  <FontAwesomeIcon
-                    icon={faUsers}
-                    size="3x"
-                    style={{ marginBottom: "10px", color: "736c6e" }}
-                  />{" "}
-                  <br />
-                  <Typography
-                    style={{ fontFamily: "fantasy", color: "orangered" }}
-                  >
-                    406.435
-                  </Typography>
-                  <Typography style={{ fontWeight: "bold" }}>DTKS</Typography>
-                </Card>
-              </Grid>
-              <Grid item xs={12} md={4} style={{ padding: "8px" }}>
-                <Card
-                  style={{
-                    padding: "24px",
-                    textAlign: "center",
-                    height: "150px",
-                    backgroundColor: "#f8f8ff",
-                  }}
-                  align="justify"
-                >
-                  <FontAwesomeIcon
-                    icon={faUser}
-                    size="3x"
-                    style={{ marginBottom: "10px", color: "736c6e" }}
-                  />{" "}
-                  <br />
-                  <Typography
-                    style={{ fontFamily: "fantasy", color: "orangered" }}
-                  >
-                    1.571.352
-                  </Typography>
-                  <Typography style={{ fontWeight: "bold" }}>ART</Typography>
-                </Card>
-              </Grid>
-              <Grid item xs={12} md={4} style={{ padding: "8px" }}>
-                <Card
-                  style={{
-                    padding: "24px",
-                    textAlign: "center",
-                    height: "150px",
-                    backgroundColor: "#f8f8ff",
-                  }}
-                  align="justify"
-                >
-                  <FontAwesomeIcon
-                    icon={faHome}
-                    size="3x"
-                    style={{ marginBottom: "10px", color: "736c6e" }}
-                  />{" "}
-                  <br />
-                  <Typography
-                    style={{ fontFamily: "fantasy", color: "orangered" }}
-                  >
-                    xxx.xxx
-                  </Typography>
-                </Card>
-              </Grid>
-              <Grid item xs={12} md={3} style={{ padding: "8px" }}>
-                <Card
-                  style={{
-                    padding: "16px",
-                    textAlign: "center",
-                    height: "180px",
-                    backgroundColor: "#f8f8ff",
-                  }}
-                  align="justify"
-                >
-                  <FontAwesomeIcon
-                    icon={faCreditCard}
-                    size="3x"
-                    style={{ marginBottom: "10px", color: "736c6e" }}
-                  />{" "}
-                  <br />
-                  <Typography
-                    style={{ fontFamily: "fantasy", color: "orangered" }}
-                  >
-                    558.385{" "}
-                  </Typography>
-                  <Typography style={{ fontWeight: "bold" }}>
-                    Kartu Jakarta Pintar
-                  </Typography>
-                </Card>
-              </Grid>
-              <Grid item xs={12} md={3} style={{ padding: "8px" }}>
-                <Card
-                  style={{
-                    padding: "16px",
-                    textAlign: "center",
-                    height: "180px",
-                    backgroundColor: "#f8f8ff",
-                  }}
-                  align="justify"
-                >
-                  <FontAwesomeIcon
-                    icon={faCreditCard}
-                    size="3x"
-                    style={{ marginBottom: "10px", color: "736c6e" }}
-                  />{" "}
-                  <br />
-                  <Typography
-                    style={{ fontFamily: "fantasy", color: "orangered" }}
-                  >
-                    128.614
-                  </Typography>
-                  <Typography style={{ fontWeight: "bold" }}>
-                    Kartu Lansia Jakarta
-                  </Typography>
-                </Card>
-              </Grid>
-              <Grid item xs={12} md={3} style={{ padding: "8px" }}>
-                <Card
-                  style={{
-                    padding: "16px",
-                    textAlign: "center",
-                    height: "180px",
-                    backgroundColor: "#f8f8ff",
-                  }}
-                  align="justify"
-                >
-                  <FontAwesomeIcon
-                    icon={faGraduationCap}
-                    size="3x"
-                    style={{ marginBottom: "10px", color: "736c6e" }}
-                  />{" "}
-                  <br />
-                  <Typography
-                    style={{ fontFamily: "fantasy", color: "orangered" }}
-                  >
-                    8.024
-                  </Typography>
-                  <Typography style={{ fontWeight: "bold" }}>
-                    Kartu Jakarta Mahasiswa Unggul
-                  </Typography>
-                </Card>
-              </Grid>
-              <Grid item xs={12} md={3} style={{ padding: "8px" }}>
-                <Card
-                  style={{
-                    padding: "16px",
-                    textAlign: "center",
-                    height: "180px",
-                    backgroundColor: "#f8f8ff",
-                  }}
-                  align="justify"
-                >
-                  <FontAwesomeIcon
-                    icon={faChild}
-                    size="3x"
-                    style={{ marginBottom: "10px", color: "736c6e" }}
-                  />{" "}
-                  <br />
-                  <Typography
-                    style={{ fontFamily: "fantasy", color: "orangered" }}
-                  >
-                    82.476
-                  </Typography>
-                  <Typography style={{ fontWeight: "bold" }}>
-                    Pemenuhan Kebutuhan Dasar Anak
-                  </Typography>
-                </Card>
-              </Grid>
-              <Grid item xs={12} md={3} style={{ padding: "8px" }}>
-                <Card
-                  style={{
-                    padding: "16px",
-                    textAlign: "center",
-                    height: "180px",
-                    backgroundColor: "#f8f8ff",
-                  }}
-                  align="justify"
-                >
-                  <FontAwesomeIcon
-                    icon={faWheelchair}
-                    size="3x"
-                    style={{ marginBottom: "10px", color: "736c6e" }}
-                  />{" "}
-                  <br />
-                  <Typography
-                    style={{ fontFamily: "fantasy", color: "orangered" }}
-                  >
-                    82.476{" "}
-                  </Typography>
-                  <Typography style={{ fontWeight: "bold" }}>
-                    Pemenuhan Kebutuhan Dasar Disabilitas
-                  </Typography>
-                </Card>
-              </Grid>
-            </div>
+            <Grid container >
+              {dataTerpaduKesejahteraanSosial.map(data => {
+                return (
+                  <Grid item xs={12} md={4} style={{ padding: "8px" }}>
+                    <SummaryCard
+                      label={data.name}
+                      data={data.data}
+                      icon={data.icon}
+                    />
+                  </Grid>
+                )
+              })}
+            </Grid>
           </Grid>
           <Grid item xs={12} md={4}>
             <SocialMediaSection />
@@ -288,7 +147,7 @@ class SummarySection extends React.Component {
         </Grid>
       </StyleContainer>
     )
-  }
+
 }
 
 function TabPanel(props) {
