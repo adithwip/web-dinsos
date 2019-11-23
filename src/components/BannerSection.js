@@ -47,22 +47,28 @@ class BannerSection extends React.Component {
       autoplay: true,
     }
 
-    return (      
-      <CustomSlider {...settings} 
+    return (
+      <CustomSlider
+        {...settings}
         style={{
-          width: '100%',
-          height: '480px'
+          width: "100%",
+          height: "480px",
         }}
       >
-      {!!dataJson &&
-        dataJson.map(data => {
-          return (
-            <div style={{ width:'100%', height:'480px', backgroundColor:'#447694' }}>
-              <img src={ data.image } width="100%" height="480px" />
-            </div>
-          )
-        })
-      }
+        {!!dataJson &&
+          dataJson.map(data => {
+            return (
+              <div
+                style={{
+                  width: "100%",
+                  height: "480px",
+                  backgroundColor: "#447694",
+                }}
+              >
+                <img src={data.image} width="100%" height="480px" />
+              </div>
+            )
+          })}
         {/* <div style={{ width:'100%', height:'480px', backgroundColor:'#447694' }}>
           <img src="https://pusdatin.kemsos.go.id/uploads/banners/15683074154437.png" width="100%" height="100%" />
         </div> */}

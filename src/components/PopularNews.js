@@ -1,4 +1,5 @@
 import React from "react"
+import axios from "axios"
 import { Link } from "@reach/router"
 import styled from "styled-components"
 import Grid from "@material-ui/core/Grid"
@@ -18,9 +19,8 @@ const StyledBgImg = styled.div`
 
 const StyledNewsContainer = styled.div`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-
+  border-radius: 4px;
   padding: 8px;
-  /* min-height: 100px; */
 `
 
 const NewsContainer = ({ imgSrc, title, newsId }) => {
@@ -40,23 +40,70 @@ const NewsContainer = ({ imgSrc, title, newsId }) => {
   )
 }
 
-const PopularNews = ({ newsArr }) => {
-  console.log("newsArr", newsArr)
-  return (
-    <Grid container spacing={1} direction="column">
-      {newsArr &&
-        newsArr.map(news => {
-          console.log("news ===>", news)
-          return (
-            <NewsContainer
-              imgSrc={news.image}
-              title={news.title}
-              newsId={news.id}
-            />
-          )
-        })}
-    </Grid>
-  )
+class PopularNews extends React.Component {
+  state = {
+    dataPopNews: null,
+    loading: false,
+    error: false,
+  }
+
+  fetchDataNewsPopular = () => {
+    this.setState({ loading: true })
+    axios.get(`http://104.43.9.40:8089/api/v1/cms/news?order_by=seen`, {
+      crossdomain: true,
+    })
+    .then(result => {
+      const { data } = result
+      this.setState({
+        dataPopNews: data,
+        loading: false
+      })
+    })
+    .catch(error => {
+      this.setState({
+        loading: false,
+        error: error
+      })
+    })
+  }
+
+  componentDidMount() {
+    this.fetchDataNewsPopular()
+  }
+
+  render() {
+    const { dataPopNews } = this.state
+    let dataPopNewstoRender = []
+
+    console.log("dataPopNews", dataPopNews)
+
+    if (dataPopNews && dataPopNews.total > 10) {
+      dataPopNews.data.forEach((data, index) => {
+        if (index < 10) {
+          dataPopNewstoRender.push(data)
+        }
+      })
+    } else {
+      dataPopNewstoRender = dataPopNews && dataPopNews.data
+    }
+
+    return (
+      <Grid container spacing={2} direction="column">
+        {dataPopNewstoRender != null &&
+          dataPopNewstoRender.map(news => {
+            return (
+              <Grid item>
+                <NewsContainer
+                  imgSrc={news.image}
+                  title={news.title}
+                  newsId={news.id}
+                />
+              </Grid>
+            )
+          })}
+      </Grid>
+    )
+  }
 }
 
 export default PopularNews

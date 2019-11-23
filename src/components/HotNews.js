@@ -1,4 +1,5 @@
 import React from "react"
+import axios from "axios"
 import { Link } from "@reach/router"
 import styled from "styled-components"
 
@@ -27,6 +28,9 @@ const StyledBgImg = styled.div`
 
   position: relative;
   min-height: ${props => props.minHeight || 300}px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 4px;
+  overflow: hidden;
 `
 
 const NewsDetailSection = styled.div`
@@ -74,45 +78,73 @@ const LinkedStyledBgImg = ({
 }
 
 class HotNews extends React.Component {
+  state = {
+    dataNews: null,
+    error: false,
+    loading: false,
+  }
+
+  fetchDataNewsChosen = () => {
+    this.setState({ loading: true })
+    axios
+      .get(`http://104.43.9.40:8089/api/v1/cms/news?chosen=true`, {
+        crossdomain: true,
+      })
+      .then(result => {
+        const { data } = result
+        this.setState({ dataNews: data, loading: false })
+      })
+      .catch(error => {
+        this.setState({ loading: false, error: error })
+      })
+  }
+
+  componentDidMount() {
+    this.fetchDataNewsChosen()
+  }
+
   render() {
-    const { newsArr } = this.props
-    console.log("newsArr", newsArr)
-    if (newsArr != null) {
+    const { dataNews } = this.state
+    let dataNewsToRender = []
+
+    if (dataNews && dataNews.total > 4) {
+      dataNews.data.forEach((data, index) => {
+        if (index < 4) {
+          dataNewsToRender.push(data)
+        }
+      })
+    } else {
+      dataNewsToRender = dataNews && dataNews.data
+    }
+
+    if (dataNewsToRender != null) {
       return (
         <Grid container spacing={2}>
+          {/* Big News */}
           <Grid item md={12}>
             <LinkedStyledBgImg
-              imgSrc={newsArr[0].image}
+              imgSrc={dataNewsToRender[0].image}
               minHeight={400}
-              title={newsArr[0].title}
-              newsId={newsArr[0].id}
-              newsCategory={newsArr[0].category}
+              title={dataNewsToRender[0].title}
+              newsId={dataNewsToRender[0].id}
+              newsCategory={dataNewsToRender[0].category}
             />
           </Grid>
-          <Grid item md={4}>
-            <LinkedStyledBgImg
-              imgSrc={newsArr[0].image}
-              title={newsArr[0].title}
-              newsId={newsArr[0].id}
-              newsCategory={newsArr[0].category}
-            />
-          </Grid>
-          <Grid item md={4}>
-            <LinkedStyledBgImg
-              imgSrc={newsArr[0].image}
-              title={newsArr[0].title}
-              newsId={newsArr[0].id}
-              newsCategory={newsArr[0].category}
-            />
-          </Grid>
-          <Grid item md={4}>
-            <LinkedStyledBgImg
-              imgSrc={newsArr[0].image}
-              title={newsArr[0].title}
-              newsId={newsArr[0].id}
-              newsCategory={newsArr[0].category}
-            />
-          </Grid>
+          {/* Sub-big News */}
+          {dataNewsToRender.map((news, index) => {
+            if (index !== 0) {
+              return (
+                <Grid item md={4}>
+                  <LinkedStyledBgImg
+                    imgSrc={news.image}
+                    title={news.title}
+                    newsId={news.id}
+                    newsCategory={news.category}
+                  />
+                </Grid>
+              )
+            }
+          })}
         </Grid>
       )
     } else {
