@@ -10,8 +10,12 @@ const StyleContainer = styled(Grid)`
   margin-bottom: 12px;
 `
 class GallerySection extends React.Component {
-  
-  state = { dataJsonPhoto: null, dataJsonVideo: null, error: false, loading: false }
+  state = {
+    dataJsonPhoto: null,
+    dataJsonVideo: null,
+    error: false,
+    loading: false,
+  }
 
   fetchData = () => {
     this.setState({ loading: true })
@@ -29,16 +33,18 @@ class GallerySection extends React.Component {
       .catch(error => {
         this.setState({ loading: false, error: error })
       })
-      
+
     axios
-    .get(`http://104.43.9.40:8089/api/v1/cms/links?type=video&perpage=3`, { cossdomain: true, })
-    .then(result => {
-      const { data } = result.data
-      this.setState({ dataJsonVideo: data, loading: false })
-    })
-    .catch(error => {
-      this.setState({ loading: false, error: error })
-    })
+      .get(`http://104.43.9.40:8089/api/v1/cms/links?type=video&perpage=3`, {
+        cossdomain: true,
+      })
+      .then(result => {
+        const { data } = result.data
+        this.setState({ dataJsonVideo: data, loading: false })
+      })
+      .catch(error => {
+        this.setState({ loading: false, error: error })
+      })
   }
 
   componentDidMount() {
@@ -47,9 +53,9 @@ class GallerySection extends React.Component {
 
   render() {
     const { dataJsonPhoto, dataJsonVideo, error, loading } = this.state
-  
+
     return (
-      <StyleContainer style={{ marginTop:"10px", marginBottom:"40px" }}>
+      <StyleContainer style={{ marginTop: "10px", marginBottom: "40px" }}>
         <h2>Galeri Foto & Video</h2>
         <Grid container spacing={2}>
           {!!dataJsonPhoto &&
@@ -64,17 +70,22 @@ class GallerySection extends React.Component {
             })}
         </Grid>
         <Grid container spacing={2}>
-          {!!dataJsonVideo && dataJsonVideo.map(data => {
+          {!!dataJsonVideo &&
+            dataJsonVideo.map(data => {
               return (
                 <Grid item xs={12} md={4}>
-                  { this.convertPlaceholderVideo(data) }
+                  {this.convertPlaceholderVideo(data)}
                 </Grid>
               )
-          })}
+            })}
         </Grid>
-        <Grid container item xs={12} justify="center"> 
-          <Link to="/galeri">      
-            <Button variant="contained"  color="secondary" style={{ margin: "35px 0 0 20px" }}>
+        <Grid container item xs={12} justify="center">
+          <Link to="/galeri">
+            <Button
+              variant="contained"
+              color="secondary"
+              style={{ margin: "35px 0 0 20px" }}
+            >
               Lihat Lainnya &gt;&gt;
             </Button>
           </Link>
@@ -84,18 +95,28 @@ class GallerySection extends React.Component {
   }
 
   convertPlaceholderVideo(data) {
-    if (data.url.search("youtube.com/embed") !== -1) {      
+    if (data.url.search("youtube.com/embed") !== -1) {
       return (
-        <iframe width="100%" height="350px" src={data.url} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe
+          width="100%"
+          height="350px"
+          src={data.url}
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
       )
     }
 
     return (
       <a href={data.url} title={data.title} target="_blank">
-        <img src={data.image} alt={data.title} style={{width:"100%", height:"350px"}} />
+        <img
+          src={data.image}
+          alt={data.title}
+          style={{ width: "100%", height: "350px" }}
+        />
       </a>
     )
-
   }
 }
 

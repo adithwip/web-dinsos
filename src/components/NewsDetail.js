@@ -68,7 +68,7 @@ class NewsDetail extends React.Component {
         siteDescription={data && news.title}
       >
         {data != null ? (
-          <Grid container spacing={4}>
+          <Grid container spacing={4} style={{ marginTop: "16px" }}>
             <Grid item md={8}>
               <Surface>
                 <Grid container direction="column">
