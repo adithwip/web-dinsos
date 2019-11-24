@@ -15,6 +15,7 @@ import KontakSection from "../components/KontakSection"
 import Footer from "../components/Footer"
 import HotNews from "../components/HotNews"
 import PopularNews from "../components/PopularNews"
+import SearchForm from "../components/SearchForm"
 
 const Wrapper = styled.div`
   display: flex;
