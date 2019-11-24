@@ -51,7 +51,7 @@ const dataTerpaduKesejahteraanSosial = [
     icon: faUsers,
   },
   {
-    name: "Asisten Rumah Tangga",
+    name: "Anggota Rumah Tangga",
     data: 1571352,
     icon: faUser,
   },

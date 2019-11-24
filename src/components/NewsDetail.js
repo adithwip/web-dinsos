@@ -9,7 +9,15 @@ import Surface from "../components/Surface"
 import PopularNews from "./PopularNews"
 import SocialMediaSharingButtons from "./SocialMediaSharingButtons"
 
+import KontakSection from "../components/KontakSection"
+import Footer from "../components/Footer"
+
 const BASE_URL = `http://104.43.9.40:8089/api/v1/cms/news`
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
 const StyledBgImg = styled.div`
   background-image: url(${props => props.imgSrc});
@@ -59,6 +67,7 @@ class NewsDetail extends React.Component {
     const news = data && data.data
 
     return (
+      <Wrapper>
       <Layout
         // siteTitle={post.frontmatter.title}
         siteType="article"
@@ -110,6 +119,9 @@ class NewsDetail extends React.Component {
           <div>Sedang Memuat Berita...</div>
         )}
       </Layout>
+        <KontakSection id="kontak" />
+        <Footer background="#0A369D" color="#9E9E9E" />
+      </Wrapper>
     )
   }
 }
