@@ -1,1 +1,1 @@
-require('typeface-cabin')
+require('typeface-merriweather')

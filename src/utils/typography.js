@@ -3,7 +3,7 @@ import githubTheme from "typography-theme-github"
 
 const typography = new Typography(githubTheme)
 
-typography.options.bodyFontFamily = ["Cabin"]
+typography.options.bodyFontFamily = ["Merriweather"]
 typography.options.overrideThemeStyles = () => ({
   p: {
     letterSpacing: "normal",
