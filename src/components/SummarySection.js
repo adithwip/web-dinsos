@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
 
@@ -34,6 +35,14 @@ const StyledCard = styled(Card)`
   padding: 16px 24px;
   text-align: center;
   background-color: #f9f5ff;
+
+  &:hover {
+    background-color: #d7d8de;
+
+    a {
+      text-decoration: none;
+    }
+  }
 `
 
 const StyledLabel = styled.div`
@@ -49,77 +58,87 @@ const dataTerpaduKesejahteraanSosial = [
     name: "DTKS",
     data: 406435,
     icon: faUsers,
+    href: "/data"
   },
   {
     name: "Anggota Rumah Tangga",
     data: 1571352,
     icon: faUser,
+    href: "/data"
   },
   {
     name: "Rumah",
     data: 490800,
     icon: faHome,
+    href: "/data"
   },
   {
     name: "Kartu Jakarta Pintar",
     data: 558385,
     icon: faCreditCard,
+    href: "/data"
   },
   {
     name: "Kartu Lansia Jakarta",
     data: 128614,
     icon: faCreditCard,
+    href: "/data"
   },
   {
     name: "Kartu Jakarta Mahasiswa Unggul",
     data: 8024,
     icon: faGraduationCap,
+    href: "/data"
   },
   {
     name: "Pemenuhan Kebutuhan Dasar Anak",
     data: 82476,
     icon: faChild,
+    href: "/data"
   },
   {
     name: "Pemenuhan Kebutuhan Dasar Disabilitas",
     data: 82476,
     icon: faWheelchair,
+    href: "/data"
   },
 ]
 
-const SummaryCard = ({ icon, data, label }) => {
+const SummaryCard = ({ icon, data, label, href }) => {
   return (
     <StyledCard>
-      <Grid
-        container
-        direction="column"
-        spacing={1}
-        alignContent="center"
-        justify="center"
-        alignItems="center"
-        style={{ height: "100%" }}
-      >
-        <Grid item>
-          <FontAwesomeIcon
-            icon={icon}
-            size="3x"
-            style={{
-              marginBottom: "8px",
-              color: "#0D1321",
-            }}
-          />
+      <Link to={ href }>
+        <Grid
+          container
+          direction="column"
+          spacing={1}
+          alignContent="center"
+          justify="center"
+          alignItems="center"
+          style={{ height: "100%" }}
+        >
+          <Grid item>
+            <FontAwesomeIcon
+              icon={icon}
+              size="3x"
+              style={{
+                marginBottom: "8px",
+                color: "#0D1321",
+              }}
+            />
+          </Grid>
+          <Grid item>
+            <Typography variant="body2">{label}</Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="subtitle2" style={{ fontWeight: "bold" }}>
+              <StyledLabel>
+                {new Intl.NumberFormat("id-ID").format(data)}
+              </StyledLabel>
+            </Typography>
+          </Grid>
         </Grid>
-        <Grid item>
-          <Typography variant="body2">{label}</Typography>
-        </Grid>
-        <Grid item>
-          <Typography variant="subtitle2" style={{ fontWeight: "bold" }}>
-            <StyledLabel>
-              {new Intl.NumberFormat("id-ID").format(data)}
-            </StyledLabel>
-          </Typography>
-        </Grid>
-      </Grid>
+      </Link>
     </StyledCard>
   )
 }
@@ -141,6 +160,7 @@ const SummarySection = () => {
                     label={data.name}
                     data={data.data}
                     icon={data.icon}
+                    href={data.href}
                   />
                 </Grid>
               )
