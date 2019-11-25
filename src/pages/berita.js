@@ -33,10 +33,20 @@ const NewsCard = styled(Card)`
 `
 
 class BeritaPage extends React.Component {
-  state = { dataJson: null, error: false, loading: false, page: 1 }
+  state = { dataJson: null, error: false, loading: false, page: 1, search: false }
 
   fetchData = () => {
+
     this.setState({ loading: true })
+
+    const queryString = require('query-string');
+    const parsed = queryString.parse(this.props.location.search);
+    const keyword = parsed.keyword
+
+    if (keyword !== "" && keyword !== undefined) {
+      this.setState({ loading: true, search: true })
+    }
+
     axios
       .get(`http://104.43.9.40:8089/api/v1/cms/news`, {
         crossdomain: true,
@@ -131,6 +141,8 @@ class BeritaPage extends React.Component {
                     </Grid>
                   </Grid>
                   <Grid item md={4}>
+                    <SearchForm />
+                    <h3>Berita Populer</h3>
                     <PopularNews />
                   </Grid>
                 </Grid>

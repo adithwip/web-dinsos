@@ -62,6 +62,10 @@ class NewsDetail extends React.Component {
     this.fetchData()
   }
 
+  componentWillReceiveProps(props) {
+    this.fetchData()
+  }
+
   render() {
     const { data } = this.state
     const news = data && data.data

@@ -33,7 +33,7 @@ const SearchForm = () => {
                 className={classes.input}
                 placeholder="Cari ..."
                 inputProps={{ 'aria-label': 'search news' }}
-                name="search"
+                name="keyword"
             />
             <IconButton type="submit" className={classes.iconButton} aria-label="search">
                 <SearchIcon />

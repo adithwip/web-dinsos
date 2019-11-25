@@ -4,6 +4,8 @@ import styled from "styled-components"
 import Grid from "@material-ui/core/Grid"
 import Typography from "@material-ui/core/Typography"
 
+import { Link } from "@reach/router"
+
 import { shuffleArray } from "../utils/functions"
 
 const StyledBgImg = styled.div`
@@ -30,7 +32,7 @@ const NewsContainer = props => {
 
   return (
     <StyledNewsContainer>
-      <a href={`${locationOrigin}/news/${newsId}`}>
+      <Link to={`/news/${newsId}`}>
         <Grid container alignContent="center" alignItems="center" spacing={1}>
           <Grid item>
             <StyledBgImg imgSrc={imgSrc} />
@@ -39,7 +41,7 @@ const NewsContainer = props => {
             <Typography style={{ color: "black" }}>{title}</Typography>
           </Grid>
         </Grid>
-      </a>
+      </Link>
     </StyledNewsContainer>
   )
 }
