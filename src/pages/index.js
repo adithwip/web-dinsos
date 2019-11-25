@@ -7,6 +7,7 @@ import BannerSection from "../components/BannerSection"
 import BeritaSection from "../components/BeritaSection"
 import GallerySection from "../components/GallerySection"
 import SummarySection from "../components/SummarySection"
+import GaleriAplikasi from "../components/GaleriAplikasi"
 import KontakSection from "../components/KontakSection"
 import Footer from "../components/Footer"
 
@@ -27,6 +28,7 @@ const IndexPage = () => {
       <SummarySection id="summary" />
       <BeritaSection id="berita" />
       <GallerySection id="galeri" />
+      <GaleriAplikasi id="apps" />
       <KontakSection id="kontak" />
       <Footer background="#0A369D" color="#9E9E9E" />
     </Wrapper>
