@@ -86,11 +86,14 @@ class NewsDetail extends React.Component {
               <Surface>
                 <Grid container direction="column">
                   <Grid item>
+                    <h1>{news.title}</h1>
+                  </Grid>
+                  <Grid item>
                     {/* <img src={news.image} alt="pusdatin" /> */}
                     <StyledBgImg imgSrc={news.image} />
                   </Grid>
                   <Grid item>
-                    <h1>{news.title}</h1>
+                    <h3></h3>
                   </Grid>
                   <Grid item>
                     <Grid container>
