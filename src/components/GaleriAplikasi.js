@@ -61,7 +61,8 @@ class GaleriAplikasi extends React.Component {
                                 <Grid container item xs={12} sm={6} md={3} lg={2} >
                                     <a href={ aplikasi.url } target="_blank" style={{ width:"100%", height:"100%" }}>
                                         <StyledCard>
-                                            <Typography variant="body2">{ aplikasi.title }</Typography>
+                                            {/* <Typography variant="body2">{ aplikasi.title }</Typography> */}
+                                            <img src={aplikasi.image} alt={ aplikasi.title } style={{ width:"100%" }} />
                                         </StyledCard>
                                     </a>
                                 </Grid>
