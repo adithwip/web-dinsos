@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Layout from "../layouts/Layout"
 
 import BannerSection from "../components/BannerSection"
+import StickyPostContainer from "../components/StickyPostContainer"
 import BeritaSection from "../components/BeritaSection"
 import GallerySection from "../components/GallerySection"
 import SummarySection from "../components/SummarySection"
@@ -25,6 +26,7 @@ const IndexPage = () => {
         siteDescription="Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta"
       ></Layout>
       <BannerSection id="banner" />
+      <StickyPostContainer id="sticky" />
       <SummarySection id="summary" />
       <BeritaSection id="berita" />
       <GallerySection id="galeri" />

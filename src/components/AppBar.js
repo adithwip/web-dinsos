@@ -158,7 +158,7 @@ const HeaderAppBar = () => {
             </IconButton>
             <Link to="/" className={classes.title}>
               <Typography style={{ color: "white" }} variant="h6">
-                Dinas Sosial DKI
+                Pusdatin Jamsos
               </Typography>
             </Link>
           </Toolbar>

@@ -73,40 +73,6 @@ class BannerSection extends React.Component {
         }
 
         </CustomSlider>
-
-        <MediaQuery minDeviceWidth={768}>
-          <Grid container xs direction="row" justify="center" alignItems="stretch" 
-            style={{  
-              zIndex: "1",  
-              position: "absolute",  
-              bottom: "0",
-              padding: "0 35px" 
-            }}
-          >          
-            <Grid item xs={12} sm={4} style={{ backgroundColor: "#87cc00", padding:"10px", color:"#fff" }}>
-              <h3 style={{ marginTop: "0.6rem" }}>Highlight 1</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-              </p>
-            </Grid>
-            <Grid item xs={12} sm={4} style={{ backgroundColor: "#fd5308", padding:"10px", color:"#fff" }}>
-              <h3 style={{ marginTop: "0.6rem" }}>Highlight 2</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-              </p>
-            </Grid>
-            <Grid item xs={12} sm={4} style={{ backgroundColor: "#00adef", padding:"10px", color:"#fff" }}>
-              <h3 style={{ marginTop: "0.6rem" }}>Highlight 3</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-              </p>
-            </Grid>
-          </Grid>
-        </MediaQuery>
-      </>
     )
   }
 }
