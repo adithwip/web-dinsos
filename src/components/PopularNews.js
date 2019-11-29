@@ -28,7 +28,7 @@ const StyledNewsContainer = styled.div`
 
 const NewsContainer = props => {
   const { imgSrc, title, newsId } = props
-  const locationOrigin = window.location.origin
+  // const locationOrigin = window.location.origin
 
   return (
     <StyledNewsContainer>

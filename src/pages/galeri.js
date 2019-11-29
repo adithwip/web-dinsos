@@ -8,8 +8,8 @@ import Layout from "../layouts/Layout"
 import KontakSection from "../components/KontakSection"
 import Footer from "../components/Footer"
 
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import Button from '@material-ui/core/Button';
+import ButtonGroup from "@material-ui/core/ButtonGroup"
+import Button from "@material-ui/core/Button"
 
 const Wrapper = styled.div`
   display: flex;
@@ -25,13 +25,11 @@ class GaleriPage extends React.Component {
   }
 
   fetchData = () => {
-
     this.setState({ loading: true })
     // console.log('DEBUG--', this.props.location.search)
     //=> '?foo=bar'
-    const queryString = require('query-string');
-    const parsed = queryString.parse(this.props.location.search);
-    
+    const queryString = require("query-string")
+    const parsed = queryString.parse(this.props.location.search)
 
     axios
       .get(
@@ -48,9 +46,12 @@ class GaleriPage extends React.Component {
       })
 
     axios
-      .get(`http://104.43.9.40:8089/api/v1/cms/links?type=video&perpage=6&page=${parsed.vpg}`, {
-        cossdomain: true,
-      })
+      .get(
+        `http://104.43.9.40:8089/api/v1/cms/links?type=video&perpage=6&page=${parsed.vpg}`,
+        {
+          cossdomain: true,
+        }
+      )
       .then(result => {
         this.setState({ dataJsonVideo: result.data, loading: false })
       })
@@ -62,46 +63,68 @@ class GaleriPage extends React.Component {
   componentDidMount() {
     this.fetchData()
   }
-  
 
-  buttonGroup(start, end, current = 1, type='photo') {
+  buttonGroup(start, end, current = 1, type = "photo") {
+    let endPage = current + 4 < end ? current + 4 : end
 
-      let endPage = (current + 4 < end) ? (current +  4) : end
- 
-      let startPage = current
-      startPage = (endPage - startPage < 5) ? endPage - 4 : startPage
-      startPage = startPage < 0 ? 1 : startPage
-      
-      const key = (type === 'photo') ? 'ppg' : 'vpg'
+    let startPage = current
+    startPage = endPage - startPage < 5 ? endPage - 4 : startPage
+    startPage = startPage < 0 ? 1 : startPage
 
-      const list = []
-      for (let i = startPage; i <= endPage; i++) {            
-          if(i == current) {
-              list.push(<Button id={i} variant="contained" color="primary">{i}</Button>)
-          } else {
-              list.push(<Button id={i} href={`?${key}=${i}`}>{i}</Button>)
-          }
+    const key = type === "photo" ? "ppg" : "vpg"
+
+    const list = []
+    for (let i = startPage; i <= endPage; i++) {
+      if (i == current) {
+        list.push(
+          <Button id={i} variant="contained" color="primary">
+            {i}
+          </Button>
+        )
+      } else {
+        list.push(
+          <Button id={i} href={`?${key}=${i}`}>
+            {i}
+          </Button>
+        )
       }
+    }
 
-      // if (list.length == 0) {
-      //   list.push(<Button id={ current } variant="contained" color="primary">{current}</Button>)
-      // }
+    // if (list.length == 0) {
+    //   list.push(<Button id={ current } variant="contained" color="primary">{current}</Button>)
+    // }
 
-      /* first & prev navigation */
-      if (current > 1) {
-        const prev = start - 1 < 1 ? 1 : start - 1
-        list.unshift(<Button id="prev" href={`?${key}=${prev}`}>&lt;</Button>)
-        list.unshift(<Button id="first" href={`?${key}=1`}>&lt;&lt;</Button>)
-      }
-      
-      /* next & last navigation */
-      if (current < end) {
-        const next = start + 1 > end ? end : start + 1
-        list.push(<Button id="next" href={`?${key}=${ next }`}>&gt;</Button>)
-        list.push(<Button id="last" href={`?${key}=${end}`}>&gt;&gt;</Button>)
-      }
+    /* first & prev navigation */
+    if (current > 1) {
+      const prev = start - 1 < 1 ? 1 : start - 1
+      list.unshift(
+        <Button id="prev" href={`?${key}=${prev}`}>
+          &lt;
+        </Button>
+      )
+      list.unshift(
+        <Button id="first" href={`?${key}=1`}>
+          &lt;&lt;
+        </Button>
+      )
+    }
 
-      return list
+    /* next & last navigation */
+    if (current < end) {
+      const next = start + 1 > end ? end : start + 1
+      list.push(
+        <Button id="next" href={`?${key}=${next}`}>
+          &gt;
+        </Button>
+      )
+      list.push(
+        <Button id="last" href={`?${key}=${end}`}>
+          &gt;&gt;
+        </Button>
+      )
+    }
+
+    return list
   }
 
   render() {
@@ -121,7 +144,7 @@ class GaleriPage extends React.Component {
 
           <Grid container item xs={12} spacing={3}>
             {!!dataJsonPhoto &&
-              (dataJsonPhoto.data).map(data => {
+              dataJsonPhoto.data.map(data => {
                 return (
                   <Grid item xs={12} sm={4} md={3} lg={2}>
                     <a href={data.url} target={"_blank"}>
@@ -134,11 +157,25 @@ class GaleriPage extends React.Component {
               })}
           </Grid>
 
-          <Grid item container xs={12} style={{ marginTop:"1rem" }} justify="center">
-            <ButtonGroup size="small" aria-label="small outlined button group" variant="outlined" >
-                { !!dataJsonPhoto && 
-                    this.buttonGroup(dataJsonPhoto.current_page, dataJsonPhoto.last_page, dataJsonPhoto.current_page,'photo') 
-                }
+          <Grid
+            item
+            container
+            xs={12}
+            style={{ marginTop: "1rem" }}
+            justify="center"
+          >
+            <ButtonGroup
+              size="small"
+              aria-label="small outlined button group"
+              variant="outlined"
+            >
+              {!!dataJsonPhoto &&
+                this.buttonGroup(
+                  dataJsonPhoto.current_page,
+                  dataJsonPhoto.last_page,
+                  dataJsonPhoto.current_page,
+                  "photo"
+                )}
             </ButtonGroup>
           </Grid>
 
@@ -148,7 +185,7 @@ class GaleriPage extends React.Component {
 
           <Grid container item xs={12} spacing={3}>
             {!!dataJsonVideo &&
-              (dataJsonVideo.data).map(data => {
+              dataJsonVideo.data.map(data => {
                 return (
                   <Grid item xs={12} sm={6} md={4}>
                     {this.convertPlaceholderVideo(data)}
@@ -156,15 +193,28 @@ class GaleriPage extends React.Component {
                 )
               })}
           </Grid>
-          
-          <Grid item container xs={12} style={{ margin:"1rem 0" }} justify="center">
-            <ButtonGroup size="small" aria-label="small outlined button group" variant="outlined" >
-                { !!dataJsonVideo && 
-                    this.buttonGroup(dataJsonVideo.current_page, dataJsonVideo.last_page, dataJsonVideo.current_page, 'video') 
-                }
+
+          <Grid
+            item
+            container
+            xs={12}
+            style={{ margin: "1rem 0" }}
+            justify="center"
+          >
+            <ButtonGroup
+              size="small"
+              aria-label="small outlined button group"
+              variant="outlined"
+            >
+              {!!dataJsonVideo &&
+                this.buttonGroup(
+                  dataJsonVideo.current_page,
+                  dataJsonVideo.last_page,
+                  dataJsonVideo.current_page,
+                  "video"
+                )}
             </ButtonGroup>
           </Grid>
-
         </Layout>
         <KontakSection id="kontak" />
         <Footer background="#0A369D" color="#9E9E9E" />

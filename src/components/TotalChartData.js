@@ -20,7 +20,7 @@ const StyledItem = styled(Item)`
 
 const StyledTypography = styled(Typography)`
   color: white;
-  mix-blend-mode: difference;
+  /* mix-blend-mode: difference; */
 `
 
 const TotalChartData = props => {

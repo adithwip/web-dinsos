@@ -69,10 +69,8 @@ class BannerSection extends React.Component {
                 <img src={data.image} width="100%" height="480px" />
               </div>
             )
-          })
-        }
-
-        </CustomSlider>
+          })}
+      </CustomSlider>
     )
   }
 }
