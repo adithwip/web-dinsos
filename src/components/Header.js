@@ -130,13 +130,6 @@ const Header = () => {
                   </Typography>
                 </Link>
               </Item>
-              <Item>
-                <a href="http://siaplus.pusdatin-dinsos.jakarta.go.id/dashboard/login">
-                  <Typography variant="button" style={{ color: "#2c2c2c" }}>
-                    Login
-                  </Typography>
-                </a>
-              </Item>
             </Container>
           </Item>
         </Container>

@@ -129,15 +129,6 @@ const HeaderAppBar = () => {
           </ListItem>
         </Link>
         <Divider />
-        <a href="http://siaplus.pusdatin-dinsos.jakarta.go.id/dashboard/login">
-          <ListItem button style={{ backgroundColor: "#dcdcdc" }}>
-            <ListItemIcon>
-              <VpnKeyIcon />
-            </ListItemIcon>
-            <ListItemText primary="Login" />
-          </ListItem>
-        </a>
-        <Divider />
       </List>
     </Grid>
   )
