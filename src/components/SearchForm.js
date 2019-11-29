@@ -1,45 +1,25 @@
 import React from "react"
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import InputBase from '@material-ui/core/InputBase';
-import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
-
-const useStyles = makeStyles(theme => ({
-    root: {
-      padding: '2px 4px',
-      display: 'flex',
-      alignItems: 'center',
-      width: '100%',
-    },
-    input: {
-      marginLeft: theme.spacing(1),
-      flex: 1,
-    },
-    iconButton: {
-      padding: 10,
-    },
-    divider: {
-      height: 28,
-      margin: 4,
-    },
-}));
+import { navigate } from "@reach/router"
+import "./style.css"
 
 const SearchForm = () => {
-    const classes = useStyles();
-    return (
-        <Paper component="form" className={classes.root}>
-            <InputBase
-                className={classes.input}
-                placeholder="Cari ..."
-                inputProps={{ 'aria-label': 'search news' }}
-                name="keyword"
-            />
-            <IconButton type="submit" className={classes.iconButton} aria-label="search">
-                <SearchIcon />
-            </IconButton>
-        </Paper>
-    )
+  const [searchTerm, setSearchTerm] = React.useState("")
+
+  const handleChange = event => {
+    setSearchTerm(event.target.value)
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    navigate(`news-search/${searchTerm}`)
+  }
+  console.log(searchTerm)
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="text" value={searchTerm} onChange={handleChange} />
+      <input type="submit" value="Cari Berita" />
+    </form>
+  )
 }
 
 export default SearchForm

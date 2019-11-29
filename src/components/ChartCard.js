@@ -19,12 +19,12 @@ const StyledCard = styled(Card)`
 const ChartCard = props => {
   return (
     <>
-      <Link to={props.to}>
-        <StyledCard>
-          <strong>{props.title}</strong>
-          {props.children}
-        </StyledCard>
-      </Link>
+      {/* <Link to={props.to}> */}
+      <StyledCard>
+        <strong>{props.title}</strong>
+        {props.children}
+      </StyledCard>
+      {/* </Link> */}
     </>
   )
 }

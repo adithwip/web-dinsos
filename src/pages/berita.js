@@ -33,14 +33,19 @@ const NewsCard = styled(Card)`
 `
 
 class BeritaPage extends React.Component {
-  state = { dataJson: null, error: false, loading: false, page: 1, search: false }
+  state = {
+    dataJson: null,
+    error: false,
+    loading: false,
+    page: 1,
+    search: false,
+  }
 
   fetchData = () => {
-
     this.setState({ loading: true })
 
-    const queryString = require('query-string');
-    const parsed = queryString.parse(this.props.location.search);
+    const queryString = require("query-string")
+    const parsed = queryString.parse(this.props.location.search)
     const keyword = parsed.keyword
 
     if (keyword !== "" && keyword !== undefined) {

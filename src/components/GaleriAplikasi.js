@@ -16,7 +16,7 @@ const StyledCard = styled(Card)`
   background-color: #f9f5ff;
   height: 100px;
   width: 100%;
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,52 +28,58 @@ const StyledCard = styled(Card)`
 `
 
 class GaleriAplikasi extends React.Component {
-    state = { dataJson: null, error: false, loading: false }
+  state = { dataJson: null, error: false, loading: false }
 
-    fetchData = () => {
-      this.setState({ loading: true })
-      axios
-        .get(`http://104.43.9.40:8089/api/v1/cms/links?type=aplikasi`, {
-          crossdomain: true,
-        })
-        .then(result => {
-          const { data } = result
-          this.setState({ dataJson: data, loading: false })
-        })
-        .catch(error => {
-          this.setState({ loading: false, error: error })
-        })
-    }
-  
-    componentDidMount() {
-      this.fetchData()
-    }
+  fetchData = () => {
+    this.setState({ loading: true })
+    axios
+      .get(`http://104.43.9.40:8089/api/v1/cms/links?type=aplikasi`, {
+        crossdomain: true,
+      })
+      .then(result => {
+        const { data } = result
+        this.setState({ dataJson: data, loading: false })
+      })
+      .catch(error => {
+        this.setState({ loading: false, error: error })
+      })
+  }
 
-    render () {
-        const { dataJson } = this.state
+  componentDidMount() {
+    this.fetchData()
+  }
 
-        return (
-            <StyleContainer container id="aplikasi" spacing={3}>
-                <Grid container xs={12} spacing={3}>
-                    {!!dataJson &&                         
-                        (dataJson.data).map(aplikasi => {
-                            return (
-                                <Grid container item xs={12} sm={6} md={3} lg={2} >
-                                    <a href={ aplikasi.url } target="_blank" style={{ width:"100%", height:"100%" }}>
-                                        <StyledCard>
-                                            {/* <Typography variant="body2">{ aplikasi.title }</Typography> */}
-                                            <img src={aplikasi.image} alt={ aplikasi.title } style={{ width:"100%" }} />
-                                        </StyledCard>
-                                    </a>
-                                </Grid>
-                            )
-                        })
-                    }
+  render() {
+    const { dataJson } = this.state
+
+    return (
+      <StyleContainer container id="aplikasi" spacing={3}>
+        <Grid container xs={12} spacing={3}>
+          {!!dataJson &&
+            dataJson.data.map(aplikasi => {
+              return (
+                <Grid container item xs={12} sm={6} md={3} lg={2}>
+                  <a
+                    href={aplikasi.url}
+                    target="_blank"
+                    style={{ width: "100%", height: "100%" }}
+                  >
+                    <StyledCard>
+                      {/* <Typography variant="body2">{ aplikasi.title }</Typography> */}
+                      <img
+                        src={aplikasi.image}
+                        alt={aplikasi.title}
+                        style={{ width: "100%" }}
+                      />
+                    </StyledCard>
+                  </a>
                 </Grid>
-            </StyleContainer>
-        )
-    }
-
+              )
+            })}
+        </Grid>
+      </StyleContainer>
+    )
+  }
 }
 
 export default GaleriAplikasi

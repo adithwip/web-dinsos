@@ -58,56 +58,56 @@ const dataTerpaduKesejahteraanSosial = [
     name: "DTKS",
     data: 406435,
     icon: faUsers,
-    href: "/data"
+    href: "/data",
   },
   {
     name: "Anggota Rumah Tangga",
     data: 1571352,
     icon: faUser,
-    href: "/data"
+    href: "/data",
   },
   {
     name: "Rumah",
     data: 490800,
     icon: faHome,
-    href: "/data"
+    href: "/data",
   },
   {
     name: "Kartu Jakarta Pintar",
     data: 558385,
     icon: faCreditCard,
-    href: "/data"
+    href: "/data",
   },
   {
     name: "Kartu Lansia Jakarta",
     data: 128614,
     icon: faCreditCard,
-    href: "/data"
+    href: "/data",
   },
   {
     name: "Kartu Jakarta Mahasiswa Unggul",
     data: 8024,
     icon: faGraduationCap,
-    href: "/data"
+    href: "/data",
   },
   {
     name: "Pemenuhan Kebutuhan Dasar Anak",
     data: 82476,
     icon: faChild,
-    href: "/data"
+    href: "/data",
   },
   {
     name: "Pemenuhan Kebutuhan Dasar Disabilitas",
     data: 82476,
     icon: faWheelchair,
-    href: "/data"
+    href: "/data",
   },
 ]
 
 const SummaryCard = ({ icon, data, label, href }) => {
   return (
     <StyledCard>
-      <Link to={ href }>
+      <Link to={href}>
         <Grid
           container
           direction="column"
