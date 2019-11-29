@@ -15,6 +15,8 @@ import FacebookIcon from "@material-ui/icons/Facebook"
 import InstagramIcon from "@material-ui/icons/Instagram"
 import PhoneIcon from "@material-ui/icons/Phone"
 import BusinessIcon from "@material-ui/icons/Business"
+import YoutubeIcon from "@material-ui/icons/Youtube"
+import ContactSupportIcon from "@material-ui/icons/ContactSupport"
 
 const StyleContainer = styled(Container)`
     color : white;
@@ -56,7 +58,7 @@ const KontakSection = props => (
               </ListItemIcon>
               <ListItemText primary="021-22684824" />
             </ListItem>
-            <ListItem>
+            {/* <ListItem>
               <ListItemIcon>
                 <TwitterIcon style={{ color: "white" }} />
               </ListItemIcon>
@@ -68,8 +70,8 @@ const KontakSection = props => (
               >
                 <ListItemText primary="Twitter Dinsos DKI" />
               </a>
-            </ListItem>
-            <ListItem>
+            </ListItem> */}
+            {/* <ListItem>
               <ListItemIcon>
                 <FacebookIcon style={{ color: "white" }} />
               </ListItemIcon>
@@ -81,18 +83,48 @@ const KontakSection = props => (
               >
                 <ListItemText primary="Facebook Dinsos DKI" />
               </a>
-            </ListItem>
+            </ListItem> */}
             <ListItem>
               <ListItemIcon>
                 <InstagramIcon style={{ color: "white" }} />
               </ListItemIcon>
               <a
-                href="https://google.com"
+                href="https://www.instagram.com/pusdatinjamsosdki/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <ListItemText
-                  primary="Instagram Pusdatin Jamsos"
+                  primary="@pusdatinjamsosdki"
+                  style={{ color: "white" }}
+                />
+              </a>
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>
+                <YoutubeIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <a
+                href="https://www.youtube.com/channel/UCwuU2VMZqtkJhkwEbbQBCVg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ListItemText
+                  primary="Pusdatin Jamsos DKI"
+                  style={{ color: "white" }}
+                />
+              </a>
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>
+                <ContactSupportIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <a
+                href="http://pp.pusdatin-dinsos.jakarta.go.id/page/home"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ListItemText
+                  primary="Pelayanan & Pengaduan"
                   style={{ color: "white" }}
                 />
               </a>
