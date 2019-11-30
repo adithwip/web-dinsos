@@ -51,7 +51,7 @@ class StickyPostContainer extends React.Component {
                 md={3}
                 style={{
                   backgroundColor: colorList.shift(),
-                  padding: "10px",
+                  padding: "15px",
                   color: "#fff",
                 }}
               >

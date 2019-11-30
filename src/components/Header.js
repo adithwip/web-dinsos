@@ -28,6 +28,17 @@ const StyledHeader = styled.header`
   z-index: 3;
 `
 
+const ContainerMarquee = styled(Container)`
+  & > div {
+    animation: marquee 8s linear infinite;
+  }
+
+  @keyframes marquee {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+  }
+`
+
 const Header = () => {
   const data = useStaticQuery(
     graphql`
@@ -56,7 +67,7 @@ const Header = () => {
       </MediaQuery>
 
       <MediaQuery minDeviceWidth={768}>
-        <Container
+        <ContainerMarquee
           style={{
             padding: "8px 32px",
             borderRadius: "0px 0px 0px 100px",
@@ -71,7 +82,7 @@ const Header = () => {
             pusdatinjamsosdki@jakarta.go.id &nbsp; &nbsp; &nbsp;
             <PhoneIcon style={{ color: "white" }} /> &nbsp; 021-22684824
           </Item>
-        </Container>
+        </ContainerMarquee>
         <Container
           style={{ padding: "8px 32px" }}
           alignItems="center"
