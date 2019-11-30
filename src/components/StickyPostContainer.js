@@ -60,7 +60,14 @@ class StickyPostContainer extends React.Component {
                   {berita.content
                     .replace(/(<([^>]+)>)/gi, "")
                     .substring(0, 150)}{" "}
-                  [ <Link style={{ color: 'white', fontWeight: 'bold' }} to={`news/${berita.id}`}>...Baca Selanjutnya</Link> ]
+                  [{" "}
+                  <Link
+                    style={{ color: "white", fontWeight: "bold" }}
+                    to={`news/${berita.id}`}
+                  >
+                    ...Baca Selanjutnya
+                  </Link>{" "}
+                  ]
                 </p>
               </Grid>
             )
