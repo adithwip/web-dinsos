@@ -7,7 +7,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons"
 import Grid from "@material-ui/core/Grid"
 
 const StyledForm = styled.form`
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   padding: 16px;
 `
 const SearchInput = styled.input`
@@ -38,10 +38,15 @@ const SearchForm = () => {
   }
   console.log(searchTerm)
   return (
-    <StyledForm onSubmit={handleSubmit}> 
+    <StyledForm onSubmit={handleSubmit}>
       <Grid container spacing={1}>
         <Grid item style={{ flex: 1 }}>
-          <SearchInput type="text" value={searchTerm} onChange={handleChange} placeholder="Cari Berita..."/>
+          <SearchInput
+            type="text"
+            value={searchTerm}
+            onChange={handleChange}
+            placeholder="Cari Berita..."
+          />
         </Grid>
         <Grid item>
           {/* <input type="submit" value="Cari Berita" /> */}
@@ -49,7 +54,7 @@ const SearchForm = () => {
             icon={faSearch}
             size="1x"
             style={{
-              color: "#0D1321"
+              color: "#0D1321",
             }}
             onClick={handleSubmit}
           />

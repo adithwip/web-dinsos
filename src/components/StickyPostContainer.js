@@ -27,7 +27,7 @@ class StickyPostContainer extends React.Component {
 
   render() {
     const { dataJson } = this.state
-    const colorList = ["#87cc00", "#fd5308", "#00adef", "#FFAE03", "#967D69"]
+    const colorList = ["#23CE6B", "#F45B69", "#1098F7", "#FE7F2D", "#967D69"]
 
     return (
       <Grid
@@ -60,7 +60,14 @@ class StickyPostContainer extends React.Component {
                   {berita.content
                     .replace(/(<([^>]+)>)/gi, "")
                     .substring(0, 150)}{" "}
-                  ... [ <Link to={`news/${berita.id}`}>Baca Selanjutnya</Link> ]
+                  [{" "}
+                  <Link
+                    style={{ color: "white", fontWeight: "bold" }}
+                    to={`news/${berita.id}`}
+                  >
+                    ...Baca Selanjutnya
+                  </Link>{" "}
+                  ]
                 </p>
               </Grid>
             )

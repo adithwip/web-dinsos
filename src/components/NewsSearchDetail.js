@@ -56,14 +56,13 @@ const NewsContainer = props => {
             <StyledBgImg imgSrc={imgSrc} />
           </Grid>
           <Grid item>
-            <Typography style={{ color: "black", fontWeight: 'bold' }}>{title}</Typography>
+            <Typography style={{ color: "black", fontWeight: "bold" }}>
+              {title}
+            </Typography>
           </Grid>
           <Grid item>
-            <p style={{ color: 'black' }}>
-              {body
-                .replace(/(<([^>]+)>)/gi, "")
-                .substring(0, 150)}{" "}
-              ...
+            <p style={{ color: "black" }}>
+              {body.replace(/(<([^>]+)>)/gi, "").substring(0, 150)} ...
             </p>
           </Grid>
         </Grid>
@@ -113,18 +112,16 @@ class NewsSearchDetail extends React.Component {
     const dataNews = data && data.data
     return (
       <Wrapper>
-        <Layout
-          siteType="article"
-          siteDescription="Pencarian berita"
-        >
+        <Layout siteType="article" siteDescription="Pencarian berita">
           <h1>
             {`Hasil Pencarian Berdasarkan Keyword: `}
-            <span style={{ color: "#0D47A1" }}><u>{`${id}`}</u></span>
+            <span style={{ color: "#0D47A1" }}>
+              <u>{`${id}`}</u>
+            </span>
           </h1>
           <Grid container spacing={2}>
-            {
-              dataNews && dataNews.length > 0 ?
-                dataNews.map(a => {
+            {dataNews && dataNews.length > 0 ? (
+              dataNews.map(a => {
                 return (
                   <Grid item md={4}>
                     <NewsContainer
@@ -135,14 +132,13 @@ class NewsSearchDetail extends React.Component {
                     />
                   </Grid>
                 )
-              }) : (
-                <p>Hasil pencarian kosong</p>
-              )
-            }
+              })
+            ) : (
+              <p>Hasil pencarian kosong</p>
+            )}
           </Grid>
         </Layout>
       </Wrapper>
-
     )
   }
 }
