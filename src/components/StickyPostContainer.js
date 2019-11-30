@@ -43,32 +43,37 @@ class StickyPostContainer extends React.Component {
         }}
       >
         {!!dataJson &&
-          dataJson.map(berita => {
+          dataJson.map((berita, index) => {
             return (
               <Grid
                 item
                 xs={12}
                 md={3}
                 style={{
-                  backgroundColor: colorList.shift(),
+                  backgroundColor: colorList[index],
                   padding: "10px",
                   color: "#fff",
                 }}
+                key={berita.id}
               >
-                <h3 style={{ marginTop: "0.6rem" }}>{berita.title}</h3>
-                <p style={{ textAlign: "justify", marginTop: "1rem" }}>
-                  {berita.content
-                    .replace(/(<([^>]+)>)/gi, "")
-                    .substring(0, 150)}{" "}
-                  [{" "}
-                  <Link
-                    style={{ color: "white", fontWeight: "bold" }}
-                    to={`news/${berita.id}`}
-                  >
-                    ...Baca Selanjutnya
-                  </Link>{" "}
-                  ]
-                </p>
+                <Grid container direction="column" justify="space-between" style={{ height: '100%' }}>
+                  <Grid item>
+                    <h3 style={{ marginTop: "0.6rem" }}>{berita.title}</h3>
+                  </Grid>
+                  <Grid item>
+                    <p style={{ textAlign: "justify", marginTop: "1rem" }}>
+                      {berita.content
+                        .replace(/(<([^>]+)>)/gi, "")
+                        .substring(0, 148)}{" "}
+                      <Link
+                        style={{ color: "white", fontWeight: "bold" }}
+                        to={`news/${berita.id}`}
+                      >
+                        ...Baca Selanjutnya
+                      </Link>{" "}
+                    </p>
+                  </Grid>
+                </Grid>
               </Grid>
             )
           })}
