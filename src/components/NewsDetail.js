@@ -81,7 +81,7 @@ class NewsDetail extends React.Component {
           siteDescription={data && news.title}
         >
           {data != null ? (
-            <Grid container spacing={4} style={{ marginTop: "16px" }}>
+            <Grid container spacing={4} style={{ margin: "16px 0" }}>
               <Grid item md={8}>
                 <Surface>
                   <Grid container direction="column">
@@ -92,7 +92,7 @@ class NewsDetail extends React.Component {
                       {/* <img src={news.image} alt="pusdatin" /> */}
                       <StyledBgImg imgSrc={news.image} />
                     </Grid>
-                    <Grid item style={{ marginTop: '32px' }}>
+                    <Grid item style={{ marginTop: "32px" }}>
                       <Grid container>
                         <Grid item style={{ flex: 1 }}>
                           <p style={{ color: "#1CA086" }}>{news.created_at}</p>
