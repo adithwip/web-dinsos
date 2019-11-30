@@ -86,13 +86,13 @@ class NewsDetail extends React.Component {
                 <Surface>
                   <Grid container direction="column">
                     <Grid item>
-                      {/* <img src={news.image} alt="pusdatin" /> */}
-                      <StyledBgImg imgSrc={news.image} />
-                    </Grid>
-                    <Grid item>
                       <h1>{news.title}</h1>
                     </Grid>
                     <Grid item>
+                      {/* <img src={news.image} alt="pusdatin" /> */}
+                      <StyledBgImg imgSrc={news.image} />
+                    </Grid>
+                    <Grid item style={{ marginTop: '32px' }}>
                       <Grid container>
                         <Grid item style={{ flex: 1 }}>
                           <p style={{ color: "#1CA086" }}>{news.created_at}</p>
