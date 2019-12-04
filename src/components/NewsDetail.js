@@ -9,6 +9,7 @@ import Layout from "../layouts/Layout"
 import Surface from "../components/Surface"
 import PopularNews from "./PopularNews"
 import SocialMediaSharingButtons from "./SocialMediaSharingButtons"
+import SearchForm from "./SearchForm"
 
 import KontakSection from "../components/KontakSection"
 import Footer from "../components/Footer"
@@ -151,7 +152,8 @@ class NewsDetail extends React.Component {
                 <Grid item md={4}>
                   <Grid container direction="column" spacing={2}>
                     <Grid item>
-                      <h2>Berita Populer</h2>
+                      <SearchForm />
+                      <h3>Berita Populer</h3>
                     </Grid>
                     <Grid item>
                       <PopularNews maxNews={5} />
