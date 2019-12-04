@@ -11,6 +11,7 @@ import PopularNews from "../components/PopularNews"
 
 import ButtonGroup from "@material-ui/core/ButtonGroup"
 import Button from "@material-ui/core/Button"
+import SearchForm from "../components/SearchForm"
 
 const StyledGrid = styled(Grid)`
   margin: 64px auto;
@@ -150,13 +151,13 @@ class InfografisPage extends React.Component {
 
             <Grid item>
               <Grid container>
-                <Grid item xs={12} md={9}>
+                <Grid item xs={12} md={8}>
                   <Grid container spacing={1}>
                     {!!dataJson &&
                       dataJson.data.map(data => {
                         return (
                           <Grid item xs={12} md={4}>
-                            <a href={data.url} target={"_blank"}>
+                            <a href={data.image} target={"_blank"} data-fancybox="">
                               <div style={{ height: "350px" }}>
                                 <img
                                   src={data.image}
@@ -171,7 +172,9 @@ class InfografisPage extends React.Component {
                       })}
                   </Grid>
                 </Grid>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} md={4} container style={{padding:"5px"}} >
+                  <SearchForm />
+                  <h3>Berita Populer</h3>
                   <PopularNews />
                 </Grid>
               </Grid>
