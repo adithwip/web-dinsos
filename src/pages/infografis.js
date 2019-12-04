@@ -13,6 +13,14 @@ import ButtonGroup from "@material-ui/core/ButtonGroup"
 import Button from "@material-ui/core/Button"
 import SearchForm from "../components/SearchForm"
 
+
+import Fab from '@material-ui/core/Fab';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faDownload
+} from "@fortawesome/free-solid-svg-icons"
+
+
 const StyledGrid = styled(Grid)`
   margin: 64px auto;
   width: 100%;
@@ -20,6 +28,15 @@ const StyledGrid = styled(Grid)`
   @media (max-width: 767px) {
     margin: 16px auto;
     width: 100%;
+  }
+`
+const ImageContainer = styled.div`
+  &:hover {
+    background-color: #d7d8de;
+
+    a, button {
+      display: block !important;
+    }
   }
 `
 
@@ -116,8 +133,16 @@ class InfografisPage extends React.Component {
     return list
   }
 
+  
+
   render() {
     const { dataJson } = this.state
+
+    
+    function download(e) {
+      e.preventDefault();
+      alert('Download Image');
+    }
 
     return (
       <Wrapper>
@@ -157,16 +182,29 @@ class InfografisPage extends React.Component {
                       dataJson.data.map(data => {
                         return (
                           <Grid item xs={12} md={4}>
-                            <a href={data.image} target={"_blank"} data-fancybox="">
-                              <div style={{ height: "350px" }}>
+                            <ImageContainer href={data.image} target={"_blank"} data-fancybox="" >
+                              <div style={{ height: "350px", position:"relative" }}>
                                 <img
                                   src={data.image}
                                   width="100%"
                                   height="100%"
                                   alt="pusdatin"
                                 />
+                                <a href={data.image} download
+                                  style={{ position:"absolute", bottom:"5px", right:"5px", display:"none" }}
+                                  onClick={download}>
+                                  <FontAwesomeIcon
+                                    icon={faDownload}
+                                    size="3x"
+                                    style={{
+                                      marginBottom: "8px",
+                                      color: "#fafafa",
+                                    }}
+                                  />
+                                </a>
                               </div>
-                            </a>
+                              
+                            </ImageContainer>
                           </Grid>
                         )
                       })}
