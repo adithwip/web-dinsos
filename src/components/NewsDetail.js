@@ -90,9 +90,7 @@ class NewsDetail extends React.Component {
                 <Grid item>
                   <Grid container>
                     <Grid item style={{ flex: 1 }}>
-                      <p style={{ color: "#1CA086" }}>
-                        {news.created_at}
-                      </p>
+                      <p style={{ color: "#1CA086" }}>{news.created_at}</p>
                     </Grid>
                     <Grid item style={{ flex: 1 }}>
                       <SocialMediaSharingButtons />
@@ -100,9 +98,7 @@ class NewsDetail extends React.Component {
                   </Grid>
                 </Grid>
                 <Grid item>
-                  <div
-                    dangerouslySetInnerHTML={{ __html: news.content }}
-                  />
+                  <div dangerouslySetInnerHTML={{ __html: news.content }} />
                 </Grid>
               </Grid>
             ) : (
