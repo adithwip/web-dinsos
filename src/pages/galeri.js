@@ -10,6 +10,10 @@ import Footer from "../components/Footer"
 
 import ButtonGroup from "@material-ui/core/ButtonGroup"
 import Button from "@material-ui/core/Button"
+import MediaQuery from "react-responsive"
+import PageContainer from "../layouts/PageContainer"
+import PopularNews from "../components/PopularNews"
+import SearchForm from "../components/SearchForm"
 
 const Wrapper = styled.div`
   display: flex;
@@ -133,89 +137,203 @@ class GaleriPage extends React.Component {
 
     return (
       <Wrapper>
-        <Layout
-          noGrid
-          siteTitle="Galeri | Pusdatin Jamsos"
-          siteDescription="Galeri Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta"
-        >
-          <Grid item xs={12}>
-            <h2>Galeri Foto</h2>
-          </Grid>
-
-          <Grid container item xs={12} spacing={3}>
-            {!!dataJsonPhoto &&
-              dataJsonPhoto.data.map(data => {
-                return (
-                  <Grid item xs={12} sm={4} md={3} lg={2}>
-                    <a href={data.url} target={"_blank"}>
-                      <div style={{ height: "165px" }}>
-                        <img src={data.image} width="100%" height="100%" />
-                      </div>
-                    </a>
-                  </Grid>
-                )
-              })}
-          </Grid>
-
-          <Grid
-            item
-            container
-            xs={12}
-            style={{ marginTop: "1rem" }}
-            justify="center"
+        <MediaQuery minDeviceWidth={320} maxDeviceWidth={767}>
+          <Layout
+            siteTitle="Galeri"
+            siteDescription="Galeri Pusdatin Dinas Sosial Provinsi DKI Jakarta"
+            mobileView
           >
-            <ButtonGroup
-              size="small"
-              aria-label="small outlined button group"
-              variant="outlined"
-            >
-              {!!dataJsonPhoto &&
-                this.buttonGroup(
-                  dataJsonPhoto.current_page,
-                  dataJsonPhoto.last_page,
-                  dataJsonPhoto.current_page,
-                  "photo"
-                )}
-            </ButtonGroup>
-          </Grid>
+            <Grid container spacing={1} direction="column">
+            <Grid item xs={12}>
+              <h3>Galeri Foto</h3>
+              </Grid>
 
-          <Grid item xs={12}>
-            <h2>Galeri Video</h2>
-          </Grid>
+              <Grid container item xs={12} spacing={3}>
+                {!!dataJsonPhoto &&
+                  dataJsonPhoto.data.map(data => {
+                    return (
+                      <Grid item xs={12} sm={4} md={3}>
+                        <a href={data.image} data-fancybox="gallery">
+                          <div style={{ height: "185px" }}>
+                            <img src={data.image} width="100%" height="100%" />
+                          </div>
+                        </a>
+                      </Grid>
+                    )
+                  })}
+              </Grid>
 
-          <Grid container item xs={12} spacing={3}>
-            {!!dataJsonVideo &&
-              dataJsonVideo.data.map(data => {
-                return (
-                  <Grid item xs={12} sm={6} md={4}>
-                    {this.convertPlaceholderVideo(data)}
-                  </Grid>
-                )
-              })}
-          </Grid>
+              <Grid
+                item
+                container
+                xs={12}
+                style={{ marginTop: "1rem" }}
+                justify="center"
+              >
+                <ButtonGroup
+                  size="small"
+                  aria-label="small outlined button group"
+                  variant="outlined"
+                >
+                  {!!dataJsonPhoto &&
+                    this.buttonGroup(
+                      dataJsonPhoto.current_page,
+                      dataJsonPhoto.last_page,
+                      dataJsonPhoto.current_page,
+                      "photo"
+                    )}
+                </ButtonGroup>
+              </Grid>
 
-          <Grid
-            item
-            container
-            xs={12}
-            style={{ margin: "1rem 0" }}
-            justify="center"
+              <Grid item xs={12}>
+                <h3>Galeri Video</h3>
+              </Grid>
+
+              <Grid container item xs={12} spacing={3}>
+                {!!dataJsonVideo &&
+                  dataJsonVideo.data.map(data => {
+                    return (
+                      <Grid item xs={12} md={6}>
+                        {this.convertPlaceholderVideo(data)}
+                      </Grid>
+                    )
+                  })}
+              </Grid>
+
+              <Grid
+                item
+                container
+                xs={12}
+                style={{ margin: "1rem 0" }}
+                justify="center"
+              >
+                <ButtonGroup
+                  size="small"
+                  aria-label="small outlined button group"
+                  variant="outlined"
+                >
+                  {!!dataJsonVideo &&
+                    this.buttonGroup(
+                      dataJsonVideo.current_page,
+                      dataJsonVideo.last_page,
+                      dataJsonVideo.current_page,
+                      "video"
+                    )}
+                </ButtonGroup>
+              </Grid>
+            </Grid>
+          </Layout>
+        </MediaQuery>
+
+        <MediaQuery minDeviceWidth={768}>
+          <Layout
+            noPageContainer
+            siteTitle="Galeri"
+            siteDescription="Galeri Pusdatin Dinas Sosial Provinsi DKI Jakarta"
           >
-            <ButtonGroup
-              size="small"
-              aria-label="small outlined button group"
-              variant="outlined"
-            >
-              {!!dataJsonVideo &&
-                this.buttonGroup(
-                  dataJsonVideo.current_page,
-                  dataJsonVideo.last_page,
-                  dataJsonVideo.current_page,
-                  "video"
-                )}
-            </ButtonGroup>
-          </Grid>
-        </Layout>
+            <PageContainer>
+              <Grid
+                container
+                direction="column"
+                style={{ minHeight: "500px", marginBottom: "25px" }}
+              >
+                <Grid item xs>
+                  <h2>Galeri Pusdatin</h2>
+                </Grid>
+                <Grid item>
+                  <Grid container spacing={2}>
+                    <Grid item md={8}>
+                      <Grid container spacing={2} direction="column">
+                        <Grid item xs={12}>
+                          <h3>Galeri Foto</h3>
+                        </Grid>
+
+                        <Grid container item xs={12} spacing={3}>
+                          {!!dataJsonPhoto &&
+                            dataJsonPhoto.data.map(data => {
+                              return (
+                                <Grid item xs={12} sm={4} md={3}>
+                                  <a href={data.image} target={"_blank"} data-fancybox="gallery">
+                                    <div style={{ height: "165px" }}>
+                                      <img src={data.image} width="100%" height="100%" />
+                                    </div>
+                                  </a>
+                                </Grid>
+                              )
+                            })}
+                        </Grid>
+
+                        <Grid
+                          item
+                          container
+                          xs={12}
+                          style={{ marginTop: "1rem" }}
+                          justify="center"
+                        >
+                          <ButtonGroup
+                            size="small"
+                            aria-label="small outlined button group"
+                            variant="outlined"
+                          >
+                            {!!dataJsonPhoto &&
+                              this.buttonGroup(
+                                dataJsonPhoto.current_page,
+                                dataJsonPhoto.last_page,
+                                dataJsonPhoto.current_page,
+                                "photo"
+                              )}
+                          </ButtonGroup>
+                        </Grid>
+
+                        <Grid item xs={12}>
+                          <h3>Galeri Video</h3>
+                        </Grid>
+
+                        <Grid container item xs={12} spacing={3}>
+                          {!!dataJsonVideo &&
+                            dataJsonVideo.data.map(data => {
+                              return (
+                                <Grid item xs={12} md={6}>
+                                  {this.convertPlaceholderVideo(data)}
+                                </Grid>
+                              )
+                            })}
+                        </Grid>
+
+                        <Grid
+                          item
+                          container
+                          xs={12}
+                          style={{ margin: "1rem 0" }}
+                          justify="center"
+                        >
+                          <ButtonGroup
+                            size="small"
+                            aria-label="small outlined button group"
+                            variant="outlined"
+                          >
+                            {!!dataJsonVideo &&
+                              this.buttonGroup(
+                                dataJsonVideo.current_page,
+                                dataJsonVideo.last_page,
+                                dataJsonVideo.current_page,
+                                "video"
+                              )}
+                          </ButtonGroup>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                    <Grid item md={4}>
+                      <SearchForm />
+                      <h3>Berita Populer</h3>
+                      <PopularNews />
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </PageContainer>
+          </Layout>
+        </MediaQuery>
         <KontakSection id="kontak" />
         <Footer background="#0A369D" color="#9E9E9E" />
       </Wrapper>
