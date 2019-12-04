@@ -123,7 +123,7 @@ class NewsDetail extends React.Component {
                   <Surface>
                     <Grid container direction="column">
                       <Grid item>
-                        <h1>{news.title}</h1>
+                        <h1 style={{ marginTop: 0 }}>{news.title}</h1>
                       </Grid>
                       <Grid item>
                         {/* <img src={news.image} alt="pusdatin" /> */}
