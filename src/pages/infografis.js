@@ -7,6 +7,7 @@ import Layout from "../layouts/Layout"
 
 import KontakSection from "../components/KontakSection"
 import Footer from "../components/Footer"
+import PopularNews from "../components/PopularNews"
 
 import ButtonGroup from "@material-ui/core/ButtonGroup"
 import Button from "@material-ui/core/Button"
@@ -147,24 +148,33 @@ class InfografisPage extends React.Component {
               </p>
             </Grid>
 
-            <Grid container item xs={12} spacing={3}>
-              {!!dataJson &&
-                dataJson.data.map(data => {
-                  return (
-                    <Grid item xs={12} sm={4} md={3}>
-                      <a href={data.url} target={"_blank"}>
-                        <div style={{ height: "350px" }}>
-                          <img
-                            src={data.image}
-                            width="100%"
-                            height="100%"
-                            alt="pusdatin"
-                          />
-                        </div>
-                      </a>
-                    </Grid>
-                  )
-                })}
+            <Grid item>
+              <Grid container>
+                <Grid item xs={12} md={9}>
+                  <Grid container spacing={1}>
+                    {!!dataJson &&
+                      dataJson.data.map(data => {
+                        return (
+                          <Grid item xs={12} md={4}>
+                            <a href={data.url} target={"_blank"}>
+                              <div style={{ height: "350px" }}>
+                                <img
+                                  src={data.image}
+                                  width="100%"
+                                  height="100%"
+                                  alt="pusdatin"
+                                />
+                              </div>
+                            </a>
+                          </Grid>
+                        )
+                      })}
+                  </Grid>
+                </Grid>
+                <Grid item xs={12} md={3}>
+                  <PopularNews />
+                </Grid>
+              </Grid>
             </Grid>
 
             <Grid

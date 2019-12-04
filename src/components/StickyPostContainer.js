@@ -56,7 +56,12 @@ class StickyPostContainer extends React.Component {
                 }}
                 key={berita.id}
               >
-                <Grid container direction="column" justify="space-between" style={{ height: '100%' }}>
+                <Grid
+                  container
+                  direction="column"
+                  justify="space-between"
+                  style={{ height: "100%" }}
+                >
                   <Grid item>
                     <h3 style={{ marginTop: "0.6rem" }}>{berita.title}</h3>
                   </Grid>

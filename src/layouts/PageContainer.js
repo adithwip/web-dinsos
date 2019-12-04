@@ -4,36 +4,31 @@ import styled, { css } from "styled-components"
 
 const StyledPageContainer = styled.section`
   /* Fix header style accommodation */
-  margin-top: 135px;
+  margin-top: ${props => (props.mobileView ? "70px" : "135px")};
+  margin-bottom: ${props => (props.mobileView ? "70px" : "135px")};
 
   && {
     width: 100%;
-    padding-right: 32px;
-    padding-left: 32px;
+    padding-right: ${props => (props.mobileView ? "16px" : "32px")};
+    padding-left: ${props => (props.mobileView ? "16px" : "32px")};
     margin-right: auto;
     margin-left: auto;
   }
 
-  /* @media (min-width: 576px) {
-    max-width: 540px;
-  } */
-
   @media (min-width: 768px) {
     ${props =>
       props.mobileFirst &&
+      !props.mobileView &&
       css`
         max-width: 1280px;
       `}
   }
 
-  /* @media (max-width: 767px) {
-    padding: 0 !important;
-  } */
-
   @media (min-width: 992px) {
     max-width: 1280px;
     ${props =>
       props.mobileFirst &&
+      !props.mobileView &&
       css`
         max-width: 860px;
       `}
@@ -43,17 +38,19 @@ const StyledPageContainer = styled.section`
     max-width: 1280px;
     ${props =>
       props.mobileFirst &&
+      !props.mobileView &&
       css`
         max-width: 860px;
       `}
   }
 `
 
-const PageContainer = ({ mobileFirst, ...props }) => {
+const PageContainer = ({ mobileFirst, mobileView, ...props }) => {
   return (
     <StyledPageContainer
       className="page-container"
       mobileFirst={mobileFirst}
+      mobileView={mobileView}
       {...props}
     />
   )
@@ -61,10 +58,12 @@ const PageContainer = ({ mobileFirst, ...props }) => {
 
 PageContainer.propTypes = {
   mobileFirst: PropTypes.bool,
+  mobileView: PropTypes.bool,
 }
 
 PageContainer.defaultProps = {
   mobileFirst: false,
+  mobileView: false,
 }
 
 export default PageContainer

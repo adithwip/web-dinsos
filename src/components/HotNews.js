@@ -2,6 +2,10 @@ import React from "react"
 import axios from "axios"
 import { Link } from "@reach/router"
 import styled from "styled-components"
+import MediaQuery from "react-responsive"
+import { Carousel } from "react-responsive-carousel"
+
+import "react-responsive-carousel/lib/styles/carousel.min.css"
 
 import Grid from "@material-ui/core/Grid"
 import Typography from "@material-ui/core/Typography"
@@ -27,6 +31,7 @@ const StyledBgImg = styled.div`
   background-color: #464646;
 
   position: relative;
+  width: 100%;
   min-height: ${props => props.minHeight || 300}px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   border-radius: 4px;
@@ -119,33 +124,61 @@ class HotNews extends React.Component {
 
     if (dataNewsToRender != null) {
       return (
-        <Grid container spacing={2}>
-          {/* Big News */}
-          <Grid item md={12}>
-            <LinkedStyledBgImg
-              imgSrc={dataNewsToRender[0].image}
-              minHeight={400}
-              title={dataNewsToRender[0].title}
-              newsId={dataNewsToRender[0].id}
-              newsCategory={dataNewsToRender[0].category}
-            />
-          </Grid>
-          {/* Sub-big News */}
-          {dataNewsToRender.map((news, index) => {
-            if (index !== 0) {
-              return (
-                <Grid item md={4}>
-                  <LinkedStyledBgImg
-                    imgSrc={news.image}
-                    title={news.title}
-                    newsId={news.id}
-                    newsCategory={news.category}
-                  />
-                </Grid>
-              )
-            }
-          })}
-        </Grid>
+        <>
+          <MediaQuery minDeviceWidth={320} maxDeviceWidth={767}>
+            <Carousel
+              autoPlay
+              showThumbs={false}
+              infiniteLoop
+              showStatus={false}
+              dynamicHeight
+              emulateTouch
+            >
+              {dataNewsToRender.map(news => {
+                return (
+                  <div key={news.id}>
+                    <LinkedStyledBgImg
+                      imgSrc={news.image}
+                      title={news.title}
+                      newsId={news.id}
+                      newsCategory={news.category}
+                    />
+                  </div>
+                )
+              })}
+            </Carousel>
+          </MediaQuery>
+
+          <MediaQuery minDeviceWidth={768}>
+            <Grid container spacing={2}>
+              {/* Big News */}
+              <Grid item md={12}>
+                <LinkedStyledBgImg
+                  imgSrc={dataNewsToRender[0].image}
+                  minHeight={400}
+                  title={dataNewsToRender[0].title}
+                  newsId={dataNewsToRender[0].id}
+                  newsCategory={dataNewsToRender[0].category}
+                />
+              </Grid>
+              {/* Sub-big News */}
+              {dataNewsToRender.map((news, index) => {
+                if (index !== 0) {
+                  return (
+                    <Grid item md={4}>
+                      <LinkedStyledBgImg
+                        imgSrc={news.image}
+                        title={news.title}
+                        newsId={news.id}
+                        newsCategory={news.category}
+                      />
+                    </Grid>
+                  )
+                }
+              })}
+            </Grid>
+          </MediaQuery>
+        </>
       )
     } else {
       return null
