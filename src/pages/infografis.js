@@ -13,8 +13,6 @@ import ButtonGroup from "@material-ui/core/ButtonGroup"
 import Button from "@material-ui/core/Button"
 import SearchForm from "../components/SearchForm"
 
-
-import Fab from '@material-ui/core/Fab';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faDownload
