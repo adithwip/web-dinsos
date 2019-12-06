@@ -21,6 +21,7 @@ const Layout = ({
   noGrid,
   mobileFirst,
   mobileView,
+  style,
 }) => (
   <React.Fragment>
     <Helmet>
@@ -54,7 +55,7 @@ const Layout = ({
     </Helmet>
     <Header />
     {!noPageContainer && !noGrid && (
-      <PageContainer mobileFirst={mobileFirst} mobileView={mobileView}>
+      <PageContainer mobileFirst={mobileFirst} mobileView={mobileView} style={style}>
         <Container flexDirection="column">
           <Item>{children}</Item>
         </Container>
@@ -66,7 +67,7 @@ const Layout = ({
       </Container>
     )}
     {noGrid && (
-      <PageContainer mobileFirst={mobileFirst}>{children}</PageContainer>
+      <PageContainer mobileFirst={mobileFirst} style={style}>{children}</PageContainer>
     )}
 
     {/* <Footer /> */}
@@ -84,6 +85,7 @@ Layout.propTypes = {
   children: PropTypes.any,
   mobileView: PropTypes.any,
   mobileView: PropTypes.any,
+  style: PropTypes.string,
 }
 
 Layout.defaultProps = {
@@ -91,6 +93,7 @@ Layout.defaultProps = {
   noGrid: false,
   mobileFirst: false,
   mobileView: false,
+  style: "",
 }
 
 export default Layout

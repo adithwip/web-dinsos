@@ -24,6 +24,7 @@ const IndexPage = () => {
         noGrid
         siteTitle="Pusdatin Jamsos"
         siteDescription="Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta"
+        style={{marginBottom:"0px"}}
       ></Layout>
       <BannerSection id="banner" />
       <StickyPostContainer id="sticky" />
