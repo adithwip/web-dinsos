@@ -2,6 +2,7 @@ import React from "react"
 import axios from "axios"
 import styled from "styled-components"
 import Grid from "@material-ui/core/Grid"
+import PageContainer from "../layouts/PageContainer"
 
 import Layout from "../layouts/Layout"
 
@@ -54,7 +55,7 @@ class InfografisPage extends React.Component {
 
     axios
       .get(
-        `http://104.43.9.40:8089/api/v1/cms/galleries?type=infografis&perpage=8&page=${parsed.page}`,
+        `http://104.43.9.40:8089/api/v1/cms/galleries?type=infografis&perpage=9&page=${parsed.page}`,
         {
           crossdomain: true,
         }
@@ -145,101 +146,90 @@ class InfografisPage extends React.Component {
     return (
       <Wrapper>
         <Layout
-          noGrid
+          noPageContainer
           siteTitle="Infografis"
-          siteDescription="Infografis Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta"
+          siteDescription="Infografis Pusdatin Dinas Sosial Provinsi DKI Jakarta"
         >
-          <StyledGrid
-            container
-            justify="center"
-            alignContent="center"
-            spacing={2}
-            style={{ marginTop: "0px", minHeight: "500px" }}
-          >
-            <Grid item xs={12}>
-              <h1>Infografis</h1>
-            </Grid>
+          <PageContainer>
+              <Grid
+                container
+                direction="column"
+                style={{ minHeight: "500px", marginBottom: "25px" }}
+              >
+                <Grid item xs>
+                  <h2>Infografis</h2>
+                </Grid>
+                <Grid item>
+                  <Grid container spacing={2}>
+                    <Grid item md={8}>
+                      <Grid container spacing={2} direction="row">
 
-            <Grid item xs={12}>
-              <p>
-                Infografik adalah representasi visual informasi, data atau ilmu
-                pengetahuan secara grafis. Grafik ini memperlihatkan informasi
-                rumit dengan singkat dan jelas, seperti pada papan, peta,
-                jurnalisme, penulisan teknis, dan pendidikan. Melalui
-                infografik, ilmuwan komputer, matematikawan dan statistikawan
-                mampu mengembangkan dan mengomunikasikan konsep menggunakan satu
-                simbol untuk memproses informasi.
-              </p>
-            </Grid>
-
-            <Grid item>
-              <Grid container>
-                <Grid item xs={12} md={8}>
-                  <Grid container spacing={1}>
-                    {!!dataJson &&
-                      dataJson.data.map(data => {
-                        return (
-                          <Grid item xs={12} md={4}>
-                            <ImageContainer href={data.image} target={"_blank"} data-fancybox="" >
-                              <div style={{ height: "350px", position:"relative" }}>
-                                <img
-                                  src={data.image}
-                                  width="100%"
-                                  height="100%"
-                                  alt="pusdatin"
-                                />
-                                <a href={data.image} download
-                                  style={{ position:"absolute", bottom:"5px", right:"5px", display:"none" }}
-                                  onClick={download}>
-                                  <FontAwesomeIcon
-                                    icon={faDownload}
-                                    size="3x"
-                                    style={{
-                                      marginBottom: "8px",
-                                      color: "#fafafa",
-                                    }}
+                        {!!dataJson &&
+                        dataJson.data.map(data => {
+                          return (
+                            <Grid item xs={12} md={4}>
+                              <ImageContainer href={data.image} target={"_blank"} data-fancybox="" >
+                                <div style={{ height: "350px", position:"relative" }}>
+                                  <img
+                                    src={data.image}
+                                    width="100%"
+                                    height="100%"
+                                    alt="pusdatin"
                                   />
-                                </a>
-                              </div>
-                              
-                            </ImageContainer>
-                          </Grid>
-                        )
-                      })}
+                                  <a href={data.image} download
+                                    style={{ position:"absolute", bottom:"5px", right:"5px", display:"none" }}
+                                    onClick={download}>
+                                    <FontAwesomeIcon
+                                      icon={faDownload}
+                                      size="3x"
+                                      style={{
+                                        marginBottom: "8px",
+                                        color: "#fafafa",
+                                      }}
+                                    />
+                                  </a>
+                                </div>
+                                
+                              </ImageContainer>
+                            </Grid>
+                          )
+                        })}
+                      </Grid>
+                      <Grid
+                        item
+                        container
+                        xs={12}
+                        style={{ marginTop: "1rem" }}
+                        justify="center"
+                        id="pagination"
+                      >
+                        <ButtonGroup
+                          size="small"
+                          aria-label="small outlined button group"
+                          variant="outlined"
+                        >
+                          {!!dataJson &&
+                            this.buttonGroup(
+                              dataJson.current_page,
+                              dataJson.last_page,
+                              dataJson.current_page
+                            )}
+                        </ButtonGroup>
+                      </Grid>
+
+                    </Grid>
+                    <Grid item md={4}>
+                      <SearchForm />
+                      <h3>Berita Populer</h3>
+                      <PopularNews />
+                    </Grid>
                   </Grid>
                 </Grid>
-                <Grid item xs={12} md={4} container style={{padding:"5px"}} >
-                  <SearchForm />
-                  <h3>Berita Populer</h3>
-                  <PopularNews />
-                </Grid>
               </Grid>
-            </Grid>
-
-            <Grid
-              item
-              container
-              xs={12}
-              style={{ marginTop: "1rem" }}
-              justify="center"
-            >
-              <ButtonGroup
-                size="small"
-                aria-label="small outlined button group"
-                variant="outlined"
-              >
-                {!!dataJson &&
-                  this.buttonGroup(
-                    dataJson.current_page,
-                    dataJson.last_page,
-                    dataJson.current_page
-                  )}
-              </ButtonGroup>
-            </Grid>
-          </StyledGrid>
+            </PageContainer>
         </Layout>
-        <KontakSection id="kontak" />
-        <Footer background="#0A369D" color="#9E9E9E" />
+      <KontakSection id="kontak" />
+      <Footer background="#0A369D" color="#9E9E9E" />
       </Wrapper>
     )
   }
