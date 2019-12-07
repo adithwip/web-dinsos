@@ -9,6 +9,7 @@ import Grid from "@material-ui/core/Grid"
 const StyledForm = styled.form`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   padding: 16px;
+  width: 100%;
 `
 const SearchInput = styled.input`
   background-color: transparent;
