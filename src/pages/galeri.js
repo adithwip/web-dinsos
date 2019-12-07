@@ -137,95 +137,6 @@ class GaleriPage extends React.Component {
 
     return (
       <Wrapper>
-        <MediaQuery minDeviceWidth={320} maxDeviceWidth={767}>
-          <Layout
-            siteTitle="Galeri"
-            siteDescription="Galeri Pusdatin Dinas Sosial Provinsi DKI Jakarta"
-            mobileView
-          >
-            <Grid container spacing={1} direction="column">
-              <Grid item xs={12}>
-                <h3>Galeri Foto</h3>
-              </Grid>
-
-              <Grid container item xs={12} spacing={3}>
-                {!!dataJsonPhoto &&
-                  dataJsonPhoto.data.map(data => {
-                    return (
-                      <Grid item xs={12} sm={4} md={3}>
-                        <a href={data.image} data-fancybox="gallery">
-                          <div style={{ height: "185px" }}>
-                            <img src={data.image} width="100%" height="100%" />
-                          </div>
-                        </a>
-                      </Grid>
-                    )
-                  })}
-              </Grid>
-
-              <Grid
-                item
-                container
-                xs={12}
-                style={{ marginTop: "1rem" }}
-                justify="center"
-              >
-                <ButtonGroup
-                  size="small"
-                  aria-label="small outlined button group"
-                  variant="outlined"
-                >
-                  {!!dataJsonPhoto &&
-                    this.buttonGroup(
-                      dataJsonPhoto.current_page,
-                      dataJsonPhoto.last_page,
-                      dataJsonPhoto.current_page,
-                      "photo"
-                    )}
-                </ButtonGroup>
-              </Grid>
-
-              <Grid item xs={12}>
-                <h3>Galeri Video</h3>
-              </Grid>
-
-              <Grid container item xs={12} spacing={3}>
-                {!!dataJsonVideo &&
-                  dataJsonVideo.data.map(data => {
-                    return (
-                      <Grid item xs={12} md={6}>
-                        {this.convertPlaceholderVideo(data)}
-                      </Grid>
-                    )
-                  })}
-              </Grid>
-
-              <Grid
-                item
-                container
-                xs={12}
-                style={{ margin: "1rem 0" }}
-                justify="center"
-              >
-                <ButtonGroup
-                  size="small"
-                  aria-label="small outlined button group"
-                  variant="outlined"
-                >
-                  {!!dataJsonVideo &&
-                    this.buttonGroup(
-                      dataJsonVideo.current_page,
-                      dataJsonVideo.last_page,
-                      dataJsonVideo.current_page,
-                      "video"
-                    )}
-                </ButtonGroup>
-              </Grid>
-            </Grid>
-          </Layout>
-        </MediaQuery>
-
-        <MediaQuery minDeviceWidth={768}>
           <Layout
             noPageContainer
             siteTitle="Galeri"
@@ -341,7 +252,6 @@ class GaleriPage extends React.Component {
               </Grid>
             </PageContainer>
           </Layout>
-        </MediaQuery>
         <KontakSection id="kontak" />
         <Footer background="#0A369D" color="#9E9E9E" />
       </Wrapper>

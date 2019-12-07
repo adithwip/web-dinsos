@@ -16,6 +16,9 @@ import HotNews from "../components/HotNews"
 import PopularNews from "../components/PopularNews"
 import SearchForm from "../components/SearchForm"
 
+import ButtonGroup from "@material-ui/core/ButtonGroup"
+import Button from "@material-ui/core/Button"
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -50,7 +53,7 @@ class BeritaPage extends React.Component {
     }
 
     axios
-      .get(`http://104.43.9.40:8089/api/v1/cms/news`, {
+      .get(`http://104.43.9.40:8089/api/v1/cms/news?perpage=10&page=${parsed.page}`, {
         crossdomain: true,
       })
       .then(result => {
@@ -64,6 +67,66 @@ class BeritaPage extends React.Component {
 
   componentDidMount() {
     this.fetchData()
+  }
+  
+
+  buttonGroup(start, end, current = 1) {
+    let endPage = current + 4 < end ? current + 4 : end
+
+    let startPage = current
+    startPage = endPage - startPage < 5 ? endPage - 4 : startPage
+    startPage = startPage < 0 ? 1 : startPage
+
+    const key = "page"
+
+    const list = []
+    for (let i = startPage; i <= endPage; i++) {
+      if (i == current) {
+        list.push(
+          <Button id={i} variant="contained" color="primary">
+            {i}
+          </Button>
+        )
+      } else {
+        list.push(
+          <Button id={i} href={`?${key}=${i}`}>
+            {i}
+          </Button>
+        )
+      }
+    }
+
+    /* first & prev navigation */
+    if (current > 1) {
+      const prev = start - 1 < 1 ? 1 : start - 1
+      list.unshift(
+        <Button id="prev" href={`?${key}=${prev}`}>
+          &lt;
+        </Button>
+      )
+      list.unshift(
+        <Button id="first" href={`?${key}=1`}>
+          &lt;&lt;
+        </Button>
+      )
+    }
+
+    /* next & last navigation */
+    if (current < end) {
+      const next = start + 1 > end ? end : start + 1
+      list.push(
+        <Button id="next" href={`?${key}=${next}`}>
+          &gt;
+        </Button>
+      )
+      list.push(
+        <Button id="last" href={`?${key}=${end}`}>
+          &gt;&gt;
+        </Button>
+      )
+    }
+
+    return list
   }
 
   render() {
@@ -181,6 +244,27 @@ class BeritaPage extends React.Component {
                               })}
                           </Grid>
                         </Grid>
+                      </Grid>
+                      
+                      <Grid
+                        item
+                        container
+                        xs={12}
+                        style={{ marginTop: "2rem" }}
+                        justify="center"
+                      >
+                        <ButtonGroup
+                          size="small"
+                          aria-label="small outlined button group"
+                          variant="outlined"
+                        >
+                          {!!dataJson &&
+                            this.buttonGroup(
+                              dataJson.current_page,
+                              dataJson.last_page,
+                              dataJson.current_page
+                            )}
+                        </ButtonGroup>
                       </Grid>
                     </Grid>
                     <Grid item md={4}>

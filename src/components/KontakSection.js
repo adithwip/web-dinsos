@@ -58,32 +58,6 @@ const KontakSection = props => (
               </ListItemIcon>
               <ListItemText primary="021-22684824" />
             </ListItem>
-            {/* <ListItem>
-              <ListItemIcon>
-                <TwitterIcon style={{ color: "white" }} />
-              </ListItemIcon>
-              <a
-                href="https://twitter.com/dinso"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "white" }}
-              >
-                <ListItemText primary="Twitter Dinsos DKI" />
-              </a>
-            </ListItem> */}
-            {/* <ListItem>
-              <ListItemIcon>
-                <FacebookIcon style={{ color: "white" }} />
-              </ListItemIcon>
-              <a
-                href="https://id-id.facebook.co/"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "white" }}
-              >
-                <ListItemText primary="Facebook Dinsos DKI" />
-              </a>
-            </ListItem> */}
             <ListItem>
               <ListItemIcon>
                 <InstagramIcon style={{ color: "white" }} />
@@ -130,7 +104,7 @@ const KontakSection = props => (
               </a>
             </ListItem>
           </List>
-        </div>
+          </div>
       </Grid>
 
       <Grid item xs={12} md={7}>
@@ -142,8 +116,6 @@ const KontakSection = props => (
           allowfullscreen=""
         />
       </Grid>
-      <br />
-      <br />
     </Grid>
   </StyleContainer>
 )
