@@ -97,7 +97,8 @@ class BeritaPage extends React.Component {
 
         <MediaQuery minDeviceWidth={768}>
           <Layout
-            noPageContainer
+            // noPageContainer
+            noMargin
             siteTitle="Berita"
             siteDescription="Berita Pusdatin Dinas Sosial Provinsi DKI Jakarta"
           >

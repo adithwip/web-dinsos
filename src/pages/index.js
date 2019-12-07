@@ -22,6 +22,7 @@ const IndexPage = () => {
     <Wrapper>
       <Layout
         noGrid
+        noMargin
         siteTitle="Pusdatin Jamsos"
         siteDescription="Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta"
       ></Layout>
