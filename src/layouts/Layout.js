@@ -21,6 +21,7 @@ const Layout = ({
   noGrid,
   mobileFirst,
   mobileView,
+  noMargin,
 }) => (
   <React.Fragment>
     <Helmet>
@@ -49,12 +50,19 @@ const Layout = ({
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
       />
       <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"
+      />
       <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
     </Helmet>
     <Header />
     {!noPageContainer && !noGrid && (
-      <PageContainer mobileFirst={mobileFirst} mobileView={mobileView}>
+      <PageContainer
+        mobileFirst={mobileFirst}
+        mobileView={mobileView}
+        noMargin={noMargin}
+      >
         <Container flexDirection="column">
           <Item>{children}</Item>
         </Container>
@@ -66,7 +74,9 @@ const Layout = ({
       </Container>
     )}
     {noGrid && (
-      <PageContainer mobileFirst={mobileFirst}>{children}</PageContainer>
+      <PageContainer mobileFirst={mobileFirst} noMargin={noMargin}>
+        {children}
+      </PageContainer>
     )}
 
     {/* <Footer /> */}
@@ -84,6 +94,7 @@ Layout.propTypes = {
   children: PropTypes.any,
   mobileView: PropTypes.any,
   mobileView: PropTypes.any,
+  noMargin: PropTypes.any,
 }
 
 Layout.defaultProps = {
@@ -91,6 +102,7 @@ Layout.defaultProps = {
   noGrid: false,
   mobileFirst: false,
   mobileView: false,
+  noMargin: false,
 }
 
 export default Layout

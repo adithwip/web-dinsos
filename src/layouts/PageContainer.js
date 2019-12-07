@@ -4,8 +4,11 @@ import styled, { css } from "styled-components"
 
 const StyledPageContainer = styled.section`
   /* Fix header style accommodation */
-  margin-top: ${props => (props.mobileView ? "70px" : "135px")};
-  margin-bottom: ${props => (props.mobileView ? "70px" : "135px")};
+  margin-top: ${props => (props.mobileView ? "70px" : "120px")};
+  margin-bottom: ${props => (props.mobileView ? "70px" : "120px")};
+
+  margin: ${props => props.noMargin && "unset"};
+  margin-bottom: ${props => props.noMargin && "132px"};
 
   && {
     width: 100%;
@@ -45,12 +48,13 @@ const StyledPageContainer = styled.section`
   }
 `
 
-const PageContainer = ({ mobileFirst, mobileView, ...props }) => {
+const PageContainer = ({ mobileFirst, mobileView, noMargin, ...props }) => {
   return (
     <StyledPageContainer
       className="page-container"
       mobileFirst={mobileFirst}
       mobileView={mobileView}
+      noMargin={noMargin}
       {...props}
     />
   )
@@ -59,11 +63,13 @@ const PageContainer = ({ mobileFirst, mobileView, ...props }) => {
 PageContainer.propTypes = {
   mobileFirst: PropTypes.bool,
   mobileView: PropTypes.bool,
+  noMargin: PropTypes.bool,
 }
 
 PageContainer.defaultProps = {
   mobileFirst: false,
   mobileView: false,
+  noMargin: false,
 }
 
 export default PageContainer
