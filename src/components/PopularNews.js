@@ -22,8 +22,18 @@ const StyledBgImg = styled.div`
 
 const StyledNewsContainer = styled.div`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  border-radius: 4px;
-  padding: 8px;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  border-radius: 6px;
+  overflow: hidden;
+  /* padding: 8px; */
+
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+
+  & > a:hover {
+    text-decoration: none;
+  }
 `
 
 const NewsContainer = props => {
@@ -33,11 +43,11 @@ const NewsContainer = props => {
   return (
     <StyledNewsContainer>
       <Link to={`/news/${newsId}`}>
-        <Grid container alignContent="center" alignItems="center" spacing={1}>
+        <Grid container alignContent="center" alignItems="center">
           <Grid item>
             <StyledBgImg imgSrc={imgSrc} />
           </Grid>
-          <Grid item style={{ flex: 1 }}>
+          <Grid item style={{ flex: 1, padding: '0 16px' }}>
             <Typography style={{ color: "black" }}>{title}</Typography>
           </Grid>
         </Grid>
