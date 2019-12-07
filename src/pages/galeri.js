@@ -144,8 +144,8 @@ class GaleriPage extends React.Component {
             mobileView
           >
             <Grid container spacing={1} direction="column">
-            <Grid item xs={12}>
-              <h3>Galeri Foto</h3>
+              <Grid item xs={12}>
+                <h3>Galeri Foto</h3>
               </Grid>
 
               <Grid container item xs={12} spacing={3}>
@@ -253,9 +253,17 @@ class GaleriPage extends React.Component {
                             dataJsonPhoto.data.map(data => {
                               return (
                                 <Grid item xs={12} sm={4} md={3}>
-                                  <a href={data.image} target={"_blank"} data-fancybox="gallery">
+                                  <a
+                                    href={data.image}
+                                    target={"_blank"}
+                                    data-fancybox="gallery"
+                                  >
                                     <div style={{ height: "165px" }}>
-                                      <img src={data.image} width="100%" height="100%" />
+                                      <img
+                                        src={data.image}
+                                        width="100%"
+                                        height="100%"
+                                      />
                                     </div>
                                   </a>
                                 </Grid>

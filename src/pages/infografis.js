@@ -150,14 +150,18 @@ class InfografisPage extends React.Component {
             </Grid>
 
             <Grid item>
-              <Grid container>
+              <Grid container spacing={5}>
                 <Grid item xs={12} md={8}>
                   <Grid container spacing={1}>
                     {!!dataJson &&
                       dataJson.data.map(data => {
                         return (
                           <Grid item xs={12} md={4}>
-                            <a href={data.image} target={"_blank"} data-fancybox="">
+                            <a
+                              href={data.image}
+                              target={"_blank"}
+                              data-fancybox=""
+                            >
                               <div style={{ height: "350px" }}>
                                 <img
                                   src={data.image}
@@ -172,7 +176,7 @@ class InfografisPage extends React.Component {
                       })}
                   </Grid>
                 </Grid>
-                <Grid item xs={12} md={4} container style={{padding:"5px"}} >
+                <Grid item xs={12} md={4}>
                   <SearchForm />
                   <h3>Berita Populer</h3>
                   <PopularNews />
