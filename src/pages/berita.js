@@ -53,7 +53,7 @@ class BeritaPage extends React.Component {
     }
 
     axios
-      .get(`http://104.43.9.40:8089/api/v1/cms/news?perpage=10&page=${parsed.page}`, {
+      .get(`http://104.43.9.40:8089/api/v1/cms/news?perpage=6&page=${parsed.page}`, {
         crossdomain: true,
       })
       .then(result => {
