@@ -137,9 +137,11 @@ class InfografisPage extends React.Component {
     const { dataJson } = this.state
 
     
-    function download(e) {
+    function download(e, id) {
       e.preventDefault();
-      alert('Download Image');
+      let downloadUrl = `http://104.43.9.40:8089/api/v1/cms/gallery/${id}?download=1`;
+      console.log('Download Image : '+ downloadUrl);
+      window.open(downloadUrl);
     }
 
     return (
@@ -190,7 +192,7 @@ class InfografisPage extends React.Component {
                                 />
                                 <a href={data.image} download
                                   style={{ position:"absolute", bottom:"5px", right:"5px", display:"none" }}
-                                  onClick={download}>
+                                  onClick={ (e) => download(e, data.id) }>
                                   <FontAwesomeIcon
                                     icon={faDownload}
                                     size="3x"
