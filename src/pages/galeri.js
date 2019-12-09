@@ -166,8 +166,8 @@ class GaleriPage extends React.Component {
                                 <Grid item xs={12} sm={4} md={3}>
                                   <a
                                     href={data.image}
-                                    target={"_blank"}
                                     data-fancybox="gallery"
+                                    data-caption={data.title}
                                   >
                                     <div style={{ height: "165px" }}>
                                       <img
