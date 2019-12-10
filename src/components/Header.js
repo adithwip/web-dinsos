@@ -1,6 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
+import Grid from "@material-ui/core/Grid"
 
 import Typography from "@material-ui/core/Typography"
 import Img from "gatsby-image"
@@ -11,23 +12,80 @@ import Container from "../layouts/Container"
 import Item from "../layouts/Item"
 import RunningText from "./RunningText"
 
-import MailOutlineIcon from "@material-ui/icons/MailOutline"
-import PhoneIcon from "@material-ui/icons/Phone"
-
 const StyledHeader = styled.header`
-  & * {
-  }
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   background-color: #fff;
 
   /* Fix position style */
-  overflow: hidden;
+  overflow: visible;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 3;
 `
+
+const StyledLink = styled(Link)`
+  position: relative;
+  & :hover {
+    & > div.subMenu {
+      display: block;
+    }
+  }
+`
+
+const StyledGridItem = styled(Grid)`
+  &:hover {
+    background-color: #f9f5ff;
+    font-weight: bold;
+  }
+`
+
+const StyledSubMenu = styled.div`
+  display: none;
+  top: 18px;
+  right: 0;
+
+  width: 200px;
+  /* height: 400px; */
+  padding: 8px 16px;
+  background-color: #FFF;
+  border-radius: 4px;
+
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  z-index: 10;
+
+  position: absolute;
+`
+
+const SubMenuData = () => {
+  return (
+    <StyledSubMenu className="subMenu">
+      <Grid container spacing={1} direction="column">
+        <StyledGridItem item>
+          <Link to="/data/data-pkh">
+            FMOTM
+          </Link>
+        </StyledGridItem>
+        <StyledGridItem item>
+          <Link to="/data/data-pkh">
+            LKS
+          </Link>
+        </StyledGridItem>
+        <StyledGridItem item>
+          <Link to="/data/data-pkh">
+            UEP KUBE
+          </Link>
+        </StyledGridItem>
+        <StyledGridItem item>
+          <Link to="/data/data-pkh">
+            Open Data Dinsos
+          </Link>
+        </StyledGridItem>
+      </Grid>
+    </StyledSubMenu>
+  )
+}
 
 const Header = () => {
   const data = useStaticQuery(
@@ -129,11 +187,12 @@ const Header = () => {
                 </a>
               </Item>
               <Item>
-                <Link to="/data">
+                <StyledLink to="/data" >
                   <Typography variant="button" style={{ color: "#2c2c2c" }}>
                     Data
                   </Typography>
-                </Link>
+                  <SubMenuData />
+                </StyledLink>
               </Item>
             </Container>
           </Item>
