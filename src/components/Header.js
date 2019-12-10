@@ -9,6 +9,7 @@ import MediaQuery from "react-responsive"
 import AppBar from "./AppBar"
 import Container from "../layouts/Container"
 import Item from "../layouts/Item"
+import RunningText from "./RunningText"
 
 import MailOutlineIcon from "@material-ui/icons/MailOutline"
 import PhoneIcon from "@material-ui/icons/Phone"
@@ -62,15 +63,12 @@ const Header = () => {
             borderRadius: "0px 0px 0px 100px",
             backgroundColor: "#0d47a1",
             color: "#fff",
+            height: "40px",
           }}
           alignItems="center"
           justify="flex-end"
         >
-          <Item style={{ display: "flex", color: "#fff" }}>
-            <MailOutlineIcon style={{ color: "white" }} /> &nbsp;
-            pusdatinjamsosdki@jakarta.go.id &nbsp; &nbsp; &nbsp;
-            <PhoneIcon style={{ color: "white" }} /> &nbsp; 021-22684824
-          </Item>
+          <RunningText />
         </Container>
         <Container
           style={{ padding: "8px 32px" }}
