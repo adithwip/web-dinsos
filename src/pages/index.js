@@ -12,30 +12,56 @@ import GaleriAplikasi from "../components/GaleriAplikasi"
 import KontakSection from "../components/KontakSection"
 import Footer from "../components/Footer"
 
+import Dialog from '@material-ui/core/Dialog';
+import DialogContent from '@material-ui/core/DialogContent';
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 `
 
-const IndexPage = () => {
-  return (
-    <Wrapper>
-      <Layout
-        noGrid
-        noMargin
-        siteTitle="Pusdatin Jamsos"
-        siteDescription="Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta"
-      ></Layout>
-      <BannerSection id="banner" />
-      <StickyPostContainer id="sticky" />
-      <SummarySection id="summary" />
-      <BeritaSection id="berita" />
-      <GallerySection id="galeri" />
-      <GaleriAplikasi id="apps" />
-      <KontakSection id="kontak" />
-      <Footer background="#0A369D" color="#9E9E9E" />
-    </Wrapper>
-  )
+class IndexPage extends React.Component {
+  state = {
+    open: true
+  }
+
+  handleClose = () => {
+    this.setState({
+      open: false
+    })
+  }
+
+  render(){
+
+    const {open} = this.state
+
+    return (
+      <Wrapper>
+        <Layout
+          noGrid
+          noMargin
+          siteTitle="Pusdatin Jamsos"
+          siteDescription="Pusat Data dan Informasi Jaminan Sosial, Dinas Sosial Provinsi DKI Jakarta"
+        ></Layout>
+        <BannerSection id="banner" />
+        <StickyPostContainer id="sticky" />
+        <SummarySection id="summary" />
+        <BeritaSection id="berita" />
+        <GallerySection id="galeri" />
+        <GaleriAplikasi id="apps" />
+        <KontakSection id="kontak" />
+        <Footer background="#0A369D" color="#9E9E9E" />
+
+        <Dialog onClose={this.handleClose} open={open} fullWidth={true} maxWidth={"md"} >
+          <DialogContent>
+            <img src="http://104.43.9.40:8089//uploads/2019-11/tahapan-daftar-pendamsos-min.jpg" width="100%" height="500px" />              
+          </DialogContent>
+        </Dialog>
+
+      </Wrapper>
+    )
+  }
+  
 }
 
 export default IndexPage
