@@ -54,7 +54,7 @@ class IndexPage extends React.Component {
 
         <Dialog onClose={this.handleClose} open={open} fullWidth={true} maxWidth={"md"} >
           <DialogContent>
-            <img src="http://104.43.9.40:8089//uploads/2019-11/tahapan-daftar-pendamsos-min.jpg" width="100%" height="500px" />              
+            <BannerSection />
           </DialogContent>
         </Dialog>
 
