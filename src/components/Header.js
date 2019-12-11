@@ -63,22 +63,22 @@ const SubMenuData = () => {
     <StyledSubMenu className="subMenu">
       <Grid container spacing={1} direction="column">
         <StyledGridItem item>
-          <Link to="/data/data-pkh">
+          <Link to="/data/data-fmotm">
             FMOTM
           </Link>
         </StyledGridItem>
         <StyledGridItem item>
-          <Link to="/data/data-pkh">
+          <Link to="/data/data-lks">
             LKS
           </Link>
         </StyledGridItem>
         <StyledGridItem item>
-          <Link to="/data/data-pkh">
+          <Link to="/data/data-uepkube">
             UEP KUBE
           </Link>
         </StyledGridItem>
         <StyledGridItem item>
-          <Link to="/data/data-pkh">
+          <Link to="/data/data-opendata">
             Open Data Dinsos
           </Link>
         </StyledGridItem>
