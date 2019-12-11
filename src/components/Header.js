@@ -62,26 +62,26 @@ const SubMenuData = () => {
   return (
     <StyledSubMenu className="subMenu">
       <Grid container spacing={1} direction="column">
-        <StyledGridItem item>
-          <Link to="/data/data-fmotm">
-            FMOTM
-          </Link>
-        </StyledGridItem>
-        <StyledGridItem item>
-          <Link to="/data/data-lks">
-            LKS
-          </Link>
-        </StyledGridItem>
-        <StyledGridItem item>
-          <Link to="/data/data-uepkube">
-            UEP KUBE
-          </Link>
-        </StyledGridItem>
-        <StyledGridItem item>
-          <Link to="/data/data-opendata">
-            Open Data Dinsos
-          </Link>
-        </StyledGridItem>
+        <Link to="/data/data-fmotm">
+          <StyledGridItem item>
+              FMOTM
+          </StyledGridItem>
+        </Link>
+        <Link to="/data/data-lks">
+          <StyledGridItem item>
+              LKS
+          </StyledGridItem>
+        </Link>
+        <Link to="/data/data-uepkube">
+          <StyledGridItem item>
+              UEP KUBE
+          </StyledGridItem>
+        </Link>
+        <Link to="/data/data-opendata">
+          <StyledGridItem item>
+              Open Data Dinsos
+          </StyledGridItem>
+        </Link>
       </Grid>
     </StyledSubMenu>
   )
