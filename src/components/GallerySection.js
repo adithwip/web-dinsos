@@ -62,7 +62,7 @@ class GallerySection extends React.Component {
             dataJsonPhoto.map(data => {
               return (
                 <Grid item xs={12} sm={6} md={2}>
-                  <a href={data.url} target={"_blank"}>
+                  <a href={data.image} data-fancybox="gallery" data-caption={data.title}>
                     <img src={data.image} width="100%" height="180px" />
                   </a>
                 </Grid>
