@@ -2,8 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 
-import "../styles/index.css"
-
 import PageContainer from "./PageContainer"
 import Container from "./Container"
 import Item from "./Item"
