@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Layout from "../layouts/Layout"
 
 import BannerSection from "../components/BannerSection"
+import PopUpBannerSection from "../components/PopUpBannerSection"
 import StickyPostContainer from "../components/StickyPostContainer"
 import BeritaSection from "../components/BeritaSection"
 import GallerySection from "../components/GallerySection"
@@ -54,7 +55,7 @@ class IndexPage extends React.Component {
 
         <Dialog onClose={this.handleClose} open={open} fullWidth={true} maxWidth={"md"} >
           <DialogContent>
-            <BannerSection />
+            <PopUpBannerSection />
           </DialogContent>
         </Dialog>
 
