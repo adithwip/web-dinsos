@@ -138,6 +138,8 @@ class NewsSearchDetail extends React.Component {
             )}
           </Grid>
         </Layout>
+        <KontakSection id="kontak" />
+        <Footer background="#0A369D" color="#9E9E9E" />
       </Wrapper>
     )
   }
