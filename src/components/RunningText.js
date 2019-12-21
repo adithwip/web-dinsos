@@ -2,16 +2,20 @@ import React from "react"
 import styled from "styled-components"
 import axios from "axios"
 
+import PusdatinLogo from "../images/icon.png"
+
 const Wrapper = styled.div`
     width : 100%;
     position: relative;
 
     & div {        
         position: absolute;
-        top: -10px;
+        top: -12px;
         white-space: nowrap;
         line-height: 25px;
         animation: marquee 30s linear infinite;
+        display: flex;
+        align-items: baseline;
     }
     
     @keyframes marquee {
@@ -53,7 +57,7 @@ class RunningText extends React.Component {
                     {
                         !!dataJson && dataJson.map((data)=>{
                             return (
-                                <span> {data.content} &#9900; </span>
+                                <span> {data.content} <img src={PusdatinLogo} width="18px" style={{ margin:"-3px 8px" }} /> </span> 
                             )
                         })                        
                     }
