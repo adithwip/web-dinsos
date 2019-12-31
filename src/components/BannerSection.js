@@ -71,7 +71,6 @@ class BannerSection extends React.Component {
           {...settings}
           style={{
             width: "100%",
-            height: "480px",
           }}
         >
           {!!dataJson &&
@@ -80,11 +79,10 @@ class BannerSection extends React.Component {
                 <div
                   style={{
                     width: "100%",
-                    height: "480px",
                     backgroundColor: "#447694",
                   }}
                 >
-                  <img src={data.image} width="100%" height="480px" />
+                  <img src={data.image} width="100%" />
                 </div>
               )
             })}
