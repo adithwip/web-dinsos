@@ -22,7 +22,6 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
 const StyledGrid = styled(Grid)`
@@ -41,8 +40,9 @@ const StyledGrid = styled(Grid)`
 
 const StyledTableCell = withStyles(theme => ({
     head: {
-      backgroundColor: theme.palette.common.black,
-      color: theme.palette.common.white,
+      backgroundColor: theme.palette.common.white,
+      color: theme.palette.common.black,
+      fontSize: 18,
     },
     body: {
       fontSize: 14,
@@ -61,18 +61,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 `
-// const useStyles = makeStyles({
-//     root: {
-//       width: '100%',
-//       overflowX: 'auto',
-//     },
-//     table: {
-//       minWidth: 700,
-//     },
-//     button: {
-//       margin: theme.spacing(1),
-//     },
-// });
 
 class UnduhanPage extends React.Component {
   state = { dataJson: null, error: false, loading: false }
@@ -203,27 +191,22 @@ class UnduhanPage extends React.Component {
                 <Grid item xs={12} md={8}>
 
                     <Table aria-label="customized table" style={{ width:"100%" }}>
-                        <TableHead>
-                            <TableRow>
-                                <StyledTableCell>Nama</StyledTableCell>
-                                <StyledTableCell>Keterangan</StyledTableCell>
-                                <StyledTableCell></StyledTableCell>
-                            </TableRow>
-                        </TableHead>
                         <TableBody>
                         {!!dataJson && dataJson.data.map(data => {
                             console.log(data)
                             return (                                   
                                 <StyledTableRow key={data.id}>
-                                    <StyledTableCell component="th" scope="row">{data.name}</StyledTableCell>
-                                    <StyledTableCell align="left">{data.description}</StyledTableCell>
-                                    <StyledTableCell align="center">                                        
+                                    <StyledTableCell component="th" scope="row">
+                                      <span style={{ fontSize:"1rem", fontWeight:"bold" }}>{data.name}</span> <br />
+                                      <p>{data.description}</p>
+                                    </StyledTableCell>
+                                    <StyledTableCell align="center" style={{ backgroundColor:"#eee", width:"20%" }}>
                                         <Button
                                             variant="contained"
-                                            color="default"
+                                            color="secondary"
                                             onClick={ (e) => download(e, data.id) }
                                         >
-                                            <FontAwesomeIcon icon={faDownload} /> &nbsp; Unduh
+                                            <FontAwesomeIcon icon={faDownload} />
                                         </Button>
                                     </StyledTableCell>
                                 </StyledTableRow>
