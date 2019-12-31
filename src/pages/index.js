@@ -15,6 +15,8 @@ import Footer from "../components/Footer"
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
+import DialogActions from '@material-ui/core/DialogActions';
+import Button from '@material-ui/core/Button';
 
 const Wrapper = styled.div`
   display: flex;
@@ -56,7 +58,12 @@ class IndexPage extends React.Component {
         <Dialog onClose={this.handleClose} open={open} fullWidth={true} maxWidth={"md"} >
           <DialogContent>
             <PopUpBannerSection />
-          </DialogContent>
+          </DialogContent>           
+          <DialogActions>
+            <Button onClick={this.handleClose} color="primary">
+              Close
+            </Button>
+          </DialogActions>
         </Dialog>
 
       </Wrapper>
