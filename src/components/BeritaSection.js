@@ -31,7 +31,7 @@ class BeritaSection extends React.Component {
   fetchData = () => {
     this.setState({ loading: true })
     axios
-      .get(`http://104.43.9.40:8089/api/v1/cms/news?perpage=4`, {
+      .get(`http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/news?perpage=4`, {
         crossdomain: true,
       })
       .then(result => {

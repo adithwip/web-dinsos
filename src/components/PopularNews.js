@@ -66,7 +66,7 @@ class PopularNews extends React.Component {
   fetchDataNewsPopular = () => {
     this.setState({ loading: true })
     axios
-      .get(`http://104.43.9.40:8089/api/v1/cms/news?order_by=seen`, {
+      .get(`http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/news?order_by=seen`, {
         crossdomain: true,
       })
       .then(result => {

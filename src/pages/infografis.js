@@ -54,7 +54,7 @@ class InfografisPage extends React.Component {
 
     axios
       .get(
-        `http://104.43.9.40:8089/api/v1/cms/galleries?type=infografis&perpage=8&page=${parsed.page}`,
+        `http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/galleries?type=infografis&perpage=8&page=${parsed.page}`,
         {
           crossdomain: true,
         }
@@ -139,7 +139,7 @@ class InfografisPage extends React.Component {
     
     function download(e, id) {
       e.preventDefault();
-      let downloadUrl = `http://104.43.9.40:8089/api/v1/cms/gallery/${id}?type=infografis&download=1`;
+      let downloadUrl = `http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/gallery/${id}?type=infografis&download=1`;
       console.log('Download Image : '+ downloadUrl);
       window.open(downloadUrl);
     }

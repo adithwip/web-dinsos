@@ -8,6 +8,13 @@ const StyledPageContainer = styled.section`
   margin-bottom: ${props => (props.mobileView ? "70px" : "120px")};
 
   margin: ${props => props.noMargin && "unset"};
+
+  @media screen and (max-width: 480px) { 
+    /* mobile */ 
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+
   margin-bottom: ${props => props.noMargin && "132px"};
 
   && {

@@ -33,7 +33,7 @@ class RunningText extends React.Component {
       this.setState({ loading: true })
   
       axios
-        .get(`http://104.43.9.40:8089/api/v1/cms/headlines`, {crossdomain: true})
+        .get(`http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/headlines`, {crossdomain: true})
         .then(result => {
           const { data } = result
           this.setState({ dataJson: data, loading: false })

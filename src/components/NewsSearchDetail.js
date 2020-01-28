@@ -11,7 +11,7 @@ import Layout from "../layouts/Layout"
 import KontakSection from "../components/KontakSection"
 import Footer from "../components/Footer"
 
-const BASE_URL = `http://104.43.9.40:8089/api/v1/cms/news`
+const BASE_URL = `http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/news`
 
 const Wrapper = styled.div`
   display: flex;

@@ -9,7 +9,7 @@ class StickyPostContainer extends React.Component {
   fetchData = () => {
     this.setState({ loading: true })
     axios
-      .get(`http://104.43.9.40:8089/api/v1/cms/news?perpage=2&chosen=true`, {
+      .get(`http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/news?perpage=2&chosen=true`, {
         crossdomain: true,
       })
       .then(result => {

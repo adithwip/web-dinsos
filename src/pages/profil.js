@@ -73,7 +73,7 @@ class ProfilPage extends React.Component {
   fetchData = () => {
     this.setState({ loading: true })
     axios
-      .get(`http://104.43.9.40:8089/api/v1/cms/profile`, {
+      .get(`http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/profile`, {
         crossdomain: true,
       })
       .then(result => {

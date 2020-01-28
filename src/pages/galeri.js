@@ -37,7 +37,7 @@ class GaleriPage extends React.Component {
 
     axios
       .get(
-        `http://104.43.9.40:8089/api/v1/cms/galleries?type=galeri&perpage=18&page=${parsed.ppg}`,
+        `http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/galleries?type=galeri&perpage=18&page=${parsed.ppg}`,
         {
           crossdomain: true,
         }
@@ -51,7 +51,7 @@ class GaleriPage extends React.Component {
 
     axios
       .get(
-        `http://104.43.9.40:8089/api/v1/cms/links?type=video&perpage=6&page=${parsed.vpg}`,
+        `http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/links?type=video&perpage=6&page=${parsed.vpg}`,
         {
           cossdomain: true,
         }

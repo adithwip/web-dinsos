@@ -73,7 +73,7 @@ class UnduhanPage extends React.Component {
 
     axios
       .get(
-        `http://104.43.9.40:8089/api/v1/cms/downloads?perpage=10&page=${parsed.page}`,
+        `http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/downloads?perpage=10&page=${parsed.page}`,
         {
           crossdomain: true,
         }
@@ -157,7 +157,7 @@ class UnduhanPage extends React.Component {
     
     function download(e, id) {
         e.preventDefault();
-        let downloadUrl = `http://104.43.9.40:8089/api/v1/cms/download/${id}`;
+        let downloadUrl = `http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/download/${id}`;
         console.log('Download File : '+ downloadUrl);
         window.open(downloadUrl);
       }
