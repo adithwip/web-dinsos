@@ -151,11 +151,11 @@ const SummarySection = () => {
       </Grid>
 
       <Grid container item spacing={3} align="flex-start">
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12}>
           <Grid container>
             {dataTerpaduKesejahteraanSosial.map(data => {
               return (
-                <Grid item xs={12} md={4} style={{ padding: "8px" }}>
+                <Grid item xs={12} md={4} lg={3} style={{ padding: "8px" }}>
                   <SummaryCard
                     label={data.name}
                     data={data.data}
@@ -167,9 +167,9 @@ const SummarySection = () => {
             })}
           </Grid>
         </Grid>
-        <Grid item xs={12} md={4}>
+        {/* <Grid item xs={12} md={4}>
           <SocialMediaSection />
-        </Grid>
+        </Grid> */}
       </Grid>
     </StyleContainer>
   )
