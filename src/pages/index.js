@@ -24,19 +24,8 @@ const Wrapper = styled.div`
 `
 
 class IndexPage extends React.Component {
-  state = {
-    open: true
-  }
-
-  handleClose = () => {
-    this.setState({
-      open: false
-    })
-  }
 
   render(){
-
-    const {open} = this.state
 
     return (
       <Wrapper>
@@ -55,16 +44,7 @@ class IndexPage extends React.Component {
         <KontakSection id="kontak" />
         <Footer background="#0A369D" color="#9E9E9E" />
 
-        <Dialog onClose={this.handleClose} open={open} fullWidth={true} maxWidth={"md"} >
-          <DialogContent>
-            <PopUpBannerSection />
-          </DialogContent>           
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Close
-            </Button>
-          </DialogActions>
-        </Dialog>
+        <PopUpBannerSection />
 
       </Wrapper>
     )

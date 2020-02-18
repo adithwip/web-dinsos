@@ -4,6 +4,11 @@ import styled from "styled-components"
 import Slider from "react-slick"
 import axios from "axios"
 
+import Dialog from '@material-ui/core/Dialog';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogActions from '@material-ui/core/DialogActions';
+import Button from '@material-ui/core/Button';
+
 import Loader from "./Loader"
 
 const StyledLoader = styled.div`
@@ -33,7 +38,14 @@ const CustomSlider = styled(Slider)`
 `
 
 class PopUpBannerSection extends React.Component {
-  state = { dataJson: null, error: false, loading: false }
+
+  state = { dataJson: null, error: false, loading: false, open: true }
+  
+  handleClose = () => {
+    this.setState({
+      open: false
+    })
+  }
 
   fetchData = () => {
     this.setState({ loading: true })
@@ -55,7 +67,7 @@ class PopUpBannerSection extends React.Component {
   }
 
   render() {
-    const { dataJson, error, loading } = this.state
+    const { dataJson, error, loading, open } = this.state
 
     const settings = {
       dots: true,
@@ -64,31 +76,44 @@ class PopUpBannerSection extends React.Component {
       speed: 500,
       autoplay: true,
     }
+    
+    if ( !!dataJson && dataJson.length > 0 ) {
+        return (
+          <Dialog onClose={this.handleClose} open={open} fullWidth={true} maxWidth={"md"} >
+            <DialogContent>
+              <CustomSlider
+                {...settings}
+                style={{
+                  width: "100%",
+                  height: "480px",
+                }}
+              >
+                {!!dataJson && dataJson.map(data => {
+                    return (
+                      <div
+                        style={{
+                          width: "100%",
+                          height: "480px",
+                          backgroundColor: "#447694",
+                        }}
+                      >
+                        <img src={data.image} width="100%" height="480px" />
+                      </div>
+                    )
+                  })}
+              </CustomSlider>
+            </DialogContent>           
+            <DialogActions>
+              <Button onClick={this.handleClose} color="primary">
+                Close
+              </Button>
+            </DialogActions>
+          </Dialog>          
+        )
+      } else {
+        return (null) 
+      }
 
-      return (
-        <CustomSlider
-          {...settings}
-          style={{
-            width: "100%",
-            height: "480px",
-          }}
-        >
-          {!!dataJson &&
-            dataJson.map(data => {
-              return (
-                <div
-                  style={{
-                    width: "100%",
-                    height: "480px",
-                    backgroundColor: "#447694",
-                  }}
-                >
-                  <img src={data.image} width="100%" height="480px" />
-                </div>
-              )
-            })}
-        </CustomSlider>
-      )
   }
 }
 
