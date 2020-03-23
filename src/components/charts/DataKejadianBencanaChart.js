@@ -76,7 +76,7 @@ class DataKejadianBencanaChart extends React.Component {
             formatter: function(value, context) {
                 return value > 0 ? value : "";
             },
-            color: 'white',
+            color: 'black',
             labels: {
                 title: {
                     font: {
@@ -84,7 +84,7 @@ class DataKejadianBencanaChart extends React.Component {
                     }
                 },
                 value: {
-                    color: 'white'
+                    color: 'black'
                 }
             }
         }
@@ -94,13 +94,13 @@ class DataKejadianBencanaChart extends React.Component {
         xAxes:[{
           stacked: true,
           ticks: {
-            fontColor: "white"
+            fontColor: "black"
           }
         }],
         yAxes:[{
           stacked: true,
           ticks: {
-            fontColor: "white"
+            fontColor: "black"
           }
         }]
       }

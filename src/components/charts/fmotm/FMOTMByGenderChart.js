@@ -67,7 +67,7 @@ class FMOTMByGenderChart extends React.Component {
     const customOptions = {
       legend : { 
         labels : {
-          fontColor:"#fff",
+          fontColor:"rgb(25,25,25)",
         },
         position: 'right'
       },
@@ -84,7 +84,7 @@ class FMOTMByGenderChart extends React.Component {
                     }
                 },
                 value: {
-                    color: 'white'
+                    color: 'black'
                 }
             }
         }

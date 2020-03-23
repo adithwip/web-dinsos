@@ -19,7 +19,7 @@ class FMOTMByBantuanChart extends React.Component {
   fetchDataAPI = () => {
     this.setState({ loading: true })
     axios
-    //   .get(api, { crossdomain: true })
+    //   .get(api,  { crossdomain: true })
       .get(`https://api.myjson.com/bins/oohd6`, { crossdomain: true })
       .then(result => {
         const { data } = result.data
@@ -65,10 +65,10 @@ class FMOTMByBantuanChart extends React.Component {
         legend : { display: false },
         scales : {
           xAxes:[{
-            ticks: { fontColor: "white" }
+            ticks: { fontColor: "rgb(25,25,25)" }
           }],
           yAxes:[{
-            ticks: { fontColor: "white" }
+            ticks: { fontColor: "rgb(25,25,25)" }
           }]
         },
         plugins: {
@@ -76,7 +76,7 @@ class FMOTMByBantuanChart extends React.Component {
               formatter: function(value, context) {
                   return value > 0 ? value : "";
               },
-              color: 'white',
+              color: 'black',
               anchor: 'end',
               align: 'end',
               labels: {
@@ -86,7 +86,7 @@ class FMOTMByBantuanChart extends React.Component {
                       }
                   },
                   value: {
-                      color: 'white'
+                      color: 'black'
                   }
               }
           }

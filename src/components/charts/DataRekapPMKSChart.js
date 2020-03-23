@@ -82,7 +82,7 @@ class DataRekapPMKSChart extends React.Component {
     const customOptions = {
       legend : { 
         labels : {
-          fontColor:"#fff",
+          fontColor:"rgb(25,25,25)",
         }
       },
       plugins: {
@@ -90,7 +90,7 @@ class DataRekapPMKSChart extends React.Component {
             formatter: function(value, context) {
                 return value > 0 ? value : "";
             },
-            color: 'white',
+            color: 'black',
             labels: {
                 title: {
                     font: {
@@ -98,7 +98,7 @@ class DataRekapPMKSChart extends React.Component {
                     }
                 },
                 value: {
-                    color: 'white'
+                    color: 'black'
                 }
             }
         }

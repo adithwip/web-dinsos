@@ -67,7 +67,7 @@ class DataTitikRawanPMKSChart extends React.Component {
     const customOptions = {
       legend : { 
         labels : {
-          fontColor:"#fff",
+          fontColor:"rgb(25,25,25)",
         },
         position: 'right'
       },
@@ -84,7 +84,7 @@ class DataTitikRawanPMKSChart extends React.Component {
                     }
                 },
                 value: {
-                    color: 'white'
+                    color: 'black'
                 }
             }
         }

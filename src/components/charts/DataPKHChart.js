@@ -64,7 +64,7 @@ class DataPKHChart extends React.Component {
             formatter: function(value, context) {
                 return value > 0 ? value : "";
             },
-            color: 'white',
+            color: 'black',
             labels: {
                 title: {
                     font: {
@@ -72,7 +72,7 @@ class DataPKHChart extends React.Component {
                     }
                 },
                 value: {
-                    color: 'white'
+                    color: 'black'
                 }
             }
         }
@@ -80,12 +80,12 @@ class DataPKHChart extends React.Component {
       scales : {
         xAxes:[{
           ticks: {
-            fontColor: "white"
+            fontColor: "black"
           }
         }],
         yAxes:[{
           ticks: {
-            fontColor: "white"
+            fontColor: "black"
           }
         }]
       }

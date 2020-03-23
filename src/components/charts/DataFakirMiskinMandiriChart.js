@@ -69,7 +69,7 @@ class DataFakirMiskinMandiriChart extends React.Component {
     const stackedOptions = {
       legend : { 
         labels : {
-          fontColor:"#fff",
+          fontColor:"rgb(25,25,25)",
         },
         position: 'right'
       },

@@ -68,7 +68,7 @@ class DataLokasiBersihPMKSChart extends React.Component {
     const stackedOptions = {
       legend : { 
         labels : {
-          fontColor:"#fff",
+          fontColor:"rgb(25,25,25)",
         },
         position: 'right'
       },
@@ -77,7 +77,7 @@ class DataLokasiBersihPMKSChart extends React.Component {
             formatter: function(value, context) {
                 return value > 0 ? value : "";
             },
-            color: 'white',
+            color: 'black',
             labels: {
                 title: {
                     font: {
@@ -85,7 +85,7 @@ class DataLokasiBersihPMKSChart extends React.Component {
                     }
                 },
                 value: {
-                    color: 'white'
+                    color: 'black'
                 }
             }
         }
@@ -100,7 +100,7 @@ class DataLokasiBersihPMKSChart extends React.Component {
           {
             stacked: true,
             ticks: {
-              fontColor: "white"
+              fontColor: "black"
             }
           }
         ],
@@ -108,7 +108,7 @@ class DataLokasiBersihPMKSChart extends React.Component {
           {
             stacked: true,
             ticks: {
-              fontColor: "white"
+              fontColor: "black"
             }
           }
         ]

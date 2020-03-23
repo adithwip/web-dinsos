@@ -67,7 +67,7 @@ class DataPemulanganOrangTerlantarChart extends React.Component {
     const customOptions = {
       legend : { 
         labels : {
-          fontColor:"#fff",
+          fontColor:"rgb(25,25,25)",
         },
         position: 'bottom'
       },
@@ -79,7 +79,7 @@ class DataPemulanganOrangTerlantarChart extends React.Component {
             formatter: function(value, context) {
                 return value > 0 ? value : "";
             },
-            color: 'white',
+            color: 'black',
             labels: {
                 title: {
                     font: {
@@ -87,7 +87,7 @@ class DataPemulanganOrangTerlantarChart extends React.Component {
                     }
                 },
                 value: {
-                    color: 'white'
+                    color: 'black'
                 }
             }
         }
@@ -96,13 +96,13 @@ class DataPemulanganOrangTerlantarChart extends React.Component {
         xAxes:[{
           stacked: true,
           ticks: {
-            fontColor: "white"
+            fontColor: "black"
           }
         }],
         yAxes:[{
           stacked: true,
           ticks: {
-            fontColor: "white"
+            fontColor: "black"
           }
         }]
       }

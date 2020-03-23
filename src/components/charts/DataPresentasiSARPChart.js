@@ -81,7 +81,7 @@ class DataPresentasiSARPChart extends React.Component {
     const customOptions = {
       legend : { 
         labels : {
-          fontColor:"#fff",
+          fontColor:"rgb(25,25,25)",
         },
         position: 'right'
       },

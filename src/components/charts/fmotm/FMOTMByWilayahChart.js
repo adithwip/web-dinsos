@@ -74,10 +74,10 @@ class FMOTMByWilayahChart extends React.Component {
         legend : { display: false },
         scales : {
           xAxes:[{
-            ticks: { fontColor: "white" }
+            ticks: { fontColor: "rgb(25,25,25)" }
           }],
           yAxes:[{
-            ticks: { fontColor: "white" }
+            ticks: { fontColor: "rgb(25,25,25)" }
           }]
         },
         plugins: {
@@ -85,7 +85,7 @@ class FMOTMByWilayahChart extends React.Component {
               formatter: function(value, context) {
                   return value > 0 ? value : "";
               },
-              color: 'white',
+              color: 'black',
               anchor: 'end',
               align: 'end',
               labels: {
@@ -95,7 +95,7 @@ class FMOTMByWilayahChart extends React.Component {
                       }
                   },
                   value: {
-                      color: 'white'
+                      color: 'black'
                   }
               }
           }
