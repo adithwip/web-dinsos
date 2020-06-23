@@ -45,7 +45,7 @@ const DataFMOTM = () => {
           <Grid item xs={12} md={12} style={{ textAlign: "left" }}>
             <h3>Data Fakir Miskin & Orang Tidak Mampu (FMOTM) DKI Jakarta</h3>
           </Grid>
-          <Grid item xs={12} md={6}>
+          {/* <Grid item xs={12} md={6}>
             <FMOTMByWilayahChart />
             <br />
             <FMOTMByBantuanChart />
@@ -54,7 +54,7 @@ const DataFMOTM = () => {
             <FMOTMByGenderChart />
             <br />
             <FMOTMByAgeChart />
-          </Grid>
+          </Grid> */}
         </StyledGrid>
       </Layout>
       <KontakSection id="kontak" />
