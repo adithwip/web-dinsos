@@ -13,8 +13,8 @@ const StyledLogo = styled.img`
 
 const Loader = () => {
   return (
-    <div class="loadingio-eclipse">
-      <div class="ldio-rpinwye8j0b">
+    <div className="loadingio-eclipse">
+      <div className="ldio-rpinwye8j0b">
         <StyledLogo src={PusdatinLogo} alt="pusdatin-logo" width="70%" />
         <div></div>
       </div>

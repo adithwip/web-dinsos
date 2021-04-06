@@ -15,16 +15,12 @@ import ListItem from "@material-ui/core/ListItem"
 import ListItemIcon from "@material-ui/core/ListItemIcon"
 import ListItemText from "@material-ui/core/ListItemText"
 
-import InfoTwoToneIcon from "@material-ui/icons/InfoTwoTone"
-import NewsTwoToneIcon from "@material-ui/icons/ImportContactsTwoTone"
-
 import HomeIcon from "@material-ui/icons/Home"
 import InfoIcon from "@material-ui/icons/Info"
 import MenuBookIcon from "@material-ui/icons/MenuBook"
 import PersonIcon from "@material-ui/icons/Person"
 import ContactPhoneIcon from "@material-ui/icons/ContactPhone"
 import TrendingUpIcon from "@material-ui/icons/TrendingUp"
-import VpnKeyIcon from "@material-ui/icons/VpnKey"
 
 const useStyles = makeStyles(theme => ({
   root: {

@@ -122,7 +122,7 @@ class HotNews extends React.Component {
       dataNewsToRender = dataNews && dataNews.data
     }
 
-    if (dataNewsToRender != null) {
+    if (dataNewsToRender != null && (dataNewsToRender.Length > 0)) {
       return (
         <>
           <MediaQuery minDeviceWidth={320} maxDeviceWidth={767}>

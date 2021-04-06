@@ -55,7 +55,7 @@ class BannerSection extends React.Component {
   }
 
   render() {
-    const { dataJson, error, loading } = this.state
+    const { dataJson } = this.state
 
     const settings = {
       dots: true,
@@ -82,7 +82,7 @@ class BannerSection extends React.Component {
                     backgroundColor: "#447694",
                   }}
                 >
-                  <img src={data.image} width="100%" />
+                  <img src={data.image} width="100%" alt={data.image}/>
                 </div>
               )
             })}
