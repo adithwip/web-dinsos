@@ -50,7 +50,7 @@ class PopUpBannerSection extends React.Component {
   fetchData = () => {
     this.setState({ loading: true })
     axios
-      .get(`http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/popup_banners`, {
+      .get(`https://siaplus-pusdatin-dinsos.jakarta.go.id/api/v1/cms/popup_banners`, {
         crossdomain: true,
       })
       .then(result => {

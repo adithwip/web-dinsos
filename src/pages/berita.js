@@ -53,7 +53,7 @@ class BeritaPage extends React.Component {
     }
 
     axios
-      .get(`http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/news?perpage=6&page=${parsed.page}`, {
+      .get(`https://siaplus-pusdatin-dinsos.jakarta.go.id/api/v1/cms/news?perpage=6&page=${parsed.page}`, {
         crossdomain: true,
       })
       .then(result => {

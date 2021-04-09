@@ -92,7 +92,7 @@ class HotNews extends React.Component {
   fetchDataNewsChosen = () => {
     this.setState({ loading: true })
     axios
-      .get(`http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/news?chosen=true`, {
+      .get(`https://siaplus-pusdatin-dinsos.jakarta.go.id/api/v1/cms/news?chosen=true`, {
         crossdomain: true,
       })
       .then(result => {

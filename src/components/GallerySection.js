@@ -21,7 +21,7 @@ class GallerySection extends React.Component {
     this.setState({ loading: true })
     axios
       .get(
-        `http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/galleries?type=galeri&perpage=6`,
+        `https://siaplus-pusdatin-dinsos.jakarta.go.id/api/v1/cms/galleries?type=galeri&perpage=6`,
         {
           crossdomain: true,
         }
@@ -35,7 +35,7 @@ class GallerySection extends React.Component {
       })
 
     axios
-      .get(`http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/links?type=video&perpage=3`, {
+      .get(`https://siaplus-pusdatin-dinsos.jakarta.go.id/api/v1/cms/links?type=video&perpage=3`, {
         cossdomain: true,
       })
       .then(result => {

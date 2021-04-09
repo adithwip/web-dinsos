@@ -37,7 +37,7 @@ class GaleriPage extends React.Component {
 
     axios
       .get(
-        `http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/galleries?type=galeri&perpage=18&page=${parsed.ppg}`,
+        `https://siaplus-pusdatin-dinsos.jakarta.go.id/api/v1/cms/galleries?type=galeri&perpage=18&page=${parsed.ppg}`,
         {
           crossdomain: true,
         }
@@ -51,7 +51,7 @@ class GaleriPage extends React.Component {
 
     axios
       .get(
-        `http://siaplus.pusdatin-dinsos.jakarta.go.id/api/v1/cms/links?type=video&perpage=6&page=${parsed.vpg}`,
+        `https://siaplus-pusdatin-dinsos.jakarta.go.id/api/v1/cms/links?type=video&perpage=6&page=${parsed.vpg}`,
         {
           cossdomain: true,
         }
@@ -133,7 +133,7 @@ class GaleriPage extends React.Component {
 
   render() {
     const { dataJsonPhoto, dataJsonVideo, error, loading } = this.state
-    let sourceUrl = "http://siaplus.pusdatin-dinsos.jakarta.go.id/"
+    let sourceUrl = "https://siaplus-pusdatin-dinsos.jakarta.go.id/"
 
     return (
       <Wrapper>
